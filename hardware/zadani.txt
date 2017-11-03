@@ -1,0 +1,43 @@
+- napajeni LiPolka, USB
+  -- micro USB slot
+  -- LiPolka jen piny na připájení, nejspíš celá druhá strana desky na Lipolku, bez dalších součástek
+- programování přes USB
+  -- přes FTDI (jinak esp32 klidně přes bluetooth, programovací konektor na testpady)
+- acc + gyro + kompas + baro + samostatný procesor (nebo hotové 9dof/10dof AHRS)
+  -- MPU9250 (acc, gyr, mag), STM32 (koprocesor pro výpočet AHRS), BMP280 (baro - accuracy: +-0.12 hPa ~ +-1 m)
+  -- v úvaze ještě FRDM-KL46Z jako koprocesor, podle mě abytečně drahé a nadupané (?)
+- teplota okolí + čipu
+  -- jakýkoliv termistor na ADC
+- měření napájení, napětí + proud
+  -- přímo na ADC, proud přes odpor 50 mOhm (nebo smyčka, spíš ne)
+- bluetooth komunikace
+  -- ESP32 (embedded BT and WiFi)
+- druhý procesor na custom firmware
+  -- ESP32 (tentýž)
+- two layer - 1st processor direct communication to sensors, 2nd processor custom software with API
+  -- možná dvě desky jako sendvič, natvrdo spájené k sobě, propojení jen napájení a RX TX
+- analog inputs, digital IO
+  -- ESP32 direct support
+- micro SD karta
+  -- direct support ESP32 (možná přímo logování z STM32?, ale opatrně časování, spíš raději ne)
+  -- microSD slot
+- power LEDka, IO LEDky, piezzo pískátko
+  -- cokoliv
+- reset button, IO button
+  -- cokoliv
+- vypínač
+  -- cokoliv
+- logování sériové linky na SD kartu (třeba připojená GPSka)
+  -- software
+- light sensor, microphone, humidity
+  -- - napajeni LiPolka, USB
+  -- micro USB slot
+  -- LiPolka jen piny na připájení, nejspíš celá druhá strana desky na Lipolku, bez dalších součástek
+- software sensor fusion
+  -- software, given by STM32
+- Bluetooth AT commands
+  -- cokoliv na ADC
+- software sensor fusion
+  -- software, given by STM32
+- Bluetooth AT commands
+  -- software
