@@ -1,83 +1,11 @@
-#include "tests.h"
+//#include "tests.h"
 
-#include "../components/SPIsensors.h"
-#include "../components/I2Csensors.h"
-#include "../components/SDcard.h"
+#include "SPIsensors.h"
+#include "I2Csensors.h"
+#include "WiFi.h"
+#include "GlobalSettings.h"
+#include "FileSystem.h"
 
-class SPIffs{};
-
-class GlobalSettings
-{
-public:
-	GlobalSettings(){}
-
-	bool isWiFiClient()
-	{
-		//TODO
-		return false;
-	}
-
-	bool isWiFiAP()
-	{
-		//TODO
-		return false;
-	}
-
-	char* getWiFiSSID()
-	{
-		//TODO
-		return 0;
-	}
-
-	char* getWiFiPassword()
-	{
-		//TODO
-		return 0;
-	}
-
-	bool startLoggingImmediately()
-	{
-		//TODO
-		return true;
-	}
-};
-
-class WiFi
-{
-public:
-	WiFi(){}
-
-	bool connectTo(char* ssid, char* pwd, int attempts = 3)
-	{
-		//TODO
-		return false;
-	}
-
-	bool createAP(char* ssid, char* pwd)
-	{
-		//TODO
-		return false;
-	}
-};
-
-class FileSystem
-{
-public:
-	FileSystem()
-	{
-		SDcard sd;
-		if(!sd.isPresent())
-		{
-			SPIffs fs;
-		}
-	}
-
-	GlobalSettings readConfigFile()
-	{
-		//TODO
-		return GlobalSettings();
-	}
-};
 
 extern "C" {
 	void app_main(void);
@@ -86,23 +14,23 @@ extern "C" {
 void app_main()
 {
 	// Self-test
-	int result = Catch::Session().run();
+	//int result = Catch::Session().run();
 	//TODO: handle test results
 
 	// Filesystem initialization
 	FileSystem fs;
-	GlobalSettings settings = fs.readConfigFile();
+	GlobalSettings settings(fs.getConfigFile());
 
 	// Connection initialization
 	WiFi wifi;
 	bool isConnected = false;
-	if(settings.isWiFiClient())
+	if(settings.isWiFiClient)
 	{
-		isConnected = wifi.connectTo(settings.getWiFiSSID(), settings.getWiFiPassword());
+		isConnected = wifi.connectTo(settings.getWiFiSSID, settings.getWiFiPassword);
 	}
-	if(!isConnected && settings.isWiFiAP())
+	if(!isConnected && settings.isWiFiAP)
 	{
-		isConnected = wifi.createAP(settings.getWiFiSSID(), settings.getWiFiPassword());
+		isConnected = wifi.createAP(settings.getWiFiSSID, settings.getWiFiPassword);
 		assert(isConnected);
 	}
 
@@ -111,7 +39,7 @@ void app_main()
 	I2Csensors i2cSensors;
 
 	// Start logging
-    if(settings.startLoggingImmediately())
+    if(settings.startLoggingImmediately)
     {
 		for(;;)
 		{
