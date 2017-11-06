@@ -26,11 +26,11 @@ void app_main()
 	bool isConnected = false;
 	if(settings.isWiFiClient)
 	{
-		isConnected = wifi.connectTo(settings.getWiFiSSID, settings.getWiFiPassword);
+		isConnected = wifi.connectTo(settings.WiFiSSID, settings.WiFiPassword);
 	}
 	if(!isConnected && settings.isWiFiAP)
 	{
-		isConnected = wifi.createAP(settings.getWiFiSSID, settings.getWiFiPassword);
+		isConnected = wifi.createAP(settings.WiFiSSID, settings.WiFiPassword);
 		assert(isConnected);
 	}
 

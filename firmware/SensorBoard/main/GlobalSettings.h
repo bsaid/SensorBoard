@@ -13,8 +13,8 @@ class GlobalSettings
 public:
 	bool isWiFiClient;
 	bool isWiFiAP;
-	std::string getWiFiSSID;
-	std::string getWiFiPassword;
+	std::string WiFiSSID;
+	std::string WiFiPassword;
 	bool startLoggingImmediately;
 
 	GlobalSettings()
@@ -32,8 +32,8 @@ public:
 	{
 		isWiFiClient = true;
 		isWiFiAP = true;
-		getWiFiSSID = "SensorBoard";
-		getWiFiPassword = "1234567890";
+		WiFiSSID = "SensorBoard";
+		WiFiPassword = "1234567890";
 		startLoggingImmediately = true;
 	}
 

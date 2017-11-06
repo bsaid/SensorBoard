@@ -21,11 +21,11 @@
 
 class SDcard
 {
-	const std::string = "/sdcard";
+	const std::string CARD_NAME = "/sdcard";
 	const bool FORMAT_IF_MOUNTED = false;
 	const int MAX_FILES = 5;
-	const char *TAG = "example";
 	const bool ONE_BIT_INTERFACE = false;
+	const char *TAG = "example";
 
 	bool initializedCard = false;
 
@@ -50,7 +50,7 @@ public:
 		};
 
 		sdmmc_card_t* card;
-		esp_err_t ret = esp_vfs_fat_sdmmc_mount(CARD_NAME, &host, &slot_config, &mount_config, &card);
+		esp_err_t ret = esp_vfs_fat_sdmmc_mount(CARD_NAME.c_str(), &host, &slot_config, &mount_config, &card);
 
 		initializedCard = (ret == ESP_OK);
 		if(initializedCard) {
@@ -73,7 +73,7 @@ public:
 
 	FILE* getFile(std::string name, std::string attributes)
 	{
-		FILE* f = fopen((CARD_NAME + "/" + name).c_str(), attributes.c_str());
+		return fopen((CARD_NAME + "/" + name).c_str(), attributes.c_str());
 	}
 
 	// fopen, fclose, fprintf, fscanf, getc, fgets, rename, copy

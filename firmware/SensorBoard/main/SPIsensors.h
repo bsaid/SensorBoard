@@ -31,13 +31,6 @@ public:
 	{
 		printf("start...\n");
 		esp_err_t ret;
-		/*spi_bus_config_t buscfg={
-			.miso_io_num=PIN_NUM_MISO,
-			.mosi_io_num=PIN_NUM_MOSI,
-			.sclk_io_num=PIN_NUM_CLK,
-			.quadwp_io_num=-1,
-			.quadhd_io_num=-1
-		};*/
 		spi_bus_config_t buscfg;
 		memset(&buscfg, 0, sizeof(buscfg));
 		buscfg.miso_io_num=PIN_NUM_MISO;
@@ -56,10 +49,9 @@ public:
 		//Initialize the SPI bus
 		ret=spi_bus_initialize(HSPI_HOST, &buscfg, 1);
 		printf("ret==%d\n", ret);
-		assert(ret==ESP_OK);
-		//Attach the LCD to the SPI bus
+		//assert(ret==ESP_OK);
 		ret=spi_bus_add_device(HSPI_HOST, &devcfg, &spi);
-		assert(ret==ESP_OK);
+		//assert(ret==ESP_OK);
 		printf("spi...\n");
 	}
 
@@ -71,8 +63,8 @@ public:
 		s.addr = 0x43 | 0x80;
 		s.flags = SPI_TRANS_USE_RXDATA;
 		s.length = 40;
-		esp_err_t ret=spi_device_transmit(spi, &s);  //Transmit!
-		assert(ret==ESP_OK);            //Should have had no issues.
+		/*esp_err_t ret=*/spi_device_transmit(spi, &s);  //Transmit!
+		//assert(ret==ESP_OK);            //Should have had no issues.
 		for(int i=0;i<4;i++)
 			data[i] = s.rx_data[i];
 		printf("ACC data: %d %d %d %d\n", s.rx_data[0], s.rx_data[1], s.rx_data[2], s.rx_data[3]);
