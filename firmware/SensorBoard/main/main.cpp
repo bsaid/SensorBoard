@@ -22,7 +22,7 @@ void app_main()
 	GlobalSettings settings(fs.getConfigFile());
 
 	// Connection initialization
-	WiFi wifi;
+	/*WiFi wifi;
 	bool isConnected = false;
 	if(settings.isWiFiClient)
 	{
@@ -32,27 +32,32 @@ void app_main()
 	{
 		isConnected = wifi.createAP(settings.WiFiSSID, settings.WiFiPassword);
 		assert(isConnected);
-	}
+	}*/
 
 	// Sensors initialization
 	SPIsensors spiSensors;
 	I2Csensors i2cSensors;
 
 	// Start logging
-    if(settings.startLoggingImmediately)
-    {
-		for(;;)
-		{
-			spiSensors.readMPU9250();
-			i2cSensors.readBMP280();
-			//TODO: read console char breaks the loop
-		}
-    }
+	bool isLoggingData = settings.startLoggingImmediately;
+	bool isSendingData = false;
 
     // Enter main loop
     for(;;)
     {
+    	if(isLoggingData)
+    	{
+    		spiSensors.readMPU9250();
+			i2cSensors.readBMP280();
+			//TODO: read console char breaks the loop
+    	}
+    	if(isSendingData)
+    	{
+    		//TODO: send measured data immediately
+    	}
     	//TODO: main loop> receives commands from USB or WiFi
     	//TODO: working as WiFi AP or device
     }
+
+    //TODO: program ended -> restart esp
 }

@@ -110,9 +110,7 @@ public:
 	    	data_rd[i] = i+16;
 		esp_err_t ret = i2c_master_read_slave(USED_I2C, 0xF7, data_rd, 6);
 		//esp_err_t ret = i2c_master_read_slave(USED_I2C, 0xF4, data_rd, 1);
-		printf("Read returned %d.\n", ret);
 		disp_buf(data_rd, 6);
-		vTaskDelay(100);
 	}
 };
 
