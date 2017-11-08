@@ -16,6 +16,8 @@
 #include "soc/gpio_struct.h"
 #include "driver/gpio.h"
 
+#include "vector3.h"
+
 // MPU9250 MAG registers
 #define AK8963_WIA    0x00
 #define AK8963_INFO   0x01
@@ -45,7 +47,10 @@ class SPIsensors
 	const uint8_t READ_FLAG = 0x80;
 
 	spi_device_handle_t spi;
-	uint8_t data[4];
+	// format: axh, axl, ayh, ayl, azh, azl, th, tl, gxh, gxl, gyh, gyl, gzh, gzl
+	uint8_t rx_data[14];
+	// format: mxh, mxl, myh, myl, mzh, mzl
+	uint8_t mag_data[6];
 
 public:
 	SPIsensors()
@@ -74,29 +79,6 @@ public:
 		ret=spi_bus_add_device(HSPI_HOST, &devcfg, &spi);
 		//assert(ret==ESP_OK);
 		printf("spi...\n");
-
-		// Set MPU9250 - MAG
-		spi_transaction_t t;
-		memset(&t, 0, sizeof(t));       //Zero out the transaction
-		t.flags = SPI_TRANS_USE_TXDATA;
-		t.addr = MPUREG_I2C_SLV0_ADDR;
-		t.tx_data[0] = AK8963_I2C_ADDR|READ_FLAG;	// Set the I2C slave addres of AK8963 and set for read.
-		t.length = 2*8;
-		spi_device_transmit(spi, &t);
-
-		memset(&t, 0, sizeof(t));       //Zero out the transaction
-		t.flags = SPI_TRANS_USE_TXDATA;
-		t.addr = MPUREG_I2C_SLV0_REG;
-		t.tx_data[0] = AK8963_HXL;
-		t.length = 2*8;
-		spi_device_transmit(spi, &t);
-
-		memset(&t, 0, sizeof(t));       //Zero out the transaction
-		t.flags = SPI_TRANS_USE_TXDATA;
-		t.addr = MPUREG_I2C_SLV0_CTRL;
-		t.tx_data[0] = 0x87;
-		t.length = 2*8;
-		spi_device_transmit(spi, &t);
 	}
 
 	void readMPU9250()
@@ -104,36 +86,88 @@ public:
 		spi_transaction_t s;
 		memset(&s, 0, sizeof(s));       //Zero out the transaction
 		s.addr = 59 | READ_FLAG;
-		uint8_t rx_data[13];
 		s.rx_buffer = rx_data;
-		s.length = 14*8;
-		spi_device_transmit(spi, &s);  //Transmit!
-		//assert(ret==ESP_OK);            //Should have had no issues.
+		s.length = 15*8;
+		esp_err_t ret = spi_device_transmit(spi, &s);  //Transmit!
+		printf("MPU1:%d == %d\n", ret, ESP_OK);
 		printf("ACC+GYR data: ");
-		for(int i=0; i<13; i++)
+		for(int i=0; i<14; i++)
 			printf("%.2d ", rx_data[i]);
 		printf("\n");
 
 		// ACC+GYR+TEMP reg. 59 - 72
 		// MAG as I2C slave
 
-		// Read MAG
+		// Set MPU9250 - MAG
 		spi_transaction_t t;
+		memset(&t, 0, sizeof(t));       //Zero out the transaction
+		t.flags = SPI_TRANS_USE_TXDATA;
+		t.addr = MPUREG_I2C_SLV0_ADDR;
+		t.tx_data[0] = AK8963_I2C_ADDR|READ_FLAG;	// Set the I2C slave addres of AK8963 and set for read.
+		t.length = 1*8;
+		ret = spi_device_transmit(spi, &t);
+		printf("MPU2:%d == %d\n", ret, ESP_OK);
+
+		memset(&t, 0, sizeof(t));       //Zero out the transaction
+		t.flags = SPI_TRANS_USE_TXDATA;
+		t.addr = MPUREG_I2C_SLV0_REG;
+		t.tx_data[0] = 0;//AK8963_HXL;
+		t.length = 2*8;
+		ret = spi_device_transmit(spi, &t);
+		printf("MPU3:%d == %d\n", ret, ESP_OK);
+
+		memset(&t, 0, sizeof(t));       //Zero out the transaction
+		t.flags = SPI_TRANS_USE_TXDATA;
+		t.addr = MPUREG_I2C_SLV0_CTRL;
+		t.tx_data[0] = 0x87;
+		t.length = 2*8;
+		ret = spi_device_transmit(spi, &t);
+		printf("MPU4:%d == %d\n", ret, ESP_OK);
+
+		// Read MAG
 		memset(&t, 0, sizeof(t));       //Zero out the transaction
 		t.addr = MPUREG_EXT_SENS_DATA_00 | READ_FLAG;
 		t.rx_buffer = rx_data;
 		t.length = 8*8;
-		spi_device_transmit(spi, &t);
+		ret = spi_device_transmit(spi, &t);
+		printf("MPU5:%d == %d\n", ret, ESP_OK);
 
 		printf("MAG data: ");
-		for(int i=0; i<7; i++)
+		for(int i=0; i<13; i++)
 			printf("%.2d ", rx_data[i]);
 		printf("\n");
 	}
 
-	uint8_t getData()
+	Vector3i getAcc()
 	{
-		return data[0];
+		return Vector3i(
+			((int16_t)rx_data[0]<<8) | rx_data[1],
+			((int16_t)rx_data[2]<<8) | rx_data[3],
+			((int16_t)rx_data[4]<<8) | rx_data[5]
+		);
+	}
+
+	int16_t getTemp()
+	{
+		return ((int16_t)rx_data[6]<<8) | rx_data[7];
+	}
+
+	Vector3i getGyr()
+	{
+		return Vector3i(
+			((int16_t)rx_data[8]<<8) | rx_data[9],
+			((int16_t)rx_data[10]<<8) | rx_data[11],
+			((int16_t)rx_data[12]<<8) | rx_data[13]
+		);
+	}
+
+	Vector3i getMag()
+	{
+		return Vector3i(
+			((int16_t)mag_data[0]<<8) | mag_data[1],
+			((int16_t)mag_data[2]<<8) | mag_data[3],
+			((int16_t)mag_data[4]<<8) | mag_data[5]
+		);
 	}
 
 	//TODO: delete SPI driver in destructor

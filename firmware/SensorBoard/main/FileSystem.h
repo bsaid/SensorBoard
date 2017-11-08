@@ -13,6 +13,7 @@
 class FileSystem
 {
 	const char* CONFIG_FILE_NAME = "config.ini";
+	const char* LOG_FILE_NAME = "log.csv";
 public:
 	SDcard sd;
 	SPIffs spi;
@@ -27,12 +28,12 @@ public:
 
 	FILE* getConfigFile()
 	{
-		FILE* file = sd.getFile(CONFIG_FILE_NAME, "r");
-		if(!file)
-		{
-			file = spi.getFile(CONFIG_FILE_NAME, "r");
-		}
-		return file;
+		return getFile(CONFIG_FILE_NAME, "r");
+	}
+
+	FILE* getLogFile()
+	{
+		return getFile(LOG_FILE_NAME, "a");
 	}
 };
 
