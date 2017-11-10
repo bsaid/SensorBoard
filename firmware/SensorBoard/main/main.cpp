@@ -44,7 +44,7 @@ void app_main()
 	bool isSendingData = false;
 
 	FILE* sdCSV = fs.getLogFile();
-	Timer loopTimer(10000);
+	Stopwatch loopWatch(10);
 
     // Enter main loop
     for(;;)
@@ -92,7 +92,7 @@ void app_main()
     	//TODO: main loop> receives commands from USB or WiFi
     	//TODO: working as WiFi AP or device
 
-    	if(!loopTimer.waitForNext())
+    	if(!loopWatch.waitForNext())
     		printf("Loop overflow. The loop takes more than 100 ms.\n");
     }
 

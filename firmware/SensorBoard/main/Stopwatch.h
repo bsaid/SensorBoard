@@ -9,9 +9,15 @@
 #include <esp_types.h>
 #include "driver/timer.h"
 
-class Timer
+#include <esp_types.h>
+#include "driver/timer.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+class Stopwatch
 {
 	uint32_t interval = 0;
+	uint32_t cycles = 0;
 
 	timer_group_t timer_group = TIMER_GROUP_0;
 	timer_idx_t timer_idx = TIMER_0;
@@ -23,7 +29,7 @@ class Timer
 		config.auto_reload = 0;
 		config.counter_dir = TIMER_COUNT_UP;
 		config.divider = 16;
-		config.intr_type = 16;
+		config.intr_type = TIMER_INTR_LEVEL;
 		config.counter_en = TIMER_PAUSE;
 		/*Configure timer*/
 		timer_init(timer_group, timer_idx, &config);
@@ -31,13 +37,13 @@ class Timer
 	}
 
 public:
-	Timer(uint32_t us)
+	Stopwatch(uint32_t ms)
 	{
 		init();
-		setInterval(us);
+		setInterval(ms);
 	}
 
-	Timer()
+	Stopwatch()
 	{
 		init();
 	}
@@ -50,24 +56,34 @@ public:
 		timer_set_counter_value(timer_group, timer_idx, 0x00000000ULL);
 		/*Start timer counter*/
 		timer_start(timer_group, timer_idx);
+
+		cycles = 0;
 	}
 
-	uint32_t getMilliseconds()
+	uint32_t get_ms()
 	{
-		//uint64_t timer_val;
-		//timer_get_counter_value(evt.group, evt.idx, &timer_val);
-		return 0;
+		double sec = 0;
+		timer_get_counter_time_sec(timer_group, timer_idx, &sec);
+		return 1000*sec;
 	}
 
-	void setInterval(uint32_t us)
+	void setInterval(uint32_t ms)
 	{
-		interval = us;
+		interval = ms;
 	}
 
 	bool waitForNext()
 	{
-		//
-		return false;
+		cycles++;
+		if(interval == 0 || get_ms() > interval*cycles)
+			return false;
+		while(get_ms() < interval*cycles);
+		return true;
+	}
+
+	uint32_t getCycles()
+	{
+		return cycles;
 	}
 };
 
