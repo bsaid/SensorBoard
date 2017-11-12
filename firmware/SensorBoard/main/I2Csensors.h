@@ -94,7 +94,6 @@ public:
 	    i2c_example_master_init();
 	    esp_err_t ret = i2c_master_write_slave(USED_I2C, 0xF4, 0x27);
 	    ret = i2c_master_write_slave(USED_I2C, 0xF5, 0xE0);
-	    vTaskDelay(100);
 	    printf("Write returned %d.\n", ret);
 	}
 
@@ -106,11 +105,8 @@ public:
 	void readBMP280()
 	{
 	    uint8_t data_rd[6];
-	    for(int i=0; i<6; i++)
-	    	data_rd[i] = i+16;
 		/*esp_err_t ret = */i2c_master_read_slave(USED_I2C, 0xF7, data_rd, 6);
-		//esp_err_t ret = i2c_master_read_slave(USED_I2C, 0xF4, data_rd, 1);
-		disp_buf(data_rd, 6);
+		//disp_buf(data_rd, 6);
 	}
 };
 

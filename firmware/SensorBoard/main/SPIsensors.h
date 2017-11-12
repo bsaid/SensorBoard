@@ -89,11 +89,6 @@ public:
 		s.rx_buffer = rx_data;
 		s.length = 15*8;
 		esp_err_t ret = spi_device_transmit(spi, &s);  //Transmit!
-		printf("MPU1:%d == %d\n", ret, ESP_OK);
-		printf("ACC+GYR data: ");
-		for(int i=0; i<14; i++)
-			printf("%.2d ", rx_data[i]);
-		printf("\n");
 
 		// ACC+GYR+TEMP reg. 59 - 72
 		// MAG as I2C slave
@@ -106,7 +101,6 @@ public:
 		t.tx_data[0] = AK8963_I2C_ADDR|READ_FLAG;	// Set the I2C slave addres of AK8963 and set for read.
 		t.length = 1*8;
 		ret = spi_device_transmit(spi, &t);
-		printf("MPU2:%d == %d\n", ret, ESP_OK);
 
 		memset(&t, 0, sizeof(t));       //Zero out the transaction
 		t.flags = SPI_TRANS_USE_TXDATA;
@@ -114,7 +108,6 @@ public:
 		t.tx_data[0] = 0;//AK8963_HXL;
 		t.length = 2*8;
 		ret = spi_device_transmit(spi, &t);
-		printf("MPU3:%d == %d\n", ret, ESP_OK);
 
 		memset(&t, 0, sizeof(t));       //Zero out the transaction
 		t.flags = SPI_TRANS_USE_TXDATA;
@@ -122,7 +115,6 @@ public:
 		t.tx_data[0] = 0x87;
 		t.length = 2*8;
 		ret = spi_device_transmit(spi, &t);
-		printf("MPU4:%d == %d\n", ret, ESP_OK);
 
 		// Read MAG
 		memset(&t, 0, sizeof(t));       //Zero out the transaction
@@ -130,12 +122,11 @@ public:
 		t.rx_buffer = rx_data;
 		t.length = 8*8;
 		ret = spi_device_transmit(spi, &t);
-		printf("MPU5:%d == %d\n", ret, ESP_OK);
 
-		printf("MAG data: ");
-		for(int i=0; i<13; i++)
-			printf("%.2d ", rx_data[i]);
-		printf("\n");
+		//printf("MAG data: ");
+		//for(int i=0; i<13; i++)
+		//	printf("%.2d ", rx_data[i]);
+		//printf("\n");
 	}
 
 	Vector3i getAcc()

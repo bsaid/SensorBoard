@@ -7,6 +7,8 @@
 #include "FileSystem.h"
 #include "Stopwatch.h"
 
+// component test
+#include <BMP280.h>
 
 extern "C" {
 	void app_main(void);
@@ -41,7 +43,7 @@ void app_main()
 
 	// Start logging
 	bool isLoggingData = settings.startLoggingImmediately;
-	bool isSendingData = false;
+	bool isSendingData = true;
 
 	FILE* sdCSV = fs.getLogFile();
 	Stopwatch loopWatch(10);
@@ -57,7 +59,10 @@ void app_main()
     	if(isLoggingData)
     	{
 			if(!sdCSV)
+			{
 				printf("Log file cannot be opened.\n");
+				sdCSV = fs.getLogFile();
+			}
 			else
 			{
 				Vector3i a = spiSensors.getAcc();
@@ -66,12 +71,18 @@ void app_main()
 				int16_t  t = spiSensors.getTemp();
 				fprintf(
 					sdCSV,
-					"MPU;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;\n",
+					"MPU;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;\n",
+					loopWatch.getCycles(),
 					a.x, a.y, a.z,
 					g.x, g.y, g.z,
 					m.x, m.y, m.z,
 					t
 				);
+				if(loopWatch.getCycles() % 100 == 0)
+				{
+					fclose(sdCSV);
+					sdCSV = fs.getLogFile();
+				}
 			}
     	}
     	if(isSendingData)
@@ -81,7 +92,8 @@ void app_main()
 			Vector3i m = spiSensors.getMag();
 			int16_t  t = spiSensors.getTemp();
     		printf(
-				"MPU;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;\n",
+				"MPU;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;\n",
+				loopWatch.getCycles(),
 				a.x, a.y, a.z,
 				g.x, g.y, g.z,
 				m.x, m.y, m.z,
