@@ -1,0 +1,3 @@
+[submodule "firmware/SensorBoard/components/BMP280"]
+	path = firmware/SensorBoard/components/BMP280
+	url = pi@78.45.146.234:/media/usb/git/BMP280.git
