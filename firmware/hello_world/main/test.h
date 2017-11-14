@@ -15,6 +15,8 @@
 #include "esp_wifi.h"
 #include "esp_event_loop.h"
 #include "esp_log.h"
+#include "esp_err.h"
+#include <errno.h>
 
 #ifndef EX_CONF
 #define EX_CONF
@@ -28,46 +30,38 @@
 #define CONFIG_TCP_PERF_PKT_SIZE 1460
 #endif
 
-
 /*test options*/
-#define ESP_WIFI_MODE_AP CONFIG_TCP_PERF_WIFI_MODE_AP //TRUE:AP FALSE:STA
-#define ESP_TCP_MODE_SERVER CONFIG_TCP_PERF_SERVER //TRUE:server FALSE:client
-#define ESP_TCP_PERF_TX CONFIG_TCP_PERF_TX //TRUE:send FALSE:receive
-#define ESP_TCP_DELAY_INFO CONFIG_TCP_PERF_DELAY_DEBUG //TRUE:show delay time info
+#define EXAMPLE_ESP_WIFI_MODE_AP CONFIG_TCP_PERF_WIFI_MODE_AP //TRUE:AP FALSE:STA
+#define EXAMPLE_ESP_TCP_MODE_SERVER CONFIG_TCP_PERF_SERVER //TRUE:server FALSE:client
+#define EXAMPLE_ESP_TCP_PERF_TX CONFIG_TCP_PERF_TX //TRUE:send FALSE:receive
+#define EXAMPLE_ESP_TCP_DELAY_INFO CONFIG_TCP_PERF_DELAY_DEBUG //TRUE:show delay time info
 
 /*AP info and tcp_server info*/
-#define DEFAULT_PORT CONFIG_TCP_PERF_SERVER_PORT
-#define DEFAULT_PKTSIZE CONFIG_TCP_PERF_PKT_SIZE
-#define MAX_STA_CONN 10 //how many sta can be connected(AP mode)
+#define EXAMPLE_DEFAULT_SSID CONFIG_TCP_PERF_WIFI_SSID
+#define EXAMPLE_DEFAULT_PWD CONFIG_TCP_PERF_WIFI_PASSWORD
+#define EXAMPLE_DEFAULT_PORT CONFIG_TCP_PERF_SERVER_PORT
+#define EXAMPLE_DEFAULT_PKTSIZE CONFIG_TCP_PERF_PKT_SIZE
+#define EXAMPLE_MAX_STA_CONN 1 //how many sta can be connected(AP mode)
 
-#define DEFAULT_SERVER_IP "192.168.4.1"
+#ifdef CONFIG_TCP_PERF_SERVER_IP
+#define EXAMPLE_DEFAULT_SERVER_IP CONFIG_TCP_PERF_SERVER_IP
+#else
+#define EXAMPLE_DEFAULT_SERVER_IP "192.168.4.1"
+#endif /*CONFIG_TCP_PERF_SERVER_IP*/
 
 
 
-
-#define PACK_BYTE_IS 97 //'a'
+#define EXAMPLE_PACK_BYTE_IS 97 //'a'
 #define TAG "tcp_perf:"
 
-/* FreeRTOS event group to signal when we are connected to wifi*/
+#define WIFI_CONNECTED_BIT BIT0
+
+
+
+
+
+/* FreeRTOS event group to signal when we are connected to wifi */
 EventGroupHandle_t tcp_event_group;
-#define WIFI_CONNECTED_BIT BIT0
-
-extern int  g_total_data;
-extern bool g_rxtx_need_restart;
-
-#if ESP_TCP_PERF_TX && ESP_TCP_DELAY_INFO
-extern int g_total_pack;
-extern int g_send_success;
-extern int g_send_fail;
-extern int g_delay_classify[5];
-#endif/*ESP_TCP_PERF_TX && ESP_TCP_DELAY_INFO*/
-
-
-#define MACSTR "%02x:%02x:%02x:%02x:%02x:%02x"
-#define WIFI_CONNECTED_BIT BIT0
-
-
-
 
 /*socket*/
 static int server_socket = 0;
@@ -79,22 +73,22 @@ bool g_rxtx_need_restart = false;
 
 int g_total_data = 0;
 
-#if ESP_TCP_PERF_TX && ESP_TCP_DELAY_INFO
+#if EXAMPLE_ESP_TCP_PERF_TX && EXAMPLE_ESP_TCP_DELAY_INFO
 
 int g_total_pack = 0;
 int g_send_success = 0;
 int g_send_fail = 0;
 int g_delay_classify[5] = { 0 };
 
-#endif /*ESP_TCP_PERF_TX && ESP_TCP_DELAY_INFO*/
+#endif /*EXAMPLE_ESP_TCP_PERF_TX && EXAMPLE_ESP_TCP_DELAY_INFO*/
+
+
 
 
 class WiFi
 {
 
 public:
-	WiFi(){}
-
 	static bool connectTo(std::string ssid, std::string pwd, int attempts = 3)
 	{
 		tcp_event_group = xEventGroupCreate();
@@ -130,7 +124,7 @@ public:
 		strcpy((char*)wifi_config.ap.ssid, ssid.c_str());
 		strcpy((char*)wifi_config.ap.password, pwd.c_str());
 		wifi_config.ap.ssid_len = 0;
-		wifi_config.ap.max_connection = MAX_STA_CONN;
+		wifi_config.ap.max_connection = EXAMPLE_MAX_STA_CONN;
 		wifi_config.ap.authmode = WIFI_AUTH_WPA_WPA2_PSK;
 		if (pwd.size() == 0) {
 			wifi_config.ap.authmode = WIFI_AUTH_OPEN;
@@ -180,11 +174,11 @@ public:
 	}
 
 	//send data
-	static void send_data(void *pvParameters)
+	static void send_data(/*void *pvParameters*/)
 	{
 	    int len = 0;
-	    char *databuff = (char *)malloc(DEFAULT_PKTSIZE * sizeof(char));
-	    memset(databuff, PACK_BYTE_IS, DEFAULT_PKTSIZE);
+	    char *databuff = (char *)malloc(EXAMPLE_DEFAULT_PKTSIZE * sizeof(char));
+	    memset(databuff, EXAMPLE_PACK_BYTE_IS, EXAMPLE_DEFAULT_PKTSIZE);
 	    vTaskDelay(100 / portTICK_RATE_MS);
 	    ESP_LOGI(TAG, "start sending...");
 	#if ESP_TCP_PERF_TX && ESP_TCP_DELAY_INFO
@@ -194,7 +188,7 @@ public:
 	    unsigned long send_delay_ms;
 	#endif /*ESP_TCP_PERF_TX && ESP_TCP_DELAY_INFO*/
 	    while (1) {
-	        int to_write = DEFAULT_PKTSIZE;
+	        int to_write = EXAMPLE_DEFAULT_PKTSIZE;
 
 	#if ESP_TCP_PERF_TX && ESP_TCP_DELAY_INFO
 	        g_total_pack++;
@@ -203,7 +197,7 @@ public:
 
 	        //send function
 	        while (to_write > 0) {
-	            len = send(connect_socket, databuff + (DEFAULT_PKTSIZE - to_write), to_write, 0);
+	            len = send(connect_socket, databuff + (EXAMPLE_DEFAULT_PKTSIZE - to_write), to_write, 0);
 	            if (len > 0) {
 	                g_total_data += len;
 	                to_write -= len;
@@ -253,11 +247,11 @@ public:
 	static void recv_data(void *pvParameters)
 	{
 	    int len = 0;
-	    char *databuff = (char *)malloc(DEFAULT_PKTSIZE * sizeof(char));
+	    char *databuff = (char *)malloc(EXAMPLE_DEFAULT_PKTSIZE * sizeof(char));
 	    while (1) {
-	        int to_recv = DEFAULT_PKTSIZE;
+	        int to_recv = EXAMPLE_DEFAULT_PKTSIZE;
 	        while (to_recv > 0) {
-	            len = recv(connect_socket, databuff + (DEFAULT_PKTSIZE - to_recv), to_recv, 0);
+	            len = recv(connect_socket, databuff + (EXAMPLE_DEFAULT_PKTSIZE - to_recv), to_recv, 0);
 	            if (len > 0) {
 	                g_total_data += len;
 	                to_recv -= len;
@@ -282,7 +276,7 @@ public:
 	//use this esp32 as a tcp server. return ESP_OK:success ESP_FAIL:error
 	static esp_err_t create_tcp_server()
 	{
-	    ESP_LOGI(TAG, "server socket....port=%d\n", DEFAULT_PORT);
+	    ESP_LOGI(TAG, "server socket....port=%d\n", EXAMPLE_DEFAULT_PORT);
 	    server_socket = socket(AF_INET, SOCK_STREAM, 0);
 	    if (server_socket < 0) {
 	        show_socket_error_reason("create_server", server_socket);
@@ -290,7 +284,7 @@ public:
 	    }
 
 	    server_addr.sin_family = AF_INET;
-	    server_addr.sin_port = htons(DEFAULT_PORT);
+	    server_addr.sin_port = htons(EXAMPLE_DEFAULT_PORT);
 	    server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	    if (bind(server_socket, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
 	        show_socket_error_reason("bind_server", server_socket);
@@ -317,15 +311,15 @@ public:
 	static esp_err_t create_tcp_client()
 	{
 	    ESP_LOGI(TAG, "client socket....serverip:port=%s:%d\n",
-	             DEFAULT_SERVER_IP, DEFAULT_PORT);
+	    		EXAMPLE_DEFAULT_SERVER_IP, EXAMPLE_DEFAULT_PORT);
 	    connect_socket = socket(AF_INET, SOCK_STREAM, 0);
 	    if (connect_socket < 0) {
 	        show_socket_error_reason("create client", connect_socket);
 	        return ESP_FAIL;
 	    }
 	    server_addr.sin_family = AF_INET;
-	    server_addr.sin_port = htons(DEFAULT_PORT);
-	    server_addr.sin_addr.s_addr = inet_addr(DEFAULT_SERVER_IP);
+	    server_addr.sin_port = htons(EXAMPLE_DEFAULT_PORT);
+	    server_addr.sin_addr.s_addr = inet_addr(EXAMPLE_DEFAULT_SERVER_IP);
 	    ESP_LOGI(TAG, "connecting to server...");
 	    if (connect(connect_socket, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
 	        show_socket_error_reason("client connect", connect_socket);
@@ -371,7 +365,7 @@ public:
 	    wifi_config_t wifi_config;
 	    strcpy( (char*)wifi_config.ap.ssid, CONFIG_TCP_PERF_WIFI_SSID);
 	    wifi_config.ap.ssid_len = 0;
-	    wifi_config.ap.max_connection = MAX_STA_CONN;
+	    wifi_config.ap.max_connection = EXAMPLE_MAX_STA_CONN;
 	    strcpy( (char*)wifi_config.ap.password, CONFIG_TCP_PERF_WIFI_PWD);
 	    wifi_config.ap.authmode = WIFI_AUTH_WPA_WPA2_PSK;
 	    if (strlen(CONFIG_TCP_PERF_WIFI_PWD) == 0) {
