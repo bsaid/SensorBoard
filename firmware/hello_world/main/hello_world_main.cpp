@@ -1,8 +1,3 @@
-/*
- * Timer.h
- *
- */
-
 #include "catch.hpp"
 #include "test.h"
 
@@ -23,6 +18,15 @@ extern "C" {
 
 void app_main()
 {
+	WiFi wifi;
+	wifi.wifi_init_softap();
+	wifi.create_tcp_server();
+	for(;;)
+	{
+		wifi.send_data();
+		vTaskDelay(100);
+	}
+
 	// Self-test
 	//int result = Catch::Session().run();
 	//TODO: handle test results
