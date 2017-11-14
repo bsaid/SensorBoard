@@ -23,7 +23,7 @@
 #define CONFIG_TCP_PERF_TX 1 //TRUE:send FALSE:receive
 #define CONFIG_TCP_PERF_DELAY_DEBUG 1 //TRUE:show delay time info
 #define CONFIG_TCP_PERF_WIFI_SSID "esp"
-#define CONFIG_TCP_PERF_WIFI_PASSWORD "1234567890"
+#define CONFIG_TCP_PERF_WIFI_PWD "1234567890"
 #define CONFIG_TCP_PERF_SERVER_PORT 4567
 #define CONFIG_TCP_PERF_PKT_SIZE 1460
 #endif
@@ -346,8 +346,8 @@ public:
 	    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
 	    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
 	    wifi_config_t wifi_config;
-	    strcpy( (char*)wifi_config.sta.ssid, DEFAULT_SSID);
-	    strcpy( (char*) wifi_config.sta.password, DEFAULT_PWD);
+	    strcpy( (char*)wifi_config.sta.ssid, CONFIG_TCP_PERF_WIFI_SSID);
+	    strcpy( (char*) wifi_config.sta.password, CONFIG_TCP_PERF_WIFI_PWD);
 
 	    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
 	    ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config) );
@@ -355,7 +355,7 @@ public:
 
 	    ESP_LOGI(TAG, "wifi_init_sta finished.");
 	    ESP_LOGI(TAG, "connect to ap SSID:%s password:%s \n",
-	             DEFAULT_SSID, DEFAULT_PWD);
+	    		CONFIG_TCP_PERF_WIFI_SSID, CONFIG_TCP_PERF_WIFI_PWD);
 	}
 
 	//wifi_init_softap
@@ -369,13 +369,12 @@ public:
 	    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
 	    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
 	    wifi_config_t wifi_config;
-	    //
-	    wifi_config.ap.ssid = DEFAULT_SSID;
+	    strcpy( (char*)wifi_config.ap.ssid, CONFIG_TCP_PERF_WIFI_SSID);
 	    wifi_config.ap.ssid_len = 0;
 	    wifi_config.ap.max_connection = MAX_STA_CONN;
-	    wifi_config.ap.password = DEFAULT_PWD;
+	    strcpy( (char*)wifi_config.ap.password, CONFIG_TCP_PERF_WIFI_PWD);
 	    wifi_config.ap.authmode = WIFI_AUTH_WPA_WPA2_PSK;
-	    if (strlen(DEFAULT_PWD) == 0) {
+	    if (strlen(CONFIG_TCP_PERF_WIFI_PWD) == 0) {
 	        wifi_config.ap.authmode = WIFI_AUTH_OPEN;
 	    }
 
@@ -384,7 +383,7 @@ public:
 	    ESP_ERROR_CHECK(esp_wifi_start());
 
 	    ESP_LOGI(TAG, "wifi_init_softap finished.SSID:%s password:%s \n",
-	             DEFAULT_SSID, DEFAULT_PWD);
+	    		CONFIG_TCP_PERF_WIFI_SSID, CONFIG_TCP_PERF_WIFI_PWD);
 	}
 
 
