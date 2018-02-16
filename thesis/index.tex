@@ -20,49 +20,48 @@
   %% More options are listed in the user guide at
   %% <http://mirrors.ctan.org/macros/latex/contrib/fithesis/guide/mu/fi.pdf>.
 ]{fithesis3}
-%% The following section sets up the locales used in the thesis.
-\usepackage[resetfonts]{cmap} %% We need to load the T2A font encoding
-\usepackage[T1,T2A]{fontenc}  %% to use the Cyrillic fonts with Russian texts.
+
 \usepackage[
-  main=english, %% By using `czech` or `slovak` as the main locale
-                %% instead of `english`, you can typeset the thesis
-                %% in either Czech or Slovak, respectively.
+  main=english,  %% By using `czech` or `slovak` as the main locale
+                 %% instead of `english`, you can typeset the thesis
+                 %% in either Czech or Slovak, respectively.
   english, czech %% The additional keys allow
-]{babel}        %% foreign texts to be typeset as follows:
-%%
-%%   \begin{otherlanguage}{german}  ... \end{otherlanguage}
-%%   \begin{otherlanguage}{russian} ... \end{otherlanguage}
-%%   \begin{otherlanguage}{czech}   ... \end{otherlanguage}
-%%   \begin{otherlanguage}{slovak}  ... \end{otherlanguage}
-%%
-%% For non-Latin scripts, it may be necessary to load additional
-%% fonts:
-\usepackage{paratype}
-\def\textrussian#1{{\usefont{T2A}{PTSerif-TLF}{m}{rm}#1}}
-%%
+]{babel}         %% foreign texts to be typeset as follows:
+
 %% The following section sets up the metadata of the thesis.
 \thesissetup{
-    date          = \the\year/\the\month/\the\day,
+%    date          = \the\year/\the\month/\the\day,
+    date          = 2018/05/01,
     university    = mu,
     faculty       = fi,
     type          = mgr,
     author        = Bedřich Said,
     gender        = m,
     advisor       = {RNDr. Zdeněk Matěj, Ph.D.},
-    title         = {//TODO},
-    TeXtitle      = {//TODO},
-    keywords      = {keyword1, keyword2, ...},
-    TeXkeywords   = {keyword1, keyword2, \ldots},
-    abstract      = {This is the abstract of my thesis, which can
-
-                     span multiple paragraphs.},
-    thanks        = {These are the acknowledgements for my thesis, which can
-
-                     span multiple paragraphs.},
-    bib           = example.bib,
+    title         = {Device for Movement Analysis Using Inertial Sensors},
+    TeXtitle      = {Device for Movement Analysis Using Inertial Sensors},
+    keywords      = {Electronic Device, Printed Circuit Board, Inertial Sensors, Inertial Measurement Unit, Internet of Things, Movement Analysis, Horse},
+    TeXkeywords   = {Electronic Device, Printed Circuit Board, Inertial Sensors, Inertial Measurement Unit, Internet of Things, Movement Analysis, Horse},
+    bib           = bibliography.bib,
 }
+
+\thesislong{thanks}{
+I wish to express my sincere thanks to \begin{otherlanguage}{czech}Zdeněk Matěj\end{otherlanguage}, my advisor, for his continuous support and answering my questions. I am also grateful to \begin{otherlanguage}{czech}Robotárna in Brno\end{otherlanguage} for providing me with some necessary facilities for the research. I would like to thank to \begin{otherlanguage}{czech}Monet+ \end{otherlanguage} company which was a commercial partner for this research.
+}
+
+\thesislong{abstract}{
+The attitude sensors are more and more widely used and their price is decreasing. We can find them in many electronic systems designed for specific purposes. Examples are in wearable devices, navigation or control systems. We can use some of the devices for covering new use cases and developing new systems. I still didn't find any device that fulfills all my requirements for development new data processing algorithms.
+
+I have developed a new wearable independent device for capturing and processing the measured data. The independence means no external wires and no external power supply here. The device is able to work outdoors, to log the measured data and to provide direct output based on internal computations. The user can choose between completely wireless communication or wired connection to other electronics. The sensors measure inertial, attitude, position and atmospheric values.
+
+For outdoor testing of the device I selected a task about movement analysis of a horse. The devices were placed on the horse's body as wearable devices and I was developing algorithms for determination of the type of its movement -- stand, walk, trot or gallop. The algorithm first determines very basic types of movements and then it's looking for more advanced ones based on previous results. The types of movement are defined as statements, so new types of movement of any subject can be detected without modification of the computation code.
+
+In general, the developed device can be used for sensor data capturing, on-board data processing, navigation or control of moving mechanics. The device works independently, so it is easy to install on the measured subjects.
+}
+
 \usepackage{makeidx}      %% The `makeidx` package contains
 \makeindex                %% helper commands for index typesetting.
+
 %% These additional packages are used within the document:
 \usepackage{paralist} %% Compact list environments
 \usepackage{amsmath}  %% Mathematics
@@ -71,6 +70,31 @@
 \usepackage{url}      %% Hyperlinks
 \usepackage{markdown} %% Lightweight markup
 \usepackage{listings} %% Source code highlighting
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hhline}
+\usepackage{siunitx}
+\usepackage[most]{tcolorbox}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{adjustbox}
+\usepackage{tcolorbox}
+\usepackage[nottoc]{tocbibind}
+
+%% Special colors definitions
+\definecolor{background}{HTML}{F5DD9D}
+\definecolor{symbolColorTop}{HTML}{FFECB3}
+\definecolor{symbolColorBox}{HTML}{FFF9E5}
+\definecolor{gray}{rgb}{0.25,0.25,0.25}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{lightblue}{rgb}{0.9,0.95,1.0}
+\definecolor{darkgreen}{rgb}{0.0,0.6,0.0}
+\definecolor{brown}{HTML}{A52A2A}
+\definecolor{darkmagenta}{HTML}{8B008B}
+
 \lstset{
   basicstyle      = \ttfamily,%
   identifierstyle = \color{black},%
@@ -82,10 +106,61 @@
 \usepackage{floatrow} %% Putting captions above tables
 \floatsetup[table]{capposition=top}
 
+%% Definition of the box with declarations of used symbols.
+\newcommand\highlightedBox[2]{
+	\tcbset{
+		enhanced,
+		colback=symbolColorBox,
+		boxrule=1.0pt,
+		colframe=symbolColorTop!80!black,
+		coltitle=black,
+		fonttitle=\bfseries
+	}
+	\vspace{0.5cm}
+	\begin{tcolorbox}[title=#1:,lifted shadow={0mm}{0mm}{0mm}{0.1mm}{black!50!white}]
+		#2
+	\end{tcolorbox}
+	\vspace{0.5cm}
+}
+
 \begin{document}
+\newgeometry{twoside, top=2.5cm, left=3cm, textwidth=16cm, textheight=24cm}
 
 \include{Introduction}
+
 \include{Hardware}
+
+\chapter{Software}
+//todo
+
+\chapter{Movement Analysis}
+//todo
+
+citace konecne fungují, jak bych chtěl \cite{einstein} ahoj
+
+After using the \verb"\makeindex" macro and loading the
+\texttt{makeidx} package that provides additional indexing
+commands, index entries can be created by issuing the \verb"\index"
+command. \index{dummy text|(}It is possible to create ranged index
+entries, which will encompass a span of text.\index{dummy text|)}
+To insert complex typographic material -- such as $\alpha$
+\index{alpha@$\alpha$} or \TeX{} \index{TeX@\TeX} --
+into the index, you need to specify a text string, which will
+determine how the entry will be sorted. It is also possible to
+create hierarchal entries. \index{vehicles!trucks}
+\index{vehicles!speed cars}
+
 \include{Conclusion}
+
+\printbibliography[heading=bibintoc] %% Print the bibliography.
+
+\makeatletter\thesis@blocks@clear\makeatother
+\phantomsection %% Print the index and insert it into the
+\addcontentsline{toc}{chapter}{\indexname} %% table of contents.
+\printindex
+
+\appendix
+\chapter{An appendix}
+//todo
 
 \end{document}
