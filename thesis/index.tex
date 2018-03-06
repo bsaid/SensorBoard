@@ -82,6 +82,8 @@ In general, the developed device can be used for sensor data capturing, on-board
 \usepackage{adjustbox}
 \usepackage{tcolorbox}
 \usepackage[nottoc]{tocbibind}
+\usepackage{soul}
+\usepackage{multirow, tabularx}
 
 %% Special colors definitions
 \definecolor{background}{HTML}{F5DD9D}
@@ -123,6 +125,10 @@ In general, the developed device can be used for sensor data capturing, on-board
 	\vspace{0.5cm}
 }
 
+\newcommand\itwoc[0]{
+	I$^{2}$C
+}
+
 \begin{document}
 \newgeometry{twoside, top=2.5cm, left=3cm, textwidth=16cm, textheight=24cm}
 
@@ -160,7 +166,6 @@ create hierarchal entries. \index{vehicles!trucks}
 \printindex
 
 \appendix
-\chapter{An appendix}
-//todo
+\include{Appendix}
 
 \end{document}

@@ -1,33 +1,24 @@
-%\documentclass[12pt,a4paper]{article}
-%\usepackage[utf8]{inputenc}
-%\usepackage{a4wide}
-%\usepackage[english]{babel}
-%\usepackage{amsmath}
-%\usepackage{amsfonts}
-%\usepackage{amssymb}
-%\usepackage{graphicx}
-%\usepackage[a4paper,top=20mm,bottom=20mm,left=20mm,right=20mm,nohead,dvips]{geometry}
-%\usepackage{listings}
-%\usepackage{hyperref}
-%\usepackage{url}
-%\usepackage{tcolorbox}
-%\usepackage{paralist}
-%\usepackage{amsthm}
-%\usepackage{menukeys}
-%\usepackage{xcolor}
-%\usepackage{hhline}
-%\usepackage{siunitx}
-
 \chapter{Hardware}
-//todo: že jsem se podíval, co potřebuju, jaký hardware je na trhu a nakonec jsem se rozhodl pro výrobu vlastního, potom teprve postup výroby vlastního ... vlastně popis toho, jak jdou postupně další sekce a co v nich očekávat ...
+The hardware design is split into several steps in this paper. First, I had to decide if it's really necessary to build a new device or if I can find a suitable solution on the market. When we want to select a suitable device for our task, we have to know the specification of the task itself. The task is specified in section \ref{HWtaskAnalysis}. Based on the task we can specify all requirements that the selected device should meet (section \ref{HWrequirements}). Now, we can start looking for a device that fulfills all the requirements (section \ref{HWavailableSolutions}).
 
-The development of a new hardware or software is usually driven by specified requirements. In this paper I have specified two groups of requirements. The first group is based on the selected task to solve. The second group has lower priority and specifies all the requirements that I found during other similar tasks with similar hardware. The second group of requirements is adding higher universality to the final electronic device with very low added cost. These two groups of requirements are later merged as used as a source for next development of the hardware.
+When we don't find any suitable device on the market, we can start to think about creating a new one. In my opinion it's not a good way to start any development before doing the previous steps.
 
-%Development of the hardware is split into several steps. There were defined requirements for this new hardware during the first step. Selection of possible devices based on the requirements is done in the second step. The third step covers schematic and printed circuit board (PCB) design. The last part of the process is manufacturing of the developed electronics. Finally, the manufactured board was tested. The results of the testing process are mentioned in the last section.
+When we already start a development of a new hardware we can think about adding some additional requirements for increasing the versatility of the final hardware. Of course, the new requirements mustn't rapidly increase the final prize. But if the hardware will be used only in the specific task, it's usually unnecessary to add any other functionality. In this case I'm adding some additional requirements in section \ref{HWadditionalRequirements}, because I think that in this case I can add very high versatility with very low additional cost. The analysis of the final expenses is in section \ref{HWadditionalCosts}.
+
+When I'm decided to develop a new hardware and I have the specification of all the requirements, I can start the development process. The selection of chips and other parts is in section \ref{HWdeviceSelection} and the printed circuit board (PCB) design is discussed in section \ref{HWpcbDesign}.
+
+Finally, the manufacturing of the first prototype is described in section \ref{HWmanufacturing}. With the first prototype it's time for testing. The tests should find as many errors as possible and they should proof us if the requirements were already met. The section \ref{HWtesting}. The whole process is shown in the figure \ref{fig:HWprocess}.
+
+\begin{figure}[H]
+	\centering
+	\label{fig:HWprocess}
+	\caption{Flowchart of the hardware design process}
+	\includegraphics[width=16cm]{img/HWdesignProcess.pdf}
+\end{figure}
 
 \section{Task Analysis}
 \label{HWtaskAnalysis}
-When we define our complete task in the first step, then we can derive all requirements for our solution. When we know the requirements we can start the full development process. Finally, we can check if our project was successful based on the previously defined requirements.
+When we define our complete task in the first step, then we can derive all requirements for our solution. Finally, we can check if our project was successful based on the previously defined task and requirements.
 
 \highlightedBox{Movement analysis task description}{
 	\begin{enumerate}
@@ -37,10 +28,13 @@ When we define our complete task in the first step, then we can derive all requi
 	\end{enumerate}
 }
 
-The subject is an animal -- horse in this paper -- or human being or a moving machine. The post-processing can be done real-time during the measuring process, but this is not mandatory. The analysis is primarily focused to recognizing known movements in the logged data. For example the categories of movement of a horse can be: stand, walk, trot, gallop, \dots
+The subject is an animal -- horse in this paper -- or human being or a moving machine. The post-processing can be done real-time during the measurement process, but this is not mandatory. The analysis is primarily focused to recognize known movements in logged data. For example the categories of movement of a horse are: stand, walk, trot, gallop, \dots
 
 \section{Requirements}
-The requirements are derived from the section \ref{HWtaskAnalysis}.
+\label{HWrequirements}
+The development of a new hardware or software is usually driven by specified requirements. In this paper I have specified two groups of requirements. The first group is based on the selected task to solve. The second group has lower priority and specifies all the requirements that I found during other similar tasks with similar hardware. The second group of requirements is adding higher versatility to the final electronic device with very low additional cost. These two groups of requirements are later merged and used as a source for next development of the hardware.
+
+\subsection{High level requirements}
 
 \paragraph{Measuring of the movement of a subject:} The solution should work outdoor. So, we cannot take into account any studio or laboratory based technologies like Motion Capture (Mo-cap). On the other hand we can replace the passive or active markers by whole sensors and remove the necessary cameras. The sensor based electronics is easier to install and can be used in large and complex areas. Based on this outdoor requirement I will consider only wearable sensor systems.
 
@@ -48,35 +42,121 @@ The requirements are derived from the section \ref{HWtaskAnalysis}.
 
 \paragraph{Analysis of the movement and naming the specific categories of movements} This is a software requirement, so it's not very important during the hardware design. But this requirement defines what data we need to measure and this is a hardware requirement.
 
-For the movement reconstruction we need primarily data about position and attitude of every sensor. Some methods for movement classification don't need to know the exact location (for example accelerometer based step counter). This task is focused on developing a new analysis of the movement, so we cannot say now what sensors will be needed in the future. We can make a prediction that we need an inertial measurement unit (IMU) or some location sensors. But there are some other sensors that produce interesting data according to the movement analysis, for example a heart rate sensor.
+For the movement reconstruction we need primarily data about position and attitude of every sensor. Some methods for movement classification don't need to know the exact location (for example accelerometer based step counter). This task is focused on developing a new analysis of the movement, so now I cannot exactly say what sensors will be needed in the future. I can make a prediction that the inertial measurement unit (IMU) and some location sensors will be needed. But there are some other sensors that produce interesting data according to the movement analysis, for example a heart rate sensor according to animals.
 
-Finally, I would like to add as many interesting sensors as possible, because it will give us more data sources and we are less limited by the data sources. The other advantage is multifunctionality of the hardware. On the other hand these additional sensors should be added into the requirements with low importance. Otherwise the selection of an appropriate hardware (based on the requirements) will be manipulated by number of probably unnecessary sensors.
+Finally, I would like to add as many interesting sensors as possible, because it will give us more data sources and we are less limited by the data sources. The other advantage is multifunctionality of the hardware. On the other hand these additional sensors should be added only into additional requirements with lower importance. Otherwise the selection of an appropriate hardware (based on the requirements) will be manipulated by number of probably unnecessary sensors.
 
-\subsection{Sensor Board requirements}
-Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on selection of the devices. Let's call a used wearable device or devices as Sensor Board. The table \ref{requirementsTable} shows the list of requirements for this Sensor Board.
+\subsection{Low level requirements}
+Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on selection of the devices. Let's call a used wearable device or devices as Sensor Board. The table \ref{tab:requirements} shows the list of requirements for this Sensor Board.
 
-//todo: table
 \begin{table}[]
 \centering
-\caption{Sensor Board requirements}
-\label{requirementsTable}
-\begin{tabular}{|l|l|l|l|}
+\caption{Sensor Board low level requirements}
+\label{tab:requirements}
+\begin{tabular}{|c|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{Importance} \\ \hline \hline
+	Low	& Nice to have \\ \hline
+	Medium & Very useful, reduce time or human effort \\ \hline
+	High & Mandatory, impossible without this functionality \\ \hline
+\end{tabular}
+\newline
+\vspace{1cm}
+\newline
+\begin{tabular}{|c|p{5cm}|c|l|}
+\hline
+Category & Requirement & Importance & Comment \\ \hline \hline
+Power Supply & Accumulator & High &         \\ \hline
+Power Supply & Battery percentage indicator & High &  \\ \hline
+Power Supply & Charging when external power applied & High &  \\ \hline
+Power Supply & Voltage and current sensor & Medium &  \\ \hline
+Power Supply & Power LED & High &  \\ \hline
+Power Supply & Power switch & High &  \\ \hline
+Power Supply & Automatic selection between external and battery power & High &  \\ \hline
+Power Supply & Standardized charging connector & Medium &  \\ \hline
+
+Sensors & Accelerometer & High &  \\ \hline
+Sensors & Dynamic Gyroscope & High &  \\ \hline
+Sensors & Magnetometer & High &  \\ \hline
+Sensors & Indoor position & Medium &  \\ \hline
+Sensors & Outdoor position & Low &  \\ \hline
+Sensors & Barometer & Low &  \\ \hline
+Sensors & Board temperature & Low &  \\ \hline
+
+Communication & Allow user programming & High &  \\ \hline
+Communication & Wireless programming & Low &  \\ \hline
+Communication & Wired programming & High &  \\ \hline
+Communication & Wireless & High &  \\ \hline
+Communication & Standardized protocol & High &  \\ \hline
+Communication & Wired access & High &  \\ \hline
+Communication & Connector for external sensors & Low &  \\ \hline
+
+Functions & Logging all data for several hours & High &  \\ \hline
+Functions & Sensor fusion coprocessor & Low &  \\ \hline
+Functions & LED indicators & High &  \\ \hline
+
+Mechanical & Wearable design & High &  \\ \hline
+Mechanical & Dimensions under \SI{5}{cm} & High &  \\ \hline
+Mechanical & Dimensions under \SI{3}{cm} & Low &  \\ \hline
+Mechanical & Weight under \SI{50}{g} & High &  \\ \hline
+Mechanical & Weight under \SI{20}{g} & Low &  \\ \hline
+
+Software & Control multiple devices simultaneously & Medium &  \\ \hline
+Software & Download logged data & High &  \\ \hline
+Software & Streaming data during measurement & Medium &  \\ \hline
+Software & Start logging on multiple devices by clicking one button & Medium &  \\ \hline
+Software & Time synchronization of multiple devices & High &  \\ \hline
+Software & Possibility to upload data to a server & High &  \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Additional requirements}
+\label{HWadditionalRequirements}
+The additional requirements are shown in table \ref{tab:additionalReq}.
+
+\begin{table}[]
+\centering
+\caption{Sensor Board additional requirements}
+\label{tab:additionalReq}
+\begin{tabular}{|c|p{10cm}|}
+	\hline
+	\multicolumn{2}{|c|}{Importance} \\ \hline \hline
+	Low	& Nice to have \\ \hline
+	Medium & Useful, can significantly improve functionality \\ \hline
+	\st{High} & Not applicable \\ \hline
+\end{tabular}
+\newline
+\vspace{1cm}
+\newline
+\begin{tabular}{|c|p{5cm}|c|l|}
 \hline
 Category & Requirement & Importance & Comment \\ \hline
-         &             &            &         \\ \hline
-         &             &            &         \\ \hline
-         &             &            &         \\ \hline
+Functions & Coprocessor for periodic computations like sensor fusion & Low &  \\ \hline
+Functions & Piezo buzzer & Low &  \\ \hline
+Functions & Buttons & Medium &  \\ \hline
+
+Sensors & Ambient light & Low &  \\ \hline
+Sensors & Humidity & Low &  \\ \hline
+Sensors & Sound (microphone) & Low &  \\ \hline
+Sensors & Ambient temperature & Low &  \\ \hline
+
+Communication & UART, I2C, SPI connector & Low &  \\ \hline
+Communication & PWM outputs & Low &  \\ \hline
+Communication & Analog inputs & Low &  \\ \hline
+
+Software & NMEA input & Low &  \\ \hline
 \end{tabular}
 \end{table}
 
 \section{Available solutions}
-Based on the requirements, the selection is mainly focused to sensors with possible outdoor use such as wearable sensors. The table \ref{availableSolutionsTable} shows the available solutions I have found.
+\label{HWavailableSolutions}
+The table \ref{tab:availableSolutions} shows the overview of existing devices I have found.
 
 //todo: tabulka existujicich reseni
 \begin{table}[]
 \centering
 \caption{My caption}
-\label{availableSolutionsTable}
+\label{tab:availableSolutions}
 \begin{tabular}{|l|l|l|l|}
 \hline
 Category & Requirement & Importance & Comment \\ \hline
@@ -87,8 +167,11 @@ Category & Requirement & Importance & Comment \\ \hline
 \end{table}
 
 \section{Selection of devices}
+\label{HWdeviceSelection}
+//todo
 
 \section{PCB design}
+\label{HWpcbDesign}
 The PCB design should meet both electrical and mechanical requirements. It's usually easier to design a large board in the first iteration, which is used only in the laboratory for software development and testing. Then the second iteration brings the first practically usable device and probably the third iteration is the first one dedicated for production use.
 
 Here in this process I will merge the first and the second version together. I will create a larger device which is still usable as wearable device. This implies that I can do the software development, laboratory tests and the first outdoor tests with the same board designed during the first iteration. I'm going to decrease the dimensions of the first prototype by splitting the PCB to separate sandwich modules. The testing process should give us advantages and disadvantages of this mechanical solution.
@@ -141,6 +224,7 @@ The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. T
 //todo: obrazek SVG
 
 \section{Manufacturing}
+\label{HWmanufacturing}
 //todo: pridat vsude fotky jednotlivych fazi
 
 The manufacturing process of the prototype consists of these steps:
@@ -183,10 +267,18 @@ We need the PCB, template for soldering paste and all devices in this step. Some
 
 The BOM and partlist export depends on the used design tools. When we connect used devices in the sources directly with their part numbers on selected shops, we can simply export the partlist and then import it on the seller's website. I recommend to buy some spare devices to minimize the risk of their damage.
 
+\begin{figure}[H]
+	\centering
+	\label{smtPasteTemplate}
+	\caption{Template for soldering paste in scale 1:2}
+	\includegraphics[angle=90, scale=0.5]{img/smtPasteTemplate.pdf}
+\end{figure}
+
 \subsection{Finalization of the prototype}
 We can discuss the finalization work with the manufacturer, but when we create a prototype, I have to recommend to do this job by ourself. It allows us to perform some tests before packaging and we don't have to spend time and money with preparation of the documentation about how to assemble and package our prototype. Otherwise the different software developers and testers can receive the different parts of the prototype for their next work.
 
 \section{Testing}
+\label{HWtesting}
 The testing process has been split into two parts: the laboratory testing during the software development and the outdoor testing. I have found some errors in the version 1.0 during the laboratory testing. These errors are described in Errata list in section \ref{errata}. I did another tests against the specification of used devices. The results show us what devices should be used in the next version of the hardware and what devices are redundant. The results are shown in the section \ref{deviceTesting}. The outdoor tests didn't find any significant errors, but there were found several recommendations for the future versions of the Sensor Board. These recommendations are mentioned in section \ref{recommendationsNextVerison}.
 
 \subsection{Errata}
@@ -229,12 +321,15 @@ Number & Description & Error created during & Image & Severity \\ \hline
 	& board layout         &       & Spare    \\ \hline
 	
 6      &
-	\parbox{6 cm}{Low capacity capacitor plased on power supply\\ \\ What happens:\\ When we use WiFi some brownouts can be detected. I have added a bigger capacitor later by hand.}
+	\parbox{6 cm}{Low capacity capacitor placed on power supply\\ \\ What happens:\\ When we use WiFi some brownouts can be detected. I have added a bigger capacitor later by hand.}
 	& schematics design    &       & Medium   \\ \hline
 	
 7      &
-	\parbox{6 cm}{The light sensor is placed on inner sideof the board\\ \\ What happens:\\ The measured values are affected by shadow of the board}
+	\parbox{6 cm}{The light sensor is placed on inner side of the board\\ \\ What happens:\\ The measured values are affected by shadow of the board}
 	& board layout         &       & Spare    \\ \hline
+8      &
+\parbox{6 cm}{Missing safety resistors on pins with buttons. These pins are directly connected to processor.\\ \\ What happens:\\ When the pins are defined in software to be used in different way, incorrect connection can burn the processor. }
+& schematics design        &       & Medium   \\ \hline
 \end{tabular}
 \end{table}
 
@@ -285,4 +380,10 @@ Recommendations for the future versions of the Sensor Board based on the outdoor
 	\item[--] Split the board area to an area for sensors, an area for power electronics and an area for computing. The power distribution is easier in this situation and the sensors are less influenced by other electronics.
 	\item[--] Use another driver with more capabilities for USB connection. The USB on board actually supports only UART communication on virtual COM port. The File Transfer protocol for the SD card should be supported, too. (If it is needed we can add full USB host support or USB-C compatibility.)
 	\item[--] Add specialized pads for oscilloscope. The pads are connected to the signal and to the ground, so the oscilloscope measurements are more accurate.
+	\item[--] The main processor should be able to switch on/off the power of other parts (sensors). The sensors support sleep modes, but we cannot completely switch them off to save more energy from battery.
 \end{itemize}
+	
+\subsection{Analysis of additional costs}
+\label{HWadditionalCosts}
+//todo
+
