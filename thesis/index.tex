@@ -84,6 +84,9 @@ In general, the developed device can be used for sensor data capturing, on-board
 \usepackage[nottoc]{tocbibind}
 \usepackage{soul}
 \usepackage{multirow, tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
 
 %% Special colors definitions
 \definecolor{background}{HTML}{F5DD9D}
@@ -129,21 +132,33 @@ In general, the developed device can be used for sensor data capturing, on-board
 	I$^{2}$C
 }
 
+\setlength{\arrayrulewidth}{1pt}
+
+\newcommand\greenLow[0]{\cellcolor{green!25} Low}
+\newcommand\greenSpare[0]{\cellcolor{green!25} Spare}
+\newcommand\yellowMedium[0]{\cellcolor{yellow!25} Medium}
+\newcommand\redHigh[0]{\cellcolor{red!25} High}
+
 \begin{document}
 \newgeometry{twoside, top=2.5cm, left=3cm, textwidth=16cm, textheight=24cm}
+
+\tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily, colback=yellow!10!white, colframe=black, colbacktitle=white, coltitle=black, center title}}
 
 \include{Introduction}
 
 \include{Hardware}
 
-\chapter{Software}
+\include{Software}
+
+\include{Analysis}
+
+\chapter{Conclusion}
 //todo
 
-\chapter{Movement Analysis}
-//todo
-
+//todo: doplnit bibtex databazi
 citace konecne fungují, jak bych chtěl \cite{einstein} ahoj
 
+//todo: oznacit pojmy do indexu
 After using the \verb"\makeindex" macro and loading the
 \texttt{makeidx} package that provides additional indexing
 commands, index entries can be created by issuing the \verb"\index"
