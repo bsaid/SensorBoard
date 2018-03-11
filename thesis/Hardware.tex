@@ -1,3 +1,5 @@
+//todo: pridat informaci o ALB32-WROVER
+
 \chapter{Hardware}
 The hardware design is split into several steps in this paper. First, I had to decide if it's really necessary to build a new device or if I can find a suitable solution on the market. When we want to select a suitable device for our task, we have to know the specification of the task itself. The task is specified in section \ref{HWtaskAnalysis}. Based on the task we can specify all requirements that the selected device should meet (section \ref{HWrequirements}). Now, we can start looking for a device that fulfills all the requirements (section \ref{HWavailableSolutions}).
 
@@ -49,81 +51,86 @@ Finally, I would like to add as many interesting sensors as possible, because it
 \subsection{Low level requirements}
 Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on selection of the devices. Let's call a used wearable device or devices as Sensor Board. The table \ref{tab:requirements} shows the list of requirements for this Sensor Board.
 
-\begin{table}[]
+\begin{table}[H]
 \centering
-\caption{Sensor Board low level requirements}
+\caption{Sensor Board low level requirements 1}
 \label{tab:requirements}
-\begin{tabular}{|c|p{10cm}|}
-	\hline
-	\multicolumn{2}{|c|}{Importance} \\ \hline \hline
-	Low	& Nice to have \\ \hline
-	Medium & Very useful, reduce time or human effort \\ \hline
-	High & Mandatory, impossible without this functionality \\ \hline
-\end{tabular}
-\newline
+\begin{tcolorbox}[tab2,tabularx={X|p{10cm}},title=Importance legend]
+	\greenLow	& Nice to have \\
+	\yellowMedium & Very useful, reduce time or human effort \\
+	\redHigh & Mandatory, impossible without this functionality \\
+\end{tcolorbox}
 \vspace{1cm}
-\newline
-\begin{tabular}{|c|p{5cm}|c|l|}
-\hline
-Category & Requirement & Importance & Comment \\ \hline \hline
-Power Supply & Accumulator & High &         \\ \hline
-Power Supply & Battery percentage indicator & High &  \\ \hline
-Power Supply & Charging when external power applied & High &  \\ \hline
-Power Supply & Voltage and current sensor & Medium &  \\ \hline
-Power Supply & Power LED & High &  \\ \hline
-Power Supply & Power switch & High &  \\ \hline
-Power Supply & Automatic selection between external and battery power & High &  \\ \hline
-Power Supply & Standardized charging connector & Medium &  \\ \hline
+\begin{tcolorbox}[tab2,tabularx={|c|X|c|l|},title=Low level requirements 1]
+	Category & Requirement & Importance & Comment \\ \hline \hline
+	
+	& Accumulator & \redHigh &  \\
+	& Battery percentage indicator & \redHigh &  \\
+	& Charging when external power applied & \redHigh &  \\
+	& Voltage and current sensor & \yellowMedium &  \\
+	& Power LED & \redHigh &  \\
+	& Power switch & \redHigh &  \\
+	& Automatic selection between external and battery power & \redHigh &  \\
+	\multirow{-8}{*}{Power Supply} & Standardized charging connector & \yellowMedium &  \\ \hline
+	
+	& Accelerometer & \redHigh &  \\
+	& Dynamic Gyroscope & \redHigh &  \\
+	& Magnetometer & \redHigh &  \\
+	& Indoor position & \yellowMedium &  \\
+	& Outdoor position & \greenLow &  \\
+	& Barometer & \greenLow &  \\
+	\multirow{-7}{*}{Sensors} & Board temperature & \greenLow &  \\ \hline
+	
+	& Allow user programming & \redHigh &  \\
+	& Wireless programming & \greenLow &  \\
+	& Wired programming & \redHigh &  \\
+	& Wireless & \redHigh &  \\
+	& Standardized protocol & \redHigh &  \\
+	& Wired access & \redHigh &  \\
+	\multirow{-7}{*}{Communication} & Connector for external sensors & \greenLow &  \\ \hline
+\end{tcolorbox}
+\end{table}
 
-Sensors & Accelerometer & High &  \\ \hline
-Sensors & Dynamic Gyroscope & High &  \\ \hline
-Sensors & Magnetometer & High &  \\ \hline
-Sensors & Indoor position & Medium &  \\ \hline
-Sensors & Outdoor position & Low &  \\ \hline
-Sensors & Barometer & Low &  \\ \hline
-Sensors & Board temperature & Low &  \\ \hline
-
-Communication & Allow user programming & High &  \\ \hline
-Communication & Wireless programming & Low &  \\ \hline
-Communication & Wired programming & High &  \\ \hline
-Communication & Wireless & High &  \\ \hline
-Communication & Standardized protocol & High &  \\ \hline
-Communication & Wired access & High &  \\ \hline
-Communication & Connector for external sensors & Low &  \\ \hline
-
-Functions & Logging all data for several hours & High &  \\ \hline
-Functions & Sensor fusion coprocessor & Low &  \\ \hline
-Functions & LED indicators & High &  \\ \hline
-
-Mechanical & Wearable design & High &  \\ \hline
-Mechanical & Dimensions under \SI{5}{cm} & High &  \\ \hline
-Mechanical & Dimensions under \SI{3}{cm} & Low &  \\ \hline
-Mechanical & Weight under \SI{50}{g} & High &  \\ \hline
-Mechanical & Weight under \SI{20}{g} & Low &  \\ \hline
-
-Software & Control multiple devices simultaneously & Medium &  \\ \hline
-Software & Download logged data & High &  \\ \hline
-Software & Streaming data during measurement & Medium &  \\ \hline
-Software & Start logging on multiple devices by clicking one button & Medium &  \\ \hline
-Software & Time synchronization of multiple devices & High &  \\ \hline
-Software & Possibility to upload data to a server & High &  \\ \hline
-\end{tabular}
+\begin{table}[H]
+	\centering
+	\caption{Sensor Board low level requirements 2}
+	\label{tab:requirements}
+	\begin{tcolorbox}[tab2,tabularx={|c|X|c|l|},title=Low level requirements 2]
+		Category & Requirement & Importance & Comment \\ \hline \hline
+		
+		& Logging all data for several hours & \redHigh &  \\
+		& Sensor fusion coprocessor & \greenLow &  \\
+		\multirow{-3}{*}{Functions} & LED indicators & \redHigh &  \\ \hline
+		
+		& Wearable design & \redHigh &  \\
+		& Dimensions under \SI{6}{cm} & \redHigh &  \\
+		& Dimensions under \SI{3}{cm} & \greenLow &  \\
+		& Weight under \SI{50}{g} & \redHigh &  \\
+		\multirow{-5}{*}{Mechanical} & Weight under \SI{20}{g} & \greenLow &  \\ \hline
+		
+		& Control multiple devices simultaneously & \yellowMedium &  \\
+		& Download logged data & \redHigh &  \\
+		& Streaming data during measurement & \yellowMedium &  \\
+		& Start logging on multiple devices by clicking one button & \yellowMedium &  \\
+		& Time synchronization of multiple devices & \redHigh &  \\
+		\multirow{-6}{*}{Software} & Possibility to upload data to a server & \redHigh &  \\ 
+	\end{tcolorbox}
 \end{table}
 
 \subsection{Additional requirements}
 \label{HWadditionalRequirements}
 The additional requirements are shown in table \ref{tab:additionalReq}.
 
-\begin{table}[]
+\begin{table}[H]
 \centering
-\caption{Sensor Board additional requirements}
 \label{tab:additionalReq}
+\caption{Sensor Board additional requirements 2}
 \begin{tabular}{|c|p{10cm}|}
 	\hline
 	\multicolumn{2}{|c|}{Importance} \\ \hline \hline
-	Low	& Nice to have \\ \hline
-	Medium & Useful, can significantly improve functionality \\ \hline
-	\st{High} & Not applicable \\ \hline
+	\greenLow	& Nice to have \\ \hline
+	\yellowMedium & Useful, can significantly improve functionality \\ \hline
+	\st{\redHigh} & Not applicable \\ \hline
 \end{tabular}
 \newline
 \vspace{1cm}
@@ -131,20 +138,20 @@ The additional requirements are shown in table \ref{tab:additionalReq}.
 \begin{tabular}{|c|p{5cm}|c|l|}
 \hline
 Category & Requirement & Importance & Comment \\ \hline
-Functions & Coprocessor for periodic computations like sensor fusion & Low &  \\ \hline
-Functions & Piezo buzzer & Low &  \\ \hline
-Functions & Buttons & Medium &  \\ \hline
+Functions & Coprocessor for periodic computations like sensor fusion & \greenLow &  \\ \hline
+Functions & Piezo buzzer & \greenLow &  \\ \hline
+Functions & Buttons & \yellowMedium &  \\ \hline
 
-Sensors & Ambient light & Low &  \\ \hline
-Sensors & Humidity & Low &  \\ \hline
-Sensors & Sound (microphone) & Low &  \\ \hline
-Sensors & Ambient temperature & Low &  \\ \hline
+Sensors & Ambient light & \greenLow &  \\ \hline
+Sensors & Humidity & \greenLow &  \\ \hline
+Sensors & Sound (microphone) & \greenLow &  \\ \hline
+Sensors & Ambient temperature & \greenLow &  \\ \hline
 
-Communication & UART, I2C, SPI connector & Low &  \\ \hline
-Communication & PWM outputs & Low &  \\ \hline
-Communication & Analog inputs & Low &  \\ \hline
+Communication & UART, I2C, SPI connector & \greenLow &  \\ \hline
+Communication & PWM outputs & \greenLow &  \\ \hline
+Communication & Analog inputs & \greenLow &  \\ \hline
 
-Software & NMEA input & Low &  \\ \hline
+Software & NMEA input & \greenLow &  \\ \hline
 \end{tabular}
 \end{table}
 
@@ -152,23 +159,27 @@ Software & NMEA input & Low &  \\ \hline
 \label{HWavailableSolutions}
 The table \ref{tab:availableSolutions} shows the overview of existing devices I have found.
 
-//todo: tabulka existujicich reseni
-\begin{table}[]
+\begin{table}[H]
 \centering
-\caption{My caption}
+\caption{Available solutions}
 \label{tab:availableSolutions}
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Category & Requirement & Importance & Comment \\ \hline
-         &             &            &         \\ \hline
-         &             &            &         \\ \hline
-         &             &            &         \\ \hline
+       & & & \multicolumn{3}{|c|}{Number of unfullfilled requirements} \\
+Device & Datasheet & Price & Low & Medium & High \\\hline\hline
+
+MetaWear &  &  &  &  &  \\
+ArduPilot 2.6 &  &  &  &  &  \\
+X-IMU &  &  &  &  &  \\
+wearable... &  &  &  &  &  \\\hline
 \end{tabular}
 \end{table}
 
 \section{Selection of devices}
 \label{HWdeviceSelection}
 //todo
+
+
 
 \section{PCB design}
 \label{HWpcbDesign}
@@ -181,21 +192,21 @@ I have used CadSoft EAGLE (Easy Applicable Graphical Layout Editor) \cite{EAGLE}
 \subsection{Schematics and board layout}
 The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. The figures \ref{sch1} and \ref{sch2} shows the exported schematics split into two sheets. The exported PCB layout drawing in scale 1:1 is in figure \ref{brd1} and in scale 2:1 with more details in figure \ref{brd2}.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[angle=90, scale=1]{img/sch1.pdf}
 	\label{sch1}
 	\caption{Schematics of the Sensor Board sheet 1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[angle=90, scale=1]{img/sch2.pdf}
 	\label{sch2}
 	\caption{Schematics of the Sensor Board sheet 2}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{img/brd.pdf}
 	\begin{center}
@@ -213,7 +224,7 @@ The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. T
 	\caption{Sensor Board layout in scale 1:1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[angle=90, scale=2]{img/brd.pdf}
 	\label{brd2}
@@ -221,7 +232,14 @@ The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. T
 \end{figure}
 
 \subsection{Mechanical layout and connectors}
-//todo: obrazek SVG
+The mechanical layout is shown in figure \ref{fig:HWdimensions}.
+
+\begin{figure}[H]
+	\centering
+	\label{fig:HWdimensions}
+	\caption{Sensor Board dimensions}
+	\includegraphics[scale=1]{img/HWdimensions.pdf}
+\end{figure}
 
 \section{Manufacturing}
 \label{HWmanufacturing}
@@ -285,51 +303,51 @@ The testing process has been split into two parts: the laboratory testing during
 \label{errata}
 The table \ref{errataTable} shows all errors I have found during software development and laboratory testing of the Sensor Board prototype.
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 \caption{Errata of the Sensor Board}
 \label{errataTable}
 \begin{tabular}{|l|l|}
 	\hline
 	\multicolumn{2}{|l|}{Severities} \\ \hline
-	Low & No significant affects \\ \hline
-	Spare & Only spare devices may not work \\ \hline
-	Medium & Some part of the prototype may not work \\ \hline
-	High & The prototype has to be remade \\ \hline
+	\greenLow & No significant affects \\ \hline
+	\greenSpare & Only spare devices may not work \\ \hline
+	\yellowMedium & Some part of the prototype may not work \\ \hline
+	\redHigh & The prototype has to be remade \\ \hline
 \end{tabular}
 \begin{tabular}{|c|p{6cm}|p{2.5cm}|c|c|}
 \hline
 Number & Description & Error created during & Image & Severity \\ \hline
 1      &
 	\parbox{6 cm}{Bridge between boards under micro USB connector\\ \\ What happens:\\ The micro USB connector may be placed with lower accuracy}
-	& panelization         &       & Low      \\ \hline
+	& panelization         &       & \greenLow      \\ \hline
 	
 2      &
 	\parbox{6 cm}{Swapped MISO and MOSI on pins IO19 and IO21 on the ESP-WROOM-32 chip according to ESP32 Arduino standard\\ \\ What happens:\\ The SPI interface is not working in Arduino compatible mode without modification of the Arduino SPI library}
-	& schematics design    &       & Medium   \\ \hline
+	& schematics design    &       & \yellowMedium   \\ \hline
 	
 3      &
 	\parbox{6 cm}{LED5 connected to IO35 on ESP-WROOM-32 is not working\\ \\ What happens:\\ The pins IO34 -- IO39 are input only, so they cannot drive a LED}
-	& schematics design    &       & Spare    \\ \hline
+	& schematics design    &       & \greenSpare    \\ \hline
 	
 4      &
 	\parbox{6 cm}{Missing pull-up resistors on SD card\\ \\ What happens:\\ The SDIO interface needs external pull-up resistors to work properly. I have added these resistors later by hand.}
-	& schematics design    &       & Medium   \\ \hline
+	& schematics design    &       & \yellowMedium   \\ \hline
 	
 5      &
 	\parbox{6 cm}{The temperature measurement is placed very close to the main processor\\ \\ What happens:\\ The processor heating affects the measured temperature}
-	& board layout         &       & Spare    \\ \hline
+	& board layout         &       & \greenSpare    \\ \hline
 	
 6      &
 	\parbox{6 cm}{Low capacity capacitor placed on power supply\\ \\ What happens:\\ When we use WiFi some brownouts can be detected. I have added a bigger capacitor later by hand.}
-	& schematics design    &       & Medium   \\ \hline
+	& schematics design    &       & \yellowMedium   \\ \hline
 	
 7      &
 	\parbox{6 cm}{The light sensor is placed on inner side of the board\\ \\ What happens:\\ The measured values are affected by shadow of the board}
-	& board layout         &       & Spare    \\ \hline
+	& board layout         &       & \greenSpare    \\ \hline
 8      &
 \parbox{6 cm}{Missing safety resistors on pins with buttons. These pins are directly connected to processor.\\ \\ What happens:\\ When the pins are defined in software to be used in different way, incorrect connection can burn the processor. }
-& schematics design        &       & Medium   \\ \hline
+& schematics design        &       & \yellowMedium   \\ \hline
 \end{tabular}
 \end{table}
 
@@ -337,7 +355,7 @@ Number & Description & Error created during & Image & Severity \\ \hline
 \label{deviceTesting}
 The device testing may select the devices used in the future versions and remove all spare parts from the prototype. The table \ref{deviceTestsTable} shows the test results and the table \ref{deviceSelectionTable} shows the devices that I recommend to use in future versions.
 
-\begin{table}
+\begin{table}[H]
 \centering
 \caption{Device tests}
 \label{deviceTestsTable}
@@ -349,7 +367,7 @@ The device testing may select the devices used in the future versions and remove
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \centering
 \caption{Device selection}
 \label{deviceSelectionTable}
