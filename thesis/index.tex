@@ -144,6 +144,9 @@ In general, the developed device can be used for sensor data capturing, on-board
 
 \tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily, colback=yellow!10!white, colframe=black, colbacktitle=white, coltitle=black, center title}}
 
+//todo: pridat certifikace USB, WiFi, Bluetooth, ... ?
+//todo: odkaz na lepsi FTDI nebo jiny chip pro USB komunikaci
+
 \include{Introduction}
 
 \include{Hardware}
@@ -152,32 +155,22 @@ In general, the developed device can be used for sensor data capturing, on-board
 
 \include{Analysis}
 
-\chapter{Conclusion}
-//todo
+\include{Conclusion}
 
 //todo: doplnit bibtex databazi
 citace konecne fungují, jak bych chtěl \cite{einstein} ahoj
 
 //todo: oznacit pojmy do indexu
-After using the \verb"\makeindex" macro and loading the
-\texttt{makeidx} package that provides additional indexing
-commands, index entries can be created by issuing the \verb"\index"
-command. \index{dummy text|(}It is possible to create ranged index
+\index{dummy text|(}It is possible to create ranged index
 entries, which will encompass a span of text.\index{dummy text|)}
 To insert complex typographic material -- such as $\alpha$
-\index{alpha@$\alpha$} or \TeX{} \index{TeX@\TeX} --
-into the index, you need to specify a text string, which will
-determine how the entry will be sorted. It is also possible to
-create hierarchal entries. \index{vehicles!trucks}
+\index{alpha@$\alpha$} or \TeX{} \index{TeX@\TeX} \index{vehicles!trucks}
 \index{vehicles!speed cars}
-
-\include{Conclusion}
 
 \printbibliography[heading=bibintoc] %% Print the bibliography.
 
 \makeatletter\thesis@blocks@clear\makeatother
-\phantomsection %% Print the index and insert it into the
-\addcontentsline{toc}{chapter}{\indexname} %% table of contents.
+\phantomsection
 \printindex
 
 \appendix

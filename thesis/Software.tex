@@ -2,6 +2,7 @@
 
 //todo: o jakem HW mluvime
 - programuje se ESP a BMF
+- periferie, ktere jsou k dispozici + schematicke zapojeni procesoru a periferii
 
 \begin{figure}
 	\centering
@@ -10,27 +11,49 @@
 	%\includegraphics[keyvals]{imagefile}
 \end{figure}
 
-\section{Programming the board}
+\section{Programming the Board}
 //todo: dva procesory, ktery je ktery
 
 \subsection{Programming ESP32}
-//todo: ktery to je, ze je na uzivatelsky program nebo na hlavni program, pristup k periferiim, odkaz na datasheet
+//todo: ktery to je, ze je na uzivatelsky program nebo na hlavni program, pristup k periferiim, odkaz na datasheet, zaklad je ESP-IDF framework, zbytek je rozsireni
 
-\subsubsection{ESP-IDF framework}
+\subsubsection{ESP-IDF Framework}
+//todo: POSIX kompatibilita
 
-\subsubsection{Arduino compatibility}
+\subsubsection{Arduino Compatibility}
 
-\subsubsection{MicroPython compatibility}
+\subsubsection{MicroPython Compatibility}
+
+\subsubsection{Matlab and Simulink}
+//todo: ?
 
 \subsection{Programming BMF055}
 //todo: jde o Atmel ARM, ktery, co vsechno v tom BMF055 cipu je, odkaz na datasheet
 
-- zpusoby naprogramovani, ESP-IDF, Arduino, Python, AtmelStudio
-- periferie, ktere jsou k dispozici + schematicke zapojeni procesoru a periferii
-- k periferiim zminka o vlastnostech jako POSIX kompatibilita, FreeRTOS atd.
+\subsubsection{Atmel Studio Framework}
+//todo: jiny nazev?
+
+\subsubsection{MicroPython Compatibility}
+//todo: ?
+
+\subsubsection{Matlab and Simulink}
+//todo: ?
+
+\section{Hardware Access Layer}
+- ke kazde periferii popis
+
+\subsection{ESP32}
+
+\subsubsection{Software Tools}
+- SW vlastnosti jako POSIX kompatibilita, FreeRTOS atd.
+
+\subsection{BMF055}
+
+\subsubsection{Software Tools}
+
+\section{Usage Examples}
 - priklady naprogramovani - logovani jen ESP, sensorfusion na BMF, navigace na ESP a vypocty na BMF atd.
 
-- HAL na ESP a mozna na BMF
-
+\section{Data Logging Firmware}
 - SW pro analyzu namerenych dat
 - jak funguje sbirani dat, synchronizace jednotlivych casti atd.
