@@ -36,9 +36,9 @@ public:
 	    i2c_master_start(cmd);
         i2c_master_write_byte(cmd, 0x29, true);
 	    if (size > 1) {
-			i2c_master_read(cmd, data_rd, size - 1, 0);
+			i2c_master_read(cmd, data_rd, size - 1, (i2c_ack_type_t)0);
 		}
-		i2c_master_read_byte(cmd, data_rd + size - 1, 1);
+		i2c_master_read_byte(cmd, data_rd + size - 1, (i2c_ack_type_t)1);
 	    i2c_master_stop(cmd);
 	    esp_err_t ret = i2c_master_cmd_begin(I2C_NUM_1, cmd, 1000 / portTICK_RATE_MS);
 	    i2c_cmd_link_delete(cmd);
