@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-/*#include "WiFi.h"
+#include "WiFi.h"
 #include "Stopwatch.h"
 #include "RuntimeSettings.h"
 
@@ -13,27 +13,33 @@
 #include <ADP5062.h>
 #include <TestSensor.h>
 
+// Test horse HorseAnalysis
+#include <horse_temp.h>
+
 // Filesystem initialization
 FileSystem fs;
 GlobalSettings settings;
 RuntimeSettings machineState;
 
+const uint16_t FREQUENCY = 100; // Hz
+
 void dataLoopTask(void * pvParameters)
 {
 	// Sensors initialization
 	TestSensor testSensor;
-
 	// Logging file initialization
 	FILE* sdCSV = fs.getLogFile();
-
 	// Stopwatch initialization
-	Stopwatch loopWatch(10);
+	Stopwatch loopWatch(1000 / FREQUENCY);
+	// Horse movement analysis based on accelerometer data
+	HorseAnalysis horse(FREQUENCY);
 
 	for(;;)
     {
 		if(machineState.isLogging || machineState.isStreaming)
     	{
 			testSensor.read();
+			horse.addData(1, 1, 1, 0, 0, 0); //TODO: add data
     	}
     	if(machineState.isLogging)
     	{
@@ -67,6 +73,16 @@ void dataLoopTask(void * pvParameters)
 				ts
 			);
     	}
+		if(horse.elapsedTime() % 1000 == 0)
+        {
+			//TODO: make CSV compatible output, log data to SD card
+			printf("Second %4d: moving %s, steps %4i, %s, ...\n",
+                   horse.elapsedTime()/1000,
+                   horse.isMoving() ? "yes": "no ",
+                   horse.numSteps(),
+                   horse.detectAndNameMovement().c_str()
+            );
+        }
 
     	if(!loopWatch.waitForNext())
     		printf("Loop overflow. The loop has taken more than 10 ms.\n");
@@ -131,7 +147,7 @@ void setup()
 }
 
 // Just for feeding Arduino
-void loop() {}*/
+void loop() {}
 
 
 
@@ -146,7 +162,7 @@ void loop() {}*/
    CONDITIONS OF ANY KIND, either express or implied.
 */
 
-#include <stdint.h>
+/*#include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -169,7 +185,7 @@ void loop() {}*/
 #define EXCAMPLE_DEVICE_NAME "ESP_SPP_ACCEPTOR"
 #define SPP_SHOW_DATA 0
 #define SPP_SHOW_SPEED 1
-#define SPP_SHOW_MODE SPP_SHOW_SPEED    /*Choose show mode: show data or speed*/
+#define SPP_SHOW_MODE SPP_SHOW_SPEED
 
 static const esp_spp_mode_t esp_spp_mode = ESP_SPP_MODE_CB;
 
@@ -287,4 +303,4 @@ void setup()
     }
 }
 
-void loop(){}
+void loop(){}*/
