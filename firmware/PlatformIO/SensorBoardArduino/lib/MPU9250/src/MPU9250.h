@@ -1,5 +1,6 @@
 /**
  * Invensense MPU-9250 library using the SPI interface
+ * Modified and adapted to ESP32 by Bedrich Said
  *
  */
 
@@ -209,18 +210,26 @@ class MPU9250 {
     SPIdevice spi;
 public:
     // constructor. Default low pass filter of 188Hz
-    MPU9250(SPI spiHost, int clock, gpio_num_t pinCS, uint8_t low_pass_filter = BITS_DLPF_CFG_188HZ, uint8_t low_pass_filter_acc = BITS_DLPF_CFG_188HZ){
+    MPU9250(
+        SPI spiHost,
+        int clock,
+        gpio_num_t pinCS,
+        uint8_t low_pass_filter = BITS_DLPF_CFG_188HZ,
+        uint8_t low_pass_filter_acc = BITS_DLPF_CFG_188HZ
+    ){
         my_clock = clock;
         my_cs = pinCS;
         my_low_pass_filter = low_pass_filter;
         my_low_pass_filter_acc = low_pass_filter_acc;
         spi = spiHost.getDevice(pinCS);
     }
+
+    // Implemeted by user, dependent on used platform
     unsigned int WriteReg(uint8_t WriteAddr, uint8_t WriteData );
     unsigned int ReadReg(uint8_t WriteAddr, uint8_t WriteData );
     void ReadRegs(uint8_t ReadAddr, uint8_t *ReadBuf, unsigned int Bytes );
-
     void delay(int ms);
+
     bool init(bool calib_gyro = true, bool calib_acc = true);
     void read_temp();
     void read_acc();
@@ -274,8 +283,6 @@ private:
     uint8_t my_cs;
     uint8_t my_low_pass_filter;
     uint8_t my_low_pass_filter_acc;
-
-    //float randomstuffs[3];
 
     float g_bias[3];
     float a_bias[3];      // Bias corrections for gyro and accelerometer

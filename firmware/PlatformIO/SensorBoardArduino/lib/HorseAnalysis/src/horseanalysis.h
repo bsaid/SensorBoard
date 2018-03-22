@@ -6,15 +6,13 @@
 
 #include "step.h"
 #include "steps.h"
-#include "vector3D.h"
+#include "vector3d.h"
 
 #define Q_UNUSED(x) (void)x;
+#define abs(x) ((x)>0?(x):-(x))
 
 class HorseAnalysis
 {
-    //debug only
-    FILE *output = fopen("out.csv", "w");
-
     const static size_t MEMORY_TIME = 5; // 5 seconds
     size_t m_sampleFreq;
 
@@ -198,10 +196,7 @@ class HorseAnalysis
 public:
     HorseAnalysis(size_t sampleFreq) : m_sampleFreq(sampleFreq){}
     ~HorseAnalysis()
-    {
-        //debug only
-        fclose(output);
-    }
+    {}
 
     void addData(double ax, double ay, double az, double gx, double gy, double gz)
     {
@@ -218,19 +213,6 @@ public:
 
         detectStep();
         m_actualMovement = detectMovement();
-
-        //debug only
-        fprintf(output, "%f %f %d %f %f %f %d %f %f %f %f\n",
-                actualValue(),
-                m_last.begin()->size(),
-                isMoving(),
-                m_steps.lastTimeBetweenSteps()/100.0,
-                m_steps.getNumSteps()/30.0,
-                m_lastStep.amplitude,
-                m_actualMovement,
-                -((double)m_timeUnderZero/100.0),
-                ax, ay, az
-        );
     }
 
     bool isMoving()

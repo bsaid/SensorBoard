@@ -1,9 +1,5 @@
 #include <Arduino.h>
 
-#include "WiFi.h"
-#include "Stopwatch.h"
-#include "RuntimeSettings.h"
-
 #include <FileSystem.h>
 #include <GlobalSettings.h>
 #include <I2C.h>
@@ -13,81 +9,15 @@
 #include <ADP5062.h>
 #include <TestSensor.h>
 
-// Test horse HorseAnalysis
-#include <horse_temp.h>
+#include "WiFi.h"
+#include "Stopwatch.h"
+#include "RuntimeSettings.h"
+#include "ComputingTask.h"
 
 // Filesystem initialization
-FileSystem fs;
-GlobalSettings settings;
-RuntimeSettings machineState;
-
-const uint16_t FREQUENCY = 100; // Hz
-
-void dataLoopTask(void * pvParameters)
-{
-	// Sensors initialization
-	TestSensor testSensor;
-	// Logging file initialization
-	FILE* sdCSV = fs.getLogFile();
-	// Stopwatch initialization
-	Stopwatch loopWatch(1000 / FREQUENCY);
-	// Horse movement analysis based on accelerometer data
-	HorseAnalysis horse(FREQUENCY);
-
-	for(;;)
-    {
-		if(machineState.isLogging || machineState.isStreaming)
-    	{
-			testSensor.read();
-			horse.addData(1, 1, 1, 0, 0, 0); //TODO: add data
-    	}
-    	if(machineState.isLogging)
-    	{
-			if(!sdCSV)
-			{
-				printf("Log file cannot be opened.\n");
-				sdCSV = fs.getLogFile();
-			}
-			else
-			{
-				uint16_t ts = testSensor.get();
-				fprintf(
-					sdCSV,
-					"S;%d;%d;\n",
-					loopWatch.getCycles(),
-					ts
-				);
-				if(loopWatch.getCycles() % 100 == 0)
-				{
-					fclose(sdCSV);
-					sdCSV = fs.getLogFile();
-				}
-			}
-    	}
-    	if(machineState.isStreaming)
-    	{
-			uint16_t ts = testSensor.get();
-    		printf(
-				"S;%d;%d;\n",
-				loopWatch.getCycles(),
-				ts
-			);
-    	}
-		if(horse.elapsedTime() % 1000 == 0)
-        {
-			//TODO: make CSV compatible output, log data to SD card
-			printf("Second %4d: moving %s, steps %4i, %s, ...\n",
-                   horse.elapsedTime()/1000,
-                   horse.isMoving() ? "yes": "no ",
-                   horse.numSteps(),
-                   horse.detectAndNameMovement().c_str()
-            );
-        }
-
-    	if(!loopWatch.waitForNext())
-    		printf("Loop overflow. The loop has taken more than 10 ms.\n");
-    }
-}
+extern FileSystem fs;
+extern GlobalSettings settings;
+extern RuntimeSettings machineState;
 
 void setup()
 {
@@ -153,7 +83,7 @@ void loop() {}
 
 
 
-
+// BLUETOOTH TEST
 /*
    This example code is in the Public Domain (or CC0 licensed, at your option.)
 
