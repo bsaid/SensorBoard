@@ -19,31 +19,56 @@ class FileSystem
 	int logCounter = 0;
 
 public:
-	//SDcard sd;
-	//SPIffs spi;
+	SDcard sd;
+	SPIffs spi;
 
 	FileSystem()
 	{
-		//TODO
-		/*FILE* counterFile = getFile(COUNTER_FILE_NAME, "r");
-		if(!counterFile)
-		{
-			counterFile = getFile(COUNTER_FILE_NAME, "w");
-			fprintf(counterFile, "0\n");
-			fclose(counterFile);
-			counterFile = getFile(COUNTER_FILE_NAME, "r");
-		}
-		fscanf(counterFile, "%i", &sessionCounter);
-		fclose(counterFile);*/
+		//TODO: initialization cannot be here, because some main() code has to run before
+	}
+
+	bool init()
+	{
+		if(!sd.init())
+			return false;
+
+		sessionCounter = readCounter();
+		writeCounter(sessionCounter+1);
+		return true;
+	}
+
+	bool writeCounter(int number)
+	{
+		FILE* f = getFile(COUNTER_FILE_NAME, "w");
+		if(!f)
+			return false;
+		fprintf(f, "%i\n", number);
+		fclose(f);
+		return true;
+	}
+
+	int readCounter()
+	{
+		FILE* f = getFile(COUNTER_FILE_NAME, "r");
+		if(!f)
+			return 0;
+		int sessionCounter = 0;
+		fscanf(f, "%i", &sessionCounter);
+		fclose(f);
+		return sessionCounter;
+	}
+
+	void increaseLogCounter()
+	{
+		logCounter++;
 	}
 
 	FILE* getFile(std::string name, std::string attributes)
 	{
-		//if(sd.isInitialized())
-		//	return sd.getFile(name, attributes);
-		//else
-		//	return spi.getFile(name, attributes);
-		return NULL;
+		if(sd.isInitialized())
+			return sd.getFile(name, attributes);
+		else
+			return spi.getFile(name, attributes);
 	}
 
 	FILE* getConfigFile()

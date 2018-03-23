@@ -31,6 +31,9 @@ class SDcard
 
 public:
 	SDcard()
+	{}
+
+	bool init()
 	{
 		ESP_LOGI(TAG, "Initializing SD card");
 		ESP_LOGI(TAG, "Using SDMMC peripheral");
@@ -44,10 +47,9 @@ public:
 
 		// If format_if_mount_failed is set to true, SD card will be partitioned and
 		// formatted in case when mounting fails.
-		esp_vfs_fat_sdmmc_mount_config_t mount_config = {
-			.format_if_mount_failed = FORMAT_IF_MOUNTED,
-			.max_files = MAX_FILES
-		};
+		esp_vfs_fat_sdmmc_mount_config_t mount_config;
+		mount_config.format_if_mount_failed = FORMAT_IF_MOUNTED;
+		mount_config.max_files = MAX_FILES;
 
 		sdmmc_card_t* card;
 		esp_err_t ret = esp_vfs_fat_sdmmc_mount(CARD_NAME.c_str(), &host, &slot_config, &mount_config, &card);
@@ -63,7 +65,9 @@ public:
 				ESP_LOGE(TAG, "Failed to initialize the card (%d). "
 					"Make sure SD card lines have pull-up resistors in place.", ret);
 			}
+			return false;
 		}
+		return true;
 	}
 
 	bool isInitialized()
