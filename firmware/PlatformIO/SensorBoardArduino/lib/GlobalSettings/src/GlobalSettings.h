@@ -17,6 +17,7 @@ public:
 	std::string WiFiPassword;
 	bool startLoggingImmediately;
 	bool isHorseAnalysis;
+	bool isStreaming;
 
 	GlobalSettings()
 	{
@@ -35,8 +36,9 @@ public:
 		isWiFiAP = false;
 		WiFiSSID = "SensorBoard";
 		WiFiPassword = "1234567890";
-		startLoggingImmediately = false;
+		startLoggingImmediately = true;
 		isHorseAnalysis = false;
+		isStreaming = false;
 	}
 
 	bool loadFile(FILE* f)
