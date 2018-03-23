@@ -245,19 +245,19 @@ public:
     void read_all();
     void calibrate(float *dest1, float *dest2);
 
-    Vector3i getAcc()
+    Vector3f getAcc()
     {
-        return Vector3i(accel_data[0], accel_data[1], accel_data[2]);
+        return Vector3f(accel_data[0], accel_data[1], accel_data[2]);
     }
 
-    Vector3i getGyr()
+    Vector3f getGyr()
     {
-        return Vector3i(accel_data[0], accel_data[1], accel_data[2]);
+        return Vector3f(accel_data[0], accel_data[1], accel_data[2]);
     }
 
-    Vector3i getMag()
+    Vector3f getMag()
     {
-        return Vector3i(accel_data[0], accel_data[1], accel_data[2]);
+        return Vector3f(accel_data[0], accel_data[1], accel_data[2]);
     }
 
     uint16_t getTemp()
