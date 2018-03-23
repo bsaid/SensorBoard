@@ -2,15 +2,8 @@
 
 #include <FileSystem.h>
 #include <GlobalSettings.h>
-#include <I2C.h>
-#include <SPI.h>
-#include <BMP280.h>
-#include <MPU9250.h>
-#include <ADP5062.h>
-#include <TestSensor.h>
 
 #include "WiFi.h"
-#include "Stopwatch.h"
 #include "RuntimeSettings.h"
 #include "ComputingTask.h"
 
@@ -22,24 +15,16 @@ extern RuntimeSettings machineState;
 void setup()
 {
 	printf("Started...\n");
-	I2Cbus i2c;
-	BMP280 bmp(&i2c);
-	ADP5062 adp(&i2c);
-	//for(;;)
-	{
-		bmp.update();
-		printf("%i\n", bmp.get());
-		vTaskDelay(1000);
-	}
 
+	fs.init();
 	settings.loadFile(fs.getConfigFile());
 
 	// Runtime configuration
 	machineState.isLogging = settings.startLoggingImmediately;
-	machineState.isStreaming = false;
+	machineState.isStreaming = settings.isStreaming;
 
 	// Connection initialization
-	WiFi wifi(false, true, settings.WiFiSSID, settings.WiFiPassword);
+	WiFi wifi(settings.isWiFiClient, settings.isWiFiAP, settings.WiFiSSID, settings.WiFiPassword);
 
 	// Create a thread for communication
 	xTaskCreatePinnedToCore(
@@ -52,7 +37,7 @@ void setup()
 	    0           // Core where the task should run, other than main loop
 	);
 
- 	printf("Task created...");
+ 	printf("Computing task created...\n");
 
     // Enter main loop
 	for(;;)
@@ -65,7 +50,15 @@ void setup()
 				break;
 			if(ch == 'p')
 				printf("Ping received.\n");
-			//TODO
+			if(ch == 'h')
+				machineState.isHorseAnalysis = !machineState.isHorseAnalysis;
+			if(ch == 's')
+				machineState.isStreaming = !machineState.isStreaming;
+			if(ch == 'l')
+			{
+				fs.increaseLogCounter();
+				machineState.isLogging = !machineState.isLogging;
+			}
 		}
 		else
 			vTaskDelay(10);
@@ -91,8 +84,8 @@ void loop() {}
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
    CONDITIONS OF ANY KIND, either express or implied.
 */
-
-/*#include <stdint.h>
+/*
+#include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -231,6 +224,4 @@ void setup()
         ESP_LOGE(SPP_TAG, "%s spp init failed\n", __func__);
         return;
     }
-}
-
-void loop(){}*/
+}*/
