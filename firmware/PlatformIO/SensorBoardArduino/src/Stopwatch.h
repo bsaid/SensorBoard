@@ -72,16 +72,19 @@ public:
 		interval = ms;
 	}
 
-	bool waitForNext()
+	int waitForNext()
 	{
 		cycles++;
-		if(interval == 0 || get_ms() > interval*cycles)
-			return false;
-		while(get_ms() < interval*cycles)
+		if(get_ms() > interval*cycles+4)
+			return (get_ms() - interval*cycles);
+		while(get_ms()+4 < interval*cycles)
 		{
-			vTaskDelay( (get_ms() - interval*cycles) / portTICK_RATE_MS );
+			int diff = interval*cycles - get_ms();
+			if(diff<5)
+				diff = 0;
+			vTaskDelay( diff / portTICK_RATE_MS );
 		}
-		return true;
+		return 0;
 	}
 
 	uint32_t getCycles()
