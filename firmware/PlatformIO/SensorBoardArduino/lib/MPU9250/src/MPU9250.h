@@ -10,7 +10,7 @@
 #include <SPI.h>
 #include "vector3.h"
 
-// #define AK8963FASTMODE
+#define AK8963FASTMODE
 
 // mpu9250 registers
 #define MPUREG_XG_OFFS_TC 0x00
@@ -252,12 +252,17 @@ public:
 
     Vector3f getGyr()
     {
-        return Vector3f(accel_data[0], accel_data[1], accel_data[2]);
+        return Vector3f(gyro_data[0], gyro_data[1], gyro_data[2]);
     }
 
     Vector3f getMag()
     {
-        return Vector3f(accel_data[0], accel_data[1], accel_data[2]);
+        return Vector3f(mag_data[0], mag_data[1], mag_data[2]);
+    }
+
+    Vector3i getMagRaw()
+    {
+        return Vector3i(mag_data_raw[0], mag_data_raw[1], mag_data_raw[2]);
     }
 
     uint16_t getTemp()

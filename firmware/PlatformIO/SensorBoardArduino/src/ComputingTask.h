@@ -71,10 +71,10 @@ void dataLoopTask(void * pvParameters)
 			{
 				Vector3f acc = mpu.getAcc();
 				Vector3f gyr = mpu.getGyr();
-				Vector3f mag = mpu.getMag();
+				Vector3i mag = mpu.getMagRaw();
 				fprintf(
 					sdCSV,
-					"S;%d;%d;%d;%f;%f;%x;%x;;%f;%f;%f;%f;%f;%f;%f;%f;%f;\n",
+					"S;%d;%d;%d;%f;%f;%x;%x;;%f;%f;%f;%f;%f;%f;%i;%i;%i;%i;\n",
 					loopWatch.get_ms(),
 					loopWatch.getCycles(),
 					testSensor.get(),
@@ -84,7 +84,8 @@ void dataLoopTask(void * pvParameters)
 					bmp.getData1(),
 					acc.x, acc.y, acc.z,
 					gyr.x, gyr.y, gyr.z,
-					mag.x, mag.y, mag.z
+					mag.x, mag.y, mag.z,
+					mpu.getTemp()
 				);
 				if(loopWatch.getCycles() % 100 == 0)
 				{
@@ -97,9 +98,9 @@ void dataLoopTask(void * pvParameters)
     	{
 			Vector3f acc = mpu.getAcc();
 			Vector3f gyr = mpu.getGyr();
-			Vector3f mag = mpu.getMag();
+			Vector3i mag = mpu.getMagRaw();
 			printf(
-				"S;%d;%d;%d;%f;%f;%x;%x;;%f;%f;%f;%f;%f;%f;%f;%f;%f;\n",
+				"S;%d;%d;%d;%f;%f;%x;%x;;%f;%f;%f;%f;%f;%f;%i;%i;%i;%i;\n",
 				loopWatch.get_ms(),
 				loopWatch.getCycles(),
 				testSensor.get(),
@@ -109,7 +110,8 @@ void dataLoopTask(void * pvParameters)
 				bmp.getData1(),
 				acc.x, acc.y, acc.z,
 				gyr.x, gyr.y, gyr.z,
-				mag.x, mag.y, mag.z
+				mag.x, mag.y, mag.z,
+				mpu.getTemp()
 			);
     	}
 		if(machineState.isHorseAnalysis)

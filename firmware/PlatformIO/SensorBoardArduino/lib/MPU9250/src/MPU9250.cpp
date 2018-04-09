@@ -39,7 +39,7 @@ void MPU9250::ReadRegs( uint8_t ReadAddr, uint8_t *ReadBuf, unsigned int Bytes )
  * returns 1 if an error occurred
  */
 
-#define MPU_InitRegNum 17
+#define MPU_InitRegNum 21//17
 
 bool MPU9250::init(bool calib_gyro, bool calib_acc){
     float temp[3];
@@ -64,14 +64,14 @@ bool MPU9250::init(bool calib_gyro, bool calib_acc){
         {BITS_FS_2G, MPUREG_ACCEL_CONFIG},       // +-2G
         {my_low_pass_filter_acc, MPUREG_ACCEL_CONFIG_2}, // Set Acc Data Rates, Enable Acc LPF , Bandwidth 184Hz
         {0x12, MPUREG_INT_PIN_CFG},      //
-        //{0x40, MPUREG_I2C_MST_CTRL},   // I2C Speed 348 kHz
-        //{0x20, MPUREG_USER_CTRL},      // Enable AUX
+        {0x40, MPUREG_I2C_MST_CTRL},   //- I2C Speed 348 kHz
+        {0x20, MPUREG_USER_CTRL},      //- Enable AUX
         {0x30, MPUREG_USER_CTRL},        // I2C Master mode and set I2C_IF_DIS to disable slave mode I2C bus
         {0x0D, MPUREG_I2C_MST_CTRL},     // I2C configuration multi-master  IIC 400KHz
 
         {AK8963_I2C_ADDR, MPUREG_I2C_SLV0_ADDR},  // Set the I2C slave addres of AK8963 and set for write.
-        //{0x09, MPUREG_I2C_SLV4_CTRL},
-        //{0x81, MPUREG_I2C_MST_DELAY_CTRL}, // Enable I2C delay
+        {0x09, MPUREG_I2C_SLV4_CTRL}, //-
+        {0x81, MPUREG_I2C_MST_DELAY_CTRL}, //- Enable I2C delay
 
         {AK8963_CNTL2, MPUREG_I2C_SLV0_REG}, // I2C slave 0 register address from where to begin data transfer
         {0x01, MPUREG_I2C_SLV0_DO},   // Reset AK8963
@@ -95,7 +95,7 @@ bool MPU9250::init(bool calib_gyro, bool calib_acc){
     set_acc_scale(BITS_FS_2G);
     set_gyro_scale(BITS_FS_250DPS);
 
-    calib_mag();  // If experiencing problems here, just comment it out. Should still be somewhat functional.
+    //calib_mag();  // If experiencing problems here, just comment it out. Should still be somewhat functional.
     return 0;
 }
 
@@ -289,11 +289,11 @@ void MPU9250::calib_acc()
 
 uint8_t MPU9250::AK8963_whoami(){
     uint8_t response;
-    delay(10);
+    //delay(10);
     WriteReg(MPUREG_I2C_SLV0_ADDR,AK8963_I2C_ADDR|READ_FLAG); //Set the I2C slave addres of AK8963 and set for read.
-    delay(10);
+    //delay(10);
     WriteReg(MPUREG_I2C_SLV0_REG, AK8963_WIA); //I2C slave 0 register address from where to begin data transfer
-    delay(10);
+    //delay(10);
     WriteReg(MPUREG_I2C_SLV0_CTRL, 0x81); //Read 1 byte from the magnetometer
     delay(10);
     response = WriteReg(MPUREG_EXT_SENS_DATA_00|READ_FLAG, 0x00);    //Read I2C
@@ -384,8 +384,9 @@ void MPU9250::read_all(){
     WriteReg(MPUREG_I2C_SLV0_REG, AK8963_HXL);                // I2C slave 0 register address from where to begin data transfer
     WriteReg(MPUREG_I2C_SLV0_CTRL, 0x87);                     // Read 7 bytes from the magnetometer
     // must start your read from AK8963A register 0x03 and read seven bytes so that upon read of ST2 register 0x09 the AK8963A will unlatch the data registers for the next measurement.
-
+//vTaskDelay(100);
     ReadRegs(MPUREG_ACCEL_XOUT_H,response,21);
+//for(int a=0;a<21;a++) printf("%x", response[a]); printf("\n");
     // Get accelerometer value
     for(i = 0; i < 3; i++) {
         bit_data = ((int16_t)response[i*2]<<8) | response[i*2+1];
