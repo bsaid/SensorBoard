@@ -1,9 +1,21 @@
 \chapter{Software}
+The Sensor Board hardware has two programmable CPUs and several configurable chips. The main ESP32 CPU (two low-power Xtensa 32-bit LX6 microprocessors) \cite{espressif:ESP-WROOM-32} is programmable via USB or Bluetooth or JTAG. The JTAG connector is not present on the Sensor Board. The second microcontroller is a part of BMF055 \cite{bosch:BMF055} multifunctional chip. It is Atmel SAMD20 \cite{atmel:SAMD20} with ARM Cortex-M0+ CPU programmable via SWD interface \cite{SWDinterface}.
 
-//todo: o jakem HW mluvime
-- programuje se ESP a BMF
-- periferie, ktere jsou k dispozici + schematicke zapojeni procesoru a periferii
+\paragraph{Microcontrollers:}
+\begin{enumerate}
+	\item Espressif ESP-WROOM-32 \cite{espressif:ESP-WROOM-32}:
+		\begin{itemize}
+			\item dual core, 240 MHz, 448 kB ROM, 520 kB SRAM, 4 MB SPI flash memory
+			\item Designated for main program handling all communication and interaction with user or other devices.
+		\end{itemize}
+	\item Atmel SAMD20 \cite{atmel:SAMD20}:
+		\begin{itemize}
+			\item ARM Cortex-M0+ CPU, 48 MHz, 32 kB SRAM, 256 kB flash memory
+			\item Designated for processing inertial data and computing sensor fusion, can be used for example as an emulator of other sensors or as a simple flight controller.
+		\end{itemize}
+\end{enumerate}
 
+//todo: periferie, ktere jsou k dispozici + schematicke zapojeni procesoru a periferii
 \begin{figure}
 	\centering
 	\label{fig:SWmodules}
@@ -12,9 +24,13 @@
 \end{figure}
 
 \section{Programming the Board}
-//todo: dva procesory, ktery je ktery
+Each processor on the Sensor Board has to be programmed separately via its interface. Only ESP32 \cite{espressif:ESP-WROOM-32} (main processor) can be programmed over the air via Bluetooth. This feature is disabled by default.
 
 \subsection{Programming ESP32}
+There are several ways how to program and use the ESP32 \cite{espressif:ESP-WROOM-32} controller. The official framework is Espressif IoT Development Framework (ESP-IDF) \cite{ESP-IDF} and supports all the chip functionality.
+
+The chip can be programmed using Arduino compatible framework which creates an easy way for prototyping and 
+
 //todo: ktery to je, ze je na uzivatelsky program nebo na hlavni program, pristup k periferiim, odkaz na datasheet, zaklad je ESP-IDF framework, zbytek je rozsireni
 
 \subsubsection{ESP-IDF Framework}
