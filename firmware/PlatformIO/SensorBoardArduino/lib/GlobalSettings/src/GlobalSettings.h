@@ -33,10 +33,10 @@ public:
 	void loadDefault()
 	{
 		isWiFiClient = false;
-		isWiFiAP = false;
+		isWiFiAP = true;
 		WiFiSSID = "SensorBoard";
 		WiFiPassword = "1234567890";
-		startLoggingImmediately = true;
+		startLoggingImmediately = false;
 		isHorseAnalysis = false;
 		isStreaming = false;
 	}

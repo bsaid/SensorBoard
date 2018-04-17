@@ -11,10 +11,64 @@
 extern FileSystem fs;
 extern GlobalSettings settings;
 extern RuntimeSettings machineState;
+extern QueueHandle_t queue;
+
+void manage_connection(void *param)
+{
+	int cs = *((int*)param);
+	char recv_buf[8];
+	while(true)
+	{
+		int r = recv(cs, recv_buf, sizeof(recv_buf)-1,0);
+		if(r>0)
+		{
+			char ch = recv_buf[0];
+			if(ch == 'r')
+				ESP.restart();
+			if(ch == 'p')
+				write(cs , "Ping received.\n" , strlen("Ping received.\n"));
+			if(ch == 'h')
+			{
+				machineState.isHorseAnalysis = !machineState.isHorseAnalysis;
+				if(machineState.isHorseAnalysis)
+					write(cs , "Horse analysis started.\n" , strlen("Horse analysis started.\n"));
+				else
+					write(cs , "Horse analysis stopped.\n" , strlen("Horse analysis stopped.\n"));
+			}
+			if(ch == 's')
+			{
+				machineState.isStreaming = !machineState.isStreaming;
+				if(machineState.isStreaming)
+					write(cs , "Streaming started.\n" , strlen("Streaming started.\n"));
+				else
+					write(cs , "Streaming stopped.\n" , strlen("Streaming stopped.\n"));
+			}
+			if(ch == 'l')
+			{
+				fs.increaseLogCounter();
+				machineState.isLogging = !machineState.isLogging;
+				if(machineState.isLogging)
+					write(cs , "Logging started.\n" , strlen("Logging started.\n"));
+				else
+					write(cs , "Logging stopped.\n" , strlen("Logging stopped.\n"));
+			}
+		}
+		else if(uxQueueMessagesWaiting(queue) > 0)
+		{
+			char element;
+			xQueueReceive(queue, &element, portMAX_DELAY);
+			write(cs , &element , sizeof(char));
+		}
+		else
+			vTaskDelay(10);
+	}
+	close(cs);
+}
 
 void setup()
 {
 	printf("Started...\n");
+	queue = xQueueCreate( 1024, sizeof(char) );
 
 	fs.init();
 	settings.loadFile(fs.getConfigFile());
@@ -22,9 +76,6 @@ void setup()
 	// Runtime configuration
 	machineState.isLogging = settings.startLoggingImmediately;
 	machineState.isStreaming = settings.isStreaming;
-
-	// Connection initialization
-	WiFi wifi(settings.isWiFiClient, settings.isWiFiAP, settings.WiFiSSID, settings.WiFiPassword);
 
 	// Create a thread for communication
 	xTaskCreatePinnedToCore(
@@ -38,6 +89,9 @@ void setup()
 	);
 
  	printf("Computing task created...\n");
+
+	// Connection initialization
+	WiFi wifi(settings.isWiFiClient, settings.isWiFiAP, settings.WiFiSSID, settings.WiFiPassword);
 
     // Enter main loop
 	for(;;)

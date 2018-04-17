@@ -23,6 +23,7 @@ const uint16_t FREQUENCY = 100; // Hz
 FileSystem fs;
 GlobalSettings settings;
 RuntimeSettings machineState;
+QueueHandle_t queue;
 
 void dataLoopTask(void * pvParameters)
 {
@@ -99,7 +100,9 @@ void dataLoopTask(void * pvParameters)
 			Vector3f acc = mpu.getAcc();
 			Vector3f gyr = mpu.getGyr();
 			Vector3i mag = mpu.getMagRaw();
-			printf(
+
+			char data[256];
+			sprintf(data,
 				"S;%d;%d;%d;%f;%f;%x;%x;;%f;%f;%f;%f;%f;%f;%i;%i;%i;%i;\n",
 				loopWatch.get_ms(),
 				loopWatch.getCycles(),
@@ -113,6 +116,12 @@ void dataLoopTask(void * pvParameters)
 				mag.x, mag.y, mag.z,
 				mpu.getTemp()
 			);
+
+			printf("%s", data);
+			for(int i=0; data[i]!='\0' && i<256; i++)
+			{
+				xQueueSend(queue, &(data[i]), portMAX_DELAY);
+			}
     	}
 		if(machineState.isHorseAnalysis)
         {
@@ -121,12 +130,19 @@ void dataLoopTask(void * pvParameters)
 			if(horse.elapsedTime() % 1000 == 0)
 			{
 				//TODO: make CSV compatible output, log data to SD card
-				printf("Second %4d: moving %s, steps %4i, %s, ...\n",
-	                   horse.elapsedTime()/1000,
-	                   horse.isMoving() ? "yes": "no ",
-	                   horse.numSteps(),
-	                   horse.detectAndNameMovement().c_str()
+				char data[256];
+				sprintf(data,
+					"Second %4d: moving %s, steps %4i, %s, ...\n",
+	                horse.elapsedTime()/1000,
+	                horse.isMoving() ? "yes": "no ",
+	                horse.numSteps(),
+	                horse.detectAndNameMovement().c_str()
 	            );
+				printf("%s", data);
+				for(int i=0; data[i]!='\0' && i<256; i++)
+				{
+					xQueueSend(queue, &(data[i]), portMAX_DELAY);
+				}
 			}
         }
 
