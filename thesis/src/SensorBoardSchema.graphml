@@ -18,7 +18,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="740.0" width="128.0" x="386.0" y="-925.0"/>
-          <y:Fill color="#8080FF" transparent="false"/>
+          <y:Fill color="#C0C0FF" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="59.12939453125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="121.509765625" x="3.2451171875" y="340.435302734375">ESP-WROOM-32
 
@@ -37,7 +37,7 @@ main controller<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-435.0"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="114.033203125" x="6.9833984375" y="3.298828125">USB
 serial and charging<y:LabelModel>
@@ -55,7 +55,7 @@ serial and charging<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-575.0"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="116.037109375" x="5.9814453125" y="3.298828125">LEDs
 user programmable<y:LabelModel>
@@ -73,7 +73,7 @@ user programmable<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-645.0"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="102.701171875" x="12.6494140625" y="3.298828125">Connectors
 servo compatible<y:LabelModel>
@@ -91,7 +91,7 @@ servo compatible<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-365.0"/>
-          <y:Fill color="#80FF80" transparent="false"/>
+          <y:Fill color="#C0FFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="94.017578125" x="16.9912109375" y="3.298828125">ADP5062
 charging circuit<y:LabelModel>
@@ -109,7 +109,7 @@ charging circuit<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="724.8155339805826" y="-365.0"/>
-          <y:Fill color="#80FF80" transparent="false"/>
+          <y:Fill color="#C0FFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.34765625" x="25.326171875" y="3.298828125">Accumulator
 LiPoly 3.7 V<y:LabelModel>
@@ -127,7 +127,7 @@ LiPoly 3.7 V<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-295.0"/>
-          <y:Fill color="#80FF80" transparent="false"/>
+          <y:Fill color="#C0FFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="65.34765625" x="31.326171875" y="10.6494140625">5 V Supply<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -144,7 +144,7 @@ LiPoly 3.7 V<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-225.0"/>
-          <y:Fill color="#80FF80" transparent="false"/>
+          <y:Fill color="#C0FFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="75.35546875" x="26.322265625" y="10.6494140625">3.3 V Supply<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -161,7 +161,7 @@ LiPoly 3.7 V<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="216.5922330097087" y="-435.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="116.037109375" x="5.9814453125" y="3.298828125">Buttons
 user programmable<y:LabelModel>
@@ -179,7 +179,7 @@ user programmable<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="216.5922330097087" y="-505.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="62.693359375" x="32.6533203125" y="3.298828125">MPU9250
 9 axis IMU<y:LabelModel>
@@ -197,7 +197,7 @@ user programmable<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="216.5922330097087" y="-575.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="62.6875" x="32.65625" y="3.298828125">BMP280
 barometer<y:LabelModel>
@@ -215,7 +215,7 @@ barometer<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="216.5922330097087" y="-645.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="110.669921875" x="8.6650390625" y="3.298828125">SI7006
 humidity and temp<y:LabelModel>
@@ -233,7 +233,7 @@ humidity and temp<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="216.5922330097087" y="-715.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="75.34375" x="26.328125" y="3.298828125">LTR-329ALS
 light sensor<y:LabelModel>
@@ -251,7 +251,7 @@ light sensor<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-715.0"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="86.681640625" x="20.6591796875" y="3.298828125">Micro SD Card
 up to 32 GB<y:LabelModel>
@@ -269,7 +269,7 @@ up to 32 GB<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="216.5922330097087" y="-785.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.69921875" x="26.650390625" y="3.298828125">GY953
 9 axis AHRS<y:LabelModel>
@@ -287,7 +287,7 @@ up to 32 GB<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="180.0" width="128.0" x="216.5922330097087" y="-365.0"/>
-          <y:Fill color="#8080FF" transparent="false"/>
+          <y:Fill color="#C0C0FF" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="84.00244140625" x="21.998779296875" y="51.2470703125">BMF055
 
@@ -307,7 +307,7 @@ controller<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-785.0"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.685546875" x="19.6572265625" y="3.298828125">HM-TRP
 433 MHz Radio<y:LabelModel>
@@ -325,7 +325,7 @@ controller<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="216.5922330097087" y="-855.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="79.01171875" x="24.494140625" y="3.298828125">BMI160
 ACC + GYRO<y:LabelModel>
@@ -343,7 +343,7 @@ ACC + GYRO<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="47.184466019417414" y="-225.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="85.38671875" x="21.306640625" y="3.298828125">BMA280
 accelerometer<y:LabelModel>
@@ -361,7 +361,7 @@ accelerometer<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="47.184466019417414" y="-295.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.685546875" x="31.6572265625" y="3.298828125">BMG160
 gyroscope<y:LabelModel>
@@ -379,7 +379,7 @@ gyroscope<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="47.184466019417414" y="-365.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="86.6875" x="20.65625" y="3.298828125">BMM150
 magnetometer<y:LabelModel>
@@ -397,7 +397,7 @@ magnetometer<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-855.0"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="70.017578125" x="28.9912109375" y="10.6494140625">ESP32 WiFi<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -414,7 +414,7 @@ magnetometer<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="555.4077669902913" y="-925.0"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="100.6796875" x="13.66015625" y="10.6494140625">ESP32 Bluetooth<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -431,7 +431,7 @@ magnetometer<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="128.0" x="216.5922330097087" y="-925.0"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.02734375" x="-2.013671875" y="3.298828125">DWM1000
 TDOA location system<y:LabelModel>
@@ -449,7 +449,7 @@ TDOA location system<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="439.94174757281553" x="277.0582524271845" y="12.426213592232955"/>
-          <y:Fill color="#80FF80" transparent="false"/>
+          <y:Fill color="#C0FFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="node_width" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="439.94174757281553" x="0.0" y="8.811767578125"> Power supply circuits<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -466,7 +466,7 @@ TDOA location system<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="439.94174757281553" x="277.0582524271846" y="-67.57378640776705"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="node_width" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="439.94174757281553" x="0.0" y="8.811767578125"> Sensors and other input components<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -483,7 +483,7 @@ TDOA location system<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="439.94174757281553" x="277.0582524271845" y="-27.573786407767045"/>
-          <y:Fill color="#8080FF" transparent="false"/>
+          <y:Fill color="#C0C0FF" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="node_width" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="439.94174757281553" x="0.0" y="8.811767578125"> User programmable controllers<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -500,7 +500,7 @@ TDOA location system<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="439.94174757281553" x="277.0582524271845" y="52.426213592232955"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="left" autoSizePolicy="node_width" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="439.94174757281553" x="0.0" y="8.811767578125"> Wired and wireless communication and data storage<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -534,7 +534,7 @@ TDOA location system<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="94.05825242718458" x="182.99999999999994" y="12.426213592232955"/>
-          <y:Fill color="#80FF80" transparent="false"/>
+          <y:Fill color="#C0FFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="47.35205078125" x="23.353100822967292" y="8.811767578125">Green<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -551,7 +551,7 @@ TDOA location system<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="94.05825242718458" x="183.0" y="-67.57378640776705"/>
-          <y:Fill color="#FFFF80" transparent="false"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="51.51220703125" x="21.273022697967292" y="8.811767578125">Yellow<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -568,7 +568,7 @@ TDOA location system<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="94.05825242718458" x="182.99999999999994" y="-27.573786407767045"/>
-          <y:Fill color="#8080FF" transparent="false"/>
+          <y:Fill color="#C0C0FF" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="36.5048828125" x="28.776684807342292" y="8.811767578125">Blue<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -585,7 +585,7 @@ TDOA location system<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="40.0" width="94.05825242718458" x="182.99999999999994" y="52.426213592232955"/>
-          <y:Fill color="#FF8080" transparent="false"/>
+          <y:Fill color="#FFC0C0" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="32.33740234375" x="30.860425041717292" y="8.811767578125">Red<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>

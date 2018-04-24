@@ -109,17 +109,50 @@ The Atmel SAM D20 controler \cite{atmel:samd20} can be programmed in Atmel Studi
 \section{Application Programming Interface}
 The programming interface for the SensorBoard can be split to several categories. There is a native support from the manufacturer of the microcontrollers. This API is written for any electronic device with the targeted microcontroller and this API is mentioned in section \ref{GeneralAPI}.
 
-I have implemented a new library for easier working with the sensors present on the SensorBoard.
+I have implemented a new library for easier working with the sensors on the SensorBoard. This library is described in section \ref{SensorBoardAPI}.
 
 \subsection{SensorBoard API}
-//todo
+\label{SensorBoardAPI}
+The ESP32 and Atmel SAM controller have defined their API by the manufacturer, but these APIs don't implement a communication with specific sensors and peripherials connected to the controlers. For easier work with all the functionality of the SensorBoard I have implemented specific API for the ESP32 controller.
+
+The API is built on ESP-IDF and it should be used together with the ESP-IDF API from the manufacturer. It allows for example a FreeRTOS usage, because the FreeRTOS is a part of ESP-IDF framework \cite{ESP32}. The SensorBoard API can be used together with Arduino API for ESP32, too.
+
+\paragraph{The SensorBoard API implements}
+\begin{itemize}
+	\item Peripherials:
+	\begin{itemize}
+		\item \textbf{MPU9250} Accelerometer, dynamic gyroscope and magnetometer
+		\item \textbf{BMP280} Barometer (Altitude meter)
+		\item \textbf{Programmable LEDs} Two green LEDs
+		\item \textbf{PWM Servo output} Controlling connected servos or regulators
+		\item \textbf{File System} SD card and SPI file system
+		\item \textbf{ADP5062} Battery charger and power supply configuration
+		\item \textbf{Buttons} Read button state as input device
+		\item \textbf{WiFi} Access Point, FTP server, remote control and communication protocol
+	\end{itemize}
+	\item Internal functionality:
+	\begin{itemize}
+		\item \textbf{Global Settings} Configuration file stored on the SD card
+		\item \textbf{Stopwatch} Checking the timing of tasks
+		\item \textbf{Test Sensor} Virtual sensor used for testing other functionalities
+	\end{itemize}
+	\item Partially implemented and actually unused
+	\begin{itemize}
+		\item \textbf{BMI160} Acclerometer and dynamic gyroscope
+		\item \textbf{LTR-329ALS} Light sensor
+		\item \textbf{SI7006} Humidity and teperature sensor
+	\end{itemize}
+\end{itemize}
+
+The API is documented in the source code and in the separate generated file.
 
 \subsection{General API for the controllers}
 \label{GeneralAPI}
-Both controllers used on the SensorBoard have an API defined and implemented by the manufacturer.
+Both controlers used on the SensorBoard have an API defined and implemented by the manufacturer.
 
 \paragraph{Atmel SAM D21:} \cite{AtmelSAMd20API}
 \begin{multicols}{2}
+\begin{flushleft}
 \begin{itemize}
 	\setlength\itemsep{1pt}
 	\item AC -- Analog Comparator (Callback APIs)
@@ -176,6 +209,7 @@ Both controllers used on the SensorBoard have an API defined and implemented by 
 	\item USART -- Serial interface -- SAM implementation for devices with only USART
 	\item WDT -- Watchdog Timer (Polled APIs)
 \end{itemize}
+\end{flushleft}
 \end{multicols}
 
 \paragraph{Espressif ESP-WROOM-32:} \cite{ESP32API}
@@ -271,23 +305,120 @@ Both controllers used on the SensorBoard have an API defined and implemented by 
 \end{itemize}
 \end{multicols}
 
-
-
-
-
-
-
-\subsubsection{Software Tools}
-- SW vlastnosti jako POSIX kompatibilita, FreeRTOS atd.
-
-
-
 \section{Usage Examples}
-- priklady naprogramovani - logovani jen ESP, sensorfusion na BMF, navigace na ESP a vypocty na BMF atd., flight controller na BMF + na ESP user commands, indoor location service
+The SensorBoard is a multifunctional user programmable hardware that can be used in several ways. There are some examples presented in this section.
 
-\section{Data Logging Firmware}
+\subsection{Sensors data logger}
+Sensor logger can be understood as very simple logging device or as very advanced application with integrated web server and with ability to connect more boards into one synchronized grid with centralized control. The simple version is shown in figure \ref{UELogging1ELogging1}.
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{Simple logging application with SensorBoard}
+	\includegraphics[scale=1]{img/UsageExamplesLogger1.pdf}
+\end{figure}
+
+When we need to measure some inertial data, we sometimes need more sensors placed in different places. Then, it's a big advantage when we can start and stop all the sensors synchronously and control all of them by one button. This solution is shown in figure \ref{UELogging2}.
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging2}
+	\caption{Advanced logging application with SensorBoard}
+	\includegraphics[width=16cm]{img/UsageExamplesLogger2.pdf}
+\end{figure}
+
+I'm using this advanced configuration during the analysis of a movement of a horse. This solution is explained in detail in chapter \ref{HorseAnalysis}. The goal of this task is to recognize the type of the movement of a horse (stand, walk, trot or gallop). So, we can get some results from only one sensor, but we get better results when we can measure each leg and the body separately. How the SensorBoards are used in this task is shown in figure \ref{UELoggingHorse}.
+
+\begin{figure}[H]
+	\centering
+	\label{UELoggingHorse}
+	\caption{Configuration of the SensorBoards during measurement of a movement of a horse}
+	\includegraphics[width=16cm]{img/UsageExamplesLoggerHorse.pdf}
+\end{figure}
+
+\subsection{Sensor fusion and AHRS}
+//todo
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[scale=1]{img/UsageExamplesAHRS.pdf}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[scale=1]{img/UsageExamplesAHRSBMF.pdf}
+\end{figure}
+
+\subsection{UAV Flight controller with non-critical user programmable processor}
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[width=16cm]{img/UsageExamplesFlightController.pdf}
+\end{figure}
+
+\subsection{Indoor navigation using TDOA}
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[trim=5cm 6cm 5cm 5cm, clip, width=16cm]{img/UsageExamplesTDOA.pdf}
+\end{figure}
+
+\subsection{RTOS education board}
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[scale=1]{img/UsageExamplesRTOS.pdf}
+\end{figure}
+
+\subsection{MicroPython Robot Controller}
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[width=16cm]{img/UsageExamplesPythonRobot.pdf}
+\end{figure}
+
+\subsection{WiFi AccessPoint with server services}
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[scale=1]{img/UsageExamplesServer.pdf}
+\end{figure}
+
+\subsection{Grid computing education board}
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[width=16cm]{img/UsageExamplesGrid.pdf}
+\end{figure}
+
+\subsection{IoT wireless sensors}
+
+\begin{figure}[H]
+	\centering
+	\label{UELogging1}
+	\caption{text}
+	\includegraphics[width=16cm]{img/UsageExamplesIoT.pdf}
+\end{figure}
+
+\section{Movement Analysis Firmware}
 //todo: samostatna kapitola?
 - SW pro analyzu namerenych dat
 - jak funguje sbirani dat, synchronizace jednotlivych casti atd.
 
-//todo: citovat vetsi verzi ESP WROOM 32 a vypsat vyhody
+\chapter{Horse Movement Analysis}

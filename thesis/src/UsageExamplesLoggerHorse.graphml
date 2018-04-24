@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.17.2-->
+  <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key for="graphml" id="d7" yfiles.type="resources"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d0"/>
+    <node id="n0">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="98.56999588012695" width="146.00127916865867" x="51.257334561209404" y="-202.4049979400635"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="148.08203125" x="-1.040376040670651" y="102.56999588012695">View and control all boards
+as one virtual sensor<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="1"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n1">
+      <data key="d5"/>
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="503.6053466796875" width="736.1494565222965" x="-854.2416076660156" y="-242.4606733398437"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="366.07472826114827" y="507.6053466796875"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="2"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n2">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-515.081640625001" y="-170.5625"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n3">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-495.3656541180524" y="-138.4562329101563"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.091513493051423" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="3"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n4">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-800.1224609375015" y="-254.84375"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n5">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-780.4064744305529" y="-222.7374829101563"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.091513493051423" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="3"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n6">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-323.163281250002" y="123.875"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n7">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-303.4472947430534" y="155.9812670898437"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.091513493051423" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="3"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n8">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-216.2041015625025" y="123.875"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n9">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-196.48811505555392" y="155.9812670898437"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.091513493051423" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="3"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n10">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-836.244921875003" y="2.3125"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n11">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-816.5289353680544" y="34.4187670898437"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.091513493051423" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="3"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n12">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-716.629921875003" y="2.3125"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n13">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-696.9139353680544" y="34.4187670898437"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.091513493051423" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="3"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n14">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-36.63392178430627" y="-222.7374829101563"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.09151349305148" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="3"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <edge id="e0" source="n13" target="n12">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e1" source="n3" target="n2">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e2" source="n5" target="n4">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e3" source="n7" target="n6">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="n9" target="n8">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="n11" target="n10">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="n0" target="n14">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="-11.542408291254816" y="-153.12000000000003"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="standard" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+  </graph>
+  <data key="d7">
+    <y:Resources>
+      <y:Resource id="1">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="68px" height="46px" viewBox="-0.064 -0.075 68 46" enable-background="new -0.064 -0.075 68 46"
+	 xml:space="preserve"&gt;
+&lt;defs&gt;
+&lt;/defs&gt;
+&lt;radialGradient id="SVGID_1_" cx="478.8413" cy="1991.2729" r="21.6001" gradientTransform="matrix(1.15 0 0 1 -526.6598 -1982.4023)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#F2F2F2"/&gt;
+	&lt;stop  offset="1" style="stop-color:#8D8D8D"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_1_)" d="M10.263,1.903c0-0.987,0.807-1.794,1.794-1.794h43.279c0.986,0,1.795,0.807,1.795,1.794v26.978
+	c0,0.987-0.809,1.794-1.795,1.794h-43.28c-0.987,0-1.794-0.807-1.794-1.794L10.263,1.903L10.263,1.903z"/&gt;
+&lt;path display="none" fill="none" stroke="#3C89C9" stroke-width="0.2185" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M10.263,1.903c0-0.987,0.807-1.794,1.794-1.794h43.279c0.986,0,1.795,0.807,1.795,1.794v26.978c0,0.987-0.809,1.794-1.795,1.794
+	h-43.28c-0.987,0-1.794-0.807-1.794-1.794L10.263,1.903L10.263,1.903z"/&gt;
+&lt;radialGradient id="SVGID_2_" cx="455.894" cy="1983.9624" r="47.8462" fx="493.5344" fy="1977.5143" gradientTransform="matrix(1.1935 0 0 1 -509.6731 -1982.4023)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#4D4D4D"/&gt;
+	&lt;stop  offset="1" style="stop-color:#999999"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_2_)" d="M11.18,2.819c0-0.987,0.807-1.794,1.794-1.794h41.649c0.986,0,1.795,0.807,1.795,1.794v24.943
+	c0,0.985-0.809,1.794-1.795,1.794H12.974c-0.987,0-1.794-0.809-1.794-1.794V2.819z"/&gt;
+&lt;radialGradient id="SVGID_3_" cx="456.8843" cy="1984.0386" r="30.6699" gradientTransform="matrix(1.1923 0 0 1 -510.1314 -1982.4023)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#9CD7FF"/&gt;
+	&lt;stop  offset="1" style="stop-color:#3C89C9"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_3_)" d="M11.689,3.228c0-0.987,0.807-1.794,1.794-1.794h40.633c0.986,0,1.795,0.807,1.795,1.794v24.126
+	c0,0.986-0.809,1.794-1.795,1.794H13.483c-0.987,0-1.794-0.809-1.794-1.794V3.228z"/&gt;
+&lt;path opacity="0.24" fill="#F2F2F2" d="M11.689,21.472V3.228c0-0.987,0.807-1.794,1.794-1.794h40.633
+	c0.986,0,1.795,0.807,1.795,1.794v9.454c0,0.987-10.518,5.21-18.256,6.795C29.917,21.062,11.689,21.472,11.689,21.472z"/&gt;
+&lt;linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="131.3501" y1="-212.2612" x2="131.3501" y2="-170.6274" gradientTransform="matrix(1 0 0 -1 -97.6001 -165.0498)"&gt;
+	&lt;stop  offset="0" style="stop-color:#4D4D4D"/&gt;
+	&lt;stop  offset="0.0667" style="stop-color:#717171"/&gt;
+	&lt;stop  offset="0.069" style="stop-color:#757575"/&gt;
+	&lt;stop  offset="0.0831" style="stop-color:#8C8C8C"/&gt;
+	&lt;stop  offset="0.0996" style="stop-color:#9E9E9E"/&gt;
+	&lt;stop  offset="0.1196" style="stop-color:#AAAAAA"/&gt;
+	&lt;stop  offset="0.1466" style="stop-color:#B1B1B1"/&gt;
+	&lt;stop  offset="0.2121" style="stop-color:#B3B3B3"/&gt;
+	&lt;stop  offset="1" style="stop-color:#C5C5C5"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_4_)" d="M58.385,32.234c-0.689-0.856-2.154-1.559-3.254-1.559H12c-1.1,0-2.552,0.711-3.227,1.579
+	l-7.546,9.717C0,43.55,0.042,43.785,0,44.55v0.125c0.056,0.393,0.311,1.002,1.248,1.002h64.75c0.75,0.002,1.5-0.252,1.5-1.002V44.55
+	c0-0.813,0-0.813-1.254-2.559L58.385,32.234z"/&gt;
+&lt;path opacity="0.23" fill="#F2F2F2" enable-background="new    " d="M58.385,32.234c-0.689-0.856-2.154-1.559-3.254-1.559H12
+	c-1.1,0-2.552,0.711-3.227,1.579l-7.055,9.085l58.098-7.33L58.385,32.234z"/&gt;
+&lt;path fill="#6E6E6E" d="M59.75,37.205c0.344,0.431,0.172,0.783-0.377,0.783H8.249c-0.55,0-0.742-0.369-0.427-0.819l2.786-3.986
+	c0.315-0.45,1.023-0.819,1.573-0.819h42.729c0.551,0,1.279,0.354,1.623,0.783L59.75,37.205z"/&gt;
+&lt;path fill="#6E6E6E" d="M40.43,41.906c0.072,0.217-0.057,0.395-0.285,0.395H26.727c-0.229,0-0.364-0.18-0.3-0.398l0.822-2.826
+	c0.064-0.221,0.303-0.399,0.532-0.399h11.167c0.229,0,0.475,0.179,0.547,0.396L40.43,41.906z"/&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="2">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --&gt;
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+&lt;svg version="1.1" id="Слой_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 48 1590 1094" enable-background="new 0 48 1590 1094" xml:space="preserve"&gt;
+&lt;path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M1550.5,719.1c-4.6-4.1-9.4-8.6-12.2-14
+	c-2.7-5-7.2-12.3-7.6-17.6c5,11.9,22.5,18.5,32.3,25c-11.9-12.2-20.4-22.9-25.8-38.7c6.8,8.9,13.6,18.8,20.8,28
+	c4.4,5.6,15.8,20.3,23.1,20.9c-16.2-10.6-23.3-31.8-31.7-48c-8.6-16.7-21.7-29.9-29.5-46.8c3.8,3.3,6.2,9,9.1,13
+	c3.3,4.5,7.8,8,11.3,12.2c6.4,8,14,15.4,17.5,24.9c-0.8-2-1.6-4-2.5-6.1c-6.6-15-15.1-29.3-24-43.5c-8.3-13.2-14.2-28.1-21.5-41.6
+	c-7.6-14-15.8-28.2-22.4-42.8c-6.2-13.6-10.1-28-17.1-41.3c4.2,3.3,7.2,7.6,9.4,12.2c-0.7-2.4-1.5-4.8-2.4-6.8
+	c7.4,7.2,14,20,17,29.8c4,12.6,11.8,22.7,17.2,34.5c4.8,10.5,8.5,22.5,17,31.7c5.7,6.1,13.4,11.8,20,17.4c3.4,2.9,8.9,8.1,13.5,7.8
+	c-6.9-8.6-16-16-23.5-24.1c-7.2-7.7-13.1-16-18.2-25.6c-4.8-9.3-7.7-18.6-10.6-28.1c-2-6.5-5-15.1-8.9-21.9c2.8,4.4,5.4,8.9,8.6,13
+	c2.5,3.3,8.7,16.3,12.9,15.9c-8.7-12.6-14.7-27.7-22.8-40.5c-5.6-8.9-14-16-21.5-23.6c-0.3-0.3-0.4-0.4-0.7-0.7
+	c6.2,5.4,13,10.5,19.5,15.4c6.9,5.2,13.5,11.3,21.1,15.1c6.9,3.6,15.9,12.2,23.3,13.5c-4.8-7.4-15.5-11.4-22.4-17
+	c-8-6.5-16-12.9-23.7-19.9c-13.8-12.9-30.7-27.3-37-45.7c3.6,8.3,13,15,20.7,22.1c7,6.6,14.3,16.2,22.8,20.4
+	c-5.6-10.5-17-17.8-24.1-27c-9.8-12.7-18.4-24.4-24-39.9c-5.2-14.4-36.7-97.1-39.8-104.1c-2.6-6-8.9-11.5-10.7-17.8
+	c4.8,5,10.5,9.3,15.2,14.4c5.3,5.7,7.9,12.5,11.1,19.3c-6.2-16.7-13.2-30.6-26.1-43.5c-5.2-5.2-11-8.9-15.8-14.2
+	c-2.7-3-4.9-6.5-7.7-9.3c-2.8-2.8-6.6-4-9-7c12.5,0,24.2,14.7,33.1,21.7c-3.2-7.7-13-13.5-19.6-18.2c-8.5-6-16-10.3-25.6-14.3
+	c-17.9-7.6-40.1-7.9-59.9-6.4c-28.2,2.4-58.7,10.1-84,23.9c-10.5,5.7-54.2,30.3-70.8,41.2c-51.5-24.2-108.9-25.8-120.4-27.8
+	c-14.6-2.5-112.2,1.3-119.5,1.9c-8.3,0.7-180.1,1.5-187.6,0.9c-25.3-1.9-30.2-10.6-36.3-13.4c-4.9-2.3-10.2-6.4-14.2-10.1
+	c9.3,2.6,16.2,4.9,25.8,4.1c-2.4-1.5-7.6-0.8-10.7-1.6c-4-0.9-7.9-1.7-11.8-2.9c-7.6-2.4-13.6-7.6-20.5-11.4
+	c11.5,0.9,25.3,8.6,37.5,4.4c-9.4-2.6-19.6-3.2-28.8-7.9c-9.4-4.9-18-10.9-27.2-15.9c-5.2-2.8-11-6-16.6-7.7
+	c-5-1.6-10.2-1.2-15.2-2.9c-4.6-1.6-9.1-4.4-13.8-6.1c-4-1.5-8.9-2.1-11.5-5.6c7.4,3,20,2.4,27.7,0.8c-5.8-0.7-12.5-3.3-17.9-5.4
+	c-4.8-1.9-8.5-5.7-12.6-7.9c2.7-0.7,5,0.7,7.8,0.8c-2.5-2.5-7.2-5.8-8.9-6.5c2.1,1.1,4.6,1.2,7.3,1.2c5.3,4.4,10.9,8.2,15.5,7.8
+	c-7.6-10.6-20.9-12.7-27-25c3.6-0.5,7.2,2.3,10.5-0.3c-6.5-0.3-13.8-7.4-18.9-11.5c-5.7-4.6-11.8-9.3-18.7-12.2c-7-3-16-4-23.7-5.4
+	c-7-1.3-19.2,0.7-25-3.4c12.5-6.1,32.6,2.5,44.1,6.4c6.9,2.3,13.8,4,20.8,4.5c7.8,0.7,13.4-1.7,20.5-2.8c-6.2,0-9,0.1-15.1-1.9
+	c-5.6-1.7-11.5-3.2-17.2-5.7c-4.9-2.1-9.4-4.1-14.3-6.4c-4.5-2.1-8.2-5.6-12.9-8.2c2.5-4.1,8.2,3.2,12.3,0.3
+	c-7.3,0.1-10.9-2.5-16.6-7c4.6-2.9,11.3,0.5,16.6-2c-11.1-2-17.8-7.4-27.8-12.7c-4.9-2.5-9.3-4.5-14.4-5.4
+	c-4.2-0.8-11.5-0.7-15.1-2.8c5.3-4.9,21.1,1.5,23.1-2.5c-4.1-0.5-7.6-3-11.7-3.8c-3.4-0.7-6.6,0.8-9.9-1.1c4.1-2.3,7.6-6.4,11.4-9.8
+	c-4.6,0.1-7.3,0.4-12.1-0.7c1.2-0.5,2.8-1.9,4.1-2.3c-2-3-16.4-2.7-20.5-3.6c-6.4-1.6-12.5-4.2-19.1-6.4c-0.1-1.9,0.1-3.6,0.7-5.2
+	c-8.2-2.4-17-3.2-25.2-5.8c1.3-0.9,3.4-2.4,4.4-4.1c-4.6-0.5-11.7,2.1-15.2,0c1.1-0.7,2.1-1.6,3.2-2.1c-5.7,2.3-12.6,0-18.7,0
+	c-6.5,0-13.1-0.1-19.6,0c1.5-1.5,3-2.3,4.8-2.8c-9,0.3-16.6,1.1-25,2.8c-6.6,1.3-14.2,2-20.7,4.4c0.8-0.9,1.5-2.5,2.3-3.6
+	c-8.1,2.9-16.7,4.1-25,5.4c-7.3,1.2-17,4.8-24.4,4.4c0.3-0.3,0.9-1.2,1.5-1.7c-5.4,0.1-10.2,1.3-15.6,0.8c0.8-0.9,1.5-2.7,2.3-3.3
+	c-7.2,3.2-16.6,5.3-24.2,6.9c1.1-1.2,2.3-2.8,3.2-4.2c-9.5,1.2-19.6,5.7-29.5,8.7c-8.9,2.8-20.1,6.9-29.5,6.6c1.3-1.3,2.3-2.3,4-2.8
+	c-6.6-1.2-16.8,2.5-23.2,3.7c-6.5,1.2-12.5,3.4-17.9,7.4c-5.4,3.8-11.4,8.3-15.8,13.4c-3.6,4.4-10.2,17.8-16.7,13.1
+	c6.9-11.1,20.5-16.2,27.6-27c-2.3,1.6-5.4,2.4-7.9,3.4c-3.4,1.6-6.1,3.4-9.3,5.3c-5.3,3-22.8,17.6-27.8,21.1
+	c-3.7,2.4-9.1,9.8-13.4,9.8c-3.3-8.5-21.3-20.8-29.9-15.1c-1.2,4.4,2,8.9,1.6,13.4c-0.3,4.5-1.5,8.2-1.9,12.7
+	c-0.4,4.6,1.2,7.8,1.7,11.8c0.7,4.1-0.7,6.8-2.7,10.9l-1.9,5.4c0.1,5.8-3.8,14.4-5.7,19.9c-2.3,7-4.4,12.7-5.4,19.7
+	c-0.9,6.5,1.2,12.5-1.9,18.9c-2.5,5.4-6.1,10.3-8.9,15.6c-6.8,12.9-0.3,21.6,1.7,35.4s-0.7,33.1-1.7,47
+	c-1.1,13.1-20.9,64.1-23.6,77.9c-0.9,6-3.4,13-3.4,18.9c0,5.8,4.6,10.9,6.4,16.3c2.1,6.4,4.5,11,9.7,15.6c4.4,3.8,6.9,8.2,11.1,12.5
+	c7.7,7.6,16.7,7.9,27,7.2c-0.4-1.5,0.1-1.7-0.8-3.2c9.5,9.4,28.5,6,35.4-4.9c3.8-6.1,4.8-9.9,5.4-17.2c0.7-7.2,1.3-13.9,6.4-18.8
+	c9.1-9.1,17-18.2,27.3-25.3c11.8-8.1,19.9-19.5,26.1-31.9c3.3-6.6,6.2-13.4,11.9-17.9c6.2-4.9,11.4-8.2,16.2-14.7
+	c8.9-12.2,16.7-27.6,17.4-42.4c11.1,3,77.4,66.5,87.1,76.7c8.9,9.3,2.4,27.3,4.2,39.2c2.1,13,5.2,27.3,10.9,39.9
+	c5.2,11.4,12.6,21.7,19.9,31.7c2.8,3.8,9.9,9.9,9.8,14.7c-0.1,5.6-9.1,13.9-13.4,16.3c-11.1,6.2-60,21.6-73.4,24.1
+	c-12.3,2.4-28.6,2.5-39.6,9.3c-11.4,7-20.3,17.2-26.8,28.5c-7,12.3-1.2,28.8-2.5,42.8c-1.2,13.6-4.4,27.3-6.4,40.8
+	c-1.9,13.2-3.6,27.3-6.6,40.7c-2.9,12.6-5.7,29,7.3,36.4c10.6,6,17.6,13.2,25.3,22.7c4,4.9,7.8,9.7,11.8,14.4
+	c5,6.1,42.1,26.8,48,29.5c3.3-2,10.2-0.9,10.3-1.5c15.1-7,18.3-28.2,13.4-42.7c-2.5-7.4-6.2-16.7-12.5-22
+	c-4.8-4.1-15.4-7.7-18.3-13.1c8.6-5.3-0.7-9.3-5.6-10.9c-5.4-1.9-9.5-5.3-14.2-8.6c-11.4-8.2-14.6-21.3-15.6-34.2
+	c-1.2-14,0.8-29.8,4.5-42.5c1.9-6.4,4.2-11.3,7.9-16.6c2.6-3.8,7.7-12.6,11.8-14.6c3.6-1.7,21.6-4.4,25.3-6.1
+	c-14.4,6.2,4.2,22.1,5.8,30.9c1.2,6.8,6.9,33.7,8.1,40.8c2.4,14.8,2.8,29.9,2.8,45.3c0,6.9,0.1,14.7,3.4,20.8
+	c3.3,6.2,10.7,7.2,16.7,8.9c12.3,3.3,15.6,1.7,27.8,4.8c6.9,1.7,21.5,12.5,27.8,15.6c2.3,1.1,4.2,3.6,6.6,4.2
+	c3.3,1.1,25.2,2.4,32.6,3.7c6.4,1.1,13.9,3.7,15.4-4.5c2.4-12.9-6.4-29.9-12.5-40.9c-1.6-2.9-3.2-5.3-6-6.8
+	c-3.2-1.7-6.4-0.8-9.5-3.2c-1.9-1.3-3-4.4-4.9-6.1c-3.2-3-5-2.5-8.9-3.8c-11.9-3.8-25-8.2-35.5-15.9c-6.2-4.6-16.8-25.4-18.8-31
+	c-4.2-11.8-5.6-28.1-3.6-40.8c1.2-7.9,3.8-11.9,9.3-18c5.3,2.9,79.9,1.3,87.6,2.6c7.2,1.2,13.4,3.4,20.8,1.6
+	c6.8-1.7,11.4-6.5,18.2-3.7c58,23.8,203.7,30.9,218.4,32.2c15.1,1.2,31,1.1,46.2-0.3c12.7-1.1,66.4-11.7,70.6-12.9
+	c6.9-1.9,13.4-3.6,20-5.2c13.9-3.4,27.4-8.1,41.6-11.7c14.8-3.7,74.9-18.2,90.6-21.1c6.4-1.2,20.1-2,20.1-2s10.1,5,15.5,7.2
+	c6.1,2.5,15,2.8,21.5,1.2c3.7-0.9,9-3.4,9-3.4s6.2,5.8,8,8.2c7.7,10.2,38.3,64.1,59.8,77c6.2,3.7,46,15.4,56.6,23.1
+	c11.8,8.6,23.2,15.1,30.3,28.5c7,13,15.8,24.1,24.4,36c17.2,23.8,33.9,46.5,48.2,72.5c6.9,12.5,18.8,19.9,22.5,33.5
+	c1.7,6.8,3.6,13.5,5.8,19.9s22,86.7,23.3,99.6c1.6,15,2.7,27.6,7.4,41.5c2.4,6.9,3.4,13.4,3.4,21.1c0,7.3-2.1,14.4-0.9,21.7
+	c0.3,1.7,1.9,2.7,1.9,4.5c0,2.1-1.5,2.4-1.6,3.8c-0.7,3.7,0.3,6.8,1.5,10.1c2.1,6,5,11,6.6,17c3.3,12.5,8.1,24.5,11.9,37.1
+	c8.6-5.2,15.1-15.9,20.4-24.4c6-9.3,13.5-18.9,17.6-29c2.3-5.3,5.3-12.9,3.4-19.1c-1.6-5.4-8.1-5.8-12.5-8.3
+	c-6.5-3.7-6.8-7.4-2.3-13.4c2.9-3.7,6.1-9.9,10.7-11.8c-3-2.1-4-5.4-3.2-8.9c3.3,0.3,8.1-0.5,8.9-3.7c0.8-3-2.8-6.2-2.8-9.1
+	c0-1.5,2-1.7,1.9-3.6c0-1.5-1.9-3.2-1.7-4.6c0.4-2.4,2.9-3.8,3.3-6.1c-4.5-0.9-14.3-4.4-12.5-10.9c0.5-0.1,1.1-0.3,1.6-0.4
+	c-2-3.4-5-7.9-7.8-10.9c-19.2-21.5-23.1-66.5-25.6-82.3c-2.3-14.3-16-82.8-14.4-89.4c6.8-1.3,11.3,7.6,15.5,11.4
+	c19.1,17.4,28.9,44.8,37.6,68.1c9.4,25,20.3,51.1,26.5,77c3.2,13.1,10.9,24,17,36.3c6.1,12.2,9.7,23.9,13.8,36.3
+	c2,6.1,3.6,15.1,7.9,19.9c4.6,5.2,10.6,5.3,14.8,9.9c4.9,5.3,14.7,29.5,23.2,28c1.3-4.2,19.1-43.1,20.1-48.8
+	c1.9-9.5-5.2-29-13.8-34.2c-6.1-3.6-12.9-0.9-18.2-7.3c-5.7-6.9-1.1-10.9,4.8-14c8-4.4,21.7-16.2,23.5-25c-2.9,0.3-18.8-1.9-13-6.5
+	c-2.7-0.8-5.4-2.4-5.8-5.3c0.8,0,1.7-0.3,2.5-0.4c-4.6-8.2-18.6-6-21.6-16.8c1.2,0.1,3-0.5,4.4-0.4c-3.3-4.4-9.9-6.4-14.2-10.1
+	c-5-4.4-8.1-9.9-10.5-16c-4.2-11.1-36.3-100.8-40.5-113.3c-3.8-11.4-7.6-22.8-10.6-34.4c-3.2-11.7-5.8-25.6-16.3-31.9
+	c-13-7.8-26.5-15.6-40-22.1c-41.6-20.1-60.4-46.9-68.6-61c-7.2-12.5-5.4-28.8-2.9-42.5c2.5-13.6,12.3-72.6,13.5-88
+	c1.2-15.6-6.8-77.2-14.3-90.5c-1.1-1.9-2.1-3.7-3.3-5.4c3.2-9.8,3.2-21.5,3-30.5c5.4,11,6.6,25.3,6.4,38.3
+	c3.6-4.8,1.9-16.3,1.9-22.4c0-7.7-2.9-15.1-2.8-22.4c1.6,11,7,20.9,7.9,32.3c0.9,11.5,2,23.2,2.9,34.5c0.5,5.8-0.7,11.8,0.9,17.2
+	c1.5,5.4,3.7,10.9,5.7,16.2c3,8.1,7.8,20.4,13.9,26.4c-6.8-14.3-15-25.2-15-41.6c0-12.3-3.3-31.4,1.9-42.3c-0.1,0.5,0,1.1,0.3,1.5
+	c3.8,3.8,6.4,15.5,8.2,20.9c2.3,6.6,3.7,12.3,5.4,18.8c3.6,13.4,12.1,25.6,18.2,38.3c6.2,13.1,11.9,22.3,24.1,31.9
+	c11,8.9,23.3,13.8,37,14.3c-4.4-1.9-9.4-2.1-14.2-4c-5.3-2.1-10.5-4.8-15.2-8.2c-9.4-6.5-15.9-15.2-21.2-25.2
+	c-10.9-20.1-13.5-43.5-14.3-65.9c2.3,3,1.9,11.1,1.9,15.1c0,5.7,0.9,9.5,2.8,14.4c4.4,12.2,11.8,21.7,19.9,31.7
+	c9.4,11.5,20.1,20,31.7,29c10.3,8,21.2,16.2,33.4,20.8c-2.7-2.4-7.4-4.2-11-6.2c-5.2-2.8-8.7-6.6-13.4-9.9
+	c-8.6-6.2-18.3-14-25.4-22.7c-7.3-8.7-13.8-18.5-19.9-28.1c-4-6.1-8.3-14-8.2-21.5c6.9,19.9,22.8,41.3,39,54.2
+	c11.9,9.7,25.7,21.1,40,28.2c5.7,11.4,9.5,23.5,17.4,34.1c8.3,11.3,18.8,20.5,30.3,28.4c11.7,7.8,22.7,17,32.9,26.9
+	c9.9,9.7,14.8,21.9,22.8,32.3c-2.5-5.3-2.9-10.7-4.9-15.9c-2.4-6.6-7-11.9-11.5-17.2c-9.8-11.7-22.8-20.3-34.4-29.7
+	c-18-14.3-31.3-31.3-37.5-53h0.1c0,0-0.1,0-0.1-0.1c-0.5-1.9-1.1-3.8-1.5-5.8c2.9,4.6,7,9.1,11,13.1c2.9,2.9,6.4,7.2,10.1,9.5
+	c3.7,7.8,8.1,15.9,12.6,22.9c-1.2-7.8-4.1-16.3-7.3-23.3c-3.7-8.2-10.3-15.2-9.1-25c4.2,8.9,9.5,17,12.7,26
+	c3.3,9.3,6.8,17,14.2,24.6c6.1,6.4,12.3,12.5,18.4,18.6c2.9,2.9,6.5,6.6,9.3,9.9c2.9,3.6,3.7,7.9,5.8,11.4c3.2,4.9,8.1,9.1,11.4,14
+	c4.2,6.5,6.8,13,8.6,20.1c3.6,13.2,2,29.3,8.1,41.9c6,12.3,11.4,23.8,22.7,32.6c10.1,8,25.8,19.2,38.8,19.7
+	c-14.4-6.4-29.8-10.3-39.4-24.6c-6.1-9.1-26-36.7-15.8-47.7c2.4,10.7,7.4,22.5,13.8,31.7c3.2,4.5,5.2,10.1,8.3,14.3
+	c2.3,2.9,6,9.5,8.7,10.7c-5-9.1-10.6-18-15-27.7c-4.9-10.9-8.7-22-13-33.3c10.5,9.1,14.8,22.5,24.6,32.3c9.4,9.4,20.8,19.6,35,19.1
+	c-12.5-3.4-33.3-16.3-31.3-31.4c6.8,9,17.2,15.8,26.1,22.1c8.3,6,19.2,12.9,29.8,13c-5.6-0.4-14.6-6.1-18.8-8.3
+	C1561.4,728.4,1555.4,723.5,1550.5,719.1z M539.8,187.3c-8.7,0-16.4-0.4-24.5-2.7c-5.3-1.6-17.5-4-20.7-7.9c4.5,0,6.9-1.5,11.7-1.1
+	c4.5,0.4,8.3,0.1,12.7,0.9c7.7,1.3,15,5.6,21.3,10.1c-3.3-3.7-7.6-6.8-12.1-8.2c12.3,0.1,24.4,3,35.2,8.9c2,1.1,4.4,2.9,7,5.2
+	c-2.9-0.7-5.7-1.1-8-1.5C554.9,189.4,548.2,187.3,539.8,187.3z M1220.1,400.1c0.4-5.6,0-11.1-1.1-15.4c-2.3-9.3-9.7-19.3-9.5-28.9
+	c5.2,2.8,7.2,8.9,10.7,13.5c3.6,4.6,5,9,5.4,14.4c0.5,7.3-0.3,14.6-1.7,21.7C1222.6,403.6,1221.3,401.8,1220.1,400.1z M1346.9,443
+	c4.6,5.8,3.6,10.5,5.4,17c1.6,5.7,4.8,11.5,7,17.2c2.1,5.3,4.2,10.3,7.7,15.2c3.2,4.6,6.1,10.3,9.8,14.3
+	c-1.9-6.9-12.5-21.7-8.2-28.4c5,9.5,7.3,20,12.5,29.5c4.5,8.2,11.5,15.1,15.1,23.5c-6-0.9-11.8-2.7-15.9-6
+	c-7-5.7-13.4-18.4-17.4-26.5c-4.5-9.1-8.1-18.4-10.7-28.1C1350,462.7,1345.9,451.9,1346.9,443z M1316.1,422.2
+	c5.6,8.7,6.2,22.3,9.3,32.1c3.3,10.7,9,21.1,12.7,31.7c0.5,1.6,0.8,3,1.2,4.5c-4.6-6.8-9.5-13.5-13.1-20.7
+	C1319.2,456.4,1315.6,437.7,1316.1,422.2z M1329,503.1c-13.9-18.2-25-39.2-29-61.2c3.4,5.2,5.6,15.1,8.9,21.6
+	c4.1,8.2,9,15,15.2,21.7c5,5.6,10.6,10.7,16.2,15.8c0.1,0.5,0.1,1.1,0.3,1.5c1.7,4.8,8.9,9.3,12.1,13.2c5.4,6.9,11.1,13.8,15.9,21.2
+	C1354.2,527.3,1340.1,517.7,1329,503.1z M1405,562c-1.3-1.5-2.8-2.9-3.7-4.4c-2.9-4-6-7.8-9.3-11.8c-3.3-3.8-6.1-8.6-9.7-12.1
+	c-4.4-4.2-8.9-7.3-10.7-13.4c6.8,6.5,15.8,10.6,25.3,11.9C1400.5,542.1,1400.8,552.2,1405,562z M1459.6,472.4
+	c3.3,6,7.6,11.1,12.5,16C1466.9,483.7,1461.7,478.5,1459.6,472.4z"/&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="3">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --&gt;
+
+&lt;svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   sodipodi:docname="wifi.svg"
+   inkscape:version="0.92.1 r15371"&gt;&lt;metadata
+   id="metadata17"&gt;&lt;rdf:RDF&gt;&lt;cc:Work
+       rdf:about=""&gt;&lt;dc:format&gt;image/svg+xml&lt;/dc:format&gt;&lt;dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /&gt;&lt;/cc:Work&gt;&lt;/rdf:RDF&gt;&lt;/metadata&gt;&lt;defs
+   id="defs15" /&gt;&lt;sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1366"
+   inkscape:window-height="746"
+   id="namedview13"
+   showgrid="false"
+   inkscape:zoom="0.4609375"
+   inkscape:cx="256"
+   inkscape:cy="256"
+   inkscape:window-x="-8"
+   inkscape:window-y="304"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" /&gt;
+
+&lt;path
+   fill="#020202"
+   d="M233.503,70.369c93.726-6.75,189.622,28.317,256.515,94.363c8.765,9.023,7.622,24.807-1.625,33.076  c-8.493,10.012-25.501,10.189-34.266,0.436c-57.224-55.091-138.018-84.881-217.35-78.956  c-65.905,4.24-129.749,32.628-177.572,78.096c-4.253,4.347-9.684,7.916-15.938,8.222c-15.666,1.837-30.154-14.536-26.773-29.86  c0.954-5.501,4.487-10.083,8.527-13.747C81.009,108.392,156.172,75.469,233.503,70.369z"
+   id="path4" /&gt;
+&lt;path
+   fill="#020202"
+   d="M231.183,162.282c71.806-7.81,146.369,18.658,197.183,69.968c7.939,9.07,6.95,23.901-1.872,32.052  c-8.046,9.847-24.265,10.953-33.383,2.024c-32.534-32.074-76.518-52.44-122.126-55.774c-55.387-4.594-111.974,16.42-151.411,55.445  c-9.094,9.612-26.033,8.518-34.218-1.708c-8.823-8.327-9.553-23.559-1.084-32.381C123.356,192.802,176.209,167.924,231.183,162.282z  "
+   id="path6" /&gt;
+&lt;path
+   fill="#020202"
+   d="M241.796,252.97c45.314-4.499,92.161,12.852,123.693,45.669c8.634,8.987,7.634,24.454-1.461,32.77  c-8.257,9.966-24.807,10.638-33.782,1.296c-17.774-18.245-42.394-29.778-67.884-31.168c-28.929-2.062-58.201,9.365-78.744,29.695  c-5.053,5.679-12.557,9.165-20.237,8.259c-17.833-1.25-30.213-25.056-17.928-39.344C170.26,273.243,205.492,256.575,241.796,252.97z  "
+   id="path8" /&gt;
+&lt;path
+   fill="#020202"
+   d="M248.781,337.651c29.201-4.9,58.837,19.213,59.78,48.824c2.709,29.036-22.923,56.589-52.063,55.951  c-26.197,0.908-50.475-20.825-52.772-46.88C199.991,368.194,221.382,340.808,248.781,337.651z"
+   id="path10" /&gt;
+&lt;/svg&gt;</y:Resource>
+    </y:Resources>
+  </data>
+</graphml>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.17.2-->
+  <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key for="graphml" id="d7" yfiles.type="resources"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d0"/>
+    <node id="n0">
+      <data key="d5"/>
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="692.9681978798586" width="812.8911917098446" x="-403.4399609375014" y="-407.93600000000004"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="404.4455958549223" y="696.9681978798586"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="1"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n1">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-203.0724609375015" y="-232.79375"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n2">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-183.35647443055285" y="-200.6874829101563"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.09151349305148" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="2"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n3">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="108.27753906249853" y="-232.79375"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n4">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="127.99352556944717" y="-200.6874829101563"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.09151349305148" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="2"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n5">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="44.42753906249851" y="15.206250000000011"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n6">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="64.14352556944715" y="47.31251708984371"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.09151349305148" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="2"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n7">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-203.07246093750138" y="15.206250000000011"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n8">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-183.35647443055274" y="47.31251708984371"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.09151349305148" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="2"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n9">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="81.81549999999996" width="89.61500000000001" x="-50.19746093750149" y="-127.79374999999999"/>
+          <y:Fill color="#FFFFC0" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.04296875" x="7.7860156250000045" y="4.0">SensorBoard</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n10">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="39.23496582031254" width="50.1830269861029" x="-30.48147443055285" y="-95.68748291015629"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="23.09151349305148" y="43.23496582031254"/>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="2"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <edge id="e0" source="n2" target="n1">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e1" source="n4" target="n3">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e2" source="n6" target="n5">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e3" source="n8" target="n7">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="n10" target="n9">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+  </graph>
+  <data key="d7">
+    <y:Resources>
+      <y:Resource id="1">&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1132" height="965"&gt;&lt;defs&gt;&lt;clipPath id="ExCOzrTQxIUE"&gt;&lt;path fill="none" stroke="none" d=" M 0 0 L 1132 0 L 1132 965 L 0 965 L 0 0 Z"/&gt;&lt;/clipPath&gt;&lt;/defs&gt;&lt;g transform="scale(1,1)" clip-path="url(#ExCOzrTQxIUE)"&gt;&lt;g&gt;&lt;rect fill="rgb(255,255,255)" stroke="none" x="0" y="0" width="1132" height="965" fill-opacity="1"/&gt;&lt;path fill="none" stroke="rgb(192,192,192)" paint-order="fill stroke markers" d=" M 75.5 0.5 L 75.5 965.5 M 75.5 0.5 L 75.5 965.5 M 164.5 0.5 L 164.5 965.5 M 252.5 0.5 L 252.5 965.5 M 430.5 0.5 L 430.5 965.5 M 518.5 0.5 L 518.5 965.5 M 607.5 0.5 L 607.5 965.5 M 695.5 0.5 L 695.5 965.5 M 784.5 0.5 L 784.5 965.5 M 873.5 0.5 L 873.5 965.5 M 961.5 0.5 L 961.5 965.5 M 1050.5 0.5 L 1050.5 965.5" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(192,192,192)" paint-order="fill stroke markers" d=" M 4.5 0.5 L 4.5 965.5 M 22.5 0.5 L 22.5 965.5 M 40.5 0.5 L 40.5 965.5 M 58.5 0.5 L 58.5 965.5 M 93.5 0.5 L 93.5 965.5 M 111.5 0.5 L 111.5 965.5 M 128.5 0.5 L 128.5 965.5 M 146.5 0.5 L 146.5 965.5 M 182.5 0.5 L 182.5 965.5 M 199.5 0.5 L 199.5 965.5 M 217.5 0.5 L 217.5 965.5 M 235.5 0.5 L 235.5 965.5 M 270.5 0.5 L 270.5 965.5 M 288.5 0.5 L 288.5 965.5 M 306.5 0.5 L 306.5 965.5 M 323.5 0.5 L 323.5 965.5 M 359.5 0.5 L 359.5 965.5 M 376.5 0.5 L 376.5 965.5 M 394.5 0.5 L 394.5 965.5 M 412.5 0.5 L 412.5 965.5 M 447.5 0.5 L 447.5 965.5 M 465.5 0.5 L 465.5 965.5 M 483.5 0.5 L 483.5 965.5 M 500.5 0.5 L 500.5 965.5 M 536.5 0.5 L 536.5 965.5 M 554.5 0.5 L 554.5 965.5 M 571.5 0.5 L 571.5 965.5 M 589.5 0.5 L 589.5 965.5 M 624.5 0.5 L 624.5 965.5 M 642.5 0.5 L 642.5 965.5 M 660.5 0.5 L 660.5 965.5 M 678.5 0.5 L 678.5 965.5 M 713.5 0.5 L 713.5 965.5 M 731.5 0.5 L 731.5 965.5 M 748.5 0.5 L 748.5 965.5 M 766.5 0.5 L 766.5 965.5 M 802.5 0.5 L 802.5 965.5 M 819.5 0.5 L 819.5 965.5 M 837.5 0.5 L 837.5 965.5 M 855.5 0.5 L 855.5 965.5 M 890.5 0.5 L 890.5 965.5 M 908.5 0.5 L 908.5 965.5 M 926.5 0.5 L 926.5 965.5 M 943.5 0.5 L 943.5 965.5 M 979.5 0.5 L 979.5 965.5 M 997.5 0.5 L 997.5 965.5 M 1014.5 0.5 L 1014.5 965.5 M 1032.5 0.5 L 1032.5 965.5 M 1067.5 0.5 L 1067.5 965.5 M 1085.5 0.5 L 1085.5 965.5 M 1103.5 0.5 L 1103.5 965.5 M 1121.5 0.5 L 1121.5 965.5" stroke-opacity="0.23529411764705882" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(192,192,192)" paint-order="fill stroke markers" d=" M 0.5 27.5 L 1132.5 27.5 M 0.5 27.5 L 1132.5 27.5 M 0.5 116.5 L 1132.5 116.5 M 0.5 205.5 L 1132.5 205.5 M 0.5 293.5 L 1132.5 293.5 M 0.5 382.5 L 1132.5 382.5 M 0.5 470.5 L 1132.5 470.5 M 0.5 559.5 L 1132.5 559.5 M 0.5 736.5 L 1132.5 736.5 M 0.5 825.5 L 1132.5 825.5 M 0.5 913.5 L 1132.5 913.5" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(192,192,192)" paint-order="fill stroke markers" d=" M 0.5 10.5 L 1132.5 10.5 M 0.5 10.5 L 1132.5 10.5 M 0.5 45.5 L 1132.5 45.5 M 0.5 63.5 L 1132.5 63.5 M 0.5 81.5 L 1132.5 81.5 M 0.5 98.5 L 1132.5 98.5 M 0.5 134.5 L 1132.5 134.5 M 0.5 151.5 L 1132.5 151.5 M 0.5 169.5 L 1132.5 169.5 M 0.5 187.5 L 1132.5 187.5 M 0.5 222.5 L 1132.5 222.5 M 0.5 240.5 L 1132.5 240.5 M 0.5 258.5 L 1132.5 258.5 M 0.5 275.5 L 1132.5 275.5 M 0.5 311.5 L 1132.5 311.5 M 0.5 329.5 L 1132.5 329.5 M 0.5 346.5 L 1132.5 346.5 M 0.5 364.5 L 1132.5 364.5 M 0.5 399.5 L 1132.5 399.5 M 0.5 417.5 L 1132.5 417.5 M 0.5 435.5 L 1132.5 435.5 M 0.5 453.5 L 1132.5 453.5 M 0.5 488.5 L 1132.5 488.5 M 0.5 506.5 L 1132.5 506.5 M 0.5 523.5 L 1132.5 523.5 M 0.5 541.5 L 1132.5 541.5 M 0.5 577.5 L 1132.5 577.5 M 0.5 594.5 L 1132.5 594.5 M 0.5 612.5 L 1132.5 612.5 M 0.5 630.5 L 1132.5 630.5 M 0.5 665.5 L 1132.5 665.5 M 0.5 683.5 L 1132.5 683.5 M 0.5 701.5 L 1132.5 701.5 M 0.5 718.5 L 1132.5 718.5 M 0.5 754.5 L 1132.5 754.5 M 0.5 772.5 L 1132.5 772.5 M 0.5 789.5 L 1132.5 789.5 M 0.5 807.5 L 1132.5 807.5 M 0.5 842.5 L 1132.5 842.5 M 0.5 860.5 L 1132.5 860.5 M 0.5 878.5 L 1132.5 878.5 M 0.5 896.5 L 1132.5 896.5 M 0.5 931.5 L 1132.5 931.5 M 0.5 949.5 L 1132.5 949.5" stroke-opacity="0.23529411764705882" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 341.5 2.5 L 341.5 965.5" stroke-opacity="1" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 341.5 1.5 L 337.5 5.5" stroke-opacity="1" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 341.5 1.5 L 345.5 5.5" stroke-opacity="1" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 0.5 647.5 L 1130.5 647.5" stroke-opacity="1" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 1131.5 647.5 L 1127.5 643.5" stroke-opacity="1" stroke-miterlimit="10"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 1131.5 647.5 L 1127.5 651.5" stroke-opacity="1" stroke-miterlimit="10"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="70" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;–3&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="70" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;–3&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="159" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;–2&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="159" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;–2&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="247" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;–1&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="247" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;–1&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="428" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;1&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="428" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;1&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="516" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;2&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="516" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;2&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="605" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;3&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="605" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;3&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="693" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;4&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="693" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;4&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="782" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;5&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="782" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;5&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="871" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;6&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="871" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;6&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="959" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;7&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="959" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;7&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="1048" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;8&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="1048" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;8&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="320" y="918" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;–3&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="320" y="918" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;–3&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="320" y="830" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;–2&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="320" y="830" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;–2&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="320" y="741" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;–1&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="320" y="741" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;–1&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="564" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;1&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="564" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;1&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="475" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;2&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="475" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;2&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="387" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;3&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="387" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;3&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="298" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;4&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="298" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;4&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="210" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;5&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="210" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;5&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="121" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;6&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="121" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;6&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="32" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;7&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="32" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;7&lt;/text&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="663" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;0&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="12px" font-style="normal" font-weight="normal" text-decoration="normal" x="327" y="663" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;0&lt;/text&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 636.5736711411334 647.9928575000006 C 636.5736711411334 810.9386060946244 504.48004259462385 943.0322346411338 341.53429399999993 943.0322346411338 C 178.58854540537595 943.0322346411338 46.494916858866475 810.9386060946244 46.494916858866475 647.9928575000006 C 46.494916858866475 485.0471089053767 178.58854540537595 352.95348035886735 341.53429399999993 352.95348035886735 C 504.48004259462385 352.95348035886735 636.5736711411334 485.0471089053767 636.5736711411334 647.9928575000006 Z" stroke-opacity="0.6980392156862745" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" stroke-dasharray="10.5,8"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="194" y="417" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3" stroke-dasharray="10.5,8"&gt;c&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="194" y="417" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;c&lt;/text&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 954.6172273776633 647.9928575000006 C 954.6172273776633 790.907987247014 838.7616237470138 906.7635908776634 695.8464940000002 906.7635908776634 C 552.9313642529867 906.7635908776634 437.0757606223372 790.907987247014 437.0757606223372 647.9928575000006 C 437.0757606223372 505.07772775298713 552.9313642529867 389.22212412233773 695.8464940000002 389.22212412233773 C 838.7616237470138 389.22212412233773 954.6172273776633 505.07772775298713 954.6172273776633 647.9928575000006 Z" stroke-opacity="0.6980392156862745" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" stroke-dasharray="10.5,8"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="566" y="448" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3" stroke-dasharray="10.5,8"&gt;d&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="566" y="448" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;d&lt;/text&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 591.6712419413309 293.6806575000005 C 591.6712419413309 431.82747921721653 479.6811157172161 543.8176054413314 341.53429399999993 543.8176054413314 C 203.38747228278373 543.8176054413314 91.39734605866892 431.82747921721653 91.39734605866892 293.6806575000005 C 91.39734605866892 155.53383578278442 203.38747228278373 43.54370955866966 341.53429399999993 43.54370955866966 C 479.6811157172161 43.54370955866966 591.6712419413309 155.53383578278442 591.6712419413309 293.6806575000005 Z" stroke-opacity="0.6980392156862745" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" stroke-dasharray="10.5,8"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="216" y="101" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3" stroke-dasharray="10.5,8"&gt;e&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="216" y="101" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;e&lt;/text&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 1061.356702516574 293.6806575000005 C 1061.356702516574 446.6260653864279 937.3699518864278 570.612816016574 784.4245440000003 570.612816016574 C 631.4791361135728 570.612816016574 507.49238548342663 446.6260653864279 507.49238548342663 293.6806575000005 C 507.49238548342663 140.7352496135731 631.4791361135728 16.748498983426998 784.4245440000003 16.748498983426998 C 937.3699518864278 16.748498983426998 1061.356702516574 140.7352496135731 1061.356702516574 293.6806575000005 Z" stroke-opacity="0.6980392156862745" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" stroke-dasharray="10.5,8"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="645" y="78" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3" stroke-dasharray="10.5,8"&gt;f&lt;/text&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="645" y="78" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;f&lt;/text&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 547.0353700000001 436.2913180000005 L 784.4245440000003 293.6806575000005" stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 547.0353700000001 436.2913180000005 L 341.53429399999993 293.6806575000005" stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 547.0353700000001 436.2913180000005 L 341.53429399999993 647.9928575000006" stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;path fill="none" stroke="rgb(0,0,0)" paint-order="fill stroke markers" d=" M 547.0353700000001 436.2913180000005 L 695.8464940000002 647.9928575000006" stroke-opacity="0.6980392156862745" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;path fill="none" stroke="rgb(68,68,68)" paint-order="fill stroke markers" d=" M 337.53429399999993 643.9928575000006 L 345.53429399999993 651.9928575000006" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/&gt;&lt;path fill="none" stroke="rgb(68,68,68)" paint-order="fill stroke markers" d=" M 337.53429399999993 651.9928575000006 L 345.53429399999993 643.9928575000006" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="346" y="640" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;A&lt;/text&gt;&lt;text fill="rgb(68,68,68)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="346" y="640" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;A&lt;/text&gt;&lt;path fill="none" stroke="rgb(77,77,255)" paint-order="fill stroke markers" d=" M 542.0353700000001 431.2913180000005 L 552.0353700000001 441.2913180000005" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;path fill="none" stroke="rgb(77,77,255)" paint-order="fill stroke markers" d=" M 542.0353700000001 441.2913180000005 L 552.0353700000001 431.2913180000005" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="551" y="426" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;B&lt;/text&gt;&lt;text fill="rgb(77,77,255)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="551" y="426" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;B&lt;/text&gt;&lt;path fill="none" stroke="rgb(125,125,255)" paint-order="fill stroke markers" d=" M 690.8464940000002 642.9928575000006 L 700.8464940000002 652.9928575000006" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;path fill="none" stroke="rgb(125,125,255)" paint-order="fill stroke markers" d=" M 690.8464940000002 652.9928575000006 L 700.8464940000002 642.9928575000006" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="700" y="638" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;C&lt;/text&gt;&lt;text fill="rgb(125,125,255)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="700" y="638" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;C&lt;/text&gt;&lt;path fill="none" stroke="rgb(125,125,255)" paint-order="fill stroke markers" d=" M 336.53429399999993 288.6806575000005 L 346.53429399999993 298.6806575000005" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;path fill="none" stroke="rgb(125,125,255)" paint-order="fill stroke markers" d=" M 336.53429399999993 298.6806575000005 L 346.53429399999993 288.6806575000005" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="346" y="284" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;D&lt;/text&gt;&lt;text fill="rgb(125,125,255)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="346" y="284" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;D&lt;/text&gt;&lt;path fill="none" stroke="rgb(77,77,255)" paint-order="fill stroke markers" d=" M 779.4245440000003 288.6806575000005 L 789.4245440000003 298.6806575000005" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;path fill="none" stroke="rgb(77,77,255)" paint-order="fill stroke markers" d=" M 779.4245440000003 298.6806575000005 L 789.4245440000003 288.6806575000005" stroke-opacity="1" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2.5"/&gt;&lt;text fill="none" stroke="rgb(255,255,255)" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="788" y="284" text-anchor="start" dominant-baseline="alphabetic" stroke-opacity="1" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="10" stroke-width="3"&gt;E&lt;/text&gt;&lt;text fill="rgb(77,77,255)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="788" y="284" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;E&lt;/text&gt;&lt;path fill="rgb(255,255,255)" stroke="none" paint-order="stroke fill markers" d=" M 654 386 L 730 386 L 730 416 L 654 416 L 654 386 Z" fill-opacity="1"/&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="657" y="405" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;BE = 3.13&lt;/text&gt;&lt;path fill="rgb(255,255,255)" stroke="none" paint-order="stroke fill markers" d=" M 467 337 L 544 337 L 544 367 L 467 367 L 467 337 Z" fill-opacity="1"/&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="470" y="356" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;BD = 2.82&lt;/text&gt;&lt;path fill="rgb(255,255,255)" stroke="none" paint-order="stroke fill markers" d=" M 437 569 L 513 569 L 513 599 L 437 599 L 437 569 Z" fill-opacity="1"/&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="440" y="588" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;BA = 3.33&lt;/text&gt;&lt;path fill="rgb(255,255,255)" stroke="none" paint-order="stroke fill markers" d=" M 655 529 L 732 529 L 732 559 L 655 559 L 655 529 Z" fill-opacity="1"/&gt;&lt;text fill="rgb(0,0,0)" stroke="none" font-family="geogebra-sans-serif, sans-serif" font-size="16px" font-style="normal" font-weight="normal" text-decoration="normal" x="658" y="548" text-anchor="start" dominant-baseline="alphabetic" fill-opacity="1"&gt;BC = 2.92&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;</y:Resource>
+      <y:Resource id="2">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --&gt;
+
+&lt;svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   sodipodi:docname="wifi.svg"
+   inkscape:version="0.92.1 r15371"&gt;&lt;metadata
+   id="metadata17"&gt;&lt;rdf:RDF&gt;&lt;cc:Work
+       rdf:about=""&gt;&lt;dc:format&gt;image/svg+xml&lt;/dc:format&gt;&lt;dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /&gt;&lt;/cc:Work&gt;&lt;/rdf:RDF&gt;&lt;/metadata&gt;&lt;defs
+   id="defs15" /&gt;&lt;sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1366"
+   inkscape:window-height="746"
+   id="namedview13"
+   showgrid="false"
+   inkscape:zoom="0.4609375"
+   inkscape:cx="256"
+   inkscape:cy="256"
+   inkscape:window-x="-8"
+   inkscape:window-y="304"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" /&gt;
+
+&lt;path
+   fill="#020202"
+   d="M233.503,70.369c93.726-6.75,189.622,28.317,256.515,94.363c8.765,9.023,7.622,24.807-1.625,33.076  c-8.493,10.012-25.501,10.189-34.266,0.436c-57.224-55.091-138.018-84.881-217.35-78.956  c-65.905,4.24-129.749,32.628-177.572,78.096c-4.253,4.347-9.684,7.916-15.938,8.222c-15.666,1.837-30.154-14.536-26.773-29.86  c0.954-5.501,4.487-10.083,8.527-13.747C81.009,108.392,156.172,75.469,233.503,70.369z"
+   id="path4" /&gt;
+&lt;path
+   fill="#020202"
+   d="M231.183,162.282c71.806-7.81,146.369,18.658,197.183,69.968c7.939,9.07,6.95,23.901-1.872,32.052  c-8.046,9.847-24.265,10.953-33.383,2.024c-32.534-32.074-76.518-52.44-122.126-55.774c-55.387-4.594-111.974,16.42-151.411,55.445  c-9.094,9.612-26.033,8.518-34.218-1.708c-8.823-8.327-9.553-23.559-1.084-32.381C123.356,192.802,176.209,167.924,231.183,162.282z  "
+   id="path6" /&gt;
+&lt;path
+   fill="#020202"
+   d="M241.796,252.97c45.314-4.499,92.161,12.852,123.693,45.669c8.634,8.987,7.634,24.454-1.461,32.77  c-8.257,9.966-24.807,10.638-33.782,1.296c-17.774-18.245-42.394-29.778-67.884-31.168c-28.929-2.062-58.201,9.365-78.744,29.695  c-5.053,5.679-12.557,9.165-20.237,8.259c-17.833-1.25-30.213-25.056-17.928-39.344C170.26,273.243,205.492,256.575,241.796,252.97z  "
+   id="path8" /&gt;
+&lt;path
+   fill="#020202"
+   d="M248.781,337.651c29.201-4.9,58.837,19.213,59.78,48.824c2.709,29.036-22.923,56.589-52.063,55.951  c-26.197,0.908-50.475-20.825-52.772-46.88C199.991,368.194,221.382,340.808,248.781,337.651z"
+   id="path10" /&gt;
+&lt;/svg&gt;</y:Resource>
+    </y:Resources>
+  </data>
+</graphml>
