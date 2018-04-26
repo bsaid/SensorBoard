@@ -129,6 +129,7 @@ void dataLoopTask(void * pvParameters)
 			horse.addData(acc.x, acc.y, acc.z, 0, 0, 0);
 			if(horse.elapsedTime() % 1000 == 0)
 			{
+				FILE* horseFile = fs.getCountedFile("horse.txt");
 				//TODO: make CSV compatible output, log data to SD card
 				char data[256];
 				sprintf(data,
@@ -139,12 +140,20 @@ void dataLoopTask(void * pvParameters)
 	                horse.detectAndNameMovement().c_str()
 	            );
 				printf("%s", data);
+				fprintf(horseFile, "%s", data);
 				for(int i=0; data[i]!='\0' && i<256; i++)
 				{
 					xQueueSend(queue, &(data[i]), portMAX_DELAY);
 				}
+				fclose(horseFile);
 			}
         }
+
+		while(uxQueueMessagesWaiting(queue) > 900)
+		{
+			char element;
+			xQueueReceive(queue, &element, portMAX_DELAY);
+		}
 
 		int ovfTime = loopWatch.waitForNext();
     	if(ovfTime > 0)

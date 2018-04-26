@@ -83,6 +83,13 @@ public:
 		return getFile(fileName, "a");
 	}
 
+	FILE* getCountedFile(const char* filename)
+	{
+		char fileName[64];
+		sprintf(fileName, "%i_%i_%s", sessionCounter, logCounter, filename);
+		return getFile(fileName, "a");
+	}
+
 	FILE* getNewLogFile()
 	{
 		logCounter++;
