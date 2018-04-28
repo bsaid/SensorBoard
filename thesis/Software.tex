@@ -309,6 +309,7 @@ Both controlers used on the SensorBoard have an API defined and implemented by t
 The SensorBoard is a multifunctional user programmable hardware that can be used in several ways. There are some examples presented in this section.
 
 \subsection{Sensors data logger}
+\label{ExampleLogger}
 Sensor logger can be understood as very simple logging device or as very advanced application with integrated web server and with ability to connect more boards into one synchronized grid with centralized control. The simple version is shown in figure \ref{UELogging1ELogging1}.
 
 \begin{figure}[H]
@@ -422,6 +423,7 @@ The ESP32 controller has a built-in Bluetooth and WiFi module. So, we can create
 \end{figure}
 
 \subsection{Grid computing education board}
+\label{ExampleGrid}
 The SensorBoard has a real time system, wireless and independence abilities. These advantages create a grid from multiple items. Then we can use the whole grid as one virtual unit. When we solve the problems with failures and accessibility, we have a grid solution with swappable items. An example of a grid with two failures is shown in figure \ref{UEEgrid}.
 
 \begin{figure}[H]
@@ -443,8 +445,130 @@ The Internet of Things (IoT) is a commercially used word for all devices connect
 
 \section{Movement Analysis Firmware}
 \label{HorseFirmware}
+The firmware is a sensor data logging application similar to the example in section \ref{ExampleLogger}. The program is able to read values from sensors in a defined frequency and store the captured data to SD card and/or send them directly via WiFi. The application is controlled by start/stop button or via TCP connection.
 
+When the SensorBoard is switched on, it initializes WiFi access point and waits 5 seconds before the reading and logging starts. After these 5 seconds the board enters a loop and starts logging data to SD card. The logging loop can be stopped via TCP connection, by pressing the start/stop button or by switching the board off.
 
-//todo: samostatna kapitola?
-- SW pro analyzu namerenych dat
-- jak funguje sbirani dat, synchronizace jednotlivych casti atd.
+When we want to control the SensorBoard via TCP client, we have to connect our device to SensorBoard's WiFi access point. Then we can connect to the TCP server and send the control commands.
+
+\subsection{Before first use}
+\label{beforeFirstUse}
+All the configuration is saved in \texttt{config.ini} file on the SD card (root directory). The configuration is read every time when the SensorBoard is powered on. The configuration file is never modified by the SensorBoard. An example of the configuration file is in figure \ref{SBconfigFile}. If no configuration file is present on the SD card, default values are used.
+
+\begin{figure}
+	\centering
+	\label{SBconfigFile}
+	\caption{Example of the configuration file on SD card}
+	\begin{verbatim}
+% Enable or disable WiFi adapter
+isWiFienabled = true
+
+% Initializes WiFi as access point when true, otherwise as station
+isWiFiAccessPoint = true
+
+% Network SSID
+% When initialized as station: tries to connect to existing netowrk
+% When initialized as AP: creates new network
+WiFiSSID = SensorBoard
+
+% WiFi network password
+WiFiPassword = 1234567890
+
+% IP address of the device,
+% if initialized as access point, can be used 192.168.1.1
+myIP = 192.168.1.1
+
+% TCP server port
+TCPseverPort = 3000
+
+% If enabled, starts logging automatically 'startUpWaitTime' seconds
+% after powered on
+startLoggingImmediately = true
+
+% Waits N milliseconds before entering the logging loop
+startUpWaitTime = 5000
+
+% If enabled, the horse movement analysis starts automatically
+isHorseAnalysis = false
+
+% If enabled, the data streaming starts automatically
+isStreaming = false
+
+% If enabled, the logging can be controlled by the start/stop button
+isStartButtonUsed = false
+
+% Log file name for sensor data, a number prefix is automatically added
+logFileName = log.csv
+
+% Log file name for movement analysis,
+% a number prefix is automatically added
+horseAnalysisFileName = horse.txt
+	\end{verbatim}
+\end{figure}
+
+\subsection{Files on the SD card}
+All the files are stored and read from the root directory of the SD card. The files are:
+
+\begin{itemize}
+	\item \textbf{config.ini}: (read only) Configuration file explained in section \ref{beforeFirstUse}.
+	\item \textbf{counter.txt}: (read/write) This text file contains only one integer on the first line, other data are ignored. The SensorBoard has no real time clock reference, so it cannot add a timestamp to each log file. The board incerements this number after each startup. This number is used as session number of each log file.
+	\item \textbf{X\_Y\_log.csv}: (write only) The main log file in CSV format. The name consists of the session number \texttt{X}, log number \texttt{Y} and the configured filename. The format is \texttt{X\_Y\_NAME}, for example \texttt{12\_34\_log.csv}. It means, that the file was created after 12th switching on, it is 34th log during the session and the configured file name is \texttt{log.csv}.
+	\item \textbf{format.txt} (write only) Format of the CSV main log file. This file contains names of all columns in order in the main log file. Example of this file is shown in figure \ref{formatFile}.
+	\item \textbf{X\_Y\_horse.txt}: (write only) The movement analysis log file in plain text or CSV format. The \texttt{X}, \texttt{Y} numbers correspond to the main log file numbers. The files with the same numbers were captured simultaneously during the same measurement.
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\label{formatFile}
+	\caption{Example of the 'format.txt' file on SD card.}
+	\begin{verbatim}
+'S'; #; milliseconds; baroAltitude QFE [m]; baroTemp [degree C];  \
+ACC_X [g]; ACC_Y [g]; ACC_Z [g];                                  \
+GYR_X [rad/s]; GYR_Y [rad/s]; GYR_Z [rad/s];                      \
+MAG_X [degree];  MAG_Y [degree];  MAG_Z [degree];                 \
+...
+	\end{verbatim}
+\end{figure}
+
+\subsection{Using the firmware}
+The application is usually used only during the measurement process. The behaviour of the program can be described using the state machine presented in figure \ref{firmwareStateMachine}.
+
+\begin{figure}
+	\centering
+	\label{firmwareStateMachine}
+	\caption{State machine of the firmware}
+	\includegraphics[width=16cm]{img/firmwareStateMachine.pdf}
+\end{figure}
+
+The meaning of each state of the machine:
+\begin{itemize}
+	\item \textbf{Startup} Powering on the board
+	\item \textbf{WiFi initialization} Initialization of the WiFi adapter according to the configuration file
+	\item \textbf{Waiting N seconds} Waiting a few (milli)seconds according to the configuration file. We usually configure this waiting when we want to prevent creation of very short logs.
+	\item \textbf{System idle} The system is waiting for control commands. If the board is configured to start logging immediately, the system automatically switches to running state.
+	\item \textbf{Downloading data} The data can be donwloaded directly from the SD card or to a connected device.
+	\item \textbf{Running} The Running state starts the measuring loop and allows to log, stream or analyse the measured data. It's not possible to download data from SD card in this state. This state is activated when the user starts logging, streaming or movement analysis process from Idle state. The Running state can be activated automatically according to the configuration file.
+\end{itemize}
+
+\subsection{Horse movement analysis feature}
+The application has build-in movement analysis tool. When the SensorBoard is places on a horse body, the tool can determine when the horse is moving and what kind of movement it does.
+
+This tool demonstrates that the SensorBoard is able to run some user code in real-time with real-time results.
+
+\subsection{Controlling via TCP connection}
+The application can be controlled via TCP connection using single letter commands. I recommend to implement a web-page based user interface in the future versions of the application. One letter commands are actually used because it's the easiest way how to control the board from tablet with on-screen keyboard only. All the communication is possible via the TCP connection or via UART through USB connection. The control commands are:
+
+\begin{itemize}
+	\item[\textbf{r}] Reset the board and restart the application. We get the same result when we switch the board off and on.
+	\item[\textbf{p}] Ping command. When received, the text "Ping received." is printed.
+	\item[\textbf{h}] Start/stop the horse movement analysis. When the analysis is running the text output is sent every second.
+	\item[\textbf{s}] Start/stop streaming the raw data from the sensors.
+	\item[\textbf{l}] Start/stop logging the raw data from the sensors to the SD card. When the logging is in progress, the green software LED is ON on the SensorBoard.
+\end{itemize}
+
+\subsection{Using multiple SensorBoards}
+When we have more SensorBoards, we can connect them like in figure \ref{UELogging2}. Then all the hardware connected togedher behaves like one SensorBoard with so many sensors in different places. All the SensorBoards should connect to one WiFi network created by one board or by an external WiFi access point (e.g. mobile phone tethering/hotspot). All the SensorBoards except one (must be configured in the configuration file on SD card) behaves as TCP clients and connects to TCP server (the last SensorBoard). The TCP server resends all the commands to the other boards, so all the SensorBoards behaves synchronyously. The log files are stored on the SD card on each board and the names of these files are the same on all connected boards. So, the TCP server dictates the names of all log files. One synchronyous session creates multiple files on multiple SD cards, but with the same filenames on all devices.
+
+The whole system of connected boards can be used for example like in figure \ref{UELoggingHorse}.
+
+//todo: ukazaka pripojeneho TCP terminalu na tabletu
