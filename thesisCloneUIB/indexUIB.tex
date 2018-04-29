@@ -1,0 +1,37 @@
+\documentclass[english, GINF]{TFGEPSUIB}
+
+\usepackage[printonlyused]{acronym}
+\usepackage{siunitx}
+\usepackage[draft=false, backref, hyperindex, plainpages=false, breaklinks=true, bookmarksnumbered=true]{hyperref}
+
+\estudis{\MakeUppercase{Degree}}
+
+% Thesis info
+\title{Title}
+\author{\MakeUppercase{Bedřich Said}}
+\tutor{Antoni Jaume i Capó}
+\supervisor{Supervisor Name}
+\date{May 01, 2018}
+
+\begin{document}
+\portada
+\frontmatter
+
+\cleartorecto \tableofcontents
+
+\include{Acronims} 
+\include{Resum} 
+
+\mainmatter\pagestyle{ruled}
+
+\include{Introduccio}
+\include{Proposta}
+
+\backmatter
+
+\bibliographystyle{IEEEtran}
+
+% Using file Bibliografia.bib
+\bibliography{Bibliografia}
+
+\end{document}
