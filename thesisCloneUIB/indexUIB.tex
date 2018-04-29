@@ -4,6 +4,29 @@
 \usepackage{siunitx}
 \usepackage[draft=false, backref, hyperindex, plainpages=false, breaklinks=true, bookmarksnumbered=true]{hyperref}
 
+\usepackage{paralist} %% Compact list environments
+\usepackage{amsmath}  %% Mathematics
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{url}      %% Hyperlinks
+\usepackage{listings} %% Source code highlighting
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hhline}
+\usepackage{siunitx}
+\usepackage[most]{tcolorbox}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{adjustbox}
+\usepackage{tcolorbox}
+\usepackage{multirow, tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{gensymb}
+
 \estudis{\MakeUppercase{Degree}}
 
 % Thesis info
@@ -13,19 +36,60 @@
 \supervisor{Supervisor Name}
 \date{May 01, 2018}
 
+%% Special colors definitions
+\definecolor{background}{HTML}{F5DD9D}
+\definecolor{symbolColorTop}{HTML}{FFECB3}
+\definecolor{symbolColorBox}{HTML}{FFF9E5}
+\definecolor{gray}{rgb}{0.25,0.25,0.25}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{lightblue}{rgb}{0.9,0.95,1.0}
+\definecolor{darkgreen}{rgb}{0.0,0.6,0.0}
+\definecolor{brown}{HTML}{A52A2A}
+\definecolor{darkmagenta}{HTML}{8B008B}
+
+%% Table colors
+\newcommand\greenLow[0]{\cellcolor{green!25} Low}
+\newcommand\greenSpare[0]{\cellcolor{green!25} Spare}
+\newcommand\yellowMedium[0]{\cellcolor{yellow!25} Medium}
+\newcommand\redHigh[0]{\cellcolor{red!25} High}
+
+%% Definition of the box with declarations of used symbols.
+\newcommand\highlightedBox[2]{
+	\tcbset{
+		enhanced,
+		colback=symbolColorBox,
+		boxrule=1.0pt,
+		colframe=symbolColorTop!80!black,
+		coltitle=black,
+		fonttitle=\bfseries
+	}
+	\vspace{0.5cm}
+	\begin{tcolorbox}[title=#1:,lifted shadow={0mm}{0mm}{0mm}{0.1mm}{black!50!white}]
+		#2
+	\end{tcolorbox}
+	\vspace{0.5cm}
+}
+
+\newcommand\itwoc[0]{
+	I$^{2}$C
+}
+
 \begin{document}
 \portada
 \frontmatter
 
 \cleartorecto \tableofcontents
 
-\include{Acronims} 
-\include{Resum} 
+\include{Acronyms}
+\include{Abstract}
 
 \mainmatter\pagestyle{ruled}
 
-\include{Introduccio}
-\include{Proposta}
+\include{Introduction}
+\include{Hardware}
+\include{Software}
+\include{Conclusion}
 
 \backmatter
 
