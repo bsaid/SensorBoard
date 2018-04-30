@@ -50,68 +50,68 @@ Finally, I would like to add as many interesting sensors as possible, because it
 Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on selection of the devices. Let's call a used wearable device or devices as Sensor Board. The table \ref{tab:requirements} shows the list of requirements for this Sensor Board.
 
 \begin{table}[H]
-\centering
-\caption{Sensor Board low level requirements 1}
-\label{tab:requirements}
-\begin{tcolorbox}[tab2,tabularx={X|p{10cm}},title=Importance legend]
-	\greenLow	& Nice to have \\
-	\yellowMedium & Very useful, reduce time or human effort \\
-	\redHigh & Mandatory, impossible without this functionality \\
-\end{tcolorbox}
-\vspace{1cm}
-\begin{tcolorbox}[tab2,tabularx={|c|X|c|l|},title=Low level requirements 1]
-	Category & Requirement & Importance & Comment \\ \hline \hline
-	
-	& Accumulator & \redHigh &  \\
-	& Battery percentage indicator & \redHigh &  \\
-	& Charging when external power applied & \redHigh &  \\
-	& Voltage and current sensor & \yellowMedium &  \\
-	& Power LED & \redHigh &  \\
-	& Power switch & \redHigh &  \\
-	& Automatic selection between external and battery power & \redHigh &  \\
-	\multirow{-8}{*}{Power Supply} & Standardized charging connector & \yellowMedium &  \\ \hline
-	
-	& Accelerometer & \redHigh &  \\
-	& Dynamic Gyroscope & \redHigh &  \\
-	& Magnetometer & \redHigh &  \\
-	& Indoor position & \yellowMedium &  \\
-	& Outdoor position & \greenLow &  \\
-	& Barometer & \greenLow &  \\
-	\multirow{-7}{*}{Sensors} & Board temperature & \greenLow &  \\ \hline
-	
-	& Allow user programming & \redHigh &  \\
-	& Wireless programming & \greenLow &  \\
-	& Wired programming & \redHigh &  \\
-	& Wireless & \redHigh &  \\
-	& Standardized protocol & \redHigh &  \\
-	& Wired access & \redHigh &  \\
-	\multirow{-7}{*}{Communication} & Connector for external sensors & \greenLow &  \\ \hline
-\end{tcolorbox}
+	\centering
+	\caption{Sensor Board low level requirements 1}
+	\label{tab:requirements}
+	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Importance legend]
+		\greenLow	& Nice to have \\
+		\yellowMedium & Very useful, reduce time or human effort \\
+		\redHigh & Mandatory, impossible without this functionality \\
+	\end{tcolorbox}
+	\vspace{1cm}
+	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level requirements 1]
+		Category & Requirement & Importance \\ \hline \hline
+		
+		& Accumulator & \redHigh \\
+		& Battery percentage indicator & \redHigh \\
+		& Charging when external power applied & \redHigh \\
+		& Voltage and current sensor & \yellowMedium \\
+		& Power LED & \redHigh \\
+		& Power switch & \redHigh \\
+		& Automatic selection between external and battery power & \redHigh \\
+		\multirow{-8}{*}{Power Supply} & Standardized charging connector & \yellowMedium \\ \hline
+		
+		& Accelerometer & \redHigh \\
+		& Dynamic Gyroscope & \redHigh \\
+		& Magnetometer & \redHigh \\
+		& Indoor position & \yellowMedium \\
+		& Outdoor position & \greenLow \\
+		& Barometer & \greenLow \\
+		\multirow{-7}{*}{Sensors} & Board temperature & \greenLow \\ \hline
+		
+		& Allow user programming & \redHigh \\
+		& Wireless programming & \greenLow \\
+		& Wired programming & \redHigh \\
+		& Wireless & \redHigh \\
+		& Standardized protocol & \redHigh \\
+		& Wired access & \redHigh \\
+		\multirow{-7}{*}{Communication} & Connector for external sensors & \greenLow \\ \hline
+	\end{tcolorbox}
 \end{table}
 
 \begin{table}[H]
 	\centering
 	\caption{Sensor Board low level requirements 2}
 	\label{tab:requirements}
-	\begin{tcolorbox}[tab2,tabularx={|c|X|c|l|},title=Low level requirements 2]
-		Category & Requirement & Importance & Comment \\ \hline \hline
+	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level requirements 2]
+		Category & Requirement & Importance \\ \hline \hline
 		
-		& Logging all data for several hours & \redHigh &  \\
-		& Sensor fusion coprocessor & \greenLow &  \\
-		\multirow{-3}{*}{Functions} & LED indicators & \redHigh &  \\ \hline
+		& Logging all data for several hours & \redHigh \\
+		& Sensor fusion coprocessor & \greenLow \\
+		\multirow{-3}{*}{Functions} & LED indicators & \redHigh \\ \hline
 		
-		& Wearable design & \redHigh &  \\
-		& Dimensions under \SI{6}{cm} & \redHigh &  \\
-		& Dimensions under \SI{3}{cm} & \greenLow &  \\
-		& Weight under \SI{50}{g} & \redHigh &  \\
-		\multirow{-5}{*}{Mechanical} & Weight under \SI{20}{g} & \greenLow &  \\ \hline
+		& Wearable design & \redHigh \\
+		& Dimensions under \SI{6}{cm} & \redHigh \\
+		& Dimensions under \SI{3}{cm} & \greenLow \\
+		& Weight under \SI{50}{g} & \redHigh \\
+		\multirow{-5}{*}{Mechanical} & Weight under \SI{20}{g} & \greenLow \\ \hline
 		
-		& Control multiple devices simultaneously & \yellowMedium &  \\
-		& Download logged data & \redHigh &  \\
-		& Streaming data during measurement & \yellowMedium &  \\
-		& Start logging on multiple devices by clicking one button & \yellowMedium &  \\
-		& Time synchronization of multiple devices & \redHigh &  \\
-		\multirow{-6}{*}{Software} & Possibility to upload data to a server & \redHigh &  \\ 
+		& Control multiple devices simultaneously & \yellowMedium \\
+		& Download logged data & \redHigh \\
+		& Streaming data during measurement & \yellowMedium \\
+		& Start logging on multiple devices by clicking one button & \yellowMedium \\
+		& Time synchronization of multiple devices & \redHigh \\
+		\multirow{-6}{*}{Software} & Possibility to upload data to a server & \redHigh \\ 
 	\end{tcolorbox}
 \end{table}
 
@@ -120,37 +120,32 @@ Finally, I've chosen a wearable sensors technology. The next requirements are sp
 The additional requirements are shown in table \ref{tab:additionalReq}.
 
 \begin{table}[H]
-\centering
-\label{tab:additionalReq}
-\caption{Sensor Board additional requirements 2}
-\begin{tabular}{|c|p{10cm}|}
-	\hline
-	\multicolumn{2}{|c|}{Importance} \\ \hline \hline
-	\greenLow	& Nice to have \\ \hline
-	\yellowMedium & Useful, can significantly improve functionality \\ \hline
-	\st{\redHigh} & Not applicable \\ \hline
-\end{tabular}
-\newline
-\vspace{1cm}
-\newline
-\begin{tabular}{|c|p{5cm}|c|l|}
-\hline
-Category & Requirement & Importance & Comment \\ \hline
-Functions & Coprocessor for periodic computations like sensor fusion & \greenLow &  \\ \hline
-Functions & Piezo buzzer & \greenLow &  \\ \hline
-Functions & Buttons & \yellowMedium &  \\ \hline
-
-Sensors & Ambient light & \greenLow &  \\ \hline
-Sensors & Humidity & \greenLow &  \\ \hline
-Sensors & Sound (microphone) & \greenLow &  \\ \hline
-Sensors & Ambient temperature & \greenLow &  \\ \hline
-
-Communication & UART, I2C, SPI connector & \greenLow &  \\ \hline
-Communication & PWM outputs & \greenLow &  \\ \hline
-Communication & Analog inputs & \greenLow &  \\ \hline
-
-Software & NMEA input & \greenLow &  \\ \hline
-\end{tabular}
+	\centering
+	\label{tab:additionalReq}
+	\caption{Additional requirements for the SensorBoard}
+	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Importance legend]
+		\greenLow	& Nice to have \\ \hline
+		\yellowMedium & Useful, can significantly improve functionality \\ \hline
+		\st{\redHigh} & Not applicable \\ \hline
+	\end{tcolorbox}
+	\vspace{1cm}
+	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level additional requirements]
+		Category & Requirement & Importance \\ \hline \hline
+		& Coprocessor for periodic computations like sensor fusion & \greenLow \\
+		& Piezo buzzer & \greenLow \\
+		\multirow{-3}{*}{Functions} & Buttons & \yellowMedium \\ \hline
+		
+		& Ambient light & \greenLow \\
+		& Humidity & \greenLow \\
+		& Sound (microphone) & \greenLow \\
+		\multirow{-4}{*}{Sensors} & Ambient temperature & \greenLow \\ \hline
+		
+		& UART, I2C, SPI connector & \greenLow \\
+		& PWM outputs & \greenLow \\
+		\multirow{-3}{*}{Communication} & Analog inputs & \greenLow \\ \hline
+		
+		Software & NMEA input & \greenLow \\ \hline
+	\end{tcolorbox}
 \end{table}
 
 \section{Available solutions}
@@ -158,24 +153,62 @@ Software & NMEA input & \greenLow &  \\ \hline
 The table \ref{tab:availableSolutions} shows the overview of existing devices I have found.
 
 \begin{table}[H]
-\centering
-\caption{Available solutions}
-\label{tab:availableSolutions}
-\begin{tabular}{|l|l|l|l|l|l|}
-\hline
-       & & & \multicolumn{3}{|c|}{Number of unfullfilled requirements} \\
-Device & Datasheet & Price & Low & Medium & High \\\hline\hline
-
-MetaWear &  &  &  &  &  \\
-ArduPilot 2.6 &  &  &  &  &  \\
-X-IMU &  &  &  &  &  \\
-wearable... &  &  &  &  &  \\\hline
-\end{tabular}
+	\centering
+	\caption{Available solutions}
+	\label{tab:availableSolutions}
+	\begin{tcolorbox}[tab2,tabularx={|X|c|l|p{8cm}|},title=Available solutions]
+		Device & Link & Price & Main disadvantages \\\hline\hline
+		
+		MetaWear        & \cite{MetaWear} & \$ 80  & Low memory, impossible longer logging. Loosing packets during streaming. \\
+		ArduPilotMega   & \cite{APM26}    & \$ 250 & Dependent on external power supply, higher dimensions. \\
+		pixHawk         & \cite{pixHawk}  & \$ 260 & Dependent on external power supply, higher dimensions. \\
+		X-IMU           & \cite{XIMU}     & \$ 400 & Price. \\
+		Smart Phone     & N/A             & \$ 100 & Impossible logging at higher frequencies, inaccurate logging frequency. \\
+		Fitness sensors & N/A             & \$ 100 & Mostly closed commercial projects. \\
+	\end{tcolorbox}
 \end{table}
 
-\section{Selection of devices}
+\section{Selection of parts for the new device}
 \label{HWdeviceSelection}
-//todo
+Here I have finally decided to develop a new hardware. Now I'm looking for suitable parts for this new electronic device. The table \ref{tab:selectionParts} lists all the parts I took into account during the hardware development process.
+
+\begin{table}[H]
+	\centering
+	\caption{Selection of parts for the new electronic device}
+	\label{tab:selectionParts}
+	\begin{tcolorbox}[tab2,tabularx={|X|p{7cm}|c|c|},title=Available solutions]
+		Part ID & Description & Datasheet & Selected \\\hline\hline
+		TACTM-35N-F & Button & \cite{TACTM} & \greenYes \\
+		ADP5062 & Power management and battery charger & \cite{analogdevices:ADP5062} & \greenYes \\
+		ADP5063 & Power management and battery charger & \cite{analogdevices:ADP5063} & \redNo \\
+		SI7006 & Humidity and temperature sensor & \cite{siliconlabs:SI7006} & \greenYes \\
+		HDC2010YPAR & Humidity and temperature sensor & \cite{HDC2010YPAR} & \redNo \\
+		SHTC1 & Humidity and temperature sensor & \cite{SHTC1} & \redNo \\
+		DWM1000 & TDOA location sensor (with antenna) & \cite{decawave:DWM1000} & \greenYes \\
+		DW1000 & TDOA location sensor (only sensor) & \cite{decawave:DW1000} & \redNo \\
+		BMP280 & Barometer & \cite{bosch:BMP280} & \greenYes \\
+		BMP388 & Barometer & \cite{bosch:BMP388} & \redNo \\
+		BMP380 & Barometer & \cite{bosch:BMP380} & \redNo \\
+		FT232R & UART to USB converter & \cite{ftdichip:FT232R} & \greenYes \\
+		CP2102 & UART to USB converter & \cite{CP2102} & \redNo \\
+		CH340E & UART to USB converter & \cite{CH340E} & \redNo \\
+		MPU-9250 & Accelerometer, dynamic gyroscope, magnetometer & \cite{invensense:MPU9250} & \greenYes \\
+		BMI160 & Accelerometer, dynamic gyroscope & \cite{bosch:BMI160} & \greenYes \\
+		BMF055 & Accelerometer, dynamic gyroscope, magnetometer, ARM microcontroller & \cite{bosch:BMF055} & \greenYes \\
+		GY953 & Backup accelerometer, dynamic gyroscope and megnetometer with embedded pitch, roll and yaw angle estimation (sensor fusion) & \cite{GY953} & \greenYes \\
+		HM-TRP & Long range \SI{433}{MHz} radio & \cite{HM-TRP} & \greenYes \\
+		MOLEX-47219-2001 & Micro SD card holder & \cite{MOLEX-SD1} & \greenYes \\
+		LTR-329ALS & Digital ambient light sensor & \cite{LTR-329ALS} & \greenYes \\
+		EAALSTIC1708A0 & Analog ambient light sensor & \cite{EAALSTIC1708A0} & \redNo \\
+		NOA1212 & Analog ambient light sensor & \cite{NOA1212} & \redNo \\
+		ESP-WROOM-32 & Dual core controller with WiFi and Bluetooth & \cite{espressif:ESP-WROOM-32} & \greenYes \\
+		STM32 & ARM microcontroller & \cite{STM32} & \redNo \\
+		UM18533 & Linear stabilizer \SI{3.3}{V} & \cite{UM18533} & \greenYes \\
+		LF33 & Linear stabilizer \SI{3.3}{V} & \cite{LF33} & \redNo \\
+		USB-MICRO & Micro USB connector & \cite{USB-MICRO} & \greenYes \\
+		Pin header 2.54 mm & Servo connector & \cite{PINHEAD} & \greenYes \\
+	\end{tcolorbox}
+\end{table}
 
 
 
@@ -192,14 +225,14 @@ The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. T
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[angle=90, scale=1]{img/sch1.pdf}
+	\includegraphics[angle=90, width=16cm]{img/sch1.pdf}
 	\label{sch1}
 	\caption{Schematics of the Sensor Board sheet 1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[angle=90, scale=1]{img/sch2.pdf}
+	\includegraphics[angle=90, width=16cm]{img/sch2.pdf}
 	\label{sch2}
 	\caption{Schematics of the Sensor Board sheet 2}
 \end{figure}
@@ -241,7 +274,6 @@ The mechanical layout is shown in figure \ref{fig:HWdimensions}.
 
 \section{Manufacturing}
 \label{HWmanufacturing}
-//todo: pridat vsude fotky jednotlivych fazi
 
 The manufacturing process of the prototype consists of these steps:
 \begin{enumerate}
@@ -299,90 +331,98 @@ The testing process has been split into two parts: the laboratory testing during
 
 \subsection{Errata}
 \label{errata}
-The table \ref{errataTable} shows all errors I have found during software development and laboratory testing of the Sensor Board prototype.
+The tables \ref{tab:errata} and \ref{tab:errata2} show all errors I have found during software development and laboratory testing of the Sensor Board prototype.
 
 \begin{table}[H]
-\centering
-\caption{Errata of the Sensor Board}
-\label{errataTable}
-\begin{tabular}{|l|l|}
-	\hline
-	\multicolumn{2}{|l|}{Severities} \\ \hline
-	\greenLow & No significant affects \\ \hline
-	\greenSpare & Only spare devices may not work \\ \hline
-	\yellowMedium & Some part of the prototype may not work \\ \hline
-	\redHigh & The prototype has to be remade \\ \hline
-\end{tabular}
-\begin{tabular}{|c|p{6cm}|p{2.5cm}|c|c|}
-\hline
-Number & Description & Error created during & Image & Severity \\ \hline
-1      &
-	\parbox{6 cm}{Bridge between boards under micro USB connector\\ \\ What happens:\\ The micro USB connector may be placed with lower accuracy}
-	& panelization         &       & \greenLow      \\ \hline
-	
-2      &
-	\parbox{6 cm}{Swapped MISO and MOSI on pins IO19 and IO21 on the ESP-WROOM-32 chip according to ESP32 Arduino standard\\ \\ What happens:\\ The SPI interface is not working in Arduino compatible mode without modification of the Arduino SPI library}
-	& schematics design    &       & \yellowMedium   \\ \hline
-	
-3      &
-	\parbox{6 cm}{LED5 connected to IO35 on ESP-WROOM-32 is not working\\ \\ What happens:\\ The pins IO34 -- IO39 are input only, so they cannot drive a LED}
-	& schematics design    &       & \greenSpare    \\ \hline
-	
-4      &
-	\parbox{6 cm}{Missing pull-up resistors on SD card\\ \\ What happens:\\ The SDIO interface needs external pull-up resistors to work properly. I have added these resistors later by hand.}
-	& schematics design    &       & \yellowMedium   \\ \hline
-	
-5      &
-	\parbox{6 cm}{The temperature measurement is placed very close to the main processor\\ \\ What happens:\\ The processor heating affects the measured temperature}
-	& board layout         &       & \greenSpare    \\ \hline
-	
-6      &
-	\parbox{6 cm}{Low capacity capacitor placed on power supply\\ \\ What happens:\\ When we use WiFi some brownouts can be detected. I have added a bigger capacitor later by hand.}
-	& schematics design    &       & \yellowMedium   \\ \hline
-	
-7      &
-	\parbox{6 cm}{The light sensor is placed on inner side of the board\\ \\ What happens:\\ The measured values are affected by shadow of the board}
-	& board layout         &       & \greenSpare    \\ \hline
-8      &
-\parbox{6 cm}{Missing safety resistors on pins with buttons. These pins are directly connected to processor.\\ \\ What happens:\\ When the pins are defined in software to be used in different way, incorrect connection can burn the processor. }
-& schematics design        &       & \yellowMedium   \\ \hline
-\end{tabular}
+	\centering
+	\caption{Errata of the SensorBoard}
+	\label{tab:errata}
+	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Severity legend]
+		\greenLow & No significant affects \\
+		\greenSpare & Only spare devices may not work \\
+		\yellowMedium & Some part of the prototype may not work \\
+		\redHigh & The prototype has to be remade \\
+	\end{tcolorbox}
+	\vspace{1cm}
+	\begin{tcolorbox}[tab2,tabularx={|c|p{7.5cm}|X|c|},title=Errata 1 of 2]
+		Number & Description & Error created during & Severity \\ \hline
+		1      &
+		\parbox{7.5 cm}{\quad\\Bridge between boards under micro USB connector\\ \\ What happens:\\ The micro USB connector may be placed with lower accuracy\\}
+		& panelization         & \greenLow      \\ \hline
+		
+		2      &
+		\parbox{7.5 cm}{\quad\\Swapped MISO and MOSI on pins IO19 and IO21 on the ESP-WROOM-32 chip according to ESP32 Arduino standard\\ \\ What happens:\\ The SPI interface is not working in Arduino compatible mode without modification of the Arduino SPI library\\}
+		& schematics design    & \yellowMedium   \\ \hline
+		
+		3      &
+		\parbox{7.5 cm}{\quad\\LED5 connected to IO35 on ESP-WROOM-32 is not working\\ \\ What happens:\\ The pins IO34 -- IO39 are input only, so they cannot drive a LED\\}
+		& schematics design    & \greenSpare    \\ \hline
+		
+		4      &
+		\parbox{7.5 cm}{\quad\\Missing pull-up resistors on SD card\\ \\ What happens:\\ The SDIO interface needs external pull-up resistors to work properly. I have added these resistors later by hand.\\}
+		& schematics design    & \yellowMedium   \\ \hline
+	\end{tcolorbox}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Errata of the SensorBoard}
+	\label{tab:errata2}
+	\begin{tcolorbox}[tab2,tabularx={|c|p{7.5cm}|X|c|},title=Errata 2 of 2]
+		Number & Description & Error created during & Severity \\ \hline
+		
+		5      &
+		\parbox{7.5 cm}{\quad\\The temperature measurement is placed very close to the main processor\\ \\ What happens:\\ The processor heating affects the measured temperature\\}
+		& board layout         & \greenSpare    \\ \hline
+		
+		6      &
+		\parbox{7.5 cm}{\quad\\Low capacity capacitor placed on power supply\\ \\ What happens:\\ When we use WiFi some brownouts can be detected. I have added a bigger capacitor later by hand.\\}
+		& schematics design    & \yellowMedium   \\ \hline
+		
+		7      &
+		\parbox{7.5 cm}{\quad\\The light sensor is placed on inner side of the board\\ \\ What happens:\\ The measured values are affected by shadow of the board.\\}
+		& board layout         & \greenSpare    \\ \hline
+		8      &
+		\parbox{7.5 cm}{\quad\\Missing safety resistors on pins with buttons. These pins are directly connected to processor.\\ \\ What happens:\\ When the pins are defined in software to be used in different way, incorrect connection can burn the processor.\\}
+		& schematics design        & \yellowMedium   \\ \hline
+	\end{tcolorbox}
 \end{table}
 
 \subsection{Device testing}
 \label{deviceTesting}
-The device testing may select the devices used in the future versions and remove all spare parts from the prototype. The table \ref{deviceTestsTable} shows the test results and the table \ref{deviceSelectionTable} shows the devices that I recommend to use in future versions.
+The device testing helped me to select the parts recommended for the future versions of the SensorBoard. It also helped me to mark all spare parts in the prototype. The table \ref{tab:deviceSelection} shows the results.
 
 \begin{table}[H]
-\centering
-\caption{Device tests}
-\label{deviceTestsTable}
-\begin{tabular}{|l|l|l|}
-	Device & Test & Result \\
-	MPU9250 & SPI interface & Warning \\
-	MPU9250 & I2C interface & Pass    \\
-	//todo & ... & ... \\
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Device selection}
-\label{deviceSelectionTable}
-\begin{tabular}{|l|l|}
-	\hline
-	\multicolumn{2}{|l|}{Decision} \\ \hline
-	Selected & recommended for use in future versions \\ \hline
-	Possible & Not necessary, but has use-cases \\ \hline
-	Removed & Not recommended or will be spare \\ \hline
-\end{tabular}
-\begin{tabular}{|l|l|l|}
-	\hline
-	Device & Decision \\ \hline
-	MPU9250 & Removed \\ \hline
-	BMF055 & Selected \\ \hline
-	//todo & ... & ... \\ \hline
-\end{tabular}
+	\centering
+	\caption{Parts of the SensorBoard recommended for the future versions}
+	\label{tab:deviceSelection}
+	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Decision legend]
+		\greenCell{Selected} & Recommended for use in future versions \\ \hline
+		\yellowCell{Possible} & Not necessary, but has use-cases, may be replaced with another part \\ \hline
+		\redCell{Removed} & Not recommended or will be spare \\ \hline
+	\end{tcolorbox}
+	\vspace{1cm}
+	\begin{tcolorbox}[tab2,tabularx={|X|p{7cm}|c|c|},title=Parts of the SensorBoard recommended for the future versions]
+		Part ID & Description & Datasheet & Selected \\\hline\hline
+		TACTM-35N-F & Button & \cite{TACTM} & \greenCell{Selected} \\
+		ADP5062 & Power management and battery charger & \cite{analogdevices:ADP5062} & \greenCell{Selected} \\
+		SI7006 & Humidity and temperature sensor & \cite{siliconlabs:SI7006} & \greenCell{Selected} \\
+		DWM1000 & TDOA location sensor (with antenna) & \cite{decawave:DWM1000} & \greenCell{Selected} \\
+		BMP280 & Barometer & \cite{bosch:BMP280} & \greenCell{Selected} \\
+		FT232R & UART to USB converter & \cite{ftdichip:FT232R} & \greenCell{Selected} \\
+		MPU-9250 & Accelerometer, dynamic gyroscope, magnetometer & \cite{invensense:MPU9250} & \redCell{Removed} \\
+		BMI160 & Accelerometer, dynamic gyroscope & \cite{bosch:BMI160} & \redCell{Removed} \\
+		BMF055 & Accelerometer, dynamic gyroscope, magnetometer, ARM microcontroller & \cite{bosch:BMF055} & \greenCell{Selected} \\
+		GY953 & Backup accelerometer, dynamic gyroscope and megnetometer with embedded pitch, roll and yaw angle estimation (sensor fusion) & \cite{GY953} & \redCell{Removed} \\
+		HM-TRP & Long range \SI{433}{MHz} radio & \cite{HM-TRP} & \yellowCell{Possible} \\
+		MOLEX-47219-2001 & Micro SD card holder & \cite{MOLEX-SD1} & \greenCell{Selected} \\
+		LTR-329ALS & Digital ambient light sensor & \cite{LTR-329ALS} & \greenCell{Selected} \\
+		ESP-WROOM-32 & Dual core controller with WiFi and Bluetooth & \cite{espressif:ESP-WROOM-32} & \greenCell{Selected} \\
+		UM18533 & \parbox{7 cm}{Linear stabilizer \SI{3.3}{V} \\\\ Note: Insufficient current} & \cite{UM18533} & \redCell{Removed} \\
+		LF33 & Linear stabilizer \SI{3.3}{V} & \cite{LF33} & \greenCell{Selected} \\
+		USB-MICRO & Micro USB connector & \cite{USB-MICRO} & \greenCell{Selected} \\
+		Pin header 2.54 mm & Servo connector & \cite{PINHEAD} & \yellowCell{Possible} \\
+	\end{tcolorbox}
 \end{table}
 
 \subsection{Recommendations for the next version}
@@ -397,12 +437,37 @@ Recommendations for the future versions of the Sensor Board based on the outdoor
 	\item[--] Use another driver with more capabilities for USB connection. The USB on board actually supports only UART communication on virtual COM port. The File Transfer protocol for the SD card should be supported, too. (If it is needed we can add full USB host support or USB-C compatibility.)
 	\item[--] Add specialized pads for oscilloscope. The pads are connected to the signal and to the ground, so the oscilloscope measurements are more accurate.
 	\item[--] The main processor should be able to switch on/off the power of other parts (sensors). The sensors support sleep modes, but we cannot completely switch them off to save more energy from battery.
+	\item[--] If we recognize that the ESP-WROOM-32 controller is not powerful enough, we can use a fully compatible alternative with larger memory ALB32-WROVER \cite{ALB32-WROVER}. It should be possible to compile a terminal based Linux distribution for this controller.
 \end{itemize}
-
-//todo: pridat informaci o ALB32-WROVER
 	
 \subsection{Analysis of additional costs}
 \label{HWadditionalCosts}
-//todo
+//todo: By the analysis of additional costs I mean the counting of the prices of all parts that were finally spare or weren't finally used. The table \ref{tab:additionalCost} counts all parts of the SensorBoards and their prices. The green values are prices of parts that were finally used. The "Total used" amount means the price of all parts at one piece that were used during any use case.
 
-//todo: citovat vetsi verzi ESP WROOM 32 a vypsat vyhody
+\begin{table}[H]
+	\centering
+	\caption{Additional cost calculation}
+	\label{tab:additionalCost}
+	\begin{tcolorbox}[tab2,tabularx={|X|l|c|c|},title=Additional cost calculation]
+		Part ID & Price & Used & Is necessary \\\hline\hline
+		PCB & \$ 23 & \greenYes & \greenYes \\
+		SMT job & \$ 65 & \greenYes & \greenYes \\ \hline\hline
+		TACTM-35N-F & \$ 0.4 & \greenYes & \yellowCell{No} \\
+		ADP5062 & \$ 3.8 & \greenYes & \greenYes \\
+		SI7006 & \$ 2 & \redNo & \redNo \\
+		DWM1000 & \$ 22 & \greenYes & \yellowCell{No} \\
+		BMP280 & \$ 4 & \greenYes & \yellowCell{No} \\
+		FT232R & \$ 5 & \greenYes & \greenYes \\
+		MPU-9250 & \$ 10 & \redNo & \redNo \\
+		BMI160 & \$ 4.3 & \redNo & \redNo \\
+		BMF055 & \$ 11 & \greenYes & \greenYes \\
+		GY953 & \$ 11 & \redNo & \redNo \\
+		HM-TRP & \$ 13 & \greenYes & \yellowCell{No}\\
+		MOLEX-47219-2001 & \$ 1.2 & \greenYes & \greenYes \\
+		LTR-329ALS & \$ 0.7 & \redNo & \redNo \\
+		ESP-WROOM-32 & \$ 12 & \greenYes & \greenYes \\ \hline \hline
+		\greenCell{\textbf{Total used and necessary}} & \greenCell{\textbf{\$ //todo}} & \greenYes & \greenYes \\
+		\yellowCell{\textbf{Total used and unnecessary}} & \yellowCell{\textbf{\$ //todo}} & \yellowCell{Yes} & \yellowCell{No} \\
+		\redCell{\textbf{Total unused}} & \redCell{\textbf{\$ //todo}} & \redNo & \redNo \\
+	\end{tcolorbox}
+\end{table}
