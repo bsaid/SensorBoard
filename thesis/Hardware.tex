@@ -1,13 +1,13 @@
 \chapter{Hardware}
 The hardware design is split into several steps in this paper. First, I had to decide if it's really necessary to build a new device or if I can find a suitable solution on the market. When we want to select a suitable device for our task, we have to know the specification of the task itself. The task is specified in section \ref{HWtaskAnalysis}. Based on the task we can specify all requirements that the selected device should meet (section \ref{HWrequirements}). Now, we can start looking for a device that fulfills all the requirements (section \ref{HWavailableSolutions}).
 
-When we don't find any suitable device on the market, we can start to think about creating a new one. In my opinion it's not a good way to start any development before doing the previous steps.
+When we don't find any suitable device on the market, we can start to think about creating a new one. In my opinion, it's not a good way to start any development before doing the previous steps.
 
-When we already start a development of a new hardware we can think about adding some additional requirements for increasing the versatility of the final hardware. Of course, the new requirements mustn't rapidly increase the final prize. But if the hardware will be used only in the specific task, it's usually unnecessary to add any other functionality. In this case I'm adding some additional requirements in section \ref{HWadditionalRequirements}, because I think that in this case I can add very high versatility with very low additional cost. The analysis of the final expenses is in section \ref{HWadditionalCosts}.
+When we already start a development of a new hardware we can think about adding some additional requirements for increasing the versatility of the final hardware. Of course, the new requirements mustn't rapidly increase the final prize. But if the hardware will be used only in the specific task, it's usually unnecessary to add any other functionality. In this case, I'm adding some additional requirements in section \ref{HWadditionalRequirements}, because I think that in this case, I can add very high versatility with very low additional cost. The analysis of the final expenses is in section \ref{HWadditionalCosts}.
 
-When I'm decided to develop a new hardware and I have the specification of all the requirements, I can start the development process. The selection of chips and other parts is in section \ref{HWdeviceSelection} and the printed circuit board (PCB) design is discussed in section \ref{HWpcbDesign}.
+When I'm decided to develop a new hardware and I have the specification of all the requirements, I can start the development process. The selection of chips and other parts is in section \ref{HWdeviceSelection} and the printed circuit board (\gls{PCB}) design is discussed in section \ref{HWpcbDesign}.
 
-Finally, the manufacturing of the first prototype is described in section \ref{HWmanufacturing}. With the first prototype it's time for testing. The tests should find as many errors as possible and they should proof us if the requirements were already met. The section \ref{HWtesting}. The whole process is shown in the figure \ref{fig:HWprocess}.
+Finally, the manufacturing of the first prototype is described in section \ref{HWmanufacturing}. With the first prototype, it's time for testing. The tests should find as many errors as possible and they should proof us if the requirements were already met. The section \ref{HWtesting}. The whole process is shown in the figure \ref{fig:HWprocess}.
 
 \begin{figure}[H]
 	\centering
@@ -28,33 +28,33 @@ When we define our complete task in the first step, then we can derive all requi
 	\end{enumerate}
 }
 
-The subject is an animal -- horse in this paper -- or human being or a moving machine. The post-processing can be done real-time during the measurement process, but this is not mandatory. The analysis is primarily focused to recognize known movements in logged data. For example the categories of movement of a horse are: stand, walk, trot, gallop, \dots
+The subject is an animal -- horse in this paper -- or human being or a moving machine. The post-processing can be done real-time during the measurement process, but this is not mandatory. The analysis is primarily focused to recognize known movements in logged data. For example, the categories of movement of a horse are stand, walk, trot, gallop, \dots
 
 \section{Requirements}
 \label{HWrequirements}
-The development of a new hardware or software is usually driven by specified requirements. In this paper I have specified two groups of requirements. The first group is based on the selected task to solve. The second group has lower priority and specifies all the requirements that I found during other similar tasks with similar hardware. The second group of requirements is adding higher versatility to the final electronic device with very low additional cost. These two groups of requirements are later merged and used as a source for next development of the hardware.
+The development of a new hardware or software is usually driven by specified requirements. In this paper, I have specified two groups of requirements. The first group is based on the selected task to solve. The second group has lower priority and specifies all the requirements that I found during other similar tasks with similar hardware. The second group of requirements is adding higher versatility to the final electronic device with very low additional cost. These two groups of requirements are later merged and used as a source for next development of the hardware.
 
 \subsection{High level requirements}
 
-\paragraph{Measuring of the movement of a subject:} The solution should work outdoor. So, we cannot take into account any studio or laboratory based technologies like Motion Capture (Mo-cap). On the other hand we can replace the passive or active markers by whole sensors and remove the necessary cameras. The sensor based electronics is easier to install and can be used in large and complex areas. Based on this outdoor requirement I will consider only wearable sensor systems.
+\paragraph{Measuring of the movement of a subject:} The solution should work outdoor. So, we cannot take into account any studio or laboratory-based technologies like Motion Capture (Mo-cap). On the other hand, we can replace the passive or active markers with the whole sensors and remove the necessary cameras. The sensor-based electronics is easier to install and can be used in large and complex areas. Based on this outdoor requirement I will consider only wearable sensor systems.
 
-\paragraph{Logging the measured data and sending them to post-processing:} There are no wires acceptable in outdoor use, so we can log the data to internal memory or transmit them via any wireless technology. The wireless systems may be not fully reliable in complex areas with many objects. So, when we want to transmit the data directly it's still better to log them internally for later downloads.
+\paragraph{Logging the measured data and sending them to post-processing:} There are no wires acceptable for outdoor use, so we can log the data to internal memory or transmit them via any wireless technology. The wireless systems may be not fully reliable in complex areas with many objects. So, when we want to transmit the data directly it's still better to log them internally for later downloads.
 
 \paragraph{Analysis of the movement and naming the specific categories of movements} This is a software requirement, so it's not very important during the hardware design. But this requirement defines what data we need to measure and this is a hardware requirement.
 
-For the movement reconstruction we need primarily data about position and attitude of every sensor. Some methods for movement classification don't need to know the exact location (for example accelerometer based step counter). This task is focused on developing a new analysis of the movement, so now I cannot exactly say what sensors will be needed in the future. I can make a prediction that the inertial measurement unit (IMU) and some location sensors will be needed. But there are some other sensors that produce interesting data according to the movement analysis, for example a heart rate sensor according to animals.
+For the movement reconstruction, we primarily need data about position and attitude of every sensor. Some methods for movement classification don't need to know the exact location (for example accelerometer-based step counter). This task is focused on developing a new analysis of the movement, so now I cannot exactly say what sensors will be needed in the future. I can make a prediction that the inertial measurement unit (IMU) and some location sensors will be needed. But there are some other sensors that produce interesting data according to the movement analysis, for example, a heart rate sensor according to animals.
 
-Finally, I would like to add as many interesting sensors as possible, because it will give us more data sources and we are less limited by the data sources. The other advantage is multifunctionality of the hardware. On the other hand these additional sensors should be added only into additional requirements with lower importance. Otherwise the selection of an appropriate hardware (based on the requirements) will be manipulated by number of probably unnecessary sensors.
+Finally, I would like to add as many interesting sensors as possible, because it will give us more data sources and we are less limited by the data sources. The other advantage is multifunctionality of the hardware. On the other hand, these additional sensors should be added only into additional requirements with lower importance. Otherwise, the selection of an appropriate hardware (based on the requirements) will be manipulated by a number of probably unnecessary sensors.
 
 \subsection{Low level requirements}
-Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on selection of the devices. Let's call a used wearable device or devices as Sensor Board. The table \ref{tab:requirements} shows the list of requirements for this Sensor Board.
+Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on the selection of the devices. Let's call a used wearable device or devices as Sensor Board. The table \ref{tab:requirements} shows the list of requirements for this Sensor Board.
 
 \begin{table}[H]
 	\centering
 	\caption{Sensor Board low level requirements 1}
 	\label{tab:requirements}
 	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Importance legend]
-		\greenLow	& Nice to have \\
+		\greenLow    & Nice to have \\
 		\yellowMedium & Very useful, reduce time or human effort \\
 		\redHigh & Mandatory, impossible without this functionality \\
 	\end{tcolorbox}
@@ -124,7 +124,7 @@ The additional requirements are shown in table \ref{tab:additionalReq}.
 	\label{tab:additionalReq}
 	\caption{Additional requirements for the SensorBoard}
 	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Importance legend]
-		\greenLow	& Nice to have \\ \hline
+		\greenLow    & Nice to have \\ \hline
 		\yellowMedium & Useful, can significantly improve functionality \\ \hline
 		\st{\redHigh} & Not applicable \\ \hline
 	\end{tcolorbox}
@@ -214,14 +214,14 @@ Here I have finally decided to develop a new hardware. Now I'm looking for suita
 
 \section{PCB design}
 \label{HWpcbDesign}
-The PCB design should meet both electrical and mechanical requirements. It's usually easier to design a large board in the first iteration, which is used only in the laboratory for software development and testing. Then the second iteration brings the first practically usable device and probably the third iteration is the first one dedicated for production use.
+The \gls{PCB} design should meet both electrical and mechanical requirements. It's usually easier to design a large board in the first iteration, which is used only in the laboratory for software development and testing. Then the second iteration brings the first practically usable device and probably the third iteration is the first one dedicated to production use.
 
-Here in this process I will merge the first and the second version together. I will create a larger device which is still usable as wearable device. This implies that I can do the software development, laboratory tests and the first outdoor tests with the same board designed during the first iteration. I'm going to decrease the dimensions of the first prototype by splitting the PCB to separate sandwich modules. The testing process should give us advantages and disadvantages of this mechanical solution.
+Here in this process, I will merge the first and the second version together. I will create a larger device which can be still used as a wearable device. This implies that I can do the software development, laboratory tests and the first outdoor tests with the same board designed during the first iteration. I'm going to decrease the dimensions of the first prototype by splitting the \gls{PCB} to separate sandwich modules. The testing process should give us advantages and disadvantages of this mechanical solution.
 
 I have used CadSoft EAGLE (Easy Applicable Graphical Layout Editor) \cite{EAGLE} during this process. I've finally chosen this editor because it has the availability of the libraries for the devices I wanted to use. I would probably use KiCad \cite{KiCad} if there was the same availability of the libraries.
 
 \subsection{Schematics and board layout}
-The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. The figures \ref{sch1} and \ref{sch2} shows the exported schematics split into two sheets. The exported PCB layout drawing in scale 1:1 is in figure \ref{brd1} and in scale 2:1 with more details in figure \ref{brd2}.
+The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. The figures \ref{sch1} and \ref{sch2} shows the exported schematics split into two sheets. The exported \gls{PCB} layout drawing in scale 1:1 is in figure \ref{brd1} and in scale 2:1 with more details in figure \ref{brd2}.
 
 \begin{figure}[H]
 	\centering
@@ -278,7 +278,7 @@ The mechanical layout is shown in figure \ref{fig:HWdimensions}.
 The manufacturing process of the prototype consists of these steps:
 \begin{enumerate}
 	\item Collecting source data -- schematics and board layout (in this paper in Eagle)
-	\item Manufacturing of the Printed Circuit Board (PCB)
+	\item Manufacturing of the Printed Circuit Board (\gls{PCB})
 	\begin{enumerate}
 		\item Panelization of the board layout
 		\item Adding calibration markers
@@ -287,12 +287,12 @@ The manufacturing process of the prototype consists of these steps:
 	\end{enumerate}
 	\item Machine surface mount technology (SMT)
 	\begin{enumerate}
-		\item Export data for template for applying solder paste
-		\item Export partlist -- list of all devices with their coordinates
+		\item Export data for the template for applying solder paste
+		\item Export partlist -- the list of all devices with their coordinates
 		\item Export bill of materials (BOM)
 		\item Manufacturing of the template for applying solder paste
 		\item Order all devices according to BOM
-		\item Sending template for applying solder paste, packages with devices and partlist to the manufacturer
+		\item Sending template for applying solder paste, packages with devices and part list to the manufacturer
 	\end{enumerate}
 	\item Finalization of the prototype
 	\begin{enumerate}
@@ -303,17 +303,17 @@ The manufacturing process of the prototype consists of these steps:
 \end{enumerate}
 
 \subsection{Collecting source data}
-The source data may be in various formats according to the used tools. I used CadSoft EAGLE \cite{EAGLE} during the development, but many other tools are available on the market. It depends on the manufacturer company if they accept the source data in our format. They usually accept the source data, but they usually apply an exporting fee. All PCB editors should be able to export the manufacturing data in standardized formats. (Sometimes it's very hard or impossible to edit the exported data.)
+The source data may be in various formats according to the used tools. I used CadSoft EAGLE \cite{EAGLE} during the development, but many other tools are available on the market. It depends on the manufacturer company if they accept the source data in our format. They usually accept the source data, but they usually apply an exporting fee. All \gls{PCB} editors should be able to export the manufacturing data in standardized formats. (Sometimes it's very hard or impossible to edit the exported data.)
 
 \subsection{Manufacturing of the Printed Circuit Board}
-When we have more than one board we should assemble all boards onto one or more panels. If we plan to solder the devices by machine we should add a calibration marks on the final panel. I have followed the instructions from SMTplus company \cite{SMTplusManual}.
+When we have more than one board we should assemble all boards onto one or more panels. If we plan to solder the devices using the SMT, we should add a calibration marks on the final panel. I have followed the instructions from SMTplus company \cite{SMTplusManual}.
 
-First, I have panelized the seprated boards and I have added the calibration marks according to the rules of SMTPlus company \cite{SMTPlusDesignRules}. Finally, I have exported the gerber files using a CAM job \cite{GatemaCAMjob} in Eagle. I have followed the design rules for class 3 by Gatema a.s. company \cite{GatemaDesignRules}.
+First, I have panelized the separated boards and I have added the calibration marks according to the rules of SMTPlus company \cite{SMTPlusDesignRules}. Finally, I have exported the Gerber files using a CAM job \cite{GatemaCAMjob} in Eagle. I have followed the design rules for class 3 by Gatema a.s. company \cite{GatemaDesignRules}.
 
 \subsection{Machine surface mount technology}
-We need the PCB, template for soldering paste and all devices in this step. Some PCB manufacturers offer creating the template as well, so this is the way I used. The thickness of the template indicates the volume of the paste on each pad. For my small SMDs I used \SI{100}{\micro\meter}, but I recommend to discuss the parameters with the manufacturer.
+We need the \gls{PCB}, template for soldering paste and all devices in this step. Some \gls{PCB} manufacturers offer to create the template as well, so this is the way I used. The thickness of the template indicates the volume of the paste on each pad. For the small SMD parts I used \SI{100}{\micro\meter}, but I recommend to discuss the parameters with the manufacturer.
 
-The BOM and partlist export depends on the used design tools. When we connect used devices in the sources directly with their part numbers on selected shops, we can simply export the partlist and then import it on the seller's website. I recommend to buy some spare devices to minimize the risk of their damage.
+The BOM and part list export depends on the used design tools. When we connect used devices in the sources directly with their part numbers on selected shops, we can simply export the part list and then import it on the seller's website. I recommend buying some spare devices to minimize the risk of their damage.
 
 \begin{figure}[H]
 	\centering
@@ -323,11 +323,11 @@ The BOM and partlist export depends on the used design tools. When we connect us
 \end{figure}
 
 \subsection{Finalization of the prototype}
-We can discuss the finalization work with the manufacturer, but when we create a prototype, I have to recommend to do this job by ourself. It allows us to perform some tests before packaging and we don't have to spend time and money with preparation of the documentation about how to assemble and package our prototype. Otherwise the different software developers and testers can receive the different parts of the prototype for their next work.
+We can discuss the finalization works with the manufacturer, but when we create a prototype, I would like to recommend to do this job by yourself. It allows us to perform some tests before packaging and we don't have to spend time and money with a preparation of the documentation about how to assemble and package our prototype. Otherwise, the different software developers and testers can receive the different parts of the prototype for their next work.
 
 \section{Testing}
 \label{HWtesting}
-The testing process has been split into two parts: the laboratory testing during the software development and the outdoor testing. I have found some errors in the version 1.0 during the laboratory testing. These errors are described in Errata list in section \ref{errata}. I did another tests against the specification of used devices. The results show us what devices should be used in the next version of the hardware and what devices are redundant. The results are shown in the section \ref{deviceTesting}. The outdoor tests didn't find any significant errors, but there were found several recommendations for the future versions of the Sensor Board. These recommendations are mentioned in section \ref{recommendationsNextVerison}.
+The testing process has been split into two parts: the laboratory testing during the software development and the outdoor testing. I have found some errors in the version 1.0 during the laboratory testing. These errors are described in Errata list in section \ref{errata}. I did other tests against the specification of used devices. The results show us what devices should be used in the next version of the hardware and what devices are redundant. The results are shown in the section \ref{deviceTesting}. The outdoor tests didn't find any significant errors, but there were found several recommendations for the future versions of the SensorBoard. These recommendations are mentioned in section \ref{recommendationsNextVerison}.
 
 \subsection{Errata}
 \label{errata}
@@ -431,18 +431,24 @@ Recommendations for the future versions of the Sensor Board based on the outdoor
 \begin{itemize}
 	\item[--] Replace software LEDs by one or more RGB LEDs. For example WS2812 RGB LED \cite{AdafruitLED}.
 	\item[--] Move the sensor fusion and computations to Atmel SAM D21 \cite{AtmelSAM} processor inside the BMF055 \cite{BMF055} chip. Keep the ESP32 \cite{ESP32} processor only for communication and user computations.
-	\item[--] Decrease board dimensions using 4 layer PCB. The increased cost for 4 layer board may be saved on smaller surface.
-	\item[--] Sometimes it is better to have all SMDs at one side of the board. The manufacturing is cheaper and the space on the second side can be used for example for battery mounting or for connectors.
+	\item[--] Decrease board dimensions using 4 layer \gls{PCB}. The increased cost for 4 layer board may be saved on a smaller surface.
+	\item[--] Sometimes it is better to have all SMDs on one side of the board. The manufacturing is cheaper and the space on the second side can be used for example for battery mounting or for connectors.
 	\item[--] Split the board area to an area for sensors, an area for power electronics and an area for computing. The power distribution is easier in this situation and the sensors are less influenced by other electronics.
-	\item[--] Use another driver with more capabilities for USB connection. The USB on board actually supports only UART communication on virtual COM port. The File Transfer protocol for the SD card should be supported, too. (If it is needed we can add full USB host support or USB-C compatibility.)
-	\item[--] Add specialized pads for oscilloscope. The pads are connected to the signal and to the ground, so the oscilloscope measurements are more accurate.
-	\item[--] The main processor should be able to switch on/off the power of other parts (sensors). The sensors support sleep modes, but we cannot completely switch them off to save more energy from battery.
+	\item[--] Use another driver with more capabilities for USB connection. The USB on board actually supports only UART communication on the virtual COM port. The File Transfer protocol for the SD card should be supported, too. (If it is needed we can add full USB host support or USB-C compatibility.)
+	\item[--] Add specialized pads for an oscilloscope. The pads are connected to the signal and to the ground, so the oscilloscope measurements are more accurate.
+	\item[--] The main processor should be able to switch on/off the power of other parts (sensors). The sensors support sleep modes, but we cannot completely switch them off to save more energy from the battery.
 	\item[--] If we recognize that the ESP-WROOM-32 controller is not powerful enough, we can use a fully compatible alternative with larger memory ALB32-WROVER \cite{ALB32-WROVER}. It should be possible to compile a terminal based Linux distribution for this controller.
 \end{itemize}
-	
+
 \subsection{Analysis of additional costs}
 \label{HWadditionalCosts}
-//todo: By the analysis of additional costs I mean the counting of the prices of all parts that were finally spare or weren't finally used. The table \ref{tab:additionalCost} counts all parts of the SensorBoards and their prices. The green values are prices of parts that were finally used. The "Total used" amount means the price of all parts at one piece that were used during any use case.
+By the analysis of additional costs, I mean the counting the prices of all parts that were finally spare or weren't used. The table \ref{tab:additionalCost} counts all parts of the SensorBoard and their prices.
+
+The column "Used" tells us if the item was used for any use case or if it was spare at all times. If any item is still unused it doesn't mean that it cannot be used in some future use case. The column "Is necessary" points the basic items, the SensorBoard can't work or can't be built without them.
+
+It means that the green cost "Total used and necessary" is the lowest cost of the prototype without any additional functionality. The yellow cost "Total used and unnecessary" is the cost of all items that had significant value during development, but weren't mandatory for the main task. These items also made the development process easier and faster, so I don't count this cost as additional. The last red cost "Total unused" covers all items that weren't used. These items were a part of the design because they lowered some risks in functionality. For example, if I wasn't sure that an accelerometer will work properly, I added another spare accelerometer, which covered this risk. I could get a working prototype in the first iteration using this strategy. I finally count the red cost as a cost of decreased risks and as a cost of higher versatility.
+
+We have to take into account that all the mentioned costs are costs of the prototype. The same items would have significantly lower costs during the production of more devices.
 
 \begin{table}[H]
 	\centering
@@ -450,15 +456,15 @@ Recommendations for the future versions of the Sensor Board based on the outdoor
 	\label{tab:additionalCost}
 	\begin{tcolorbox}[tab2,tabularx={|X|l|c|c|},title=Additional cost calculation]
 		Part ID & Price & Used & Is necessary \\\hline\hline
-		PCB & \$ 23 & \greenYes & \greenYes \\
-		SMT job & \$ 65 & \greenYes & \greenYes \\ \hline\hline
+		\gls{PCB} & \$ 23 & \greenYes & \greenYes \\
+		SMT job & \$ 65 & \greenYes & \greenYes \\ \hline
 		TACTM-35N-F & \$ 0.4 & \greenYes & \yellowCell{No} \\
 		ADP5062 & \$ 3.8 & \greenYes & \greenYes \\
 		SI7006 & \$ 2 & \redNo & \redNo \\
 		DWM1000 & \$ 22 & \greenYes & \yellowCell{No} \\
 		BMP280 & \$ 4 & \greenYes & \yellowCell{No} \\
 		FT232R & \$ 5 & \greenYes & \greenYes \\
-		MPU-9250 & \$ 10 & \redNo & \redNo \\
+		MPU-9250 & \$ 10 & \greenYes & \yellowCell{No} \\
 		BMI160 & \$ 4.3 & \redNo & \redNo \\
 		BMF055 & \$ 11 & \greenYes & \greenYes \\
 		GY953 & \$ 11 & \redNo & \redNo \\
@@ -466,8 +472,8 @@ Recommendations for the future versions of the Sensor Board based on the outdoor
 		MOLEX-47219-2001 & \$ 1.2 & \greenYes & \greenYes \\
 		LTR-329ALS & \$ 0.7 & \redNo & \redNo \\
 		ESP-WROOM-32 & \$ 12 & \greenYes & \greenYes \\ \hline \hline
-		\greenCell{\textbf{Total used and necessary}} & \greenCell{\textbf{\$ //todo}} & \greenYes & \greenYes \\
-		\yellowCell{\textbf{Total used and unnecessary}} & \yellowCell{\textbf{\$ //todo}} & \yellowCell{Yes} & \yellowCell{No} \\
-		\redCell{\textbf{Total unused}} & \redCell{\textbf{\$ //todo}} & \redNo & \redNo \\
+		\greenCell{\textbf{Total used and necessary}} & \greenCell{\textbf{\$ 121}} & \greenYes & \greenYes \\
+		\yellowCell{\textbf{Total used and unnecessary}} & \yellowCell{\textbf{\$ 49.4}} & \yellowCell{Yes} & \yellowCell{No} \\
+		\redCell{\textbf{Total unused}} & \redCell{\textbf{\$ 18}} & \redNo & \redNo \\
 	\end{tcolorbox}
 \end{table}

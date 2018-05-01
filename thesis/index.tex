@@ -69,7 +69,6 @@ In general, the developed device can be used for sensor data capturing, onboard 
 \usepackage{amsfonts}
 \usepackage{url}      %% Hyperlinks
 \usepackage{listings} %% Source code highlighting
-\usepackage{paralist}
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -88,6 +87,8 @@ In general, the developed device can be used for sensor data capturing, onboard 
 \usepackage{longtable}
 \usepackage{gensymb}
 \usepackage{multicol}
+\usepackage[acronym,toc]{glossaries}  %% Acronyms
+\loadglsentries[\acronymtype]{Acronyms}
 
 %% Special colors definitions
 \definecolor{background}{HTML}{F5DD9D}
@@ -147,10 +148,14 @@ In general, the developed device can be used for sensor data capturing, onboard 
 \newcommand\yellowCell[1]{\cellcolor{yellow!25} #1}
 \newcommand\redCell[1]{\cellcolor{red!25} #1}
 
+\makeglossaries
+
 \begin{document}
 \newgeometry{twoside, top=2.5cm, left=3cm, textwidth=16cm, textheight=24cm}
 
 \tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily, colback=yellow!10!white, colframe=black, colbacktitle=white, coltitle=black, center title}}
+
+\printglossary[type=\acronymtype,style=long]
 
 \include{Introduction}
 
