@@ -28,7 +28,7 @@ When we define our complete task in the first step, then we can derive all requi
 	\end{enumerate}
 }
 
-The subject is an animal -- horse in this paper -- or human being or a moving machine. The post-processing can be done real-time during the measurement process, but this is not mandatory. The analysis is primarily focused to recognize known movements in logged data. For example, the categories of movement of a horse are stand, walk, trot, gallop, \dots
+The subject is an animal -- horse in this paper -- or human being or a moving machine. The post-processing can be done real-time during the measurement process, but this is not mandatory. The analysis is primarily focused to recognize known movements in logged data. For example, the categories of movement of a horse are stand, walk, trot, gallop etc.
 
 \section{Requirements}
 \label{HWrequirements}
@@ -47,7 +47,7 @@ For the movement reconstruction, we primarily need data about position and attit
 Finally, I would like to add as many interesting sensors as possible, because it will give us more data sources and we are less limited by the data sources. The other advantage is multifunctionality of the hardware. On the other hand, these additional sensors should be added only into additional requirements with lower importance. Otherwise, the selection of an appropriate hardware (based on the requirements) will be manipulated by a number of probably unnecessary sensors.
 
 \subsection{Low level requirements}
-Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on the selection of the devices. Let's call a used wearable device or devices as Sensor Board. The table \ref{tab:requirements} shows the list of requirements for this Sensor Board.
+Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on the selection of the devices. Let's call a used wearable device or devices as Sensor Board. The tables \ref{tab:requirements} and \ref{tab:requirements2} shows the list of requirements for this Sensor Board.
 
 \begin{table}
 	\centering
@@ -92,7 +92,7 @@ Finally, I've chosen a wearable sensors technology. The next requirements are sp
 \begin{table}
 	\centering
 	\caption{Sensor Board low level requirements 2}
-	\label{tab:requirements}
+	\label{tab:requirements2}
 	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level requirements 2]
 		Category & Requirement & Importance \\ \hline \hline
 		
@@ -117,7 +117,7 @@ Finally, I've chosen a wearable sensors technology. The next requirements are sp
 
 \subsection{Additional requirements}
 \label{HWadditionalRequirements}
-The additional requirements are shown in table \ref{tab:additionalReq}.
+The additional requirements are not directly derived from the task, but they can increase the versatility of the final product. These requirements are shown in table \ref{tab:additionalReq}.
 
 \begin{table}
 	\centering
@@ -196,7 +196,7 @@ Here I have finally decided to develop a new hardware. Now I'm looking for suita
 		BMF055 & Accelerometer, dynamic gyroscope, magnetometer, ARM microcontroller & \cite{bosch:BMF055} & \greenYes \\
 		GY953 & Backup accelerometer, dynamic gyroscope and megnetometer with embedded pitch, roll and yaw angle estimation (sensor fusion) & \cite{GY953} & \greenYes \\
 		HM-TRP & Long range \SI{433}{MHz} radio & \cite{HM-TRP} & \greenYes \\
-		MOLEX-47219-2001 & Micro SD card holder & \cite{MOLEX-SD1} & \greenYes \\
+		MOLEX-47219 & Micro SD card holder & \cite{MOLEX-SD1} & \greenYes \\
 		LTR-329ALS & Digital ambient light sensor & \cite{LTR-329ALS} & \greenYes \\
 		EAALSTIC1708A0 & Analog ambient light sensor & \cite{EAALSTIC1708A0} & \redNo \\
 		NOA1212 & Analog ambient light sensor & \cite{NOA1212} & \redNo \\
@@ -205,11 +205,9 @@ Here I have finally decided to develop a new hardware. Now I'm looking for suita
 		UM18533 & Linear stabilizer \SI{3.3}{V} & \cite{UM18533} & \greenYes \\
 		LF33 & Linear stabilizer \SI{3.3}{V} & \cite{LF33} & \redNo \\
 		USB-MICRO & Micro USB connector & \cite{USB-MICRO} & \greenYes \\
-		Pin header 2.54 mm & Servo connector & \cite{PINHEAD} & \greenYes \\
+		Pin header & Servo connector \SI{2.54}{mm} & \cite{PINHEAD} & \greenYes \\
 	\end{tcolorbox}
 \end{table}
-
-
 
 \section{PCB design}
 \label{HWpcbDesign}
@@ -310,7 +308,7 @@ The source data may be in various formats according to the used tools. I used Ca
 \subsection{Manufacturing of the Printed Circuit Board}
 When we have more than one board we should assemble all boards onto one or more panels. If we plan to solder the devices using the \ac{SMT}, we should add a calibration marks on the final panel. I have followed the instructions from SMTplus company \cite{SMTplusManual}.
 
-First, I have panelized the separated boards and I have added the calibration marks according to the rules of SMTPlus company \cite{SMTPlusDesignRules}. Finally, I have exported the Gerber files using a CAM job \cite{GatemaCAMjob} in \ac{EAGLE}. I have followed the design rules for class 3 by Gatema a.s. company \cite{GatemaDesignRules}.
+First, I have panelized the separated boards and I have added the calibration marks according to the rules of SMTPlus company \cite{SMTplusDesignRules}. Finally, I have exported the Gerber files using a CAM job \cite{GatemaCAMjob} in \ac{EAGLE}. I have followed the design rules for class 3 by Gatema a.s. company \cite{GatemaDesignRules}.
 
 \subsection{Machine surface mount technology}
 We need the \ac{PCB}, template for soldering paste and all devices in this step. Some \ac{PCB} manufacturers offer to create the template as well, so this is the way I used. The thickness of the template indicates the volume of the paste on each pad. For the small \ac{SMD} parts I used \SI{100}{\micro\meter}, but I recommend to discuss the parameters with the manufacturer.
@@ -325,7 +323,7 @@ The \ac{BOM} and part list export depends on the used design tools. When we conn
 \end{figure}
 
 \subsection{Finalization of the prototype}
-We can discuss the finalization works with the manufacturer, but when we create a prototype, I would like to recommend to do this job by yourself. It allows us to perform some tests before packaging and we don't have to spend time and money with a preparation of the documentation about how to assemble and package our prototype. Otherwise, the different software developers and testers can receive the different parts of the prototype for their next work.
+We can discuss the finalization works with the manufacturer, but when we create a prototype, I would like to recommend to do this job by yourself. It allows to perform some tests before packaging and we don't have to spend time and money with a preparation of the documentation about how to assemble and package our prototype. Otherwise, the different software developers and testers can receive the different parts of the prototype for their next work.
 
 \section{Testing}
 \label{HWtesting}
@@ -345,7 +343,7 @@ The tables \ref{tab:errata} and \ref{tab:errata2} show all errors I have found d
 		\yellowMedium & Some part of the prototype may not work \\
 		\redHigh & The prototype has to be remade \\
 	\end{tcolorbox}
-	\vspace{1cm}
+	\vspace{0.75cm}
 	\begin{tcolorbox}[tab2,tabularx={|c|p{7.5cm}|X|c|},title=Errata 1 of 2]
 		Number & Description & Error created during & Severity \\ \hline
 		1      &
@@ -431,8 +429,8 @@ The device testing helped me to select the parts recommended for the future vers
 \label{recommendationsNextVerison}
 Recommendations for the future versions of the Sensor Board based on the outdoor testing:
 \begin{itemize}
-	\item[--] Replace software LEDs by one or more RGB LEDs. For example WS2812 RGB LED \cite{AdafruitLED}.
-	\item[--] Move the sensor fusion and computations to Atmel SAM D21 \cite{AtmelSAM} processor inside the BMF055 \cite{BMF055} chip. Keep the ESP32 \cite{ESP32} processor only for communication and user computations.
+	\item[--] Replace software LEDs by one or more RGB LEDs. For example WS2812 RGB LED \cite{worldsemi:WS2812}.
+	\item[--] Move the sensor fusion and computations to Atmel SAM D21 \cite{atmel:samd20} processor inside the BMF055 \cite{bosch:BMF055} chip. Keep the ESP32 \cite{espressif:ESP-WROOM-32} processor only for communication and user computations.
 	\item[--] Decrease board dimensions using 4 layer \ac{PCB}. The increased cost for 4 layer board may be saved on a smaller surface.
 	\item[--] Sometimes it is better to have all \ac{SMD} parts on one side of the board. The manufacturing is cheaper and the space on the second side can be used for example for battery mounting or for connectors.
 	\item[--] Split the board area to an area for sensors, an area for power electronics and an area for computing. The power distribution is easier in this situation and the sensors are less influenced by other electronics.

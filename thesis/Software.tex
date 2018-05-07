@@ -1,5 +1,5 @@
 \chapter{Software}
-The Sensor Board hardware has two programmable CPUs and several configurable chips. The main ESP32 CPU (two low-power Xtensa 32-bit LX6 microprocessors) \cite{espressif:ESP-WROOM-32} is programmable via USB or Bluetooth or \ac{JTAG}. The \ac{JTAG} connector is not present on the Sensor Board. The second microcontroller is a part of BMF055 \cite{bosch:BMF055} multifunctional chip. It is Atmel SAMD20 \cite{atmel:SAMD20} with ARM Cortex-M0+ CPU programmable via \ac{SWD} interface \cite{SWDinterface}.
+The Sensor Board hardware has two programmable CPUs and several configurable chips. The main ESP32 CPU (two low-power Xtensa 32-bit LX6 microprocessors) \cite{espressif:ESP-WROOM-32} is programmable via USB or Bluetooth or \ac{JTAG}. The \ac{JTAG} connector is not present on the Sensor Board. The second microcontroller is a part of BMF055 \cite{bosch:BMF055} multifunctional chip. It is Atmel SAMD20 \cite{atmel:samd20} with ARM Cortex-M0+ CPU programmable via \ac{SWD} interface \cite{SWDinterface}.
 
 \paragraph{Microcontrollers:}
 \begin{enumerate}
@@ -89,7 +89,7 @@ The BMF055 \cite{bosch:BMF055} is a custom programmable 9-axis motion sensor. It
 	\begin{minipage}[c]{.45\textwidth}
 		\includegraphics[width=7cm]{img/BMF055.jpg}
 	\end{minipage}
-	\vrule{}
+	\quad\vrule{}
 	\begin{minipage}[c]{.45\textwidth}
 		\includegraphics[width=7cm]{img/HWassembledNoCoin.jpg}
 	\end{minipage}
@@ -115,7 +115,7 @@ I have implemented a new library for easier working with the sensors on the Sens
 \label{SensorBoardAPI}
 The ESP32 and Atmel SAM controller have defined their \ac{API} by the manufacturer, but these \ac{API}s don't implement a communication with specific sensors and peripherals connected to the controllers. For easier work with all the functionality of the SensorBoard, I have implemented specific \ac{API} for the ESP32 controller.
 
-The \ac{API} is built on \ac{ESP-IDF} and it should be used together with the \ac{ESP-IDF} \ac{API} from the manufacturer. It allows, for example, a FreeRTOS usage, because the FreeRTOS is a part of \ac{ESP-IDF} framework \cite{ESP32}. The SensorBoard \ac{API} can be used together with Arduino \ac{API} for ESP32, too.
+The \ac{API} is built on \ac{ESP-IDF} and it should be used together with the \ac{ESP-IDF} \ac{API} from the manufacturer. It allows, for example, a FreeRTOS usage, because the FreeRTOS is a part of \ac{ESP-IDF} framework \cite{espressif:ESP-WROOM-32}. The SensorBoard \ac{API} can be used together with Arduino \ac{API} for ESP32, too.
 
 \paragraph{The SensorBoard \ac{API} implements}
 \begin{itemize}
@@ -310,7 +310,7 @@ The SensorBoard is a multifunctional user programmable hardware that can be used
 
 \subsection{Sensors data logger}
 \label{ExampleLogger}
-Sensor logger can be understood as very simple logging device or as a very advanced application with an integrated web server and with the ability to connect more boards into one synchronized grid with centralized control. The simple version is shown in figure \ref{UELogging1ELogging1}.
+Sensor logger can be understood as very simple logging device or as a very advanced application with an integrated web server and with the ability to connect more boards into one synchronized grid with centralized control. The simple version is shown in figure \ref{UELogging1}.
 
 \begin{figure}
 	\centering
@@ -375,7 +375,7 @@ Here we can use dual controller advantage on the SensorBoard and run the basic c
 \subsection{Indoor navigation using \ac{TDOA}}
 Indoor navigation requires high accuracy positioning. We usually need higher accuracy than given by GPS. I know so many projects approaching the indoor positioning. There was, for example, an Indoor Positioning and Indoor Navigation conference in September 2017 in Japan.
 
-This example uses Time Difference of Arrival (\ac{TDOA}) method to compute its position in space with the precision of \SI{10}{cm}. The device measures time differences in received messages from other devices. When the device knows the time differences and the speed of light, it can compute its relative position to the other boards. There is a DWM1000 chip that is able to measure and compute these data. \cite{decawave:DWM1000}. The figure \ref{UEETDOA} shows how the relative positioning works on the SensorBoard.
+This example uses Time Difference of Arrival (\ac{TDOA}) method to compute its position in space with the precision of \SI{10}{cm}. The device measures time differences in received messages from other devices. When the device knows the time differences and the speed of light, it can compute its relative position to the other boards. There is a DWM1000 chip that is able to measure and compute these data. \cite{decawave:DWM1000}. The figure \ref{UETDOA} shows how the relative positioning works on the SensorBoard.
 
 \begin{figure}
 	\centering
@@ -424,7 +424,7 @@ The ESP32 controller has a built-in Bluetooth and WiFi module. So, we can create
 
 \subsection{Grid computing education board}
 \label{ExampleGrid}
-The biggest advantages of the SensorBoard are hidden in its real-time system, wireless technology and independence. These advantages can create a grid of multiple items. Then we can use the whole grid as one virtual unit. When we solve the problems with failures and accessibility, we have a grid solution with swappable items. An example of a grid with two failures is shown in figure \ref{UEEgrid}.
+The biggest advantages of the SensorBoard are hidden in its real-time system, wireless technology and independence. These advantages can create a grid of multiple items. Then we can use the whole grid as one virtual unit. When we solve the problems with failures and accessibility, we have a grid solution with swappable items. An example of a grid with two failures is shown in figure \ref{UEgrid}.
 
 \begin{figure}
 	\centering
