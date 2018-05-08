@@ -272,6 +272,54 @@ The mechanical layout is shown in figure \ref{fig:HWdimensions}.
 	\includegraphics[scale=1]{img/HWdimensions.pdf}
 \end{figure}
 
+\subsection{Highlights of the board layout}
+The selected parts are mainly layouted and connected according to the recomendations in the datasheets. There are some differences in the SensorBoard layout that should be highlighted in this section.
+
+\paragraph{Power LEDs}
+
+When we have more power supplies on the prototype, it's a good way to add a power \ac{LED} to all the supplies circuits. For example the SensorBoard has \SI{5}{V} supply, \SI{3.3}{V} supply, USB supply and digital power supply. The four \ac{LED}s give us the information that all the circuits operating properly. Only one power circuit usually stops operation when it is overloaded and the stabilizer cannot provide enough power. The schematic of the signalization \ac{LED}s is shown in figure \ref{fig:schLeds}.
+
+\begin{figure}
+	\centering
+	\label{fig:schLeds}
+	\caption{Schematics of the power LEDs}
+	\includegraphics[scale=1.3]{img/SchLeds.pdf}
+\end{figure}
+
+\paragraph{Automatic bootloader}
+
+When we connect the SensorBoard to a computer using the \ac{USB} cable, we would like to reset the ESP32 controller distantly from the computer and upload a new program by one click. This is allowed by two transistors shown in figure \ref{fig:schBoot}. The same solution is used in \ac{PCB} layout of ESP32-DevKitC. \cite{espressif:ESP32DevKitC} The transistors control the \texttt{ENABLE} and \texttt{RESET} pin on the ESP32 based on the \texttt{RTS} and \texttt{DTR} value on the \ac{UART} comming from \ac{USB} via FTDI chip. \cite{ftdichip:FT232R}.
+
+\begin{figure}
+	\centering
+	\label{fig:schBoot}
+	\caption{Schematics of the boot transistors}
+	\includegraphics[scale=1.3]{img/SchBoot.pdf}
+\end{figure}
+
+\paragraph{ESP32 pins selection}
+The ESP-WROOM-32 \cite{espressif:ESP-WROOM-32} has only 26 usable \ac{GPIO}s. So, we cannot connect so many peripherials to the ESP32 controller. The final pin distribution is shown in figure \ref{fig:schPinout}.
+
+\begin{figure}
+	\centering
+	\label{fig:schPinout}
+	\caption{Schematics of the ESP32 pin distribution}
+	\includegraphics[scale=1.3, angle=90]{img/SchPinout.pdf}
+\end{figure}
+
+\paragraph{Layout of the buttons}
+When a button connected to a controller is pressed, the controller usually detects more pushes. This behavior is caused by the internal mechanics of the button and can be solved by adding a capacitor. The figure \ref{fig:schButton} shows the added capacitors to the buttons on the SensorBoard.
+
+\begin{figure}
+	\centering
+	\label{fig:schButton}
+	\caption{Schematics of the buttons on the SensorBoard}
+	\includegraphics[scale=1.3]{img/SchButtons.pdf}
+\end{figure}
+
+\paragraph{Optional 10k pull-up on RESET pin}
+When I was connecting the \SI{10}{k\ohm} pull-up resistor to RESET pin on the controller, I have added a soldering pad. The pad allows to disconnect the pull-up resistor when the RESET pin is controlled from another source.
+
 \section{Manufacturing}
 \label{HWmanufacturing}
 
@@ -477,3 +525,29 @@ We have to take into account that all the mentioned costs are costs of the proto
 		\redCell{\textbf{Total unused}} & \redCell{\textbf{\$ 18}} & \redNo & \redNo \\
 	\end{tcolorbox}
 \end{table}
+
+\subsection{Comparison of the used \ac{IMU}s}
+There are three different accelerometers, dynamic gyroscopes and two magnetometers on the prototype. So, it's time to select the most appropriate \ac{IMU}. Of course, we can use all the sensors and get the data with higher precision. The three different sensors on the prototype allow to test many more functions and experiments.
+
+\begin{itemize}
+	\item[--] \textbf{BMI160:} (\$ 4.3) \cite{bosch:BMI160}
+	\begin{itemize}
+		\item[$+$] The most accurate gyroscope and accelerometer
+		\item[$-$] Without magnetometer
+	\end{itemize}
+	\item[--] \textbf{BMF055:} (\$ 11) \cite{bosch:BMF055}
+	\begin{itemize}
+		\item[$+$] Good accuracy
+		\item[$+$] Accelerometer, dynamic gyroscope, magnetometer and \ac{ARM} controller in one package
+		\item[$+$] Heated to constant temperature if the controller is in constant load
+		\item[$-$] Variable temperature of the chips when the controller is not under constant load
+	\end{itemize}
+	\item[--] \textbf{MPU9250:} (\$ 10) \cite{invensense:MPU9250}
+	\begin{itemize}
+		\item[$+$] Highest community support
+		\item[$-$] Maybe in the end of its lifecycle
+		\item[$-$] Less accuracy than the other presented sensors
+	\end{itemize}
+\end{itemize}
+
+I would like to recommend to use the BMF055 chip for the next versions of the SensorBoard, but it doesn't mean that I recommend this chip to any use case. It heavily depends on the selected task and on the requirements.
