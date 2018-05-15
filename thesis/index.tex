@@ -92,6 +92,12 @@ In general, the developed device can be used for sensor data capturing, onboard 
 \usepackage[acronym,toc]{glossaries}  %% Acronyms
 \loadglsentries[\acronymtype]{Acronyms}
 
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
 %% Special colors definitions
 \definecolor{background}{HTML}{F5DD9D}
 \definecolor{symbolColorTop}{HTML}{FFECB3}
@@ -114,6 +120,23 @@ In general, the developed device can be used for sensor data capturing, onboard 
   commentstyle    = \itshape\color{magenta}}
 \usepackage{floatrow} %% Putting captions above tables
 \floatsetup[table]{capposition=top}
+
+\newcommand\Cpp{
+	\lstset{
+		basicstyle=\ttfamily,
+		columns=fullflexible,
+		showstringspaces=false,
+		tabsize=4,
+		numbers=left,
+		backgroundcolor = \color{lightblue},
+		language=C++,
+		identifierstyle=\color{brown},
+		keywordstyle=\color{blue},
+		stringstyle=\color{red},
+		commentstyle=\color{darkgreen},
+		morecomment=[l][\color{darkmagenta}]{\#}
+	}
+}
 
 %% Definition of the box with declarations of used symbols.
 \newcommand\highlightedBox[2]{
@@ -173,7 +196,6 @@ In general, the developed device can be used for sensor data capturing, onboard 
 
 //todo: pridat certifikace USB, WiFi, Bluetooth, ... ?
 //todo: odkaz na lepsi FTDI nebo jiny chip pro USB komunikaci
-//todo: Proc vlastne Monet chce analyzovat pohyb kone? Jaky k tomu ma duvod.
 
 //todo: oznacit pojmy do indexu
 \index{dummy text|(}It is possible to create ranged index
