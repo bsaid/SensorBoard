@@ -5,11 +5,11 @@
 	\centering
 	\includegraphics[width=16cm]{img/HWassembled.jpg}
 	\label{HWassembled}
-	\caption{Assembled Sensor Board prototype}
+	\caption{Assembled SensorBoard prototype}
 \end{figure}
 
 \section{Overview}
-Sensor Board is a prototype of autonomous hardware platform with microprocessor and various inertial, atmospheric and navigation sensors. The device can be used in many cases from logging data to movement control. The prototype works fully autonomously without connection to external power supply or other electronics, but allows wireless or wired connection to other electronic devices.
+SensorBoard is a prototype of autonomous hardware platform with microprocessor and various inertial, atmospheric and navigation sensors. The device can be used in many cases from logging data to movement control. The prototype works fully autonomously without connection to external power supply or other electronics, but allows wireless or wired connection to other electronic devices.
 
 \subsection{Features}
 \begin{itemize}
@@ -75,7 +75,7 @@ The device is assembled from three parts, two sandwich boards and one connector 
 	\centering
 	\includegraphics[scale=1]{img/assemblingHW.pdf}
 	\label{HWassembling}
-	\caption{Assembling the Sensor Board prototype}
+	\caption{Assembling the SensorBoard prototype}
 \end{figure}
 
 \subsection{Components Description}
@@ -84,12 +84,12 @@ The device is assembled from three parts, two sandwich boards and one connector 
 	\centering
 	\includegraphics[scale=1]{img/componentsDescription.pdf}
 	\label{HWcomponents}
-	\caption{Components of the Sensor Board}
+	\caption{Components of the SensorBoard}
 \end{figure}
 
 \begin{table}[H]
 	\centering
-	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Description of components of the Sensor Board]
+	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Description of components of the SensorBoard]
 		Number & Description & Datasheet\\
 		\hline \hline
 		1 & DWM1000 location sensor & \cite{decawave:DWM1000} \\
@@ -105,7 +105,7 @@ The device is assembled from three parts, two sandwich boards and one connector 
 		11 & ESP-WROOM-32 with WiFi/Bluetooth antenna & \cite{espressif:ESP-WROOM-32} \\
 		12 & Micro SD card slot & \cite{MOLEX-SD1} \\
 	\end{tcolorbox}
-	\caption{Description of components of the Sensor Board}
+	\caption{Description of components of the SensorBoard}
 	\label{table:componentsDescription}
 \end{table}
 
@@ -231,7 +231,7 @@ The pins B01 -- B17 are defined by jumpers. We usually need these pins connected
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{img/LEDmeanings.pdf}
-	\caption{Sensor Board LED meanings}
+	\caption{SensorBoard LED meanings}
 	\label{fig:LEDmeaning}
 \end{figure}
 
@@ -435,6 +435,51 @@ The BMF055 board has two \ac{LED}s, one power \ac{LED} and one software driven \
 	\end{tcolorbox}
 \end{table}
 
+\chapter{Schematics and PCB layout od the SensorBoard}
+The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. The figures \ref{sch1} and \ref{sch2} shows the exported schematics split into two sheets. The exported \ac{PCB} layout drawing in scale 1:1 is in figure \ref{brd1} and in scale 2:1 with more details in figure \ref{brd2}.
+
+\begin{figure}
+	\centering
+	\includegraphics[angle=90, width=\linewidth]{img/sch1.pdf}
+	\label{sch1}
+	\caption{Schematics of the SensorBoard sheet 1}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[angle=90, width=\linewidth]{img/sch2.pdf}
+	\label{sch2}
+	\caption{Schematics of the SensorBoard sheet 2}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=1]{img/brd.pdf}
+	\vspace{-0.5cm}
+	\begin{center}
+		Top and Bottom layer
+	\end{center}
+	\includegraphics[scale=1]{img/brdTop.pdf}
+	\vspace{-0.5cm}
+	\begin{center}
+		Only Top layer
+	\end{center}
+	\includegraphics[scale=1]{img/brdBottom.pdf}
+	\vspace{-0.5cm}
+	\begin{center}
+		Only Bottom layer
+	\end{center}
+	\label{brd1}
+	\caption{SensorBoard layout in scale 1:1}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[angle=90, scale=2]{img/brd.pdf}
+	\label{brd2}
+	\caption{SensorBoard layout in detail scale 2:1}
+\end{figure}
+
 \section{SensorBoard Drawings}
 The SensorBoard drawings shows the correspondence between the manufactured prototype and its schematic drawings. The comparison is shown in figure \ref{fig:SensorBoardDrawings}.
 
@@ -443,25 +488,23 @@ The SensorBoard drawings shows the correspondence between the manufactured proto
 	\label{fig:SensorBoardDrawings}
 	\caption{Drawings of the SensorBoard used in this paper}
 	\includegraphics[width=\linewidth]{img/PCBphoto.jpg}
-	\\Photo of the board prototype\\
-	\vspace{1cm}
-	\begin{minipage}[c]{.3\textwidth}
-		\includegraphics[height=5cm]{img/renderBottom.png}
-	\end{minipage}
-	\quad\quad
-	\begin{minipage}[c]{.3\textwidth}
-		\includegraphics[height=5cm]{img/renderTop.png}
-	\end{minipage}
-	\quad\quad
-	\begin{minipage}[c]{.15\textwidth}
-		\includegraphics[height=2.5cm]{img/renderBMF.png}
-	\end{minipage}
-	\vspace{0.5cm}
+	\\Photo of the disassembled prototype\\
+	\vspace{0.4cm}
+	%\begin{minipage}[c]{.3\linewidth}
+	%	\includegraphics[height=5cm]{img/renderBottom.png}
+	%\end{minipage}
+	%\quad
+	%\begin{minipage}[c]{.3\linewidth}
+	%	\includegraphics[height=5cm]{img/renderTop.png}
+	%\end{minipage}
+	%\quad
+	%\begin{minipage}[c]{.15\linewidth}
+	%	\includegraphics[height=2.5cm]{img/renderBMF.png}
+	%\end{minipage}
+	\includegraphics[width=\linewidth]{img/renders.png}
+	\vspace{0.4cm}
 	\\Renders of the \ac{PCB}\\
-	\vspace{1cm}
+	\vspace{0.4cm}
 	\includegraphics[scale=1]{img/SensorBoardDrawing.pdf}
 	\\Schematical drawing
 \end{figure}
-
-\chapter{SensorBoard API documentation}
-//todo: add Doxygen export as appendix?

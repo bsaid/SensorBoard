@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[
-  digital, %% This option enables the default options for the
+  printed, %% This option enables the default options for the
            %% digital version of a document. Replace with `printed`
            %% to enable the default options for the printed version
            %% of a document.
@@ -46,19 +46,19 @@
 }
 
 \thesislong{thanks}{
-I wish to express my sincere thanks to \begin{otherlanguage}{czech}Zdeněk Matěj\end{otherlanguage}, my advisor, for his continuous support and answering my questions. I am also grateful to \begin{otherlanguage}{czech}Robotárna in Brno\end{otherlanguage} for providing me with some necessary facilities for the research. I would like to thank to \begin{otherlanguage}{czech}Monet+ \end{otherlanguage} company which was a commercial partner for this research.
+I wish to express my sincere thanks to \begin{otherlanguage}{czech}Zdeněk Matěj\end{otherlanguage}, my advisor, for his continuous support and answering my questions. I am also grateful to \begin{otherlanguage}{czech}Robotárna in Brno \end{otherlanguage} for providing me with some necessary facilities for the research. I would like to thank to \begin{otherlanguage}{czech}Monet+ \end{otherlanguage} company which was a commercial partner for this research.
 }
 
 \thesislong{abstract}{
-Attitude sensors are more widely used and their price is decreasing. The lower price allows creating new solutions with lower costs. Some examples can be found in wearable devices, mobile phones, navigation or control systems. There are several devices for various use cases on the market.
+Attitude sensors are more widely used, and their price is decreasing. The lower price allows creating new solutions with lower costs. Some examples can be found in wearable devices, mobile phones, navigation or control systems. There are several devices for various use cases on the market.
 
-These devices usually cover their use cases and don't have any additional features like power independence, enough logging memory or openness for user code. The remaining hardware that fulfills all the conditions above is usually very expensive.
+These devices usually cover their use cases and don't have any additional features like power independence, enough logging memory or openness for user code. The remaining hardware that fulfills all the conditions above is usually expensive.
 
 I have developed a new wearable independent device for capturing and processing the measured data. The independence means no external wires and no external power supply here. The device is able to work outdoors, to log the measured data and to provide a direct output based on internal computations. The user can choose between completely wireless communication or wired connection to other electronics. The sensors measure inertial, attitude, position and atmospheric values.
 
-For outdoor testing of the device, I have selected a task about movement analysis of a horse. The devices were placed on the horse's body as wearable devices and I was developing algorithms for determination of the type of its movement -- stand, walk, trot or gallop.
+For outdoor testing of the device, I have selected a task about movement analysis of a horse. I placed the devices on the horse's body as wearable devices, and I was developing algorithms for determination of the type of its movement -- stand, walk, trot or gallop.
 
-In general, the developed device can be used for sensor data capturing, onboard data processing, navigation or control of moving mechanics. The device works independently, so it is easy to install on the measured or controlled objects.
+In general, the developed device can be used for capturing data from sensors, onboard data processing, navigation or control of moving mechanics. The electronics work independently, so it is easy to install it on the measured or controlled objects.
 }
 
 \usepackage{makeidx}      %% The `makeidx` package contains
@@ -193,16 +193,6 @@ In general, the developed device can be used for sensor data capturing, onboard 
 \include{Analysis}
 
 \include{Conclusion}
-
-//todo: pridat certifikace USB, WiFi, Bluetooth, ... ?
-//todo: odkaz na lepsi FTDI nebo jiny chip pro USB komunikaci
-
-//todo: oznacit pojmy do indexu
-\index{dummy text|(}It is possible to create ranged index
-entries, which will encompass a span of text.\index{dummy text|)}
-To insert complex typographic material -- such as $\alpha$
-\index{alpha@$\alpha$} or \TeX{} \index{TeX@\TeX} \index{vehicles!trucks}
-\index{vehicles!speed cars}
 
 \printbibliography[heading=bibintoc] %% Print the bibliography.
 

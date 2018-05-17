@@ -3,17 +3,17 @@ The hardware design is split into several steps in this paper. First, I had to d
 
 When we don't find any suitable device on the market, we can start to think about creating a new one. In my opinion, it's not a good way to start any development before doing the previous steps.
 
-When we already start a development of a new hardware we can think about adding some additional requirements for increasing the versatility of the final hardware. Of course, the new requirements mustn't rapidly increase the final prize. But if the hardware will be used only in the specific task, it's usually unnecessary to add any other functionality. In this case, I'm adding some additional requirements in section \ref{HWadditionalRequirements}, because I think that in this case, I can add very high versatility with very low additional cost. The analysis of the final expenses is in section \ref{HWadditionalCosts}.
+When we already start development of new hardware we can think about adding some additional requirements for increasing the versatility of the final hardware. Of course, the new requirements mustn't rapidly increase the final prize. But if the hardware will be used only in the specific task, it's usually unnecessary to add any other functionality. In this case, I'm adding some additional requirements in section \ref{HWadditionalRequirements}, because I think that in this case, I can add very high versatility with very low additional cost. The analysis of the final expenses is in section \ref{HWadditionalCosts}.
 
-When I'm decided to develop a new hardware and I have the specification of all the requirements, I can start the development process. The selection of chips and other parts is in section \ref{HWdeviceSelection} and the printed circuit board (\ac{PCB}) design is discussed in section \ref{HWpcbDesign}.
+When I'm decided to develop new hardware and I have the specification of all the requirements, I can start the development process. The selection of chips and other parts is in section \ref{HWdeviceSelection} and the printed circuit board (\ac{PCB}) design is discussed in section \ref{HWpcbDesign}.
 
 Finally, the manufacturing of the first prototype is described in section \ref{HWmanufacturing}. With the first prototype, it's time for testing. The tests should find as many errors as possible and they should proof us if the requirements were already met. The section \ref{HWtesting}. The whole process is shown in the figure \ref{fig:HWprocess}.
 
 \begin{figure}
-	\centering
-	\label{fig:HWprocess}
-	\caption{Flowchart of the hardware design process}
-	\includegraphics[width=\linewidth]{img/HWdesignProcess.pdf}
+    \centering
+    \label{fig:HWprocess}
+    \caption{Flowchart of the hardware design process}
+    \includegraphics[width=\linewidth]{img/HWdesignProcess.pdf}
 \end{figure}
 
 \section{Task Analysis}
@@ -21,98 +21,98 @@ Finally, the manufacturing of the first prototype is described in section \ref{H
 When we define our complete task in the first step, then we can derive all requirements for our solution. Finally, we can check if our project was successful based on the previously defined task and requirements.
 
 \highlightedBox{Movement analysis task description}{
-	\begin{enumerate}
-		\item Measuring of the movement of a subject
-		\item Logging the measured data and sending them to post-processing
-		\item Analysing of the movement and naming the specific categories of movements
-	\end{enumerate}
+    \begin{enumerate}
+        \item Measuring of the movement of a subject
+        \item Logging the measured data and sending them to post-processing
+        \item Analysing of the movement and naming the specific categories of movements
+    \end{enumerate}
 }
 
-The subject is an animal -- horse in this paper -- or human being or a moving machine. The post-processing can be done real-time during the measurement process, but this is not mandatory. The analysis is primarily focused to recognize known movements in logged data. For example, the categories of movement of a horse are stand, walk, trot, gallop etc.
+The subject is an animal -- horse in this paper -- or human being or a moving machine. The post-processing can be done real-time during the measurement process, but this is not mandatory. The analysis is primarily focused to recognize known movements in logged data. For example, the categories of movement of a horse are a stand, walk, trot, gallop, etc.
 
 \section{Requirements}
 \label{HWrequirements}
-The development of a new hardware or software is usually driven by specified requirements. In this paper, I have specified two groups of requirements. The first group is based on the selected task to solve. The second group has lower priority and specifies all the requirements that I found during other similar tasks with similar hardware. The second group of requirements is adding higher versatility to the final electronic device with very low additional cost. These two groups of requirements are later merged and used as a source for next development of the hardware.
+The development of new hardware or software is usually driven by specified requirements. In this paper, I have specified two groups of requirements. The first group is based on the selected task to solve. The second group has lower priority and specifies all the requirements that I found during other similar tasks with similar hardware. The second group of requirements is adding higher versatility to the final electronic device with very low additional cost. These two groups of requirements are later merged and used as a source for next development of the hardware.
 
 \subsection{High level requirements}
 
 \paragraph{Measuring of the movement of a subject:} The solution should work outdoor. So, we cannot take into account any studio or laboratory-based technologies like Motion Capture (Mo-cap). On the other hand, we can replace the passive or active markers with the whole sensors and remove the necessary cameras. The sensor-based electronics is easier to install and can be used in large and complex areas. Based on this outdoor requirement I will consider only wearable sensor systems.
 
-\paragraph{Logging the measured data and sending them to post-processing:} There are no wires acceptable for outdoor use, so we can log the data to internal memory or transmit them via any wireless technology. The wireless systems may be not fully reliable in complex areas with many objects. So, when we want to transmit the data directly it's still better to log them internally for later downloads.
+\paragraph{Logging the measured data and sending them to post-processing:} There are no wires acceptable for outdoor use, so we can log the data to internal memory or transmit them via any wireless technology. The wireless systems may be not fully reliable in complex areas with many objects. So, when we want to transmit the data directly, it's still better to log them internally for later downloads.
 
-\paragraph{Analysis of the movement and naming the specific categories of movements} This is a software requirement, so it's not very important during the hardware design. But this requirement defines what data we need to measure and this is a hardware requirement.
+\paragraph{Analysis of the movement and naming the specific categories of movements} This is a software requirement, so it's not very important during the hardware design, but this requirement defines what data we need to measure. What data we need to measure is a hardware requirement, too.
 
 For the movement reconstruction, we primarily need data about position and attitude of every sensor. Some methods for movement classification don't need to know the exact location (for example accelerometer-based step counter). This task is focused on developing a new analysis of the movement, so now I cannot exactly say what sensors will be needed in the future. I can make a prediction that the inertial measurement unit (\ac{IMU}) and some location sensors will be needed. But there are some other sensors that produce interesting data according to the movement analysis, for example, a heart rate sensor according to animals.
 
-Finally, I would like to add as many interesting sensors as possible, because it will give us more data sources and we are less limited by the data sources. The other advantage is multifunctionality of the hardware. On the other hand, these additional sensors should be added only into additional requirements with lower importance. Otherwise, the selection of an appropriate hardware (based on the requirements) will be manipulated by a number of probably unnecessary sensors.
+Finally, I would like to add as many interesting sensors as possible, because it will give us more data sources and we are less limited by the data sources. The other advantage is multifunctionality of the hardware. On the other hand, these additional sensors should be added only to additional requirements with lower importance. Otherwise, the selection of appropriate hardware (based on the requirements) will be manipulated by some probably unnecessary sensors.
 
 \subsection{Low level requirements}
-Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on the selection of the devices. Let's call a used wearable device or devices as Sensor Board. The tables \ref{tab:requirements} and \ref{tab:requirements2} shows the list of requirements for this Sensor Board.
+Finally, I've chosen a wearable sensors technology. The next requirements are specific to this technology and focused on the selection of the devices. Let's call a used wearable device or devices as SensorBoard. The tables \ref{tab:requirements} and \ref{tab:requirements2} shows the list of requirements for this SensorBoard.
 
 \begin{table}
-	\centering
-	\caption{Sensor Board low level requirements 1}
-	\label{tab:requirements}
-	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Importance legend]
-		\greenLow    & Nice to have \\
-		\yellowMedium & Very useful, reduce time or human effort \\
-		\redHigh & Mandatory, impossible without this functionality \\
-	\end{tcolorbox}
-	\vspace{1cm}
-	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level requirements 1]
-		Category & Requirement & Importance \\ \hline \hline
-		
-		& Accumulator & \redHigh \\
-		& Battery percentage indicator & \redHigh \\
-		& Charging when external power applied & \redHigh \\
-		& Voltage and current sensor & \yellowMedium \\
-		& Power LED & \redHigh \\
-		& Power switch & \redHigh \\
-		& Automatic selection between external and battery power & \redHigh \\
-		\multirow{-8}{*}{Power Supply} & Standardized charging connector & \yellowMedium \\ \hline
-		
-		& Accelerometer & \redHigh \\
-		& Dynamic Gyroscope & \redHigh \\
-		& Magnetometer & \redHigh \\
-		& Indoor position & \yellowMedium \\
-		& Outdoor position & \greenLow \\
-		& Barometer & \greenLow \\
-		\multirow{-7}{*}{Sensors} & Board temperature & \greenLow \\ \hline
-		
-		& Allow user programming & \redHigh \\
-		& Wireless programming & \greenLow \\
-		& Wired programming & \redHigh \\
-		& Wireless & \redHigh \\
-		& Standardized protocol & \redHigh \\
-		& Wired access & \redHigh \\
-		\multirow{-7}{*}{Communication} & Connector for external sensors & \greenLow \\ \hline
-	\end{tcolorbox}
+    \centering
+    \caption{SensorBoard low level requirements 1}
+    \label{tab:requirements}
+    \begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Importance legend]
+        \greenLow    & Nice to have \\
+        \yellowMedium & Very useful, reduce time or human effort \\
+        \redHigh & Mandatory, impossible without this functionality \\
+    \end{tcolorbox}
+    \vspace{1cm}
+    \begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level requirements 1]
+        Category & Requirement & Importance \\ \hline \hline
+        
+        & Accumulator & \redHigh \\
+        & Battery percentage indicator & \redHigh \\
+        & Charging when external power applied & \redHigh \\
+        & Voltage and current sensor & \yellowMedium \\
+        & Power LED & \redHigh \\
+        & Power switch & \redHigh \\
+        & Automatic selection between external and battery power & \redHigh \\
+        \multirow{-8}{*}{Power Supply} & Standardized charging connector & \yellowMedium \\ \hline
+        
+        & Accelerometer & \redHigh \\
+        & Dynamic Gyroscope & \redHigh \\
+        & Magnetometer & \redHigh \\
+        & Indoor position & \yellowMedium \\
+        & Outdoor position & \greenLow \\
+        & Barometer & \greenLow \\
+        \multirow{-7}{*}{Sensors} & Board temperature & \greenLow \\ \hline
+        
+        & Allow user programming & \redHigh \\
+        & Wireless programming & \greenLow \\
+        & Wired programming & \redHigh \\
+        & Wireless & \redHigh \\
+        & Standardized protocol & \redHigh \\
+        & Wired access & \redHigh \\
+        \multirow{-7}{*}{Communication} & Connector for external sensors & \greenLow \\ \hline
+    \end{tcolorbox}
 \end{table}
 
 \begin{table}
-	\centering
-	\caption{Sensor Board low level requirements 2}
-	\label{tab:requirements2}
-	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level requirements 2]
-		Category & Requirement & Importance \\ \hline \hline
-		
-		& Logging all data for several hours & \redHigh \\
-		& Sensor fusion coprocessor & \greenLow \\
-		\multirow{-3}{*}{Functions} & LED indicators & \redHigh \\ \hline
-		
-		& Wearable design & \redHigh \\
-		& Dimensions under \SI{6}{cm} & \redHigh \\
-		& Dimensions under \SI{3}{cm} & \greenLow \\
-		& Weight under \SI{50}{g} & \redHigh \\
-		\multirow{-5}{*}{Mechanical} & Weight under \SI{20}{g} & \greenLow \\ \hline
-		
-		& Control multiple devices simultaneously & \yellowMedium \\
-		& Download logged data & \redHigh \\
-		& Streaming data during measurement & \yellowMedium \\
-		& Start logging on multiple devices by clicking one button & \yellowMedium \\
-		& Time synchronization of multiple devices & \redHigh \\
-		\multirow{-6}{*}{Software} & Possibility to upload data to a server & \redHigh \\ 
-	\end{tcolorbox}
+    \centering
+    \caption{SensorBoard low level requirements 2}
+    \label{tab:requirements2}
+    \begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level requirements 2]
+        Category & Requirement & Importance \\ \hline \hline
+        
+        & Logging all data for several hours & \redHigh \\
+        & Sensor fusion coprocessor & \greenLow \\
+        \multirow{-3}{*}{Functions} & LED indicators & \redHigh \\ \hline
+        
+        & Wearable design & \redHigh \\
+        & Dimensions under \SI{6}{cm} & \redHigh \\
+        & Dimensions under \SI{3}{cm} & \greenLow \\
+        & Weight under \SI{50}{g} & \redHigh \\
+        \multirow{-5}{*}{Mechanical} & Weight under \SI{20}{g} & \greenLow \\ \hline
+        
+        & Control multiple devices simultaneously & \yellowMedium \\
+        & Download logged data & \redHigh \\
+        & Streaming data during measurement & \yellowMedium \\
+        & Start logging on multiple devices by clicking one button & \yellowMedium \\
+        & Time synchronization of multiple devices & \redHigh \\
+        \multirow{-6}{*}{Software} & Possibility to upload data to a server & \redHigh \\ 
+    \end{tcolorbox}
 \end{table}
 
 \subsection{Additional requirements}
@@ -120,32 +120,32 @@ Finally, I've chosen a wearable sensors technology. The next requirements are sp
 The additional requirements are not directly derived from the task, but they can increase the versatility of the final product. These requirements are shown in table \ref{tab:additionalReq}.
 
 \begin{table}
-	\centering
-	\label{tab:additionalReq}
-	\caption{Additional requirements for the SensorBoard}
-	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Importance legend]
-		\greenLow    & Nice to have \\ \hline
-		\yellowMedium & Useful, can significantly improve functionality \\ \hline
-		\st{\redHigh} & Not applicable \\ \hline
-	\end{tcolorbox}
-	\vspace{1cm}
-	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level additional requirements]
-		Category & Requirement & Importance \\ \hline \hline
-		& Coprocessor for periodic computations like sensor fusion & \greenLow \\
-		& Piezo buzzer & \greenLow \\
-		\multirow{-3}{*}{Functions} & Buttons & \yellowMedium \\ \hline
-		
-		& Ambient light & \greenLow \\
-		& Humidity & \greenLow \\
-		& Sound (microphone) & \greenLow \\
-		\multirow{-4}{*}{Sensors} & Ambient temperature & \greenLow \\ \hline
-		
-		& UART, I2C, SPI connector & \greenLow \\
-		& PWM outputs & \greenLow \\
-		\multirow{-3}{*}{Communication} & Analog inputs & \greenLow \\ \hline
-		
-		Software & NMEA input & \greenLow \\ \hline
-	\end{tcolorbox}
+    \centering
+    \label{tab:additionalReq}
+    \caption{Additional requirements for the SensorBoard}
+    \begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Importance legend]
+        \greenLow    & Nice to have \\ \hline
+        \yellowMedium & Useful, can significantly improve functionality \\ \hline
+        \st{\redHigh} & Not applicable \\ \hline
+    \end{tcolorbox}
+    \vspace{1cm}
+    \begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Low level additional requirements]
+        Category & Requirement & Importance \\ \hline \hline
+        & Coprocessor for periodic computations like sensor fusion & \greenLow \\
+        & Piezo buzzer & \greenLow \\
+        \multirow{-3}{*}{Functions} & Buttons & \yellowMedium \\ \hline
+        
+        & Ambient light & \greenLow \\
+        & Humidity & \greenLow \\
+        & Sound (microphone) & \greenLow \\
+        \multirow{-4}{*}{Sensors} & Ambient temperature & \greenLow \\ \hline
+        
+        & UART, I2C, SPI connector & \greenLow \\
+        & PWM outputs & \greenLow \\
+        \multirow{-3}{*}{Communication} & Analog inputs & \greenLow \\ \hline
+        
+        Software & NMEA input & \greenLow \\ \hline
+    \end{tcolorbox}
 \end{table}
 
 \section{Available solutions}
@@ -153,61 +153,61 @@ The additional requirements are not directly derived from the task, but they can
 The table \ref{tab:availableSolutions} shows the overview of existing devices I have found.
 
 \begin{table}
-	\centering
-	\caption{Available solutions}
-	\label{tab:availableSolutions}
-	\begin{tcolorbox}[tab2,tabularx={|X|c|l|p{8cm}|},title=Available solutions]
-		Device & Link & Price & Main disadvantages \\\hline\hline
-		
-		MetaWear        & \cite{MetaWear}  & \$ 80  & Low memory, impossible longer logging. Loosing packets during streaming. \\
-		ArduPilotMega   & \cite{APM26}     & \$ 250 & Dependent on external power supply, higher dimensions. \\
-		pixHawk         & \cite{pixHawk}   & \$ 260 & Dependent on external power supply, higher dimensions. \\
-		Xsens MVN       & \cite{Xsens:MVN} & \$ 12000 & Good solution with very high price. \\
-		X-IMU           & \cite{XIMU}      & \$ 400 & Price. \\
-		Smart Phone     & N/A              & \$ 100 & Impossible logging at higher frequencies, inaccurate logging frequency. \\
-		Fitness sensors & N/A              & \$ 100 & Mostly closed commercial projects. \\
-	\end{tcolorbox}
+    \centering
+    \caption{Available solutions}
+    \label{tab:availableSolutions}
+    \begin{tcolorbox}[tab2,tabularx={|X|c|l|p{8cm}|},title=Available solutions]
+        Device & Link & Price & Main disadvantages \\\hline\hline
+        
+        MetaWear        & \cite{MetaWear}  & \$ 80  & Low memory, impossible longer logging. Loosing packets during streaming. \\
+        ArduPilotMega   & \cite{APM26}     & \$ 250 & Dependent on external power supply, higher dimensions. \\
+        pixHawk         & \cite{pixHawk}   & \$ 260 & Dependent on external power supply, higher dimensions. \\
+        Xsens MVN       & \cite{Xsens:MVN} & \$ 12000 & Good solution with very high price. \\
+        X-IMU           & \cite{XIMU}      & \$ 400 & Price. \\
+        Smart Phone     & N/A              & \$ 100 & Impossible logging at higher frequencies, inaccurate logging frequency. \\
+        Fitness sensors & N/A              & \$ 100 & Mostly closed commercial projects. \\
+    \end{tcolorbox}
 \end{table}
 
 \section{Selection of parts for the new device}
 \label{HWdeviceSelection}
-Here I have finally decided to develop a new hardware. Now I'm looking for suitable parts for this new electronic device. The table \ref{tab:selectionParts} lists all the parts I took into account during the hardware development process.
+Here I have finally decided to develop new hardware. Now I'm looking for suitable parts for this new electronic device. The table \ref{tab:selectionParts} lists all the parts I took into account during the hardware development process.
 
 \begin{table}
-	\centering
-	\caption{Selection of parts for the new electronic device}
-	\label{tab:selectionParts}
-	\begin{tcolorbox}[tab2,tabularx={|X|p{7cm}|c|c|},title=Available solutions]
-		Part ID & Description & Datasheet & Selected \\\hline\hline
-		TACTM-35N-F & Button & \cite{TACTM} & \greenYes \\
-		ADP5062 & Power management and battery charger & \cite{analogdevices:ADP5062} & \greenYes \\
-		ADP5063 & Power management and battery charger & \cite{analogdevices:ADP5063} & \redNo \\
-		SI7006 & Humidity and temperature sensor & \cite{siliconlabs:SI7006} & \greenYes \\
-		HDC2010YPAR & Humidity and temperature sensor & \cite{HDC2010YPAR} & \redNo \\
-		SHTC1 & Humidity and temperature sensor & \cite{SHTC1} & \redNo \\
-		DWM1000 & \ac{TDOA} location sensor (with antenna) & \cite{decawave:DWM1000} & \greenYes \\
-		DW1000 & \ac{TDOA} location sensor (only sensor) & \cite{decawave:DW1000} & \redNo \\
-		BMP280 & Barometer & \cite{bosch:BMP280} & \greenYes \\
-		BMP388 & Barometer & \cite{bosch:BMP388} & \redNo \\
-		FT232R & UART to USB converter & \cite{ftdichip:FT232R} & \greenYes \\
-		CP2102 & UART to USB converter & \cite{CP2102} & \redNo \\
-		CH340E & UART to USB converter & \cite{CH340E} & \redNo \\
-		MPU-9250 & Accelerometer, dynamic gyroscope, magnetometer & \cite{invensense:MPU9250} & \greenYes \\
-		BMI160 & Accelerometer, dynamic gyroscope & \cite{bosch:BMI160} & \greenYes \\
-		BMF055 & Accelerometer, dynamic gyroscope, magnetometer, ARM microcontroller & \cite{bosch:BMF055} & \greenYes \\
-		GY953 & Backup accelerometer, dynamic gyroscope and megnetometer with embedded pitch, roll and yaw angle estimation (sensor fusion) & \cite{GY953} & \greenYes \\
-		HM-TRP & Long range \SI{433}{MHz} radio & \cite{HM-TRP} & \greenYes \\
-		MOLEX-47219 & Micro SD card holder & \cite{MOLEX-SD1} & \greenYes \\
-		LTR-329ALS & Digital ambient light sensor & \cite{LTR-329ALS} & \greenYes \\
-		EAALSTIC1708A0 & Analog ambient light sensor & \cite{EAALSTIC1708A0} & \redNo \\
-		NOA1212 & Analog ambient light sensor & \cite{NOA1212} & \redNo \\
-		ESP-WROOM-32 & Dual core controller with WiFi and Bluetooth & \cite{espressif:ESP-WROOM-32} & \greenYes \\
-		STM32 & ARM microcontroller & \cite{STM32} & \redNo \\
-		UM18533 & Linear stabilizer \SI{3.3}{V} & \cite{UM18533} & \greenYes \\
-		LF33 & Linear stabilizer \SI{3.3}{V} & \cite{LF33} & \redNo \\
-		USB-MICRO & Micro USB connector & \cite{USB-MICRO} & \greenYes \\
-		Pin header & Servo connector \SI{2.54}{mm} & \cite{PINHEAD} & \greenYes \\
-	\end{tcolorbox}
+    \centering
+    \caption{Selection of parts for the new electronic device}
+    \label{tab:selectionParts}
+    \begin{tcolorbox}[tab2,tabularx={|X|p{7cm}|c|c|},title=Available solutions]
+        Part ID & Description & Datasheet & Selected \\\hline\hline
+        TACTM-35N-F & Button & \cite{TACTM} & \greenYes \\
+        ADP5062 & Power management and battery charger & \cite{analogdevices:ADP5062} & \greenYes \\
+        ADP5063 & Power management and battery charger & \cite{analogdevices:ADP5063} & \redNo \\
+        SI7006 & Humidity and temperature sensor & \cite{siliconlabs:SI7006} & \greenYes \\
+        HDC2010YPAR & Humidity and temperature sensor & \cite{HDC2010YPAR} & \redNo \\
+        SHTC1 & Humidity and temperature sensor & \cite{SHTC1} & \redNo \\
+        DWM1000 & \ac{TDOA} location sensor (with antenna) & \cite{decawave:DWM1000} & \greenYes \\
+        DW1000 & \ac{TDOA} location sensor (only sensor) & \cite{decawave:DW1000} & \redNo \\
+        BMP280 & Barometer & \cite{bosch:BMP280} & \greenYes \\
+        BMP388 & Barometer & \cite{bosch:BMP388} & \redNo \\
+        FT232R & UART to USB converter & \cite{ftdichip:FT232R} & \greenYes \\
+        CP2102 & UART to USB converter & \cite{CP2102} & \redNo \\
+        CH340E & UART to USB converter & \cite{CH340E} & \redNo \\
+        MPU-9250 & Accelerometer, dynamic gyroscope, magnetometer & \cite{invensense:MPU9250} & \greenYes \\
+        BMI160 & Accelerometer, dynamic gyroscope & \cite{bosch:BMI160} & \greenYes \\
+        BMF055 & Accelerometer, dynamic gyroscope, magnetometer, ARM microcontroller & \cite{bosch:BMF055} & \greenYes \\
+        GY953 & Backup accelerometer, dynamic gyroscope and megnetometer with embedded pitch, roll and yaw angle estimation (sensor fusion) & \cite{GY953} & \greenYes \\
+        HM-TRP & Long range \SI{433}{MHz} radio & \cite{HM-TRP} & \greenYes \\
+        MOLEX-47219 & Micro SD card holder & \cite{MOLEX-SD1} & \greenYes \\
+        LTR-329ALS & Digital ambient light sensor & \cite{LTR-329ALS} & \greenYes \\
+        EAALSTIC1708A0 & Analog ambient light sensor & \cite{EAALSTIC1708A0} & \redNo \\
+        NOA1212 & Analog ambient light sensor & \cite{NOA1212} & \redNo \\
+        ESP-WROOM-32 & Dual core controller with certified WiFi and Bluetooth & \cite{espressif:ESP-WROOM-32} & \greenYes \\
+        STM32 & ARM microcontroller & \cite{STM32} & \redNo \\
+        UM18533 & Linear stabilizer \SI{3.3}{V} & \cite{UM18533} & \greenYes \\
+        LF33 & Linear stabilizer \SI{3.3}{V} & \cite{LF33} & \redNo \\
+        USB-MICRO & Micro USB connector & \cite{USB-MICRO} & \greenYes \\
+        Pin header & Servo connector \SI{2.54}{mm} & \cite{PINHEAD} & \greenYes \\
+    \end{tcolorbox}
 \end{table}
 
 \section{PCB design}
@@ -216,75 +216,33 @@ The \ac{PCB} design should meet both electrical and mechanical requirements. It'
 
 Here in this process, I will merge the first and the second version together. I will create a larger device which can be still used as a wearable device. This implies that I can do the software development, laboratory tests and the first outdoor tests with the same board designed during the first iteration. I'm going to decrease the dimensions of the first prototype by splitting the \ac{PCB} to separate sandwich modules. The testing process should give us advantages and disadvantages of this mechanical solution.
 
-I have used CadSoft EAGLE (Easy Applicable Graphical Layout Editor) \cite{EAGLE} during this process. I've finally chosen this editor because it has the availability of the libraries for the devices I wanted to use. I would probably use KiCad \cite{KiCad} if there was the same availability of the libraries.
+I have used CadSoft EAGLE (Easy Applicable Graphical Layout Editor) \cite{EAGLE} during this process. I've finally chosen this editor because it has the availability of the libraries for the devices I wanted to use. I would probably use KiCad \cite{KiCad} if there were the same availability of the libraries.
 
 \subsection{Schematics and board layout}
-The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. The figures \ref{sch1} and \ref{sch2} shows the exported schematics split into two sheets. The exported \ac{PCB} layout drawing in scale 1:1 is in figure \ref{brd1} and in scale 2:1 with more details in figure \ref{brd2}.
-
-\begin{figure}
-	\centering
-	\includegraphics[angle=90, width=\linewidth]{img/sch1.pdf}
-	\label{sch1}
-	\caption{Schematics of the Sensor Board sheet 1}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[angle=90, width=\linewidth]{img/sch2.pdf}
-	\label{sch2}
-	\caption{Schematics of the Sensor Board sheet 2}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=1]{img/brd.pdf}
-	\vspace{-0.5cm}
-	\begin{center}
-		Top and Bottom layer
-	\end{center}
-	\includegraphics[scale=1]{img/brdTop.pdf}
-	\vspace{-0.5cm}
-	\begin{center}
-		Only Top layer
-	\end{center}
-	\includegraphics[scale=1]{img/brdBottom.pdf}
-	\vspace{-0.5cm}
-	\begin{center}
-		Only Bottom layer
-	\end{center}
-	\label{brd1}
-	\caption{Sensor Board layout in scale 1:1}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[angle=90, scale=2]{img/brd.pdf}
-	\label{brd2}
-	\caption{Sensor Board layout in detail scale 2:1}
-\end{figure}
+The schematics and the board layout are presented in appendix \ref{SchematicsPCB}.
 
 \subsection{Mechanical layout and connectors}
 The mechanical layout is shown in figure \ref{fig:HWdimensions}.
 
 \begin{figure}
-	\centering
-	\label{fig:HWdimensions}
-	\caption{Sensor Board dimensions}
-	\includegraphics[scale=1]{img/HWdimensions.pdf}
+    \centering
+    \label{fig:HWdimensions}
+    \caption{SensorBoard dimensions}
+    \includegraphics[scale=1]{img/HWdimensions.pdf}
 \end{figure}
 
 \subsection{Highlights of the board layout}
-The selected parts are mainly layouted and connected according to the recomendations in the datasheets. There are some differences in the SensorBoard layout that should be highlighted in this section.
+The selected parts are mainly placed and connected on the \ac{PCB} according to the recommendations in the datasheets. There are some differences in the SensorBoard layout that should be highlighted in this section.
 
 \paragraph{Power LEDs}
 
-When we have more power supplies on the prototype, it's a good way to add a power \ac{LED} to all the supplies circuits. For example the SensorBoard has \SI{5}{V} supply, \SI{3.3}{V} supply, USB supply and digital power supply. The four \ac{LED}s give us the information that all the circuits operating properly. Only one power circuit usually stops operation when it is overloaded and the stabilizer cannot provide enough power. The schematic of the signalization \ac{LED}s is shown in figure \ref{fig:schLeds}.
+When we have more power supplies on the prototype, it's a good way to add a power \ac{LED} to all the supplies circuits. For example the SensorBoard has \SI{5}{V} supply, \SI{3.3}{V} supply, USB supply and digital power supply. The four \ac{LED}s give us the information that all the circuits are operating properly. Only one power circuit usually stops operation when it is overloaded and the stabilizer cannot provide enough power. The schematic of the signalization \ac{LED}s is shown in figure \ref{fig:schLeds}.
 
 \begin{figure}
-	\centering
-	\label{fig:schLeds}
-	\caption{Schematics of the power LEDs}
-	\includegraphics[scale=1.3]{img/SchLeds.pdf}
+    \centering
+    \label{fig:schLeds}
+    \caption{Schematics of the power LEDs}
+    \includegraphics[scale=1.3]{img/SchLeds.pdf}
 \end{figure}
 
 \paragraph{Automatic bootloader}
@@ -292,70 +250,70 @@ When we have more power supplies on the prototype, it's a good way to add a powe
 When we connect the SensorBoard to a computer using the \ac{USB} cable, we would like to reset the ESP32 controller distantly from the computer and upload a new program by one click. This is allowed by two transistors shown in figure \ref{fig:schBoot}. The same solution is used in \ac{PCB} layout of ESP32-DevKitC. \cite{espressif:ESP32DevKitC} The transistors control the \texttt{ENABLE} and \texttt{RESET} pin on the ESP32 based on the \texttt{RTS} and \texttt{DTR} value on the \ac{UART} comming from \ac{USB} via FTDI chip. \cite{ftdichip:FT232R}.
 
 \begin{figure}
-	\centering
-	\label{fig:schBoot}
-	\caption{Schematics of the boot transistors}
-	\includegraphics[scale=1.3]{img/SchBoot.pdf}
+    \centering
+    \label{fig:schBoot}
+    \caption{Schematics of the boot transistors}
+    \includegraphics[scale=1.3]{img/SchBoot.pdf}
 \end{figure}
 
 \paragraph{ESP32 pins selection}
-The ESP-WROOM-32 \cite{espressif:ESP-WROOM-32} has only 26 usable \ac{GPIO}s. So, we cannot connect so many peripherials to the ESP32 controller. The final pin distribution is shown in figure \ref{fig:schPinout}.
+The ESP-WROOM-32 \cite{espressif:ESP-WROOM-32} has only 26 usable \ac{GPIO}s. So, we cannot connect so many peripherals to the ESP32 controller. The final pin distribution is shown in figure \ref{fig:schPinout}.
 
 \begin{figure}
-	\centering
-	\label{fig:schPinout}
-	\caption{Schematics of the ESP32 pin distribution}
-	\includegraphics[scale=1.3, angle=90]{img/SchPinout.pdf}
+    \centering
+    \label{fig:schPinout}
+    \caption{Schematics of the ESP32 pin distribution}
+    \includegraphics[scale=1.3, angle=90]{img/SchPinout.pdf}
 \end{figure}
 
 \paragraph{Layout of the buttons}
 When a button connected to a controller is pressed, the controller usually detects more pushes. This behavior is caused by the internal mechanics of the button and can be solved by adding a capacitor. The figure \ref{fig:schButton} shows the added capacitors to the buttons on the SensorBoard.
 
 \begin{figure}
-	\centering
-	\label{fig:schButton}
-	\caption{Schematics of the buttons on the SensorBoard}
-	\includegraphics[scale=1.3]{img/SchButtons.pdf}
+    \centering
+    \label{fig:schButton}
+    \caption{Schematics of the buttons on the SensorBoard}
+    \includegraphics[scale=1.3]{img/SchButtons.pdf}
 \end{figure}
 
 \paragraph{Optional 10k pull-up on RESET pin}
-When I was connecting the \SI{10}{k\ohm} pull-up resistor to RESET pin on the controller, I have added a soldering pad. The pad allows to disconnect the pull-up resistor when the RESET pin is controlled from another source.
+When I was connecting the \SI{10}{k\ohm} pull-up resistor to RESET pin on the controller, I have added a soldering pad. The pad allows disconnecting the pull-up resistor when the RESET pin is controlled from another source.
 
 \section{Manufacturing}
 \label{HWmanufacturing}
 
 The manufacturing process of the prototype consists of these steps:
 \begin{enumerate}
-	\item Collecting source data -- schematics and board layout (in this paper in Eagle)
-	\item Manufacturing of the Printed Circuit Board (\ac{PCB})
-	\begin{enumerate}
-		\item Panelization of the board layout
-		\item Adding calibration markers
-		\item Export gerber files
-		\item Send exported files to manufacturing company
-	\end{enumerate}
-	\item Machine surface mount technology (\ac{SMT})
-	\begin{enumerate}
-		\item Export data for the template for applying solder paste
-		\item Export partlist -- the list of all devices with their coordinates
-		\item Export bill of materials (\ac{BOM})
-		\item Manufacturing of the template for applying solder paste
-		\item Order all devices according to \ac{BOM}
-		\item Sending template for applying solder paste, packages with devices and part list to the manufacturer
-	\end{enumerate}
-	\item Finalization of the prototype
-	\begin{enumerate}
-		\item Hand soldering of some remaining devices like connectors or wires
-		\item Completing the final prototype from possible parts and packaging
-		\item Applying power and first testing
-	\end{enumerate}
+    \item Collecting source data -- schematics and board layout (in this paper in Eagle)
+    \item Manufacturing of the Printed Circuit Board (\ac{PCB})
+    \begin{enumerate}
+        \item Panelization of the board layout
+        \item Adding calibration markers
+        \item Export gerber files
+        \item Send exported files to manufacturing company
+    \end{enumerate}
+    \item Machine surface mount technology (\ac{SMT})
+    \begin{enumerate}
+        \item Export data for the template for applying solder paste
+        \item Export partlist -- the list of all devices with their coordinates
+        \item Export bill of materials (\ac{BOM})
+        \item Manufacturing of the template for applying solder paste
+        \item Order all devices according to \ac{BOM}
+        \item Sending template for applying solder paste, packages with devices and part list to the manufacturer
+    \end{enumerate}
+    \item Finalization of the prototype
+    \begin{enumerate}
+        \item Hand soldering of some remaining devices like connectors or wires
+        \item Completing the final prototype from possible parts and packaging
+        \item Applying power and first testing
+    \end{enumerate}
 \end{enumerate}
 
 \subsection{Collecting source data}
 The source data may be in various formats according to the used tools. I used CadSoft \ac{EAGLE} \cite{EAGLE} during the development, but many other tools are available on the market. It depends on the manufacturer company if they accept the source data in our format. They usually accept the source data, but they usually apply an exporting fee. All \ac{PCB} editors should be able to export the manufacturing data in standardized formats. (Sometimes it's very hard or impossible to edit the exported data.)
 
 \subsection{Manufacturing of the Printed Circuit Board}
-When we have more than one board we should assemble all boards onto one or more panels. If we plan to solder the devices using the \ac{SMT}, we should add a calibration marks on the final panel. I have followed the instructions from SMTplus company \cite{SMTplusManual}.
+When we have more than one board, we should assemble all boards onto one or more panels. If we plan to solder the devices using the \ac{SMT}, we should add a calibration marks on the final panel. I have followed the instructions from SMTplus company \cite{SMTplusManual}.
 
 First, I have panelized the separated boards and I have added the calibration marks according to the rules of SMTPlus company \cite{SMTplusDesignRules}. Finally, I have exported the Gerber files using a CAM job \cite{GatemaCAMjob} in \ac{EAGLE}. I have followed the design rules for class 3 by Gatema a.s. company \cite{GatemaDesignRules}.
 
@@ -365,14 +323,14 @@ We need the \ac{PCB}, template for soldering paste and all devices in this step.
 The \ac{BOM} and part list export depends on the used design tools. When we connect used devices in the sources directly with their part numbers on selected shops, we can simply export the part list and then import it on the seller's website. I recommend buying some spare devices to minimize the risk of their damage.
 
 \begin{figure}
-	\centering
-	\label{smtPasteTemplate}
-	\caption{Template for soldering paste in scale 1:2}
-	\includegraphics[angle=90, scale=0.5]{img/smtPasteTemplate.pdf}
+    \centering
+    \label{smtPasteTemplate}
+    \caption{Template for soldering paste in scale 1:2}
+    \includegraphics[angle=90, scale=0.5]{img/smtPasteTemplate.pdf}
 \end{figure}
 
 \subsection{Finalization of the prototype}
-We can discuss the finalization works with the manufacturer, but when we create a prototype, I would like to recommend to do this job by yourself. It allows to perform some tests before packaging and we don't have to spend time and money with a preparation of the documentation about how to assemble and package our prototype. Otherwise, the different software developers and testers can receive the different parts of the prototype for their next work.
+We can discuss the finalization works with the manufacturer, but when we create a prototype, I would like to recommend to do this job by yourself. It allows to perform some tests before packaging and we don't have to spend time and money with preparation of the documentation about how to assemble and package our prototype. Otherwise, the different software developers and testers can receive the different parts of the prototype for their next work.
 
 \section{Testing}
 \label{HWtesting}
@@ -380,61 +338,61 @@ The testing process has been split into two parts: the laboratory testing during
 
 \subsection{Errata}
 \label{errata}
-The tables \ref{tab:errata} and \ref{tab:errata2} show all errors I have found during software development and laboratory testing of the Sensor Board prototype.
+The tables \ref{tab:errata} and \ref{tab:errata2} show all errors I have found during software development and laboratory testing of the SensorBoard prototype.
 
 \begin{table}
-	\centering
-	\caption{Errata of the SensorBoard}
-	\label{tab:errata}
-	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Severity legend]
-		\greenLow & No significant affects \\
-		\greenSpare & Only spare devices may not work \\
-		\yellowMedium & Some part of the prototype may not work \\
-		\redHigh & The prototype has to be remade \\
-	\end{tcolorbox}
-	\vspace{0.75cm}
-	\begin{tcolorbox}[tab2,tabularx={|c|p{7.5cm}|X|c|},title=Errata 1 of 2]
-		Number & Description & Error created during & Severity \\ \hline
-		1      &
-		\parbox{7.5 cm}{\quad\\Bridge between boards under micro USB connector\\ \\ What happens:\\ The micro USB connector may be placed with lower accuracy\\}
-		& panelization         & \greenLow      \\ \hline
-		
-		2      &
-		\parbox{7.5 cm}{\quad\\Swapped MISO and MOSI on pins IO19 and IO21 on the ESP-WROOM-32 chip according to ESP32 Arduino standard\\ \\ What happens:\\ The SPI interface is not working in Arduino compatible mode without modification of the Arduino SPI library\\}
-		& schematics design    & \yellowMedium   \\ \hline
-		
-		3      &
-		\parbox{7.5 cm}{\quad\\LED5 connected to IO35 on ESP-WROOM-32 is not working\\ \\ What happens:\\ The pins IO34 -- IO39 are input only, so they cannot drive a LED\\}
-		& schematics design    & \greenSpare    \\ \hline
-		
-		4      &
-		\parbox{7.5 cm}{\quad\\Missing pull-up resistors on SD card\\ \\ What happens:\\ The SDIO interface needs external pull-up resistors to work properly. I have added these resistors later by hand.\\}
-		& schematics design    & \yellowMedium   \\ \hline
-	\end{tcolorbox}
+    \centering
+    \caption{Errata of the SensorBoard}
+    \label{tab:errata}
+    \begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Severity legend]
+        \greenLow & No significant affects \\
+        \greenSpare & Only spare devices may not work \\
+        \yellowMedium & Some part of the prototype may not work \\
+        \redHigh & The prototype has to be remade \\
+    \end{tcolorbox}
+    \vspace{0.75cm}
+    \begin{tcolorbox}[tab2,tabularx={|c|p{7.5cm}|X|c|},title=Errata 1 of 2]
+        Number & Description & Error created during & Severity \\ \hline
+        1      &
+        \parbox{7.5 cm}{\quad\\Bridge between boards under micro USB connector\\ \\ What happens:\\ The micro USB connector may be placed with lower accuracy\\}
+        & panelization         & \greenLow      \\ \hline
+        
+        2      &
+        \parbox{7.5 cm}{\quad\\Swapped MISO and MOSI on pins IO19 and IO21 on the ESP-WROOM-32 chip according to ESP32 Arduino standard\\ \\ What happens:\\ The SPI interface is not working in Arduino compatible mode without modification of the Arduino SPI library\\}
+        & schematics design    & \yellowMedium   \\ \hline
+        
+        3      &
+        \parbox{7.5 cm}{\quad\\LED5 connected to IO35 on ESP-WROOM-32 is not working\\ \\ What happens:\\ The pins IO34 -- IO39 are input only, so they cannot drive a LED\\}
+        & schematics design    & \greenSpare    \\ \hline
+        
+        4      &
+        \parbox{7.5 cm}{\quad\\Missing pull-up resistors on SD card\\ \\ What happens:\\ The SDIO interface needs external pull-up resistors to work properly. I have added these resistors later by hand.\\}
+        & schematics design    & \yellowMedium   \\ \hline
+    \end{tcolorbox}
 \end{table}
 
 \begin{table}
-	\centering
-	\caption{Errata of the SensorBoard}
-	\label{tab:errata2}
-	\begin{tcolorbox}[tab2,tabularx={|c|p{7.5cm}|X|c|},title=Errata 2 of 2]
-		Number & Description & Error created during & Severity \\ \hline
-		
-		5      &
-		\parbox{7.5 cm}{\quad\\The temperature measurement is placed very close to the main processor\\ \\ What happens:\\ The processor heating affects the measured temperature\\}
-		& board layout         & \greenSpare    \\ \hline
-		
-		6      &
-		\parbox{7.5 cm}{\quad\\Low capacity capacitor placed on power supply\\ \\ What happens:\\ When we use WiFi some brownouts can be detected. I have added a bigger capacitor later by hand.\\}
-		& schematics design    & \yellowMedium   \\ \hline
-		
-		7      &
-		\parbox{7.5 cm}{\quad\\The light sensor is placed on inner side of the board\\ \\ What happens:\\ The measured values are affected by shadow of the board.\\}
-		& board layout         & \greenSpare    \\ \hline
-		8      &
-		\parbox{7.5 cm}{\quad\\Missing safety resistors on pins with buttons. These pins are directly connected to processor.\\ \\ What happens:\\ When the pins are defined in software to be used in different way, incorrect connection can burn the processor.\\}
-		& schematics design        & \yellowMedium   \\ \hline
-	\end{tcolorbox}
+    \centering
+    \caption{Errata of the SensorBoard}
+    \label{tab:errata2}
+    \begin{tcolorbox}[tab2,tabularx={|c|p{7.5cm}|X|c|},title=Errata 2 of 2]
+        Number & Description & Error created during & Severity \\ \hline
+        
+        5      &
+        \parbox{7.5 cm}{\quad\\The temperature measurement is placed very close to the main processor\\ \\ What happens:\\ The processor heating affects the measured temperature\\}
+        & board layout         & \greenSpare    \\ \hline
+        
+        6      &
+        \parbox{7.5 cm}{\quad\\Low capacity capacitor placed on power supply\\ \\ What happens:\\ When we use WiFi some brownouts can be detected. I have added a bigger capacitor later by hand.\\}
+        & schematics design    & \yellowMedium   \\ \hline
+        
+        7      &
+        \parbox{7.5 cm}{\quad\\The light sensor is placed on inner side of the board\\ \\ What happens:\\ The measured values are affected by shadow of the board.\\}
+        & board layout         & \greenSpare    \\ \hline
+        8      &
+        \parbox{7.5 cm}{\quad\\Missing safety resistors on pins with buttons. These pins are directly connected to processor.\\ \\ What happens:\\ When the pins are defined in software to be used in different way, incorrect connection can burn the processor.\\}
+        & schematics design        & \yellowMedium   \\ \hline
+    \end{tcolorbox}
 \end{table}
 
 \subsection{Device testing}
@@ -442,113 +400,113 @@ The tables \ref{tab:errata} and \ref{tab:errata2} show all errors I have found d
 The device testing helped me to select the parts recommended for the future versions of the SensorBoard. It also helped me to mark all spare parts in the prototype. The table \ref{tab:deviceSelection} shows the results.
 
 \begin{table}
-	\centering
-	\caption{Parts of the SensorBoard recommended for the future versions}
-	\label{tab:deviceSelection}
-	\begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Decision legend]
-		\greenCell{Selected} & Recommended for use in future versions \\ \hline
-		\yellowCell{Possible} & Not necessary, but has use-cases, may be replaced with another part \\ \hline
-		\redCell{Removed} & Not recommended or will be spare \\ \hline
-	\end{tcolorbox}
-	\vspace{1cm}
-	\begin{tcolorbox}[tab2,tabularx={|X|p{7cm}|c|c|},title=Parts of the SensorBoard recommended for the future versions]
-		Part ID & Description & Datasheet & Selected \\\hline\hline
-		TACTM-35N-F & Button & \cite{TACTM} & \greenCell{Selected} \\
-		ADP5062 & Power management and battery charger & \cite{analogdevices:ADP5062} & \greenCell{Selected} \\
-		SI7006 & Humidity and temperature sensor & \cite{siliconlabs:SI7006} & \greenCell{Selected} \\
-		DWM1000 & \ac{TDOA} location sensor (with antenna) & \cite{decawave:DWM1000} & \greenCell{Selected} \\
-		BMP280 & Barometer & \cite{bosch:BMP280} & \greenCell{Selected} \\
-		FT232R & UART to USB converter & \cite{ftdichip:FT232R} & \greenCell{Selected} \\
-		MPU-9250 & Accelerometer, dynamic gyroscope, magnetometer & \cite{invensense:MPU9250} & \redCell{Removed} \\
-		BMI160 & Accelerometer, dynamic gyroscope & \cite{bosch:BMI160} & \redCell{Removed} \\
-		BMF055 & Accelerometer, dynamic gyroscope, magnetometer, ARM microcontroller & \cite{bosch:BMF055} & \greenCell{Selected} \\
-		GY953 & Backup accelerometer, dynamic gyroscope and megnetometer with embedded pitch, roll and yaw angle estimation (sensor fusion) & \cite{GY953} & \redCell{Removed} \\
-		HM-TRP & Long range \SI{433}{MHz} radio & \cite{HM-TRP} & \yellowCell{Possible} \\
-		MOLEX-47219-2001 & Micro SD card holder & \cite{MOLEX-SD1} & \greenCell{Selected} \\
-		LTR-329ALS & Digital ambient light sensor & \cite{LTR-329ALS} & \greenCell{Selected} \\
-		ESP-WROOM-32 & Dual core controller with WiFi and Bluetooth & \cite{espressif:ESP-WROOM-32} & \greenCell{Selected} \\
-		UM18533 & \parbox{7 cm}{Linear stabilizer \SI{3.3}{V} \\\\ Note: Insufficient current} & \cite{UM18533} & \redCell{Removed} \\
-		LF33 & Linear stabilizer \SI{3.3}{V} & \cite{LF33} & \greenCell{Selected} \\
-		USB-MICRO & Micro USB connector & \cite{USB-MICRO} & \greenCell{Selected} \\
-		Pin header 2.54 mm & Servo connector & \cite{PINHEAD} & \yellowCell{Possible} \\
-	\end{tcolorbox}
+    \centering
+    \caption{Parts of the SensorBoard recommended for the future versions}
+    \label{tab:deviceSelection}
+    \begin{tcolorbox}[tab2,tabularx={X|p{12cm}},title=Decision legend]
+        \greenCell{Selected} & Recommended for use in future versions \\ \hline
+        \yellowCell{Possible} & Not necessary, but has use-cases, may be replaced with another part \\ \hline
+        \redCell{Removed} & Not recommended or will be spare \\ \hline
+    \end{tcolorbox}
+    \vspace{1cm}
+    \begin{tcolorbox}[tab2,tabularx={|X|p{7cm}|c|c|},title=Parts of the SensorBoard recommended for the future versions]
+        Part ID & Description & Datasheet & Selected \\\hline\hline
+        TACTM-35N-F & Button & \cite{TACTM} & \greenCell{Selected} \\
+        ADP5062 & Power management and battery charger & \cite{analogdevices:ADP5062} & \greenCell{Selected} \\
+        SI7006 & Humidity and temperature sensor & \cite{siliconlabs:SI7006} & \greenCell{Selected} \\
+        DWM1000 & \ac{TDOA} location sensor (with antenna) & \cite{decawave:DWM1000} & \greenCell{Selected} \\
+        BMP280 & Barometer & \cite{bosch:BMP280} & \greenCell{Selected} \\
+        FT232R & UART to USB converter & \cite{ftdichip:FT232R} & \greenCell{Selected} \\
+        MPU-9250 & Accelerometer, dynamic gyroscope, magnetometer & \cite{invensense:MPU9250} & \redCell{Removed} \\
+        BMI160 & Accelerometer, dynamic gyroscope & \cite{bosch:BMI160} & \redCell{Removed} \\
+        BMF055 & Accelerometer, dynamic gyroscope, magnetometer, ARM microcontroller & \cite{bosch:BMF055} & \greenCell{Selected} \\
+        GY953 & Backup accelerometer, dynamic gyroscope and megnetometer with embedded pitch, roll and yaw angle estimation (sensor fusion) & \cite{GY953} & \redCell{Removed} \\
+        HM-TRP & Long range \SI{433}{MHz} radio & \cite{HM-TRP} & \yellowCell{Possible} \\
+        MOLEX-47219-2001 & Micro SD card holder & \cite{MOLEX-SD1} & \greenCell{Selected} \\
+        LTR-329ALS & Digital ambient light sensor & \cite{LTR-329ALS} & \greenCell{Selected} \\
+        ESP-WROOM-32 & Dual core controller with WiFi and Bluetooth & \cite{espressif:ESP-WROOM-32} & \greenCell{Selected} \\
+        UM18533 & \parbox{7 cm}{Linear stabilizer \SI{3.3}{V} \\\\ Note: Insufficient current} & \cite{UM18533} & \redCell{Removed} \\
+        LF33 & Linear stabilizer \SI{3.3}{V} & \cite{LF33} & \greenCell{Selected} \\
+        USB-MICRO & Micro USB connector & \cite{USB-MICRO} & \greenCell{Selected} \\
+        Pin header 2.54 mm & Servo connector & \cite{PINHEAD} & \yellowCell{Possible} \\
+    \end{tcolorbox}
 \end{table}
 
 \subsection{Recommendations for the next version}
 \label{recommendationsNextVerison}
-Recommendations for the future versions of the Sensor Board based on the outdoor testing:
+Recommendations for the future versions of the SensorBoard based on the outdoor testing:
 \begin{itemize}
-	\item[--] Replace software LEDs by one or more RGB LEDs. For example WS2812 RGB LED \cite{worldsemi:WS2812}.
-	\item[--] Move the sensor fusion and computations to Atmel SAM D21 \cite{atmel:samd20} processor inside the BMF055 \cite{bosch:BMF055} chip. Keep the ESP32 \cite{espressif:ESP-WROOM-32} processor only for communication and user computations.
-	\item[--] Decrease board dimensions using 4 layer \ac{PCB}. The increased cost for 4 layer board may be saved on a smaller surface.
-	\item[--] Sometimes it is better to have all \ac{SMD} parts on one side of the board. The manufacturing is cheaper and the space on the second side can be used for example for battery mounting or for connectors.
-	\item[--] Split the board area to an area for sensors, an area for power electronics and an area for computing. The power distribution is easier in this situation and the sensors are less influenced by other electronics.
-	\item[--] Use another driver with more capabilities for USB connection. The USB on board actually supports only UART communication on the virtual COM port. The File Transfer protocol for the SD card should be supported, too. (If it is needed we can add full USB host support or USB-C compatibility.)
-	\item[--] Add specialized pads for an oscilloscope. The pads are connected to the signal and to the ground, so the oscilloscope measurements are more accurate.
-	\item[--] The main processor should be able to switch on/off the power of other parts (sensors). The sensors support sleep modes, but we cannot completely switch them off to save more energy from the battery.
-	\item[--] If we recognize that the ESP-WROOM-32 controller is not powerful enough, we can use a fully compatible alternative with larger memory ALB32-WROVER \cite{ALB32-WROVER}. It should be possible to compile a terminal based Linux distribution for this controller.
+    \item[--] Replace software LEDs by one or more RGB LEDs. For example WS2812 RGB LED \cite{worldsemi:WS2812}.
+    \item[--] Move the sensor fusion and computations to Atmel SAM D21 \cite{atmel:samd20} processor inside the BMF055 \cite{bosch:BMF055} chip. Keep the ESP32 \cite{espressif:ESP-WROOM-32} processor only for communication and user computations.
+    \item[--] Decrease board dimensions using 4 layer \ac{PCB}. The increased cost for four layer board may be saved on a smaller surface.
+    \item[--] Sometimes it is better to have all \ac{SMD} parts on one side of the board. The manufacturing is cheaper and the space on the second side can be used, for example, for battery mounting or connectors.
+    \item[--] Split the board area to an area for sensors, an area for power electronics and an area for computing. The power distribution is easier in this situation and the sensors are less influenced by other electronics.
+    \item[--] Use another driver with more capabilities for USB connection. In this version, the USB on board supports only UART communication on the virtual COM port. The File Transfer protocol for the SD card should be supported, too. (If it is needed we can add full USB host support or USB-C compatibility.)
+    \item[--] Add specialized pads for an oscilloscope. The pads are connected to the signal and to the ground, so the oscilloscope measurements are more accurate.
+    \item[--] The main processor should be able to switch on/off the power of other parts (sensors). The sensors support sleep modes, but we cannot completely switch them off to save more energy from the battery.
+    \item[--] If we recognize that the ESP-WROOM-32 controller is not powerful enough, we can use a fully compatible alternative with larger memory ALB32-WROVER \cite{ALB32-WROVER}. It should be possible to compile a terminal based Linux distribution for this controller.
 \end{itemize}
 
 \subsection{Analysis of additional costs}
 \label{HWadditionalCosts}
 By the analysis of additional costs, I mean the counting the prices of all parts that were finally spare or weren't used. The table \ref{tab:additionalCost} counts all parts of the SensorBoard and their prices.
 
-The column "Used" tells us if the item was used for any use case or if it was spare at all times. If any item is still unused it doesn't mean that it cannot be used in some future use case. The column "Is necessary" points the basic items, the SensorBoard can't work or can't be built without them.
+The column "Used" tells us if the item was used for any use case or if it was spare at all times. If any item is still unused, it doesn't mean that it cannot be used in some future use case. The column "Is necessary" points the basic items, the SensorBoard can't work or can't be built without them.
 
-It means that the green cost "Total used and necessary" is the lowest cost of the prototype without any additional functionality. The yellow cost "Total used and unnecessary" is the cost of all items that had significant value during development, but weren't mandatory for the main task. These items also made the development process easier and faster, so I don't count this cost as additional. The last red cost "Total unused" covers all items that weren't used. These items were a part of the design because they lowered some risks in functionality. For example, if I wasn't sure that an accelerometer will work properly, I added another spare accelerometer, which covered this risk. I could get a working prototype in the first iteration using this strategy. I finally count the red cost as a cost of decreased risks and as a cost of higher versatility.
+It means that the green cost "Total used and necessary" is the lowest cost of the prototype without any additional functionality. The yellow cost "Total used and unnecessary" is the cost of all items that had significant value during development, but weren't mandatory for the main task. These items also made the development process easier and faster, so I don't count this cost as additional. The last red cost "Total unused" covers all items that weren't used. These items were a part of the design because they lowered some risks in functionality. For example, if I wasn't sure that an accelerometer would work properly, I added another spare accelerometer, which covered this risk. I could get a working prototype in the first iteration using this strategy. I finally count the red cost as a cost of decreased risks and as a cost of higher versatility.
 
 We have to take into account that all the mentioned costs are costs of the prototype. The same items would have significantly lower costs during the production of more devices.
 
 \begin{table}
-	\centering
-	\caption{Additional cost calculation}
-	\label{tab:additionalCost}
-	\begin{tcolorbox}[tab2,tabularx={|X|l|c|c|},title=Additional cost calculation]
-		Part ID & Price & Used & Is necessary \\\hline\hline
-		\ac{PCB} & \$ 23 & \greenYes & \greenYes \\
-		\ac{SMT} job & \$ 65 & \greenYes & \greenYes \\ \hline
-		TACTM-35N-F & \$ 0.4 & \greenYes & \yellowCell{No} \\
-		ADP5062 & \$ 3.8 & \greenYes & \greenYes \\
-		SI7006 & \$ 2 & \redNo & \redNo \\
-		DWM1000 & \$ 22 & \greenYes & \yellowCell{No} \\
-		BMP280 & \$ 4 & \greenYes & \yellowCell{No} \\
-		FT232R & \$ 5 & \greenYes & \greenYes \\
-		MPU-9250 & \$ 10 & \greenYes & \yellowCell{No} \\
-		BMI160 & \$ 4.3 & \redNo & \redNo \\
-		BMF055 & \$ 11 & \greenYes & \greenYes \\
-		GY953 & \$ 11 & \redNo & \redNo \\
-		HM-TRP & \$ 13 & \greenYes & \yellowCell{No}\\
-		MOLEX-47219-2001 & \$ 1.2 & \greenYes & \greenYes \\
-		LTR-329ALS & \$ 0.7 & \redNo & \redNo \\
-		ESP-WROOM-32 & \$ 12 & \greenYes & \greenYes \\ \hline \hline
-		\greenCell{\textbf{Total used and necessary}} & \greenCell{\textbf{\$ 121}} & \greenYes & \greenYes \\
-		\yellowCell{\textbf{Total used and unnecessary}} & \yellowCell{\textbf{\$ 49.4}} & \yellowCell{Yes} & \yellowCell{No} \\
-		\redCell{\textbf{Total unused}} & \redCell{\textbf{\$ 18}} & \redNo & \redNo \\
-	\end{tcolorbox}
+    \centering
+    \caption{Additional cost calculation}
+    \label{tab:additionalCost}
+    \begin{tcolorbox}[tab2,tabularx={|X|l|c|c|},title=Additional cost calculation]
+        Part ID & Price & Used & Is necessary \\\hline\hline
+        \ac{PCB} & \$ 23 & \greenYes & \greenYes \\
+        \ac{SMT} job & \$ 65 & \greenYes & \greenYes \\ \hline
+        TACTM-35N-F & \$ 0.4 & \greenYes & \yellowCell{No} \\
+        ADP5062 & \$ 3.8 & \greenYes & \greenYes \\
+        SI7006 & \$ 2 & \redNo & \redNo \\
+        DWM1000 & \$ 22 & \greenYes & \yellowCell{No} \\
+        BMP280 & \$ 4 & \greenYes & \yellowCell{No} \\
+        FT232R & \$ 5 & \greenYes & \greenYes \\
+        MPU-9250 & \$ 10 & \greenYes & \yellowCell{No} \\
+        BMI160 & \$ 4.3 & \redNo & \redNo \\
+        BMF055 & \$ 11 & \greenYes & \greenYes \\
+        GY953 & \$ 11 & \redNo & \redNo \\
+        HM-TRP & \$ 13 & \greenYes & \yellowCell{No}\\
+        MOLEX-47219-2001 & \$ 1.2 & \greenYes & \greenYes \\
+        LTR-329ALS & \$ 0.7 & \redNo & \redNo \\
+        ESP-WROOM-32 & \$ 12 & \greenYes & \greenYes \\ \hline \hline
+        \greenCell{\textbf{Total used and necessary}} & \greenCell{\textbf{\$ 121}} & \greenYes & \greenYes \\
+        \yellowCell{\textbf{Total used and unnecessary}} & \yellowCell{\textbf{\$ 49.4}} & \yellowCell{Yes} & \yellowCell{No} \\
+        \redCell{\textbf{Total unused}} & \redCell{\textbf{\$ 18}} & \redNo & \redNo \\
+    \end{tcolorbox}
 \end{table}
 
 \subsection{Comparison of the used \ac{IMU}s}
-There are three different accelerometers, dynamic gyroscopes and two magnetometers on the prototype. So, it's time to select the most appropriate \ac{IMU}. Of course, we can use all the sensors and get the data with higher precision. The three different sensors on the prototype allow to test many more functions and experiments.
+There are three different accelerometers, dynamic gyroscopes and two magnetometers on the prototype. So, it's time to select the most appropriate \ac{IMU}. Of course, we can use all the sensors and get the data with higher precision. The three different sensors on the prototype allow testing many more functions and experiments.
 
 \begin{itemize}
-	\item[--] \textbf{BMI160:} (\$ 4.3) \cite{bosch:BMI160}
-	\begin{itemize}
-		\item[$+$] The most accurate gyroscope and accelerometer
-		\item[$-$] Without magnetometer
-	\end{itemize}
-	\item[--] \textbf{BMF055:} (\$ 11) \cite{bosch:BMF055}
-	\begin{itemize}
-		\item[$+$] Good accuracy
-		\item[$+$] Accelerometer, dynamic gyroscope, magnetometer and \ac{ARM} controller in one package
-		\item[$+$] Heated to constant temperature if the controller is in constant load
-		\item[$-$] Variable temperature of the chips when the controller is not under constant load
-	\end{itemize}
-	\item[--] \textbf{MPU9250:} (\$ 10) \cite{invensense:MPU9250}
-	\begin{itemize}
-		\item[$+$] Highest community support
-		\item[$-$] Maybe in the end of its lifecycle
-		\item[$-$] Less accuracy than the other presented sensors
-	\end{itemize}
+    \item[--] \textbf{BMI160:} (\$ 4.3) \cite{bosch:BMI160}
+    \begin{itemize}
+        \item[$+$] The most accurate gyroscope and accelerometer
+        \item[$-$] Without magnetometer
+    \end{itemize}
+    \item[--] \textbf{BMF055:} (\$ 11) \cite{bosch:BMF055}
+    \begin{itemize}
+        \item[$+$] Good accuracy
+        \item[$+$] Accelerometer, dynamic gyroscope, magnetometer and \ac{ARM} controller in one package
+        \item[$+$] Heated to constant temperature if the controller is in constant load
+        \item[$-$] Variable temperature of the chips when the controller is not under constant load
+    \end{itemize}
+    \item[--] \textbf{MPU9250:} (\$ 10) \cite{invensense:MPU9250}
+    \begin{itemize}
+        \item[$+$] Highest community support
+        \item[$-$] Maybe in the end of its lifecycle
+        \item[$-$] Less accuracy than the other presented sensors
+    \end{itemize}
 \end{itemize}
 
-I would like to recommend to use the BMF055 chip for the next versions of the SensorBoard, but it doesn't mean that I recommend this chip to any use case. It heavily depends on the selected task and on the requirements.
+I would like to recommend to use the BMF055 chip for the next versions of the SensorBoard, but it doesn't mean that I recommend this chip to any use case. It heavily depends on the selected task and requirements.
