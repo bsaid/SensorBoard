@@ -4,47 +4,49 @@
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=16cm]{img/HWassembled.jpg}
-	\label{HWassembled}
 	\caption{Assembled SensorBoard prototype}
+	\label{HWassembled}
 \end{figure}
 
 \section{Overview}
-SensorBoard is a prototype of autonomous hardware platform with microprocessor and various inertial, atmospheric and navigation sensors. The device can be used in many cases from logging data to movement control. The prototype works fully autonomously without connection to external power supply or other electronics, but allows wireless or wired connection to other electronic devices.
+\ind{SensorBoard} is a prototype of autonomous hardware platform with microprocessor and various inertial, atmospheric and navigation sensors. The device can be used in many cases from logging data to movement control. The prototype works fully autonomously without connection to external power supply or other electronics, but allows wireless or wired connection to other electronic devices.
 
 \subsection{Features}
 \begin{itemize}
 	\setlength\itemsep{0.2em}
-	\item[--] No external power supply needed
-	\item[--] Internal rechargeable battery
-	\item[--] Charging from \ac{USB} or any \SI{5}{V} source
-	\item[--] Allowed simultaneous connection to \ac{USB} and other power supply
-	\item[--] Three different triaxial acceleromemers, dynamic gyroscopes and two different triaxial magnetometers
-	\item[--] Barometer, light sensor, air humidity, temperature
-	\item[--] A/D converters for connecting external sensors
-	\item[--] TDOA location system with \SI{10}{cm} precission in \SI{300}{m} radius
-	\item[--] External UART connector for GPS or radio communication
-	\item[--] Hybrid WiFi and Bluetooth
-	\item[--] Servo outputs and connector with other peripheries
-	\item[--] User programmable dual core ESP32 processor
-	\item[--] Various sleep modes to save battery power
-	\item[--] More than 10 hours of operation from battery
-	\item[--] Buttons and LEDs for interaction with user
-	\item[--] Micro SD card up to \SI{32}{GB} for logging data (accessible from user program)
-	\item[--] ARM Cortex-M0 co-processor for computing (sensor fusion, data analysis)
+	\item No external power supply needed
+	\item Internal rechargeable battery
+	\item Charging from \ac{USB} or any \SI{5}{V} source
+	\item Allowed simultaneous connection to \ac{USB} and other power supply
+	\item Three different triaxial acceleromemers, dynamic gyroscopes and two different triaxial magnetometers
+	\item Barometer, light sensor, air humidity, temperature
+	\item A/D converters for connecting external sensors
+	\item TDOA location system with \SI{10}{cm} precission in \SI{300}{m} radius
+	\item External UART connector for GPS or radio communication
+	\item Hybrid WiFi and Bluetooth
+	\item Servo outputs and connector with other peripheries
+	\item User programmable dual core ESP32 processor
+	\item Various sleep modes to save battery power
+	\item More than 10 hours of operation from battery
+	\item Buttons and LEDs for interaction with user
+	\item Micro SD card up to \SI{32}{GB} for logging data (accessible from user program)
+	\item ARM Cortex-M0 co-processor for computing (sensor fusion, data analysis)
 \end{itemize}
 
 \subsection{Properties}
 
 \begin{table}[H]
 	\centering
-	\begin{tcolorbox}[tab2,tabularx={|X|c|c|},title=SensorBoard properties]
+	\begin{tcolorbox}[tab2,tabularx={X|c|c},title=SensorBoard properties]
 		Parameter & Value & Unit \\
 		\hline \hline
 		Dimensions & 60 $\cdot$ 31 $\cdot$ 13 & mm \\
-		Min Voltage & $-0.5$ & V \\
-		Max Voltage & $5.5$ & V \\
-		Max current & $2.1$ & A \\
-		Max battery life & $12$ & hours \\
+		Absolute minimum voltage & $-0.5$ & V \\
+		Minimum USB voltage & $4.35$ & V \\
+		Minimum working voltage & $3.2$ & V \\
+		Maximum voltage & $5.5$ & V \\
+		Maximum current & $2.1$ & A \\
+		Maximum battery life & $12$ & hours \\
 		WiFi antenna range & $10$ & m \\
 		Bluetooth antenna range & $10$ & m \\
 		TDOA location precission & $10$ & cm \\
@@ -58,38 +60,39 @@ SensorBoard is a prototype of autonomous hardware platform with microprocessor a
 \end{table}
 
 \subsection{Power Supply}
-The SensorBoard can be powered from up to three independent power sources. The combination of more simultaneously connected supplies is allowed.
+The \ind{SensorBoard} can be powered from up to three independent power sources. The combination of more simultaneously connected supplies is allowed.
 
 \begin{itemize}
-	\item[--] \textbf{Internal battery:} The internal battery is a \ac{Li-poly} \SI{3.7}{V} (1S) accumulator. When no other supply is applied, the accumulator is used. There is an undervoltage protection of the battery. The SensorBoard can be switched off by hardware switch. The switch disconnects the battery, external supply can be still applied.
-	\item[--] \textbf{\ac{USB} power supply:} When the \ac{USB} cable is connected, the \ac{Li-poly} accumulator is charging until the power consumption of the elctronics is lower than the maximal \ac{USB} supply. There is an overcharging protection of the battery.
-	\item[--] \textbf{External \SI{5}{V} power:} The SensorBoard can be powered from an external \SI{5}{V} supply, for example from the servo connector. The \SI{5}{V} output on the board can be used as \SI{5}{V} power input as well.
+	\item \textbf{Internal battery:} The internal battery is a \ac{Li-poly} \SI{3.7}{V} (1S) accumulator. When no other supply is applied, the accumulator is used. There is an undervoltage protection for the battery. The \ind{SensorBoard} can be switched off by hardware switch. The switch disconnects the battery, external supply can be still applied.
+	\item \textbf{\ac{USB} power supply:} When the \ac{USB} cable is connected, the \ac{Li-poly} accumulator is charging until the power consumption of the elctronics is lower than the maximal \ac{USB} supply. There is an overcharging protection of the battery.
+	\item \textbf{External \SI{5}{V} power:} The \ind{SensorBoard} can be powered from an external \SI{5}{V} supply, for example from the servo connector. The \SI{5}{V} output on the board can be used as \SI{5}{V} power input as well.
 \end{itemize}
 
 \section{Getting Started}
 
 \subsection{Assembling}
-The device is assembled from three parts, two sandwich boards and one connector board. Optional devices like BMF055 board, GY953, HM-TRP or GPS can be connected to prepared ports. The parts are shown in figure \ref{HWassembling}.
+The device is assembled from three parts, two sandwich boards and one connector board. Optional devices like BMF055 board, GY953, HM-TRP or GPS can be connected to prepared ports. The parts are shown in figure \ref{fig:HWassembling}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{img/assemblingHW.pdf}
-	\label{HWassembling}
 	\caption{Assembling the SensorBoard prototype}
+	\label{fig:HWassembling}
 \end{figure}
 
 \subsection{Components Description}
+The components are numbered in figure \ref{fig:HWcomponents} and described in table \ref{tab:componentsDescription}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{img/componentsDescription.pdf}
-	\label{HWcomponents}
 	\caption{Components of the SensorBoard}
+	\label{fig:HWcomponents}
 \end{figure}
 
 \begin{table}[H]
 	\centering
-	\begin{tcolorbox}[tab2,tabularx={|c|X|c|},title=Description of components of the SensorBoard]
+	\begin{tcolorbox}[tab2,tabularx={c|X|c},title=Description of components of the SensorBoard]
 		Number & Description & Datasheet\\
 		\hline \hline
 		1 & DWM1000 location sensor & \cite{decawave:DWM1000} \\
@@ -97,7 +100,7 @@ The device is assembled from three parts, two sandwich boards and one connector 
 		3 & HM-TRP 433/868 MHz radio connector & \cite{HM-TRP} \\
 		4 & Software buttons & \cite{TACTM} \\
 		5 & GY-953 connector & \cite{GY953} \\
-		6 & HM-TRP 433/868 MHz radio SMD pads & \cite{TACTM} \\
+		6 & HM-TRP 433/868 MHz radio SMD pads & \cite{HM-TRP} \\
 		7 & RPSMA antenna connector for HM-TRP radio & \cite{RPSMA} \\
 		8 & External pins & Section \ref{pinNumbering} \\
 		9 & Battery connector & Section \ref{pinNumbering} \\
@@ -106,7 +109,7 @@ The device is assembled from three parts, two sandwich boards and one connector 
 		12 & Micro SD card slot & \cite{MOLEX-SD1} \\
 	\end{tcolorbox}
 	\caption{Description of components of the SensorBoard}
-	\label{table:componentsDescription}
+	\label{tab:componentsDescription}
 \end{table}
 
 \section{Pin Connections}
@@ -123,7 +126,7 @@ The device is assembled from three parts, two sandwich boards and one connector 
 
 \begin{table}[H]
 	\centering
-	\begin{tcolorbox}[tab2,tabularx={|l||X|X|X|X|X|},title=External pins 01 -- 05]
+	\begin{tcolorbox}[tab2,tabularx={l||X|X|X|X|X},title=External pins 01 -- 05]
 		& 01 & 02 & 03 & 04 & 05 \\
 		\hline \hline
 		A & GND & +3V3 & SENSOR\_VP & SENSOR\_VN & IO33 \\ \hline
@@ -133,7 +136,7 @@ The device is assembled from three parts, two sandwich boards and one connector 
 
 	\vspace{0.5cm}
 	
-	\begin{tcolorbox}[tab2,tabularx={|l||X|X|X|X|X|X|X|X|X|X|X|X|},title=External pins 06 -- 17]
+	\begin{tcolorbox}[tab2,tabularx={l||X|X|X|X|X|X|X|X|X|X|X|X},title=External pins 06 -- 17]
 		& 06 & 07 & 08 & 09 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 \\
 		\hline \hline
 		A & IO25 & IO32 & IO26 & IO18 & IO19 & IO21 & IO16 & IO17 & IO23 & IO22 & IO27 & +5V \\ \hline
@@ -157,7 +160,7 @@ The device is assembled from three parts, two sandwich boards and one connector 
 
 	\vspace{0.5cm}
 	
-	\begin{tcolorbox}[tab2,tabularx={|l|X|X|X|X|X|},title=External pins properties]
+	\begin{tcolorbox}[tab2,tabularx={l|X|X|X|X|X},title=External pins properties]
 		Number & Name & Safety resistor & Pull-up & Part & Pin \\
 		\hline \hline
 		01 & GND & N/A & N/A & N/A & N/A \\
@@ -182,41 +185,43 @@ The device is assembled from three parts, two sandwich boards and one connector 
 	\label{tab:externalPinsProperties}
 \end{table}
 
-\paragraph{Note:} Some external pins are not connected only to processor, but they are connected to other chips in parallel. The other chips are connected only via input only pins or with safety resistor. So, the possibility of damage by incorrect connection or by wrong software is minimized.
+\begin{remark}
+	Some external pins are not connected only to processor, but they are connected to other chips in parallel. The other chips are connected only via input only pins or via safety resistor. So, the possibility of damage by incorrect connection or by wrong software is minimized.
+\end{remark}
 
 \subsection{Pin Description}
 \begin{itemize}
 	\setlength\itemsep{0.2em}
-	\item[--] 01 -- \textbf{GND}: Ground
-	\item[--] 02 -- \textbf{+3V3}: Power Supply \SI{+3.3}{V} from linear stabilizer
-	\item[--] 03 -- \textbf{RADIO\_RX}: UART receive pin for external devices like radio communication or GPS
-	\item[--] 04 -- \textbf{RADIO\_TX}: UART transmit pin for external devices like radio communication or GPS
-	\item[--] 05 -- \textbf{BTN1}: Usage defined by user software, internally connected to button 1
-	\item[--] 06 -- \textbf{BTN0}: Usage defined by user software, internally connected to button 0
-	\item[--] 07 -- \textbf{LED4}: Usage defined by user software, internally connected to LED4
-	\item[--] 08 -- \textbf{SCL0}: \itwoc clock pin for external devices, internally connected to sensors
-	\item[--] 09 -- \textbf{SCK0}: SPI clock pin for external devices, internally connected to sensors
-	\item[--] 10 -- \textbf{MISO0}: SPI data output pin for external devices, internally connected to sensors
-	\item[--] 11 -- \textbf{MOSI0}: SPI data input pin for external devices, internally connected to sensors
-	\item[--] 12 -- \textbf{MPU\_TX}: UART transmit pin for GY953 or external device
-	\item[--] 13 -- \textbf{MPU\_RX}: UART receive pin for GY953 or external device
-	\item[--] 14 -- \textbf{CS\_DECA}: Usage defined by user software, internally used as chip select pin for DWM1000 TDOA location sensor
-	\item[--] 15 -- \textbf{CS\_MPU2}: Usage defined by user software, internally connected to GY953 port
-	\item[--] 16 -- \textbf{SDA0}: \itwoc data pin for external devices, internally connected to sensors
-	\item[--] 17 -- \textbf{+5V}: \SI{+5}{V} power supply from battery or \ac{USB} or external source, the battery voltage is converted to \SI{5}{V}
+	\item 01 -- \textbf{GND}: Ground
+	\item 02 -- \textbf{+3V3}: Power Supply \SI{+3.3}{V} from linear stabilizer
+	\item 03 -- \textbf{RADIO\_RX}: UART receive pin for external devices like radio communication or GPS
+	\item 04 -- \textbf{RADIO\_TX}: UART transmit pin for external devices like radio communication or GPS
+	\item 05 -- \textbf{BTN1}: Usage defined by user software, internally connected to button 1
+	\item 06 -- \textbf{BTN0}: Usage defined by user software, internally connected to button 0
+	\item 07 -- \textbf{LED4}: Usage defined by user software, internally connected to LED4
+	\item 08 -- \textbf{SCL0}: \itwoc clock pin for external devices, internally connected to sensors
+	\item 09 -- \textbf{SCK0}: SPI clock pin for external devices, internally connected to sensors
+	\item 10 -- \textbf{MISO0}: SPI data output pin for external devices, internally connected to sensors
+	\item 11 -- \textbf{MOSI0}: SPI data input pin for external devices, internally connected to sensors
+	\item 12 -- \textbf{MPU\_TX}: UART transmit pin for GY953 or external device
+	\item 13 -- \textbf{MPU\_RX}: UART receive pin for GY953 or external device
+	\item 14 -- \textbf{CS\_DECA}: Usage defined by user software, internally used as chip select pin for DWM1000 TDOA location sensor
+	\item 15 -- \textbf{CS\_MPU2}: Usage defined by user software, internally connected to GY953 port
+	\item 16 -- \textbf{SDA0}: \itwoc data pin for external devices, internally connected to sensors
+	\item 17 -- \textbf{+5V}: \SI{+5}{V} power supply from battery or \ac{USB} or external source, the battery voltage is converted to \SI{5}{V}
 \end{itemize}
 
-\paragraph{Note:} All pins except power supply pins can be redefined by software. Their new definition shouldn't be in collision with other connected parts. For details see figures \ref{sch1} and \ref{sch2}.
+\paragraph{Note:} All pins except power supply pins can be redefined by software. Their new definition should not be in collision with other connected parts. For details see the section \ref{schematicsPCB}.
 
 \subsection{Power Supply}
 \label{jumpersExternalPins}
 The pins B01 -- B17 are defined by jumpers. We usually need these pins connected to power supply. We can define the voltage by connecting arbitrary B pin to target power supply. The pins B01 -- B17 are internally connected, but they are not connected to anything else. We can define pins B01 -- 17 as:
 \begin{itemize}
 	\setlength\itemsep{0.2em}
-	\item[--] \textbf{GND} by connecting A01 and B01 by jumper
-	\item[--] \textbf{+3V3} by connecting A02 and B02 by jumper
-	\item[--] \textbf{+5V} by connecting A17 and B17 by jumper
-	\item[--] \textbf{anything} by connecting any B pin to our target
+	\item \textbf{GND} by connecting A01 and B01 by jumper
+	\item \textbf{+3V3} by connecting A02 and B02 by jumper
+	\item \textbf{+5V} by connecting A17 and B17 by jumper
+	\item \textbf{anything} by connecting any B pin to our target
 \end{itemize}
 
 \begin{figure}[H]
@@ -254,7 +259,7 @@ The pins B01 -- B17 are defined by jumpers. We usually need these pins connected
 \end{enumerate}
 
 \section{Internal Connections}
-The prototype of the SensorBoard contains several internal ports a lot of \ac{SMD} pads. The pads are designed mainly for testing. The connection of each pad can be found in the schematics and in the \ac{PCB} layout. The internal ports are dedicated for connection of internal devices that are not mounted on the board. The internal devices are battery, BMF055 \cite{bosch:BMF055} extension board and HM-TRP \cite{HM-TRP} radio.
+The prototype of the \ind{SensorBoard} contains several internal ports a lot of \ac{SMD} pads. The pads are designed mainly for testing. The connection of each pad can be found in the schematics and in the \ac{PCB} layout. The internal ports are dedicated for connection of internal devices that are not mounted on the board. The internal devices are battery, BMF055 \cite{bosch:BMF055} extension board and HM-TRP \cite{HM-TRP} radio.
 
 The figure \ref{fig:internalConnection} and the table \ref{tab:internalConnection} describe all the internal ports. The yellow ports are designed for external connections and the grey ports are used for mechanical assembling. Only green ports are internal.
 
@@ -266,7 +271,7 @@ The figure \ref{fig:internalConnection} and the table \ref{tab:internalConnectio
 \end{figure}
 
 \begin{table}[H]
-	\begin{tcolorbox}[tab2,tabularx={|c|c|X|},title=Internal and external ports on the SensorBoard]
+	\begin{tcolorbox}[tab2,tabularx={c|c|X},title=Internal and external ports on the SensorBoard]
 		Number & Connection & Description \\ \hline
 		1 & Internal & BMF055 board connector (UART) \\
 		2 & Internal & HM-TRP 433/868 MHz radio connector \\
@@ -274,24 +279,24 @@ The figure \ref{fig:internalConnection} and the table \ref{tab:internalConnectio
 		4 & External & External pins \\
 		5 & Internal & Battery connector \\
 	\end{tcolorbox}
-	\label{tab:internalConnection}
 	\caption{Internal and external ports on the SensorBoard}
+	\label{tab:internalConnection}
 \end{table}
 
-\subsection{Connector for BMF055 board (\ac{UART})}
+\subsection{Connector for BMF055 board (UART)}
 The BMF055 connector is a \SI{3.3}{V} \ac{UART} connector. Its pinout is presented in figure \ref{fig:BMF055connectorBoard} and table \ref{tab:BMF055connectorBoard}.
 
 \begin{figure}[H]
 	\centering
-	\label{fig:BMF055connectorBoard}
 	\caption{Connector for BMF055 board (\ac{UART})}
+	\label{fig:BMF055connectorBoard}
 	\includegraphics[scale=1]{img/BMFconnector.pdf}
 \end{figure}
 
 \begin{table}[H]
-	\label{tab:BMF055connectorBoard}
 	\caption{Connector for BMF055 board (\ac{UART})}
-	\begin{tcolorbox}[tab2,tabularx={|c|c|X|},title=Connector for BMF055 board (\ac{UART})]
+	\label{tab:BMF055connectorBoard}
+	\begin{tcolorbox}[tab2,tabularx={c|c|X},title=Connector for BMF055 board (\ac{UART})]
 		Number & Name & Description \\ \hline
 		1 & GND & Ground \\
 		2 & +3V3 & \SI{3.3}{V} output \\
@@ -311,16 +316,16 @@ Pinout of the HM-TRP radio connector is presented in figure \ref{fig:HMTRPconnec
 \end{figure}
 
 \begin{table}[H]
-	\label{tab:HMTRPconnector}
 	\caption{HM-TRP radio connector}
-	\begin{tcolorbox}[tab2,tabularx={|c|c|X|},title=HM-TRP radio connector]
+	\label{tab:HMTRPconnector}
+	\begin{tcolorbox}[tab2,tabularx={c|c|X},title=HM-TRP radio connector]
 		Number & Name & Description \\ \hline
 		1 & GND & Ground \\
 		2 & CONFIG & Config pin, LOW for configuration mode, HIGH for communication \cite{HM-TRP} \\
 		3 & +5V & \SI{5}{V} output \\
 		4 & RX & Receive pin \\
 		5 & TX & Transmit pin \\
-		6 & ENABLE & Enable pin, LOW for normal mode, HIGH to sleep mode \\
+		6 & ENABLE & Enable pin, LOW for normal mode, HIGH for sleep mode \\
 		7 & SMD port & Port for \ac{SMD} version of the HM-TRP radio \cite{HM-TRP}, pinout in HM-TRP datasheet \\
 	\end{tcolorbox}
 \end{table}
@@ -336,9 +341,9 @@ Pinout of the GY-953 connector is presented in figure \ref{fig:GY953connector} a
 \end{figure}
 
 \begin{table}[H]
-	\label{tab:GY953connector}
 	\caption{GY-953 connector}
-	\begin{tcolorbox}[tab2,tabularx={|c|c|X|},title=GY-953 connector]
+	\label{tab:GY953connector}
+	\begin{tcolorbox}[tab2,tabularx={c|c|X},title=GY-953 connector]
 		Number & Name & Description \\ \hline
 		1 & SWC & Serial Wire Clock (\ac{SWD} interface), not connected \\
 		2 & SWD & Serial Wire Debug (\ac{SWD} interface), not connected \\
@@ -348,10 +353,10 @@ Pinout of the GY-953 connector is presented in figure \ref{fig:GY953connector} a
 		6 & +5V & \SI{5}{V} output \\
 		7 & B0 & Not connected \\
 		8 & INT & Interrupt \\
-		9 & MOSI & \ac{SPI} data out \\
-		A & MISO & \ac{SPI} data in \\
-		B & SCK & \ac{SPI} clock \\
-		C & CS & \ac{SPI} chip select \\
+		9 & MOSI & SPI data out \\
+		A & MISO & SPI data in \\
+		B & SCK & SPI clock \\
+		C & CS & SPI chip select \\
 	\end{tcolorbox}
 \end{table}
 
@@ -369,9 +374,9 @@ Pinout of the battery connector is presented in figure \ref{fig:BATTconnector} a
 \end{figure}
 
 \begin{table}[H]
-	\label{tab:BATTconnector}
 	\caption{Battery connector}
-	\begin{tcolorbox}[tab2,tabularx={|c|c|X|},title=Battery connector]
+	\label{tab:BATTconnector}
+	\begin{tcolorbox}[tab2,tabularx={c|c|X},title=Battery connector]
 		Number & Name & Description \\ \hline
 		1 & SWITCH\_A & ON/OFF switch (internally connected to BATT+) \\
 		2 & SWITCH\_B & ON/OFF switch \\
@@ -382,7 +387,7 @@ Pinout of the battery connector is presented in figure \ref{fig:BATTconnector} a
 
 \section{BMF055 Extension Board}
 \label{BMF055pinNumbering}
-The BMF055 extension board contains the BMF055 chip \cite{bosch:BMF055} with its mandatory mainly \ac{RLC} accessories. The BMF055 chip wasn't placed directly onto the SensorBoard because it was very new on the market. I decided to use this chip, but to place it outside the main board. When any problem with the BMF055 chip occurs, I can simply disconnect this extension board from the main electronics.
+The BMF055 extension board contains the BMF055 chip \cite{bosch:BMF055} with its mandatory mainly \ac{RLC} accessories. The BMF055 chip was not placed directly onto the \ind{SensorBoard} because it was very new on the market. I decided to use this chip, but to place it outside the main board. When any problem with the BMF055 chip occurs, I can simply disconnect this extension board from the main electronics.
 
 \subsection{Pin Connection}
 The pinout of the BMF055 extension board is shown in figure \ref{fig:BMF055pinout} and explained in table \ref{tab:BMF055pinout}.
@@ -395,9 +400,9 @@ The pinout of the BMF055 extension board is shown in figure \ref{fig:BMF055pinou
 \end{figure}
 
 \begin{table}[H]
-	\label{tab:BMF055pinout}
 	\caption{BMF055 extension board pinout}
-	\begin{tcolorbox}[tab2,tabularx={|c|c|X|},title=BMF055 extension board pinout]
+	\label{tab:BMF055pinout}
+	\begin{tcolorbox}[tab2,tabularx={c|c|X},title=BMF055 extension board pinout]
 		Number & Name & Description \\ \hline
 		1  & RX & \ac{UART} receive pin \\
 		2  & TX & \ac{UART} transmit pin \\
@@ -426,9 +431,9 @@ The pinout of the BMF055 extension board is shown in figure \ref{fig:BMF055pinou
 The BMF055 board has two \ac{LED}s, one power \ac{LED} and one software driven \ac{LED}. The positions of the \ac{LED}s are shown in figure \ref{fig:BMF055pinout} and marked as \texttt{L1} and \texttt{L2}. Their meaning is explained in table \ref{tab:BMF055leds}.
 
 \begin{table}[H]
-	\label{tab:BMF055leds}
 	\caption{BMF055 extension board LED meaning}
-	\begin{tcolorbox}[tab2,tabularx={|c|c|X|},title=BMF055 extension board LED meaning]
+	\label{tab:BMF055leds}
+	\begin{tcolorbox}[tab2,tabularx={c|c|X},title=BMF055 extension board LED meaning]
 		Number & Name & Description \\ \hline
 		L1 & Power LED & (red) The LED is ON if and only if the power is applied \\
 		L2 & Software LED & (red) The LED is fully driven by firmware inside the BMF055 \\
@@ -436,60 +441,91 @@ The BMF055 board has two \ac{LED}s, one power \ac{LED} and one software driven \
 \end{table}
 
 \chapter{Schematics and PCB layout od the SensorBoard}
-The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. The figures \ref{sch1} and \ref{sch2} shows the exported schematics split into two sheets. The exported \ac{PCB} layout drawing in scale 1:1 is in figure \ref{brd1} and in scale 2:1 with more details in figure \ref{brd2}.
+\label{schematicsPCB}
+
+\section{Schematics}
+The schematics and the board layout was created in CadSoft EAGLE \cite{EAGLE}. The figures \ref{sch1}, \ref{sch2}, \ref{sch3} and \ref{sch4} show the exported schematics split into four sheets.
 
 \begin{figure}
 	\centering
-	\includegraphics[angle=90, width=\linewidth]{img/sch1.pdf}
-	\label{sch1}
+	\includegraphics[width=\linewidth]{img/sch1.pdf}
 	\caption{Schematics of the SensorBoard sheet 1}
+	\label{sch1}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[angle=90, width=\linewidth]{img/sch2.pdf}
-	\label{sch2}
+	\includegraphics[width=\linewidth]{img/sch2.pdf}
 	\caption{Schematics of the SensorBoard sheet 2}
+	\label{sch2}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=1]{img/brd.pdf}
-	\vspace{-0.5cm}
-	\begin{center}
-		Top and Bottom layer
-	\end{center}
+	\includegraphics[width=\linewidth]{img/sch3.pdf}
+	\caption{Schematics of the SensorBoard sheet 3}
+	\label{sch3}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{img/sch4.pdf}
+	\caption{Schematics of the SensorBoard sheet 4}
+	\label{sch4}
+\end{figure}
+
+\section{Board layout}
+The exported \ac{PCB} layouts in scale 1:1 are in figure \ref{brdTop} for the top layer and in figure \ref{brdBottom} for bottom layer. The same layouts with printed parts in scale 2:1 are in figure \ref{brdTopC} for top layer and in figure \ref{brdBottomC} for bottom layer.
+
+\begin{figure}
+	\centering
 	\includegraphics[scale=1]{img/brdTop.pdf}
-	\vspace{-0.5cm}
-	\begin{center}
-		Only Top layer
-	\end{center}
-	\includegraphics[scale=1]{img/brdBottom.pdf}
-	\vspace{-0.5cm}
-	\begin{center}
-		Only Bottom layer
-	\end{center}
-	\label{brd1}
-	\caption{SensorBoard layout in scale 1:1}
+	\caption{SensorBoard layout in scale 1:1 (top layer)}
+	\label{brdTop}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[angle=90, scale=2]{img/brd.pdf}
-	\label{brd2}
-	\caption{SensorBoard layout in detail scale 2:1}
+	\includegraphics[scale=1]{img/brdBottom.pdf}
+	\caption{SensorBoard layout in scale 1:1 (bottom layer)}
+	\label{brdBottom}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[angle=90, scale=2]{img/brdCTop.pdf}
+	\caption{SensorBoard layout in detail scale 2:1 with parts (top layer)}
+	\label{brdTopC}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[angle=90, scale=2]{img/brdCBottom.pdf}
+	\caption{SensorBoard layout in detail scale 2:1 with parts (bottom layer)}
+	\label{brdBottomC}
+\end{figure}
+
+\section{Template for soldering paste}
+\label{app:smtPasteTemplate}
+The scaled template for \ind{soldering paste} is dosplayed in figure \ref{smtPasteTemplate}.
+
+\begin{figure}
+	\centering
+	\caption{Template for soldering paste (resized)}
+	\label{smtPasteTemplate}
+	\includegraphics[width=\linewidth]{img/smtPasteTemplate.pdf}
 \end{figure}
 
 \section{SensorBoard Drawings}
-The SensorBoard drawings shows the correspondence between the manufactured prototype and its schematic drawings. The comparison is shown in figure \ref{fig:SensorBoardDrawings}.
+The \ind{SensorBoard} drawings shows the correspondence between the manufactured prototype and its schematic drawings. The comparison is shown in figure \ref{fig:SensorBoardDrawings}.
 
 \begin{figure}
 	\centering
-	\label{fig:SensorBoardDrawings}
 	\caption{Drawings of the SensorBoard used in this paper}
+	\label{fig:SensorBoardDrawings}
 	\includegraphics[width=\linewidth]{img/PCBphoto.jpg}
 	\\Photo of the disassembled prototype\\
-	\vspace{0.4cm}
+	\vspace{0.3cm}
 	%\begin{minipage}[c]{.3\linewidth}
 	%	\includegraphics[height=5cm]{img/renderBottom.png}
 	%\end{minipage}
@@ -502,9 +538,9 @@ The SensorBoard drawings shows the correspondence between the manufactured proto
 	%	\includegraphics[height=2.5cm]{img/renderBMF.png}
 	%\end{minipage}
 	\includegraphics[width=\linewidth]{img/renders.png}
-	\vspace{0.4cm}
+	\vspace{0.3cm}
 	\\Renders of the \ac{PCB}\\
-	\vspace{0.4cm}
+	\vspace{0.3cm}
 	\includegraphics[scale=1]{img/SensorBoardDrawing.pdf}
 	\\Schematical drawing
 \end{figure}

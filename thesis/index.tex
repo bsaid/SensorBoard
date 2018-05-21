@@ -35,7 +35,7 @@
     university    = mu,
     faculty       = fi,
     type          = mgr,
-    author        = Bedřich Said,
+    author        = Bc. Bedřich Said,
     gender        = m,
     advisor       = {RNDr. Zdeněk Matěj, Ph.D.},
     title         = {Device for Movement Analysis Using Inertial Sensors},
@@ -46,17 +46,17 @@
 }
 
 \thesislong{thanks}{
-I wish to express my sincere thanks to \begin{otherlanguage}{czech}Zdeněk Matěj\end{otherlanguage}, my advisor, for his continuous support and answering my questions. I am also grateful to \begin{otherlanguage}{czech}Robotárna in Brno \end{otherlanguage} for providing me with some necessary facilities for the research. I would like to thank to \begin{otherlanguage}{czech}Monet+ \end{otherlanguage} company which was a commercial partner for this research.
+I wish to express my sincere thanks to \begin{otherlanguage}{czech}RNDr. Zdeněk Matěj, Ph.D.\end{otherlanguage}, my advisor, for his continuous support and answering my questions. I am also grateful to \begin{otherlanguage}{czech}Robotárna in Brno \end{otherlanguage} for providing me with some necessary facilities for the research. Special thanks go to \begin{otherlanguage}{czech}Bc. Alena Bečková \end{otherlanguage} and other horse riders with their horses for continuous support during measurements and analyses. I would like to thank to \begin{otherlanguage}{czech}Monet+ \end{otherlanguage} company, which was a~commercial partner for this research.
 }
 
 \thesislong{abstract}{
-Attitude sensors are more widely used, and their price is decreasing. The lower price allows creating new solutions with lower costs. Some examples can be found in wearable devices, mobile phones, navigation or control systems. There are several devices for various use cases on the market.
+Currently, the inertial sensors are more widely used, and their price is decreasing. The lower price allows creating new solutions with lower costs. Some examples can be found in wearable devices, mobile phones, navigation or control systems. There are several devices for various use cases on the market.
 
-These devices usually cover their use cases and don't have any additional features like power independence, enough logging memory or openness for user code. The remaining hardware that fulfills all the conditions above is usually expensive.
+These devices usually cover their use cases and do not have any additional features like power independence, enough logging memory or openness for user code. The remaining hardware that fulfills all the conditions above is usually expensive.
 
-I have developed a new wearable independent device for capturing and processing the measured data. The independence means no external wires and no external power supply here. The device is able to work outdoors, to log the measured data and to provide a direct output based on internal computations. The user can choose between completely wireless communication or wired connection to other electronics. The sensors measure inertial, attitude, position and atmospheric values.
+I have developed a~new wearable independent device for capturing and processing the measured data. The independence means no external wires and no external power supply here. The device is able to work outdoors, to log the measured data and to provide a~direct output based on internal computations. The user can choose between completely wireless communication or wired connection to other electronics. The sensors measure inertial, attitude, position and atmospheric values.
 
-For outdoor testing of the device, I have selected a task about movement analysis of a horse. I placed the devices on the horse's body as wearable devices, and I was developing algorithms for determination of the type of its movement -- stand, walk, trot or gallop.
+For outdoor testing of the device I have selected the task about movement analysis of a~horse. I placed the devices on the horse's body as wearable devices and I was developing algorithms for determination of the basic types of its movement -- stand, walk, trot, canter or gallop.
 
 In general, the developed device can be used for capturing data from sensors, onboard data processing, navigation or control of moving mechanics. The electronics work independently, so it is easy to install it on the measured or controlled objects.
 }
@@ -89,7 +89,8 @@ In general, the developed device can be used for capturing data from sensors, on
 \usepackage{longtable}
 \usepackage{gensymb}
 \usepackage{multicol}
-\usepackage[acronym,toc]{glossaries}  %% Acronyms
+\usepackage{caption}
+\usepackage[acronym,nomain]{glossaries}  %% Load the package with the acronym option
 \loadglsentries[\acronymtype]{Acronyms}
 
 \theoremstyle{definition}
@@ -128,6 +129,7 @@ In general, the developed device can be used for capturing data from sensors, on
 		showstringspaces=false,
 		tabsize=4,
 		numbers=left,
+		xleftmargin=2em,
 		backgroundcolor = \color{lightblue},
 		language=C++,
 		identifierstyle=\color{brown},
@@ -161,6 +163,7 @@ In general, the developed device can be used for capturing data from sensors, on
 
 \setlength{\arrayrulewidth}{1pt}
 
+% Definition used colors
 \newcommand\greenLow[0]{\cellcolor{green!25} Low}
 \newcommand\greenSpare[0]{\cellcolor{green!25} Spare}
 \newcommand\yellowMedium[0]{\cellcolor{yellow!25} Medium}
@@ -173,16 +176,17 @@ In general, the developed device can be used for capturing data from sensors, on
 \newcommand\yellowCell[1]{\cellcolor{yellow!25} #1}
 \newcommand\redCell[1]{\cellcolor{red!25} #1}
 
-\newcommand\ac[1]{\gls{#1}}
+\newcommand\ac[1]{\index{#1}\gls{#1}}
+\newcommand\ind[1]{#1\index{#1}}
 
+% Generate the glossary
 \makeglossaries
+\glstoctrue
 
 \begin{document}
 \newgeometry{twoside, top=2.5cm, left=3cm, textwidth=16cm, textheight=24cm}
 
 \tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily, colback=yellow!10!white, colframe=black, colbacktitle=white, coltitle=black, center title}}
-
-\printglossary[type=\acronymtype,style=long]
 
 \include{Introduction}
 
@@ -193,6 +197,11 @@ In general, the developed device can be used for capturing data from sensors, on
 \include{Analysis}
 
 \include{Conclusion}
+
+% Acronym definitions
+\include{Acronyms}
+%Print the glossary
+\printglossary[type=\acronymtype, title=Used Acronyms, toctitle=Used Acronyms]
 
 \printbibliography[heading=bibintoc] %% Print the bibliography.
 

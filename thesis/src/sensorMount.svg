@@ -98,16 +98,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="300.97663"
-     inkscape:cy="230.84523"
+     inkscape:zoom="1.4"
+     inkscape:cx="336.94043"
+     inkscape:cy="231.48337"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1178"
-     inkscape:window-x="1358"
-     inkscape:window-y="-8"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
+     inkscape:window-y="424"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -117,7 +117,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -193,6 +193,6 @@
          id="tspan5502-9"
          x="33.293457"
          y="256.72363"
-         style="font-size:4.23333311px;stroke-width:0.26458332">hoof (ankle)</tspan></text>
+         style="font-size:4.23333311px;stroke-width:0.26458332">hoof (cannon)</tspan></text>
   </g>
 </svg>
