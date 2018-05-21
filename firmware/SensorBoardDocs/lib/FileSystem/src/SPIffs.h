@@ -13,6 +13,7 @@ class SPIffs
 public:
 	FILE* getFile(std::string name, std::string attributes)
 	{
+		// not supported
 		return NULL;
 	}
 };

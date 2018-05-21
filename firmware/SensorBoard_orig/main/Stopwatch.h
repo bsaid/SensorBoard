@@ -23,6 +23,9 @@ class Stopwatch
 	timer_idx_t timer_idx = TIMER_0;
 	timer_config_t config;
 
+	/**
+	 * Initialize stopwatch.
+	 */
 	void init()
 	{
 		config.alarm_en = 0;
@@ -31,12 +34,16 @@ class Stopwatch
 		config.divider = 16;
 		config.intr_type = TIMER_INTR_LEVEL;
 		config.counter_en = TIMER_PAUSE;
-		/*Configure timer*/
+		// Configure timer
 		timer_init(timer_group, timer_idx, &config);
 		reset();
 	}
 
 public:
+	/**
+	 * Constructor.
+	 * @param ms Set one lap time
+	 */
 	Stopwatch(uint32_t ms)
 	{
 		init();
@@ -48,18 +55,25 @@ public:
 		init();
 	}
 
+	/**
+	 * Reset the stopwatch.
+	 */
 	void reset()
 	{
-		/*Stop timer counter*/
+		// Stop timer counter
 		timer_pause(timer_group, timer_idx);
-		/*Load counter value */
+		// Load counter value
 		timer_set_counter_value(timer_group, timer_idx, 0x00000000ULL);
-		/*Start timer counter*/
+		// Start timer counter
 		timer_start(timer_group, timer_idx);
 
 		cycles = 0;
 	}
 
+	/**
+	 * Get time in milliseconds.
+	 * @return milliseconds
+	 */
 	uint32_t get_ms()
 	{
 		double sec = 0;
@@ -67,20 +81,38 @@ public:
 		return 1000*sec;
 	}
 
+	/**
+	 * Set one lap watch dog interval
+	 * @param ms [description]
+	 */
 	void setInterval(uint32_t ms)
 	{
 		interval = ms;
 	}
 
-	bool waitForNext()
+	/**
+	 * Wait for the next lap.
+	 * @return number of milliseconds of waiting
+	 */
+	int waitForNext()
 	{
 		cycles++;
-		if(interval == 0 || get_ms() > interval*cycles)
-			return false;
-		while(get_ms() < interval*cycles);
-		return true;
+		if(get_ms() > interval*cycles+4)
+			return (get_ms() - interval*cycles);
+		while(get_ms()+4 < interval*cycles)
+		{
+			int diff = interval*cycles - get_ms();
+			if(diff<5)
+				diff = 0;
+			vTaskDelay( diff / portTICK_RATE_MS );
+		}
+		return 0;
 	}
 
+	/**
+	 * Get number of past laps.
+	 * @return number of past laps
+	 */
 	uint32_t getCycles()
 	{
 		return cycles;

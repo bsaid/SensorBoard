@@ -1,112 +1,144 @@
-//#include "tests.h"
+#include <FileSystem.h>
+#include <GlobalSettings.h>
 
-#include "SPIsensors.h"
-#include "I2Csensors.h"
 #include "WiFi.h"
-#include "GlobalSettings.h"
-#include "FileSystem.h"
-#include "Stopwatch.h"
+#include "RuntimeSettings.h"
+#include "ComputingTask.h"
 
-// component test
-#include <BMP280.h>
+// Filesystem initialization
+extern FileSystem fs;
+extern GlobalSettings settings;
+extern RuntimeSettings machineState;
+extern QueueHandle_t queue;
 
+/**
+ * Manages incomming connection to TCP server.
+ * The function is called as FreeRTOS thread.
+ * @param param client socket
+ */
+void manage_connection(void *param)
+{
+	int cs = *((int*)param);
+	char recv_buf[8];
+	while(true)
+	{
+		int r = recv(cs, recv_buf, sizeof(recv_buf)-1,0);
+		// Any command received ftom TCP client
+		if(r>0)
+		{
+			char ch = recv_buf[0];
+			if(ch == 'r')
+				esp_restart();
+			if(ch == 'p')
+				write(cs , "Ping received.\n" , strlen("Ping received.\n"));
+			if(ch == 'h')
+			{
+				machineState.isHorseAnalysis = !machineState.isHorseAnalysis;
+				const char msgT[] = "Horse analysis started.\n";
+				const char msgF[] = "Horse analysis stopped.\n";
+				if(machineState.isHorseAnalysis)
+					write(cs , msgT , strlen(msgT));
+				else
+					write(cs , msgF , strlen(msgF));
+			}
+			if(ch == 's')
+			{
+				machineState.isStreaming = !machineState.isStreaming;
+				const char msgT[] = "Streaming started.\n";
+				const char msgF[] = "Streaming stopped.\n";
+				if(machineState.isStreaming)
+					write(cs , msgT , strlen(msgT));
+				else
+					write(cs , msgF , strlen(msgF));
+			}
+			if(ch == 'l')
+			{
+				fs.increaseLogCounter();
+				machineState.isLogging = !machineState.isLogging;
+				char msgT[] = "Logging started.\n";
+				char msgF[] = "Logging stopped.\n";
+				if(machineState.isLogging)
+					write(cs , msgT , strlen(msgT));
+				else
+					write(cs , msgF , strlen(msgF));
+			}
+		}
+		// Process queue of data awaiting to send to client
+		else if(uxQueueMessagesWaiting(queue) > 0)
+		{
+			char element;
+			xQueueReceive(queue, &element, portMAX_DELAY);
+			write(cs , &element , sizeof(char));
+		}
+		else
+			vTaskDelay(10);
+	}
+	close(cs);
+}
+
+/**
+ * app_main() is like main function here. The main function calles so many
+ * initialization procedures.
+ */
 extern "C" {
 	void app_main(void);
 }
 
 void app_main()
 {
-	// Self-test
-	//int result = Catch::Session().run();
-	//TODO: handle test results
+	printf("Started...\n");
+	queue = xQueueCreate( 1024, sizeof(char) );
 
 	// Filesystem initialization
-	FileSystem fs;
-	GlobalSettings settings(fs.getConfigFile());
+	fs.init();
+	settings.loadFile(fs.getConfigFile());
 
-	// Connection initialization
-	/*WiFi wifi;
-	bool isConnected = false;
-	if(settings.isWiFiClient)
+	// Runtime configuration
+	machineState.isLogging = settings.startLoggingImmediately;
+	machineState.isStreaming = settings.isStreaming;
+
+	// Create only one periodic task for reading the sensors and computing data from them
+	xTaskCreatePinnedToCore(
+	    dataLoopTask,   // Function to implement the task
+	    "dataLoopTask", // Name of the task
+	    10000,          // Stack size in words
+	    NULL,           // Task input parameter
+	    1,              // Priority of the task
+	    NULL,           // Task handle.
+	    0               // Core where the task should run, other than main loop
+	);
+
+ 	printf("Computing task created...\n");
+
+	// WiFi connection initialization and TCP server FreeRTOS (sporadic) task creation
+	WiFi wifi(settings.isWiFiClient, settings.isWiFiAP, settings.WiFiSSID, settings.WiFiPassword);
+
+    // Enter main loop, listens to USB connection
+	for(;;)
 	{
-		isConnected = wifi.connectTo(settings.WiFiSSID, settings.WiFiPassword);
+		// Read and process commands
+		if(!feof(stdin))
+		{
+			char ch = getchar();
+			if(ch == 'r')
+				break;
+			if(ch == 'p')
+				printf("Ping received.\n");
+			if(ch == 'h')
+				machineState.isHorseAnalysis = !machineState.isHorseAnalysis;
+			if(ch == 's')
+				machineState.isStreaming = !machineState.isStreaming;
+			if(ch == 'l')
+			{
+				fs.increaseLogCounter();
+				machineState.isLogging = !machineState.isLogging;
+			}
+		}
+		else
+			vTaskDelay(10);
 	}
-	if(!isConnected && settings.isWiFiAP)
-	{
-		isConnected = wifi.createAP(settings.WiFiSSID, settings.WiFiPassword);
-		assert(isConnected);
-	}*/
 
-	// Sensors initialization
-	SPIsensors spiSensors;
-	I2Csensors i2cSensors;
-
-	// Start logging
-	bool isLoggingData = settings.startLoggingImmediately;
-	bool isSendingData = true;
-
-	FILE* sdCSV = fs.getLogFile();
-	Stopwatch loopWatch(10);
-
-    // Enter main loop
-    for(;;)
-    {
-    	if(isLoggingData || isSendingData)
-    	{
-    		spiSensors.readMPU9250();
-			i2cSensors.readBMP280();
-    	}
-    	if(isLoggingData)
-    	{
-			if(!sdCSV)
-			{
-				printf("Log file cannot be opened.\n");
-				sdCSV = fs.getLogFile();
-			}
-			else
-			{
-				Vector3i a = spiSensors.getAcc();
-				Vector3i g = spiSensors.getGyr();
-				Vector3i m = spiSensors.getMag();
-				int16_t  t = spiSensors.getTemp();
-				fprintf(
-					sdCSV,
-					"MPU;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;\n",
-					loopWatch.getCycles(),
-					a.x, a.y, a.z,
-					g.x, g.y, g.z,
-					m.x, m.y, m.z,
-					t
-				);
-				if(loopWatch.getCycles() % 100 == 0)
-				{
-					fclose(sdCSV);
-					sdCSV = fs.getLogFile();
-				}
-			}
-    	}
-    	if(isSendingData)
-    	{
-    		Vector3i a = spiSensors.getAcc();
-			Vector3i g = spiSensors.getGyr();
-			Vector3i m = spiSensors.getMag();
-			int16_t  t = spiSensors.getTemp();
-    		printf(
-				"MPU;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;\n",
-				loopWatch.getCycles(),
-				a.x, a.y, a.z,
-				g.x, g.y, g.z,
-				m.x, m.y, m.z,
-				t
-			);
-    	}
-    	//TODO: read console char breaks the loop
-    	//TODO: main loop> receives commands from USB or WiFi
-    	//TODO: working as WiFi AP or device
-
-    	if(!loopWatch.waitForNext())
-    		printf("Loop overflow. The loop takes more than 100 ms.\n");
-    }
-
-    //TODO: program ended -> restart esp
+	printf("Restarting now.\n");
+    fflush(stdout);
+    esp_restart();
 }
