@@ -1,0 +1,9 @@
+V současné době jsou inerciální senzory stále více využívány a jejich cena stále klesá. Nižší pořizovací cena otevírá nové způsoby využití těchto senzorů. Příklady můžeme najít v nositelné elektronice, mobilních telefonech, navigačních nebo řídicích systémech. Na trhu je k dispozici celé spektrum těchto zařízení pro různé účely využití.
+
+Tato zařízení jsou obvykle navržena pro konkrétní způsob používání a nedisponují dalšími vlastnostmi jako je dlouhá výdrž baterie, dostatek paměti pro ukládání naměřených údajů nebo otevřenost pro naprogramování uživatelem. Elektronika, která splňuje všechna uvedená kritéria, je obvykle výrazně dražší.
+
+Vytvořil jsem nové přenosné zařízení určené pro měření, ukládání a zpracování dat ze senzorů. Je vyrobeno tak, aby v průběhu sběru dat nevyžadovalo žádné kabelové připojení, ani k externímu napájení. Zařízení je schopné pracovat ve venkovních podmínkách, ukládat naměřené hodnoty a bezdrátově poskytovat výstupní data na základě interních výpočtů. Uživatel si může zvolit mezi plně bezdrátovou komunikací a kabelovým připojením k další elektronice. Přítomné senzory měří inerciální data, orientaci v prostoru, pozici vůči okolním zařízením and atmosferické hodnoty.
+
+Pro důkladné otestování zmíněného zařízení jsem si vybral úlohu zabývající se anlýzou pohybu koně. Umístil jsem jednotlivé prototypy na tělo koně jako nositelná zařízení a vyvinul jsem algoritmus pro rozpoznání základních typů pohybu - stání, krok, klus, cval a trysk.
+
+Obecně je možné nově vyvinutou elektroniku využít k měření a ukládání získaných hodnot, ke zpracovávání naměřených údajů v reálném čase a k navigaci nebo řízení pohybující se mechaniky. Zařízení funguje nezávisle, takže je snadné jej nainstalovat na měřený nebo řízený objekt.
