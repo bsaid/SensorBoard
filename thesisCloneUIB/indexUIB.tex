@@ -10,7 +10,6 @@
 \usepackage{amsfonts}
 \usepackage{url}      %% Hyperlinks
 \usepackage{listings} %% Source code highlighting
-\usepackage{paralist}
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -18,7 +17,6 @@
 \usepackage{siunitx}
 \usepackage[most]{tcolorbox}
 \usepackage{geometry}
-\usepackage{framed}
 \usepackage{adjustbox}
 \usepackage{tcolorbox}
 \usepackage{multirow, tabularx}
@@ -34,9 +32,17 @@
 % Thesis info
 \title{Device for Movement Analysis Using Inertial Sensors}
 \author{\MakeUppercase{Bedřich Said}}
-\tutor{RNDr. Zdeněk Matěj, Ph.D.}
-\supervisor{Dr. Antoni Jaume i Capó}
-\date{May 01, 2018}
+\tutor{Dr. Antoni Jaume i Capó}
+\supervisor{RNDr. Zdeněk Matěj, Ph.D.}
+\date{May 22, 2018}
+
+\bibliographystyle{url}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
 
 %% Special colors definitions
 \definecolor{background}{HTML}{F5DD9D}
@@ -49,6 +55,33 @@
 \definecolor{darkgreen}{rgb}{0.0,0.6,0.0}
 \definecolor{brown}{HTML}{A52A2A}
 \definecolor{darkmagenta}{HTML}{8B008B}
+
+\lstset{
+	basicstyle      = \ttfamily,%
+	identifierstyle = \color{black},%
+	keywordstyle    = \color{blue},%
+	keywordstyle    = {[2]\color{cyan}},%
+	keywordstyle    = {[3]\color{olive}},%
+	stringstyle     = \color{teal},%
+	commentstyle    = \itshape\color{magenta}}
+
+\newcommand\Cpp{
+	\lstset{
+		basicstyle=\ttfamily,
+		columns=fullflexible,
+		showstringspaces=false,
+		tabsize=4,
+		numbers=left,
+		xleftmargin=2em,
+		backgroundcolor = \color{lightblue},
+		language=C++,
+		identifierstyle=\color{brown},
+		keywordstyle=\color{blue},
+		stringstyle=\color{red},
+		commentstyle=\color{darkgreen},
+		morecomment=[l][\color{darkmagenta}]{\#}
+	}
+}
 
 %% Table colors
 \newcommand\greenLow[0]{\cellcolor{green!25} Low}
@@ -84,10 +117,12 @@
 	I$^{2}$C
 }
 
+\newcommand\ind[1]{#1\index{#1}}
+
 \begin{document}
 \tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily, colback=yellow!10!white, colframe=black, colbacktitle=white, coltitle=black, center title}}
 
-\portada
+%\portada
 \frontmatter
 
 \cleartorecto \tableofcontents
@@ -95,11 +130,13 @@
 \include{Acronyms}
 \include{Abstract}
 
+\newgeometry{twoside, top=2.5cm, left=3cm, textwidth=15cm, textheight=24cm}
 \mainmatter\pagestyle{ruled}
 
 \include{Introduction}
 \include{Hardware}
 \include{Software}
+\include{Analysis}
 \include{Conclusion}
 
 \backmatter
@@ -107,6 +144,9 @@
 \bibliographystyle{IEEEtran}
 
 % Using file Bibliography.bib
-\bibliography{Bibliografia}
+\bibliography{bibliografia}
+
+\appendix
+\include{Appendix}
 
 \end{document}

@@ -175,7 +175,7 @@
 \newcommand\feline@chm[1][4cm]{%
 	\sbox\feline@chapter{\feline@chapter@marker[#1]}%
 	\makebox[0pt][l]{% aka \rlap
-		\makebox[1cm][r]{\usebox\feline@chapter}%
+		\makebox[0cm][r]{\usebox\feline@chapter}%
 	}} 
 \makechapterstyle{daleif1}{
 	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so}
