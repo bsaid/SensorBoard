@@ -1,5 +1,6 @@
 ## Custom ignore list
 fithesis/
+doxygen/
 index.pdf
 docSensorBoard.pdf
 
