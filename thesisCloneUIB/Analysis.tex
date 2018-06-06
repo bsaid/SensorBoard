@@ -549,4 +549,14 @@ The \ac{CSV} output can be visualized into a graph for easier orientation in the
 	\caption{An example of the graph generated from the CSV file given as output of the analysis.}
 	\label{fig:graphSelectedAnalysis}
 	\includegraphics[width=\linewidth]{img/outputHorseAnalysisZoom.pdf}
+	\vspace{1cm}
+	\begin{tabularx}{\linewidth}{lX}
+		\textbf{Data line} & \textbf{Explanation}\\
+		using 0:1 & Measured data projected into the vertical plane.\\
+		using 0:2 & Size of the measured acceleration vector.\\
+		using 0:3 & Horse is moving (value 1) or horse is standing (value 0).\\
+		using 0:6 & Amplitude of the last finished step (not the actual unfinished one).\\
+		using 0:7 & The detected type of movement (value 2 is trot).\\
+		using 0:8 & When the value is 0, the step is in progress, when the value is descending, the new step is awaiting. When the new step is comming very soon (the blue line is not under the treshold), the new step is false positive and ignored.
+	\end{tabularx}
 \end{figure}
